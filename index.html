@@ -99,6 +99,87 @@ const LOTTERY_ODDS={
   13:{t1:1.0,t4:3.7},14:{t1:0.5,t4:1.8},
 };
 
+// ── RICH PICK DATA (HOU & OKC) — for detail text, explicit linked IDs ─────────
+const ALL_PICKS=[
+  {id:"P001",year:2026,round:"1st",origAbbr:"HOU",tag:"HOU",linked:["P018","P019"],condition:"pool3",
+   detail:"Top-4 protected for HOU. If HOU finishes #5–30 → enters OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (via McCain trade 02/05/2026), WAS gets least favorable."},
+  {id:"P002",year:2026,round:"2nd",origAbbr:"HOU",tag:"HOU",linked:[],condition:null,
+   detail:"Houston's own 2026 2nd round pick. Unprotected."},
+  {id:"P003",year:2026,round:"1st",origAbbr:"MIL",tag:"HOU",linked:["P004"],condition:"milnop",
+   detail:"ATL receives the MORE favorable of MIL 2026 1st and NOP 2026 1st. DEN–MIL–NOP–OKC trade 11/23/2020; ATL–NOP trade 6/25/2025."},
+  {id:"P004",year:2026,round:"1st",origAbbr:"NOP",tag:"HOU",linked:["P003"],condition:"milnop",
+   detail:"MIL receives the LESS favorable of the two. NOP holds swap right for MIL pick. DEN–MIL–NOP–OKC trade 11/23/2020; ATL–NOP trade 6/25/2025."},
+  {id:"P005",year:2026,round:"2nd",origAbbr:"CHI",tag:"HOU",linked:[],condition:null,
+   detail:"CHI 2026 2nd round pick via Washington (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025)."},
+  {id:"P006",year:2026,round:"2nd",origAbbr:"WAS",tag:"HOU",linked:[],condition:null,
+   detail:"WAS 2026 2nd round pick (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025). Unprotected."},
+  {id:"P007",year:2027,round:"1st",origAbbr:"HOU",tag:"HOU",linked:["P009"],condition:null,
+   detail:"Houston's own 2027 1st round pick. HOU also holds swap right with BKN (P009)."},
+  {id:"P008",year:2027,round:"1st",origAbbr:"PHX",tag:"HOU",linked:[],condition:null,
+   detail:"PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain). HOU–BKN trade 6/26/2024."},
+  {id:"P009",year:2027,round:"1st",origAbbr:"BKN",tag:"HOU",linked:["P007"],condition:"swap",
+   detail:"HOU can swap their own 2027 1st for BKN's 2027 1st if BKN pick is more favorable. HOU–BKN trade 6/26/2024."},
+  {id:"P010",year:2028,round:"1st",origAbbr:"HOU",tag:"HOU",linked:[],condition:null,
+   detail:"Houston's own 2028 1st round pick. Unprotected."},
+  {id:"P011",year:2029,round:"1st",origAbbr:"HOU",tag:"HOU",linked:["P012","P013"],condition:"houdalpHX",
+   detail:"HOU receives 2 MOST favorable of HOU/DAL/PHX 2029 1sts. BKN receives least. BKN–HOU trade 6/26/2024."},
+  {id:"P012",year:2029,round:"1st",origAbbr:"DAL",tag:"HOU",linked:["P011","P013"],condition:"houdalpHX",
+   detail:"DAL 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024."},
+  {id:"P013",year:2029,round:"1st",origAbbr:"PHX",tag:"HOU",linked:["P011","P012"],condition:"houdalpHX",
+   detail:"PHX 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024."},
+  {id:"P014",year:2029,round:"2nd",origAbbr:"SAC",tag:"HOU",linked:[],condition:null,
+   detail:"SAC 2029 2nd (via Cam Whitmore trade). Conditional — verify specifics on RealGM."},
+  {id:"P015",year:2029,round:"2nd",origAbbr:"WAS",tag:"HOU",linked:[],condition:null,
+   detail:"WAS 2029 2nd (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025). Unprotected."},
+  {id:"P016",year:2030,round:"1st",origAbbr:"HOU",tag:"HOU",linked:[],condition:null,
+   detail:"Houston's own 2030 1st round pick. Unprotected."},
+  {id:"P017",year:2031,round:"1st",origAbbr:"HOU",tag:"HOU",linked:[],condition:null,
+   detail:"Houston's own 2031 1st round pick. Unprotected."},
+  // OKC picks
+  {id:"P018",year:2026,round:"1st",origAbbr:"OKC",tag:"OKC",linked:["P001","P019"],condition:"pool3",
+   detail:"OKC own 2026 1st enters the 3-pick pool (OKC/LAC/HOU). Least favorable of the three goes to WAS. McCain trade 02/05/2026."},
+  {id:"P019",year:2026,round:"1st",origAbbr:"LAC",tag:"OKC",linked:["P001","P018"],condition:"pool3",
+   detail:"LAC 2026 1st (Paul George trade) enters pool. OKC gets most favorable of OKC/LAC/HOU pool. PHI gets 2nd-most (McCain trade 02/05/2026). WAS gets least. OKC–LAC trade 2/5/2026."},
+  {id:"P020",year:2026,round:"1st",origAbbr:"PHI",tag:"OKC",linked:[],condition:null,
+   detail:"PHI 2026 1st (top-4 protected 2026 and 2027). If not conveyed by 2027, becomes PHI 2027 2nd round pick. OKC–PHI trade 9/2/2022."},
+  {id:"P021",year:2026,round:"1st",origAbbr:"UTA",tag:"OKC",linked:[],condition:null,
+   detail:"UTA 2026 1st (top-8 protected). Obligation extinguishes entirely if not conveyed. OKC–UTA trade 7/7/2021."},
+  {id:"P022",year:2026,round:"2nd",origAbbr:"OKC",tag:"OKC",linked:[],condition:null,
+   detail:"OKC gets most favorable of OKC/DAL/PHI 2nd round picks. HOU gets 2nd-most; SAS gets least."},
+  {id:"P023",year:2027,round:"1st",origAbbr:"OKC",tag:"OKC",linked:["P026"],condition:null,
+   detail:"OKC own 2027 1st. OKC also has swap right with LAC (P026) using more favorable of OKC/DEN (slots 6–30)."},
+  {id:"P024",year:2027,round:"1st",origAbbr:"DEN",tag:"OKC",linked:[],condition:null,
+   detail:"DEN 2027 1st (top-5 protected). Conveys only 2+ years after DEN conveys a 1st to ORL. If never conveyed, becomes DEN 2029 2nd. OKC–DEN trade 9/9/2023."},
+  {id:"P025",year:2027,round:"1st",origAbbr:"SAS",tag:"OKC",linked:[],condition:null,
+   detail:"SAS 2027 1st (top-16 protected, via SAC). Acquired at 2025 draft. Rolls forward if not conveyed. OKC–SAC–SAS trade 6/25/2025."},
+  {id:"P026",year:2027,round:"1st",origAbbr:"LAC",tag:"OKC",linked:["P023"],condition:"swap",
+   detail:"OKC can swap more favorable of OKC own / DEN (slots 6–30) for LAC 2027 1st. OKC–LAC trade 2/5/2026."},
+  {id:"P027",year:2028,round:"1st",origAbbr:"OKC",tag:"OKC",linked:["P028"],condition:null,
+   detail:"OKC own 2028 1st. OKC also holds DAL 2028 swap right (P028). Unprotected."},
+  {id:"P028",year:2028,round:"1st",origAbbr:"DAL",tag:"OKC",linked:["P027"],condition:"swap",
+   detail:"OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024."},
+  {id:"P029",year:2029,round:"1st",origAbbr:"OKC",tag:"OKC",linked:[],condition:null,
+   detail:"OKC own 2029 1st. Unprotected."},
+  {id:"P030",year:2029,round:"1st",origAbbr:"DEN",tag:"OKC",linked:[],condition:null,
+   detail:"DEN 2029 1st (top-5 protected). Conveys only if and 2+ years after DEN conveys a 1st to OKC. OKC–DEN trade 9/9/2023."},
+  {id:"P031",year:2030,round:"1st",origAbbr:"OKC",tag:"OKC",linked:[],condition:null,
+   detail:"OKC own 2030 1st. Unprotected."},
+  {id:"P032",year:2031,round:"1st",origAbbr:"OKC",tag:"OKC",linked:[],condition:null,
+   detail:"OKC own 2031 1st. Unprotected."},
+  {id:"P033",year:2032,round:"1st",origAbbr:"OKC",tag:"OKC",linked:[],condition:null,
+   detail:"OKC own 2032 1st. Unprotected."},
+];
+
+// Build lookup: "year-round-origAbbr" → pick entry (for enriching JSON picks)
+const PICKS_LOOKUP={};
+ALL_PICKS.forEach(p=>{ PICKS_LOOKUP[`${p.year}-${p.round}-${p.origAbbr}`]=p; });
+function enrichPick(jsonPick){
+  const key=`${jsonPick.year}-${jsonPick.round}-${jsonPick.originalTeam}`;
+  const orig=PICKS_LOOKUP[key];
+  if(orig) return {...jsonPick,_id:orig.id,_detail:orig.detail,_linked:orig.linked};
+  return jsonPick;
+}
+
 // ── BASKETBALL SVG ────────────────────────────────────────────────────────────
 function Ball({size=28}){
   return <svg width={size} height={size} viewBox="0 0 100 100">
@@ -178,7 +259,7 @@ function Arrow({label,color='#555'}){
   </div>;
 }
 
-function FlowDiagram({pick,teamAbbr}){
+function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
   if(!pick.condition&&!pick.swapCondition) return null;
   const tc=TEAM_CFG[teamAbbr]||{primary:'#888'};
   const oc=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
@@ -197,9 +278,16 @@ function FlowDiagram({pick,teamAbbr}){
     </div>;
   }
 
-  if(pick.condition==='pool_okc_lac_hou_2026'){
+  if(pick.condition==='pool_okc_lac_hou_2026'||pick.condition==='pool3'){
+    const conveys=houFinish?houFinish>4:true;
     return <div style={{marginTop:12}}>
-      <div style={{fontSize:9,color:'#666',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>OKC / LAC / HOU 2026 POOL</div>
+      <div style={{fontSize:9,color:'#666',marginBottom:6,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>
+        OKC / LAC / HOU 2026 POOL
+      </div>
+      {houFinish&&<div style={{fontSize:10,fontWeight:700,marginBottom:8,
+        color:conveys?'#f0a500':'#2ecc71'}}>
+        {conveys?`HOU finishes #${houFinish} → pick CONVEYS into pool`:`HOU finishes #${houFinish} (top-4) → HOU keeps pick, pool inactive`}
+      </div>}
       <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
         <div style={{display:'flex',flexDirection:'column',gap:5}}>
           <FBox label="OKC own 2026 1st" color="#007AC1"/>
@@ -261,14 +349,23 @@ function FlowDiagram({pick,teamAbbr}){
 }
 
 // ── DETAIL PANEL ─────────────────────────────────────────────────────────────
-function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose}){
+function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,houFinish,okcFinish}){
   const type=getPickType(pick,teamAbbr);
   const cfg=TYPE_CFG[type]||TYPE_CFG.own;
   const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888',name:pick.originalTeam};
   const holderCfg=TEAM_CFG[pick.currentHolder]||{primary:'#888',name:pick.currentHolder};
-  const linked=pick.condition
-    ?allTeamPicks.filter(p=>p!==pick&&p.condition===pick.condition)
-    :[];
+  const displayId=pick._id||pickId;
+  const detail=pick._detail||pick.notes;
+
+  // Linked picks: prefer explicit _linked array, else derive from condition
+  const linkedPicks=pick._linked?.length>0
+    ?pick._linked.map(lid=>{
+        const lp=allTeamPicks.find(p=>p._id===lid);
+        return lp?{pid:lid,pick:lp}:null;
+      }).filter(Boolean)
+    :allTeamPicks.filter(p=>p!==pick&&p.condition&&p.condition===pick.condition)
+        .map((p,i)=>({pid:p._id||`P?${i}`,pick:p}));
+
   return <div style={{animation:'slideIn 0.2s ease'}}>
     {/* Title row */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:14}}>
@@ -278,7 +375,7 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose}){
           <div style={{fontSize:18,fontWeight:900,color:'#fff',lineHeight:1}}>
             {pick.originalTeam} {pick.year} {pick.round}
           </div>
-          <div style={{fontSize:10,color:'#555',fontFamily:'monospace',marginTop:2}}>{pickId}</div>
+          <div style={{fontSize:10,color:'#555',fontFamily:'monospace',marginTop:2}}>{displayId}</div>
         </div>
       </div>
       <button onClick={onClose} style={{background:'none',border:'1px solid #2a2a3a',
@@ -299,28 +396,29 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose}){
         <div style={{fontSize:9,color:'#aaa',marginTop:2}}>{holderCfg.name}</div>
       </div>
     </div>
-    {/* Notes */}
-    {pick.notes&&<div style={{background:'#0c0c1a',border:'1px solid #1e1e2e',borderRadius:8,
+    {/* Detail / Notes */}
+    {detail&&<div style={{background:'#0c0c1a',border:'1px solid #1e1e2e',borderRadius:8,
       padding:'10px 12px',marginBottom:12}}>
-      <div style={{fontSize:11,color:'#ccc',lineHeight:1.65}}>{pick.notes}</div>
+      <div style={{fontSize:11,color:'#ccc',lineHeight:1.7}}>{detail}</div>
     </div>}
     {/* Linked picks */}
-    {linked.length>0&&<div style={{marginBottom:12}}>
+    {linkedPicks.length>0&&<div style={{marginBottom:12}}>
       <div style={{fontSize:9,color:'#555',fontWeight:700,textTransform:'uppercase',letterSpacing:.8,marginBottom:6}}>
         LINKED PICKS
       </div>
       <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-        {linked.map((lp,i)=>{
+        {linkedPicks.map(({pid,pick:lp})=>{
           const lc=TEAM_CFG[lp.originalTeam]||{primary:'#888'};
-          return <div key={i} style={{background:'#111',border:`1px solid ${lc.primary}44`,
-            borderRadius:5,padding:'3px 8px',fontSize:9,color:'#ccc'}}>
-            <span style={{color:lc.primary,fontWeight:700}}>{lp.originalTeam}</span>
-            {' '}→ {lp.currentHolder} · {lp.year} {lp.round}
+          return <div key={pid} onClick={()=>onLinkedClick&&onLinkedClick(lp)}
+            style={{background:'#4a9eff11',border:`1px solid #4a9eff44`,
+              borderRadius:6,padding:'3px 9px',fontSize:10,color:'#4a9eff',
+              fontFamily:'monospace',cursor:'pointer'}}>
+            {pid} <span style={{fontSize:8,opacity:.6,color:'#aaa'}}>({lp.originalTeam}→{lp.currentHolder})</span>
           </div>;
         })}
       </div>
     </div>}
-    <FlowDiagram pick={pick} teamAbbr={teamAbbr}/>
+    <FlowDiagram pick={pick} teamAbbr={teamAbbr} houFinish={houFinish} okcFinish={okcFinish}/>
   </div>;
 }
 
@@ -502,6 +600,94 @@ function LegendBar(){
   </div>;
 }
 
+// ── LOTTERY SIMULATOR ────────────────────────────────────────────────────────
+function SimSlider({finish,setFinish,color,teamName}){
+  const dots=Array.from({length:14},(_,i)=>i+1);
+  const odds=LOTTERY_ODDS[finish]||{t1:0,t4:0};
+  return <div style={{background:'#141420',border:`2px solid ${color}33`,borderRadius:12,padding:16,marginBottom:12}}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+      <div style={{fontSize:13,fontWeight:800,color}}>{teamName}</div>
+      <div style={{display:'flex',alignItems:'baseline',gap:5}}>
+        <div style={{fontSize:28,fontWeight:900,color,lineHeight:1}}>#{finish}</div>
+        <div style={{fontSize:9,color:'#555'}}>lottery finish</div>
+      </div>
+    </div>
+    <div style={{display:'flex',gap:3,marginBottom:14,justifyContent:'center',flexWrap:'wrap'}}>
+      {dots.map(i=><div key={i} onClick={()=>setFinish(i)} style={{
+        width:22,height:22,borderRadius:'50%',
+        background:i===finish?color:i<finish?`${color}44`:'#1a1a28',
+        border:`1.5px solid ${i===finish?'#fff':i<finish?color+'66':'#252535'}`,
+        cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',
+        fontSize:8,color:i===finish?'#fff':'#555',fontWeight:700,
+        transform:i===finish?'scale(1.25)':'scale(1)',transition:'all 0.12s',
+      }}>{i}</div>)}
+    </div>
+    <div style={{display:'flex',gap:8}}>
+      <div style={{flex:1,background:'#0d0d18',border:`1px solid ${color}33`,borderRadius:8,padding:'10px',textAlign:'center'}}>
+        <div style={{fontSize:22,fontWeight:900,color,lineHeight:1}}>{odds.t1}%</div>
+        <div style={{fontSize:8,color:'#555',marginTop:3}}>🎯 #1 Overall</div>
+      </div>
+      <div style={{flex:1,background:'#0d0d18',border:`1px solid ${color}33`,borderRadius:8,padding:'10px',textAlign:'center'}}>
+        <div style={{fontSize:22,fontWeight:900,color,lineHeight:1}}>{odds.t4}%</div>
+        <div style={{fontSize:8,color:'#555',marginTop:3}}>🏆 Top-4 Pick</div>
+      </div>
+    </div>
+  </div>;
+}
+
+function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
+  const conveys=houFinish>4;
+  return <div style={{animation:'fadeUp 0.2s ease',maxWidth:560}}>
+    <div style={{fontSize:10,color:'#555',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:700}}>
+      🎰 What-If Lottery Simulator — 2026 Draft
+    </div>
+    <SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" teamName="Houston Rockets"/>
+    <SimSlider finish={okcFinish} setFinish={setOkcFinish} color="#007AC1" teamName="OKC Thunder"/>
+    {/* P001 resolution */}
+    <div style={{background:'#0f0f1e',border:`2px solid ${conveys?'#f0a500':'#2ecc71'}`,
+      borderRadius:10,padding:14,marginBottom:12,transition:'border-color 0.3s'}}>
+      <div style={{fontSize:9,color:'#555',marginBottom:8,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+        P001 — HOU 2026 1st · Resolution
+      </div>
+      {conveys?<>
+        <div style={{fontSize:12,color:'#f0a500',fontWeight:800,marginBottom:10}}>
+          ⚡ HOU finishes #{houFinish} → pick exits top-4 → CONVEYS into pool
+        </div>
+        <div style={{display:'flex',flexDirection:'column',gap:6}}>
+          {[['🥇','BEST → OKC','#007AC1','Most favorable of OKC/LAC/HOU pool'],
+            ['🥈','2nd → PHI','#4a9eff','via McCain trade 02/05/2026'],
+            ['🥉','WORST → WAS','#E31837','Washington Wizards'],
+          ].map(([icon,label,color,sub])=><div key={label} style={{display:'flex',alignItems:'center',gap:10,
+            padding:'8px 12px',background:`${color}18`,borderRadius:8,border:`1px solid ${color}44`}}>
+            <span style={{fontSize:16}}>{icon}</span>
+            <div>
+              <div style={{fontSize:11,fontWeight:800,color}}>{label}</div>
+              <div style={{fontSize:9,color:'#555'}}>{sub}</div>
+            </div>
+          </div>)}
+        </div>
+      </>:<div style={{fontSize:12,color:'#2ecc71',fontWeight:800}}>
+        ✅ HOU finishes #{houFinish} (top-4 protected) → HOU KEEPS the pick. Pool does not activate.
+      </div>}
+    </div>
+    {/* P021 UTA resolution */}
+    <div style={{background:'#0f0f1e',border:'1px solid #252535',borderRadius:10,padding:14,marginBottom:12}}>
+      <div style={{fontSize:9,color:'#555',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+        P021 — UTA 2026 1st (Top-8 Protected) → OKC
+      </div>
+      <div style={{fontSize:12,fontWeight:800,color:okcFinish<=8?'#f0a500':'#2ecc71'}}>
+        {okcFinish<=8
+          ?`⚡ OKC proxy #${okcFinish} → UTA likely top-8 → pick may NOT convey (obligation extinguishes)`
+          :`✅ If UTA finishes outside top-8 → pick conveys to OKC`}
+      </div>
+      <div style={{fontSize:9,color:'#333',marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
+    </div>
+    <div style={{fontSize:9,color:'#333',fontStyle:'italic',lineHeight:1.6}}>
+      Covers 2026 draft · Positions approximate · Always verify on RealGM for official resolution
+    </div>
+  </div>;
+}
+
 // ── ALL 30 TEAMS IN GRID ORDER ─────────────────────────────────────────────────
 const ALL_TEAMS=[
   'ATL','BOS','BKN','CHA','CHI','CLE','DAL','DEN',
@@ -574,6 +760,8 @@ function App(){
   const [selectedKey,setSelectedKey]=useState(null);
   const [selectedPick,setSelectedPick]=useState(null);
   const [selectedPickId,setSelectedPickId]=useState(null);
+  const [houFinish,setHouFinish]=useState(5);
+  const [okcFinish,setOkcFinish]=useState(6);
 
   const load=useCallback(()=>{
     setLoading(true);setError(null);
@@ -586,7 +774,9 @@ function App(){
   useEffect(()=>{load();},[load]);
 
   const teamPicks=useMemo(()=>data&&activeTeam?(data.teams[activeTeam]?.picks||[]):[],[data,activeTeam]);
-  const holdings=useMemo(()=>teamPicks.filter(p=>p.currentHolder===activeTeam),[teamPicks,activeTeam]);
+  // Enrich picks with detail text and linked IDs from ALL_PICKS
+  const enrichedPicks=useMemo(()=>teamPicks.map(enrichPick),[teamPicks]);
+  const holdings=useMemo(()=>enrichedPicks.filter(p=>p.currentHolder===activeTeam),[enrichedPicks,activeTeam]);
   const years=useMemo(()=>[...new Set(holdings.map(p=>p.year))].sort(),[holdings]);
   const filtered=useMemo(()=>activeYear?holdings.filter(p=>p.year===activeYear):holdings,[holdings,activeYear]);
   const stats=useMemo(()=>({
@@ -598,6 +788,7 @@ function App(){
   const available=useMemo(()=>data?Object.keys(data.teams):[],[data]);
   const tc=activeTeam?(TEAM_CFG[activeTeam]||{name:activeTeam,short:activeTeam,primary:'#888',secondary:'#444'}):null;
   const yearRange=years.length?`${years[0]}–${years[years.length-1]}`:'';
+  const hasSimulator=activeTeam==='HOU'||activeTeam==='OKC';
 
   const handlePick=useCallback((key,pick,pid)=>{
     setSelectedKey(key);setSelectedPick(pick||null);setSelectedPickId(pid||null);
@@ -605,6 +796,7 @@ function App(){
 
   const switchTeam=useCallback((t)=>{
     setActiveTeam(t);setActiveYear(null);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);
+    setActiveView('cards');
   },[]);
 
   const goHome=useCallback(()=>{
@@ -687,7 +879,9 @@ function App(){
     {/* ── VIEW TABS ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       gap:6,background:'#0a0a12',flexShrink:0}}>
-      {[{id:'cards',icon:'📋',label:'Cards'},{id:'timeline',icon:'📅',label:'Timeline'}].map(tab=>{
+      {[{id:'cards',icon:'📋',label:'Cards'},{id:'timeline',icon:'📅',label:'Timeline'},
+        ...(hasSimulator?[{id:'simulator',icon:'🎰',label:'Simulator'}]:[])
+      ].map(tab=>{
         const isActive=activeView===tab.id;
         return <button key={tab.id} className="view-tab" onClick={()=>setActiveView(tab.id)} style={{
           background:isActive?tc.primary:'transparent',
@@ -711,13 +905,28 @@ function App(){
       <div style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
         {selectedPick
           ?<DetailPanel pick={selectedPick} teamAbbr={activeTeam} pickId={selectedPickId}
-              allTeamPicks={holdings} onClose={()=>handlePick(null,null,null)}/>
+              allTeamPicks={holdings} houFinish={houFinish} okcFinish={okcFinish}
+              onClose={()=>handlePick(null,null,null)}
+              onLinkedClick={(lp)=>{
+                const allFirst=holdings.filter(p=>p.round==='1st');
+                const allSecond=holdings.filter(p=>p.round==='2nd');
+                const ordered=[...allFirst,...allSecond];
+                const idx=ordered.indexOf(lp);
+                const pid=lp._id||`P${String(idx+1).padStart(3,'0')}`;
+                const key=`${lp.year}-${lp.round}-${lp.originalTeam}-${lp.currentHolder}-${idx}`;
+                handlePick(key,lp,pid);
+              }}/>
           :<DetailPlaceholder/>}
       </div>
     </div>}
 
     {activeView==='timeline'&&<div style={{flex:1,padding:'20px',overflowY:'auto'}}>
       <TimelineView holdings={holdings} teamAbbr={activeTeam}/>
+    </div>}
+
+    {activeView==='simulator'&&<div style={{flex:1,padding:'20px',overflowY:'auto'}}>
+      <LotterySimulator houFinish={houFinish} setHouFinish={setHouFinish}
+        okcFinish={okcFinish} setOkcFinish={setOkcFinish}/>
     </div>}
 
     <LegendBar/>
