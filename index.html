@@ -109,7 +109,7 @@ function LoadingScreen() {
       minHeight:"100vh",flexDirection:"column",gap:16}}>
       <div style={{width:40,height:40,border:"3px solid #1a1a2e",
         borderTop:"3px solid #60a5fa",borderRadius:"50%",animation:"spin 0.8s linear infinite"}}/>
-      <div style={{color:"#555",fontSize:13}}>Loading draft capital data…</div>
+      <div style={{color:"#aaa",fontSize:13}}>Loading draft capital data…</div>
     </div>
   );
 }
@@ -156,7 +156,7 @@ function Header({meta, onBack, teamName, teamColor}) {
         </div>
       </div>
       {meta && (
-        <div style={{fontSize:9,color:"#333",textAlign:"right"}}>
+        <div style={{fontSize:9,color:"#888",textAlign:"right"}}>
           Through 2026 Trade Deadline
         </div>
       )}
@@ -173,27 +173,28 @@ function TeamCard({abbr, isAvailable, onClick}) {
 
   if (!isAvailable) {
     return (
-      <div style={{background:"#0d0d18",border:"1px solid #151520",borderRadius:10,
-        padding:"12px 8px",textAlign:"center",opacity:.35,cursor:"default"}}>
-        <div style={{fontSize:18,fontWeight:900,color:"#333",letterSpacing:1}}>{abbr}</div>
-        <div style={{fontSize:8,color:"#222",marginTop:2}}>{nickname}</div>
-        <div style={{fontSize:7,color:"#1a1a1a",marginTop:1}}>No data</div>
+      <div style={{background:"#0c0c18",border:"1px solid #18182a",borderRadius:10,
+        padding:"12px 8px",textAlign:"center",opacity:.22,cursor:"default"}}>
+        <div style={{fontSize:18,fontWeight:900,color:"#444",letterSpacing:1}}>{abbr}</div>
+        <div style={{fontSize:8,color:"#333",marginTop:2}}>{nickname}</div>
       </div>
     );
   }
 
   return (
     <div className="team-card" onClick={()=>onClick(abbr)}
-      style={{background:`linear-gradient(145deg, ${cfg.primary}18 0%, ${cfg.secondary}0c 100%)`,
-        border:`1.5px solid ${cfg.primary}40`,borderRadius:10,padding:"14px 8px",textAlign:"center",
-        userSelect:"none",position:"relative",overflow:"hidden"}}>
-      <div style={{position:"absolute",top:0,left:0,right:0,height:2,
-        background:`linear-gradient(90deg, transparent, ${cfg.primary}88, transparent)`}}/>
-      <div style={{fontSize:20,fontWeight:900,color:cfg.primary,letterSpacing:1,lineHeight:1}}>
+      style={{background:`linear-gradient(145deg, ${cfg.primary}30 0%, ${cfg.secondary}18 100%)`,
+        border:`2px solid ${cfg.primary}`,borderRadius:10,padding:"14px 8px",textAlign:"center",
+        userSelect:"none",position:"relative",overflow:"hidden",
+        boxShadow:`0 0 12px ${cfg.primary}30`}}>
+      <div style={{position:"absolute",top:0,left:0,right:0,height:3,
+        background:`linear-gradient(90deg, transparent, ${cfg.primary}, transparent)`}}/>
+      <div style={{fontSize:20,fontWeight:900,color:"#fff",letterSpacing:1,lineHeight:1,
+        textShadow:`0 0 12px ${cfg.primary}`}}>
         {abbr}
       </div>
-      <div style={{fontSize:8,color:"#888",marginTop:4,lineHeight:1.4}}>{nickname}</div>
-      <div style={{fontSize:7,color:"#444",marginTop:2}}>{city}</div>
+      <div style={{fontSize:8,color:"#ddd",marginTop:4,lineHeight:1.4,fontWeight:600}}>{nickname}</div>
+      <div style={{fontSize:7,color:"#aaa",marginTop:2}}>{city}</div>
     </div>
   );
 }
@@ -222,7 +223,7 @@ function TeamSelector({availableTeams, onSelect}) {
         <div style={{fontSize:28,fontWeight:900,letterSpacing:-.5,marginBottom:6}}>
           Select a Team
         </div>
-        <div style={{fontSize:12,color:"#555"}}>
+        <div style={{fontSize:12,color:"#aaa"}}>
           {availableTeams.length} of 30 teams loaded · 2026–2032 draft capital
         </div>
       </div>
@@ -232,7 +233,7 @@ function TeamSelector({availableTeams, onSelect}) {
         {Object.entries(TYPE_CFG).filter(([k])=>k!=='obligation').map(([k,v])=>(
           <div key={k} style={{display:"flex",alignItems:"center",gap:5}}>
             <div style={{width:8,height:8,borderRadius:"50%",background:v.border}}/>
-            <span style={{fontSize:9,color:"#666"}}>{v.label}</span>
+            <span style={{fontSize:9,color:"#ccc"}}>{v.label}</span>
           </div>
         ))}
       </div>
@@ -245,7 +246,7 @@ function TeamSelector({availableTeams, onSelect}) {
         ))}
       </div>
 
-      <div style={{marginTop:20,textAlign:"center",fontSize:10,color:"#2a2a3a"}}>
+      <div style={{marginTop:20,textAlign:"center",fontSize:10,color:"#666"}}>
         Data sources: Hoops Rumors · Trade Deadline Feb 5 2026 · Verify details on RealGM
       </div>
     </div>
@@ -264,7 +265,7 @@ function PickCard({pick, teamAbbr, isSelected, onClick}) {
   return (
     <div className="pick-card" onClick={onClick}
       style={{background: isSelected ? cfg.bg : "#0f0f1e",
-        border:`2px solid ${isSelected ? cfg.border : "#1c1c2e"}`,
+        border:`2px solid ${isSelected ? cfg.border : "#2a2a40"}`,
         borderRadius:11,padding:"11px 12px",minWidth:148,
         boxShadow: isSelected ? `0 0 20px ${cfg.border}30` : "none",
         transform: isSelected ? "translateY(-3px) scale(1.02)" : undefined,
@@ -272,7 +273,7 @@ function PickCard({pick, teamAbbr, isSelected, onClick}) {
 
       {/* Round badge + year */}
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:7}}>
-        <span style={{fontSize:8,color:"#444",fontWeight:700,letterSpacing:.5}}>
+        <span style={{fontSize:8,color:"#ccc",fontWeight:700,letterSpacing:.5}}>
           {pick.year}
         </span>
         <span style={{fontSize:9,fontWeight:800,color:cfg.text,
@@ -292,15 +293,15 @@ function PickCard({pick, teamAbbr, isSelected, onClick}) {
           {pick.originalTeam}
         </div>
         {!isHolder && (
-          <div style={{fontSize:9,color:"#555"}}>
-            → <span style={{color:holderCfg?.primary||"#aaa",fontWeight:700}}>
+          <div style={{fontSize:9,color:"#bbb"}}>
+            → <span style={{color:holderCfg?.primary||"#ccc",fontWeight:700}}>
               {pick.currentHolder}
             </span>
           </div>
         )}
         {isHolder && !isOwn && (
-          <div style={{fontSize:8,color:"#555"}}>
-            from <span style={{color:origCfg?.primary||"#aaa",fontWeight:700}}>
+          <div style={{fontSize:8,color:"#bbb"}}>
+            from <span style={{color:origCfg?.primary||"#ccc",fontWeight:700}}>
               {pick.originalTeam}
             </span>
           </div>
@@ -343,8 +344,8 @@ function PickDetail({pick, teamAbbr, onClose}) {
             <span style={{fontSize:20,fontWeight:900,color:origCfg.primary}}>
               {pick.originalTeam}
             </span>
-            <span style={{fontSize:11,color:"#555"}}>·</span>
-            <span style={{fontSize:14,fontWeight:700,color:"#aaa"}}>{pick.year}</span>
+            <span style={{fontSize:11,color:"#aaa"}}>·</span>
+            <span style={{fontSize:14,fontWeight:700,color:"#fff"}}>{pick.year}</span>
             <span style={{fontSize:12,fontWeight:800,color:cfg.text,
               background:`${cfg.border}18`,border:`1px solid ${cfg.border}44`,
               borderRadius:5,padding:"2px 8px"}}>{pick.round} Round</span>
@@ -354,8 +355,8 @@ function PickDetail({pick, teamAbbr, onClose}) {
             <span>{cfg.icon}</span> {cfg.desc}
           </div>
         </div>
-        <button onClick={onClose} style={{background:"none",border:"1px solid #252535",
-          color:"#555",borderRadius:5,width:26,height:26,cursor:"pointer",
+        <button onClick={onClose} style={{background:"none",border:"1px solid #3a3a50",
+          color:"#aaa",borderRadius:5,width:26,height:26,cursor:"pointer",
           display:"flex",alignItems:"center",justifyContent:"center",fontSize:13}}>
           ✕
         </button>
@@ -364,22 +365,22 @@ function PickDetail({pick, teamAbbr, onClose}) {
       {/* Key fields */}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:14}}>
         <div style={{background:"#111122",borderRadius:7,padding:10}}>
-          <div style={{fontSize:8,color:"#555",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
+          <div style={{fontSize:8,color:"#aaa",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
             Original Team
           </div>
           <div style={{fontSize:16,fontWeight:900,color:origCfg.primary}}>
             {pick.originalTeam}
           </div>
-          <div style={{fontSize:9,color:"#666",marginTop:1}}>{origCfg.name}</div>
+          <div style={{fontSize:9,color:"#ccc",marginTop:1}}>{origCfg.name}</div>
         </div>
         <div style={{background:"#111122",borderRadius:7,padding:10}}>
-          <div style={{fontSize:8,color:"#555",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
+          <div style={{fontSize:8,color:"#aaa",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
             Current Holder
           </div>
           <div style={{fontSize:16,fontWeight:900,color:holderCfg.primary}}>
             {pick.currentHolder}
           </div>
-          <div style={{fontSize:9,color:"#666",marginTop:1}}>{holderCfg.name}</div>
+          <div style={{fontSize:9,color:"#ccc",marginTop:1}}>{holderCfg.name}</div>
         </div>
       </div>
 
@@ -414,9 +415,9 @@ function PickDetail({pick, teamAbbr, onClose}) {
       {/* Notes */}
       {pick.notes && (
         <div style={{background:"#0a0a16",border:"1px solid #1e1e30",borderRadius:7,padding:"10px 12px"}}>
-          <div style={{fontSize:8,color:"#444",fontWeight:700,textTransform:"uppercase",
+          <div style={{fontSize:8,color:"#aaa",fontWeight:700,textTransform:"uppercase",
             letterSpacing:.5,marginBottom:6}}>📋 Trade Notes</div>
-          <div style={{fontSize:11,color:"#999",lineHeight:1.6}}>{pick.notes}</div>
+          <div style={{fontSize:11,color:"#ddd",lineHeight:1.6}}>{pick.notes}</div>
         </div>
       )}
     </div>
@@ -430,16 +431,16 @@ function YearFilter({years, selected, onChange}) {
       <button className="year-pill" onClick={()=>onChange(null)}
         style={{padding:"4px 12px",borderRadius:20,fontSize:10,fontWeight:700,
           background: selected===null ? "#fff" : "transparent",
-          color: selected===null ? "#000" : "#555",
-          border: selected===null ? "1.5px solid #fff" : "1.5px solid #252535",letterSpacing:.3}}>
+          color: selected===null ? "#000" : "#ccc",
+          border: selected===null ? "1.5px solid #fff" : "1.5px solid #3a3a55",letterSpacing:.3}}>
         ALL
       </button>
       {years.map(y => (
         <button key={y} className="year-pill" onClick={()=>onChange(y)}
           style={{padding:"4px 12px",borderRadius:20,fontSize:10,fontWeight:700,
             background: selected===y ? "#fff" : "transparent",
-            color: selected===y ? "#000" : "#555",
-            border: selected===y ? "1.5px solid #fff" : "1.5px solid #252535",letterSpacing:.3}}>
+            color: selected===y ? "#000" : "#ccc",
+            border: selected===y ? "1.5px solid #fff" : "1.5px solid #3a3a55",letterSpacing:.3}}>
           {y}
         </button>
       ))}
@@ -461,20 +462,20 @@ function PicksSection({title, picks, teamAbbr, selectedPick, onPickClick}) {
 
   return (
     <div style={{marginBottom:24}}>
-      <div style={{fontSize:11,color:"#444",fontWeight:700,textTransform:"uppercase",
-        letterSpacing:1,marginBottom:12,paddingBottom:8,borderBottom:"1px solid #111"}}>
-        {title} <span style={{color:"#2a2a3a",marginLeft:6}}>{picks.length} picks</span>
+      <div style={{fontSize:11,color:"#ccc",fontWeight:700,textTransform:"uppercase",
+        letterSpacing:1,marginBottom:12,paddingBottom:8,borderBottom:"1px solid #1e1e30"}}>
+        {title} <span style={{color:"#666",marginLeft:6}}>{picks.length} picks</span>
       </div>
 
       {years.map(year => (
         <div key={year} style={{marginBottom:16}}>
-          <div style={{fontSize:10,color:"#333",fontWeight:700,letterSpacing:1,marginBottom:8}}>
+          <div style={{fontSize:10,color:"#aaa",fontWeight:700,letterSpacing:1,marginBottom:8}}>
             {year}
           </div>
 
           {byYear[year].first.length > 0 && (
             <div style={{marginBottom:8}}>
-              <div style={{fontSize:8,color:"#2a2a3a",letterSpacing:.5,marginBottom:5,
+              <div style={{fontSize:8,color:"#888",letterSpacing:.5,marginBottom:5,
                 textTransform:"uppercase",fontWeight:600}}>1st Round</div>
               <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
                 {byYear[year].first.map((pick, idx) => {
@@ -495,7 +496,7 @@ function PicksSection({title, picks, teamAbbr, selectedPick, onPickClick}) {
 
           {byYear[year].second.length > 0 && (
             <div>
-              <div style={{fontSize:8,color:"#2a2a3a",letterSpacing:.5,marginBottom:5,
+              <div style={{fontSize:8,color:"#888",letterSpacing:.5,marginBottom:5,
                 textTransform:"uppercase",fontWeight:600}}>2nd Round</div>
               <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
                 {byYear[year].second.map((pick, idx) => {
@@ -540,7 +541,7 @@ function StatsBar({holdings, obligations, primary}) {
         <div key={it.label} style={{background:"#0f0f1e",border:`1px solid ${it.color}22`,
           borderRadius:8,padding:"10px 12px"}}>
           <div style={{fontSize:26,fontWeight:900,color:it.color,lineHeight:1}}>{it.v}</div>
-          <div style={{fontSize:8,color:"#555",marginTop:3,letterSpacing:.3}}>{it.label}</div>
+          <div style={{fontSize:8,color:"#bbb",marginTop:3,letterSpacing:.3}}>{it.label}</div>
         </div>
       ))}
     </div>
@@ -591,15 +592,15 @@ function TeamView({teamAbbr, teamData, onBack}) {
 
       {/* Team header */}
       <div style={{marginBottom:20,padding:"16px 20px",borderRadius:12,
-        background:`linear-gradient(135deg, ${cfg.primary}14 0%, ${cfg.secondary}08 100%)`,
-        border:`1px solid ${cfg.primary}28`}}>
+        background:`linear-gradient(135deg, ${cfg.primary}28 0%, ${cfg.secondary}14 100%)`,
+        border:`1.5px solid ${cfg.primary}70`}}>
         <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:2}}>
           <div style={{fontSize:36,fontWeight:900,color:cfg.primary,letterSpacing:1,lineHeight:1}}>
             {teamAbbr}
           </div>
           <div>
             <div style={{fontSize:18,fontWeight:700,color:"#ddd"}}>{cfg.name}</div>
-            <div style={{fontSize:10,color:"#444",marginTop:2}}>
+            <div style={{fontSize:10,color:"#aaa",marginTop:2}}>
               Draft Capital 2026–2032
             </div>
           </div>
@@ -615,7 +616,7 @@ function TeamView({teamAbbr, teamData, onBack}) {
           <button key={tab.id} onClick={()=>setActiveTab(tab.id)}
             style={{background:"none",border:"none",padding:"8px 16px",cursor:"pointer",
               fontSize:12,fontWeight:700,letterSpacing:.3,
-              color: activeTab===tab.id ? cfg.primary : "#444",
+              color: activeTab===tab.id ? cfg.primary : "#aaa",
               borderBottom: activeTab===tab.id ? `2px solid ${cfg.primary}` : "2px solid transparent",
               transition:"all 0.15s"}}>
             {tab.label}
@@ -640,7 +641,7 @@ function TeamView({teamAbbr, teamData, onBack}) {
       {activeTab === "obligations" && (
         <>
           {filteredObligations.length === 0 ? (
-            <div style={{textAlign:"center",padding:"40px 20px",color:"#2a2a3a",fontSize:12}}>
+            <div style={{textAlign:"center",padding:"40px 20px",color:"#888",fontSize:12}}>
               No pick obligations {selectedYear ? `in ${selectedYear}` : "on record"}
             </div>
           ) : (
@@ -658,7 +659,7 @@ function TeamView({teamAbbr, teamData, onBack}) {
       {/* Legend */}
       <div style={{marginTop:32,padding:"14px 16px",background:"#0a0a16",
         borderRadius:9,border:"1px solid #111"}}>
-        <div style={{fontSize:9,color:"#333",fontWeight:700,letterSpacing:.8,
+        <div style={{fontSize:9,color:"#aaa",fontWeight:700,letterSpacing:.8,
           textTransform:"uppercase",marginBottom:10}}>Pick Type Legend</div>
         <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
           {Object.entries(TYPE_CFG).map(([k,v]) => (
@@ -668,7 +669,7 @@ function TeamView({teamAbbr, teamData, onBack}) {
                 justifyContent:"center",fontSize:9,color:v.text}}>{v.icon}</div>
               <div>
                 <div style={{fontSize:9,color:v.text,fontWeight:700}}>{v.label}</div>
-                <div style={{fontSize:7,color:"#444"}}>{v.desc}</div>
+                <div style={{fontSize:7,color:"#aaa"}}>{v.desc}</div>
               </div>
             </div>
           ))}
