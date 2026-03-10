@@ -879,16 +879,15 @@ function App(){
     {/* ── VIEW TABS ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       gap:6,background:'#0a0a12',flexShrink:0}}>
-      {[{id:'cards',icon:'📋',label:'Cards'},{id:'timeline',icon:'📅',label:'Timeline'},
-        ...(hasSimulator?[{id:'simulator',icon:'🎰',label:'Simulator'}]:[])
-      ].map(tab=>{
-        const isActive=activeView===tab.id;
-        return <button key={tab.id} className="view-tab" onClick={()=>setActiveView(tab.id)} style={{
+      {['cards','timeline','simulator'].filter(id=>id!=='simulator'||hasSimulator).map(id=>{
+        const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'}}[id];
+        const isActive=activeView===id;
+        return <button key={id} className="view-tab" onClick={()=>setActiveView(id)} style={{
           background:isActive?tc.primary:'transparent',
           border:`1.5px solid ${isActive?tc.primary:'#252535'}`,
           color:isActive?'#fff':'#aaa',borderRadius:6,padding:'5px 14px',
           fontSize:11,fontWeight:700,letterSpacing:.3,
-        }}>{tab.icon} {tab.label}</button>;
+        }}>{cfg.icon} {cfg.label}</button>;
       })}
     </div>
 
