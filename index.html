@@ -111,51 +111,54 @@ function Ball({size=28}){
 }
 
 // ── PICK CARD ─────────────────────────────────────────────────────────────────
-function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,onClick}){
+function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick}){
   const type=getPickType(pick,teamAbbr);
   const cfg=TYPE_CFG[type]||TYPE_CFG.own;
   const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
-  const isOwn=pick.originalTeam===teamAbbr;
-  const isHolder=pick.currentHolder===teamAbbr;
+  const holderCfg=TEAM_CFG[pick.currentHolder]||{primary:'#888'};
+  const isOwnHolder=pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
   return <div className="pick-card" onClick={onClick} style={{
-    background:isSelected?cfg.bg:'#13131f',
+    background:isSelected?cfg.bg:'#141420',
     border:`2px solid ${isSelected||isLinked?cfg.border:'#1e1e2e'}`,
-    borderRadius:10,padding:'10px 12px',width:178,flexShrink:0,
+    borderRadius:12,padding:'12px 14px',width:210,flexShrink:0,
     position:'relative',overflow:'hidden',
-    boxShadow:isSelected?`0 0 22px ${cfg.border}44`:isLinked?`0 0 8px ${cfg.border}22`:'none',
+    boxShadow:isSelected?`0 0 26px ${cfg.border}55`:isLinked?`0 0 10px ${cfg.border}22`:'none',
     transform:isSelected?'scale(1.03)':'scale(1)',
   }}>
     {isLinked&&!isSelected&&<div style={{position:'absolute',top:0,left:0,right:0,height:2,
       background:`linear-gradient(90deg,transparent,${cfg.border},transparent)`,
       animation:'pulse 1.5s ease-in-out infinite'}}/>}
     {/* ID + round badge */}
-    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:6}}>
-      <span style={{fontSize:9,fontFamily:'monospace',color:'#555',fontWeight:700}}>{pickId}</span>
-      <span style={{fontSize:9,fontWeight:800,color:cfg.text,background:cfg.bg,
-        border:`1px solid ${cfg.border}`,borderRadius:4,padding:'1px 6px'}}>{pick.round}</span>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
+      <span style={{fontSize:9,fontFamily:'monospace',color:'#555',fontWeight:700,letterSpacing:.3}}>{pickId}</span>
+      <span style={{fontSize:10,fontWeight:800,color:'#fff',background:cfg.border,
+        borderRadius:5,padding:'2px 9px',letterSpacing:.3}}>{pick.round}</span>
     </div>
     {/* Team */}
-    <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:6}}>
-      <Ball size={18}/>
+    <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:8}}>
+      <Ball size={22}/>
       <div>
-        <div style={{fontSize:15,fontWeight:900,color:origCfg.primary,letterSpacing:.5,lineHeight:1}}>
+        <div style={{fontSize:20,fontWeight:900,color:origCfg.primary,letterSpacing:.5,lineHeight:1}}>
           {pick.originalTeam}
         </div>
-        {(!isOwn||!isHolder)&&<div style={{fontSize:9,color:'#aaa',marginTop:1}}>
-          → <span style={{color:TEAM_CFG[pick.currentHolder]?.primary||'#ccc',fontWeight:700}}>
-            {pick.currentHolder}
-          </span>
+        {!isOwnHolder&&<div style={{fontSize:10,color:'#666',marginTop:3}}>
+          → <span style={{color:holderCfg.primary,fontWeight:700}}>{pick.currentHolder}</span>
         </div>}
       </div>
     </div>
     {/* Type label */}
-    <div style={{fontSize:9,color:cfg.text,fontWeight:700,textTransform:'uppercase',
-      letterSpacing:.4,display:'flex',alignItems:'center',gap:3}}>
-      <span style={{fontSize:10}}>{cfg.icon}</span>{cfg.label}
+    <div style={{fontSize:11,color:cfg.text,fontWeight:800,letterSpacing:.3,
+      display:'flex',alignItems:'center',gap:5,marginBottom:pick.protection||linkedPickIds?.length?5:0}}>
+      <span style={{fontSize:13}}>{cfg.icon}</span>
+      <span>{cfg.label}</span>
     </div>
-    {pick.protection&&<div style={{marginTop:3,fontSize:8,color:'#f0a500',opacity:.9}}>{pick.protection}</div>}
-    {pick.condition&&<div style={{marginTop:3,fontSize:8,color:'#444',letterSpacing:.2}}>
-      ⛓ {pick.condition.replace(/pool_|swap_/g,'').replace(/_/g,' ').toUpperCase().slice(0,22)}
+    {pick.protection&&<div style={{fontSize:9,color:'#f0a500',fontWeight:600,marginBottom:linkedPickIds?.length?4:0}}>
+      {pick.protection}
+    </div>}
+    {/* Linked picks */}
+    {linkedPickIds&&linkedPickIds.length>0&&<div style={{
+      display:'flex',alignItems:'center',gap:4,fontSize:9,color:'#555',marginTop:2}}>
+      <span>🔗</span><span style={{fontFamily:'monospace'}}>{linkedPickIds.join(', ')}</span>
     </div>}
   </div>;
 }
@@ -324,13 +327,17 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose}){
 // ── DETAIL PLACEHOLDER ────────────────────────────────────────────────────────
 function DetailPlaceholder(){
   return <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',
-    height:'100%',gap:12,color:'#333',textAlign:'center',padding:20}}>
-    <Ball size={56}/>
-    <div style={{fontSize:15,fontWeight:700,color:'#444'}}>Select a pick to see details</div>
-    <div style={{fontSize:11,color:'#333'}}>Click any card · Linked picks are clickable</div>
-    <div style={{marginTop:8,display:'flex',gap:14,flexWrap:'wrap',justifyContent:'center'}}>
+    height:'100%',gap:16,color:'#333',textAlign:'center',padding:24}}>
+    <Ball size={72}/>
+    <div>
+      <div style={{fontSize:16,fontWeight:700,color:'#555',marginBottom:6}}>Select a pick to see details</div>
+      <div style={{fontSize:11,color:'#3a3a4a'}}>Click any card · Linked picks are clickable</div>
+    </div>
+    <div style={{marginTop:4,display:'flex',gap:16,flexWrap:'wrap',justifyContent:'center'}}>
       {[['🛡','Protected'],['⚖','Conditional'],['🔄','Swap'],['⬇','Incoming'],['🏀','Own']].map(([ic,lb])=>
-        <span key={lb} style={{fontSize:9,color:'#3a3a4a'}}>{ic} {lb}</span>
+        <span key={lb} style={{fontSize:10,color:'#3a3a4a',display:'flex',alignItems:'center',gap:4}}>
+          <span>{ic}</span><span>{lb}</span>
+        </span>
       )}
     </div>
   </div>;
@@ -344,55 +351,89 @@ function YearPills({years,selected,onChange,holdings,primary}){
     byYear[p.year].total++;
     if(p.protection||p.swapCondition||p.condition) byYear[p.year].cond++;
   });
-  return <div style={{display:'flex',gap:6,overflowX:'auto',paddingBottom:2,marginBottom:14,flexShrink:0}}>
-    {years.map(y=>{
-      const info=byYear[y]||{total:0,cond:0};
-      const active=selected===y;
-      return <div key={y} className="year-pill" onClick={()=>onChange(active?null:y)} style={{
-        background:active?primary:'#13131f',
-        border:`2px solid ${active?primary:'#252535'}`,
-        borderRadius:8,padding:'7px 14px',minWidth:78,textAlign:'center',
-        flexShrink:0,position:'relative',userSelect:'none',
-      }}>
-        {info.cond>0&&<div style={{position:'absolute',top:4,right:4,width:6,height:6,
-          borderRadius:'50%',background:'#f0a500'}}/>}
-        <div style={{fontSize:16,fontWeight:900,color:active?'#fff':'#ccc',lineHeight:1}}>{y}</div>
-        <div style={{fontSize:8,color:active?'rgba(255,255,255,.65)':'#555',marginTop:3}}>
-          {info.total} pick{info.total!==1?'s':''}
-        </div>
-      </div>;
-    })}
+  return <div style={{marginBottom:16,flexShrink:0}}>
+    {/* Timeline dots */}
+    <div style={{display:'flex',alignItems:'center',paddingLeft:6,paddingRight:6,marginBottom:6}}>
+      {years.map((y,i)=>{
+        const info=byYear[y]||{total:0,cond:0};
+        const active=selected===y;
+        const dotColor=active?primary:info.cond>0?'#f0a500':'#252535';
+        return <React.Fragment key={y}>
+          {i>0&&<div style={{flex:1,height:1,background:'#1e1e2e',minWidth:8}}/>}
+          <div style={{width:9,height:9,borderRadius:'50%',background:dotColor,flexShrink:0,
+            boxShadow:active?`0 0 6px ${primary}`:'none'}}/>
+        </React.Fragment>;
+      })}
+    </div>
+    {/* Pills row */}
+    <div style={{display:'flex',gap:6,overflowX:'auto',paddingBottom:2}}>
+      {years.map(y=>{
+        const info=byYear[y]||{total:0,cond:0};
+        const active=selected===y;
+        const hasCond=info.cond>0&&!active;
+        return <div key={y} className="year-pill" onClick={()=>onChange(active?null:y)} style={{
+          background:active?primary:'#13131f',
+          border:`2px solid ${active?primary:hasCond?'#f0a50066':'#252535'}`,
+          borderRadius:10,padding:'8px 16px',minWidth:88,textAlign:'center',
+          flexShrink:0,userSelect:'none',
+        }}>
+          <div style={{fontSize:18,fontWeight:900,color:active?'#fff':'#ccc',lineHeight:1}}>{y}</div>
+          <div style={{fontSize:8,color:active?'rgba(255,255,255,.65)':'#555',marginTop:3}}>
+            {info.total} pick{info.total!==1?'s':''}
+          </div>
+        </div>;
+      })}
+    </div>
   </div>;
 }
 
 // ── PICKS GRID ────────────────────────────────────────────────────────────────
 function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings}){
+  // Global P-IDs: 1st round holdings first, then 2nd, across all years
+  const allFirst=allHoldings.filter(p=>p.round==='1st');
+  const allSecond=allHoldings.filter(p=>p.round==='2nd');
+  const ordered=[...allFirst,...allSecond];
+  const pidMap=new Map(ordered.map((p,i)=>[p,`P${String(i+1).padStart(3,'0')}`]));
+
+  // condition → all P-IDs sharing that condition
+  const condPids={};
+  ordered.forEach(p=>{
+    if(p.condition){
+      if(!condPids[p.condition]) condPids[p.condition]=[];
+      condPids[p.condition].push(pidMap.get(p));
+    }
+  });
+
   const first=picks.filter(p=>p.round==='1st');
   const second=picks.filter(p=>p.round==='2nd');
   if(picks.length===0) return <div style={{padding:'30px 0',color:'#333',fontSize:12,textAlign:'center'}}>
     No picks for this year
   </div>;
 
-  const Section=({title,sectionPicks,offset})=>{
+  // Find currently selected pick object for linked highlight
+  const selPick=allHoldings.find((p,i)=>{
+    const k=`${p.year}-${p.round}-${p.originalTeam}-${p.currentHolder}-${ordered.indexOf(p)}`;
+    return k===selectedKey;
+  })||allHoldings.find(p=>pidMap.get(p)===selectedKey?.split('|')[1]);
+
+  const Section=({title,sectionPicks,bullet,bulletColor})=>{
     if(!sectionPicks.length) return null;
-    return <div style={{marginBottom:22}}>
-      <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:10}}>
-        <span style={{color:'#CE1141',fontSize:9}}>◆</span>
-        <span style={{fontSize:10,fontWeight:800,color:'#ccc',letterSpacing:1,textTransform:'uppercase'}}>{title}</span>
+    return <div style={{marginBottom:24}}>
+      <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:12}}>
+        <span style={{color:bulletColor,fontSize:bullet==='◆'?9:12,lineHeight:1}}>{bullet}</span>
+        <span style={{fontSize:10,fontWeight:800,color:'#bbb',letterSpacing:1.2,textTransform:'uppercase'}}>{title}</span>
       </div>
-      <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+      <div style={{display:'flex',flexWrap:'wrap',gap:10}}>
         {sectionPicks.map((pick,idx)=>{
-          const key=`${pick.year}-${pick.round}-${pick.originalTeam}-${pick.currentHolder}-${idx}`;
-          const pickId=`P${String(offset+idx+1).padStart(3,'0')}`;
+          const pickId=pidMap.get(pick)||`P${String(idx+1).padStart(3,'0')}`;
+          const key=`${pick.year}-${pick.round}-${pick.originalTeam}-${pick.currentHolder}-${ordered.indexOf(pick)}`;
           const isSel=selectedKey===key;
-          // highlight if same condition as selected pick
-          const selPick=allHoldings.find((_,i)=>{
-            const k=`${_.year}-${_.round}-${_.originalTeam}-${_.currentHolder}-${i}`;
-            return k===selectedKey;
-          });
           const isLinked=!isSel&&selPick?.condition&&pick.condition===selPick.condition;
+          const linkedPids=pick.condition
+            ?(condPids[pick.condition]||[]).filter(pid=>pid!==pickId)
+            :[];
           return <PickCard key={key} pick={pick} teamAbbr={teamAbbr} pickId={pickId}
-            isSelected={isSel} isLinked={!!isLinked}
+            isSelected={isSel} isLinked={!!isLinked} linkedPickIds={linkedPids}
             onClick={()=>onPickClick(isSel?null:key, isSel?null:pick, isSel?null:pickId)}/>;
         })}
       </div>
@@ -400,8 +441,8 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings}){
   };
 
   return <div style={{animation:'fadeUp 0.2s ease'}}>
-    <Section title="1ST ROUND" sectionPicks={first} offset={0}/>
-    <Section title="2ND ROUND" sectionPicks={second} offset={first.length}/>
+    <Section title="1ST ROUND" sectionPicks={first} bullet="◆" bulletColor="#CE1141"/>
+    <Section title="2ND ROUND" sectionPicks={second} bullet="○" bulletColor="#555"/>
   </div>;
 }
 
@@ -441,17 +482,21 @@ function TimelineView({holdings,teamAbbr}){
 // ── LEGEND BAR ────────────────────────────────────────────────────────────────
 function LegendBar(){
   const items=[
-    {color:'#CE1141',label:'OWN'},{color:'#2ecc71',label:'INCOMING'},
-    {color:'#f0a500',label:'PROTECTED'},{color:'#4a9eff',label:'MORE FAVORABLE'},
-    {color:'#ff8c42',label:'LESS FAVORABLE'},{color:'#b44aff',label:'SWAP'},
+    {color:'#CE1141',icon:'🏀',label:'OWN'},
+    {color:'#2ecc71',icon:'⬇',label:'INCOMING'},
+    {color:'#f0a500',icon:'🛡',label:'PROTECTED'},
+    {color:'#4a9eff',icon:'⚖',label:'MORE FAVORABLE'},
+    {color:'#ff8c42',icon:'⚖',label:'LESS FAVORABLE'},
+    {color:'#b44aff',icon:'🔄',label:'SWAP'},
   ];
   return <div style={{borderTop:'1px solid #14142a',padding:'9px 20px',
-    display:'flex',gap:16,flexWrap:'wrap',alignItems:'center',flexShrink:0,background:'#0a0a12'}}>
-    {items.map(it=><div key={it.label} style={{display:'flex',alignItems:'center',gap:5}}>
-      <div style={{width:10,height:10,borderRadius:2,background:it.color}}/>
-      <span style={{fontSize:9,color:'#666',letterSpacing:.3,fontWeight:600}}>{it.label}</span>
+    display:'flex',gap:18,flexWrap:'wrap',alignItems:'center',flexShrink:0,background:'#0a0a12'}}>
+    {items.map(it=><div key={it.label} style={{display:'flex',alignItems:'center',gap:6}}>
+      <div style={{width:11,height:11,borderRadius:2,background:it.color,flexShrink:0}}/>
+      <span style={{fontSize:9,color:'#888'}}>{it.icon}</span>
+      <span style={{fontSize:9,color:'#777',letterSpacing:.3,fontWeight:600}}>{it.label}</span>
     </div>)}
-    <div style={{marginLeft:'auto',fontSize:9,color:'#2a2a3a'}}>
+    <div style={{marginLeft:'auto',fontSize:9,color:'#333'}}>
       Source: RealGM Trade Tracker · Data as of March 2026
     </div>
   </div>;
