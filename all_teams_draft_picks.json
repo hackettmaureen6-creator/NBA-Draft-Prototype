@@ -779,6 +779,328 @@
           "condition": "pool_phx_hou_2032_2nd"
         }
       ]
+    },
+    "HOU": {
+      "name": "Houston Rockets",
+      "abbr": "HOU",
+      "picks": [
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": "top-4",
+          "swapCondition": null,
+          "notes": "Top-4 protected for HOU. If HOU finishes #5-30 → pick enters OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (via McCain trade 02/05/2026), WAS gets least favorable.",
+          "condition": "pool_okc_lac_hou_2026"
+        },
+        {
+          "year": 2026,
+          "round": "2nd",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "Houston's own 2026 2nd round pick. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "2nd",
+          "originalTeam": "CHI",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "CHI 2026 2nd round pick via Washington (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025).",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "2nd",
+          "originalTeam": "WAS",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "WAS 2026 2nd round pick (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025).",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "Houston's own 2027 1st round pick. HOU also holds swap right with BKN — if BKN's 2027 1st is more favorable, HOU can swap. HOU–BKN trade 6/26/2024.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "PHX",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain). HOU–BKN trade 6/26/2024.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "BKN",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": "HOU can swap their own 2027 1st for BKN's 2027 1st if BKN pick is more favorable.",
+          "notes": "HOU holds swap right — if BKN 2027 1st is more favorable than HOU's own, HOU can swap. HOU–BKN trade 6/26/2024.",
+          "condition": "swap_hou_bkn_2027"
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "Houston's own 2028 1st round pick. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "HOU receives 2 MOST favorable of HOU/DAL/PHX 2029 1sts. BKN receives least favorable of the three. BKN–HOU trade 6/26/2024.",
+          "condition": "pool_hou_dal_phx_2029"
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "DAL",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "DAL 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024.",
+          "condition": "pool_hou_dal_phx_2029"
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "PHX",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "PHX 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024.",
+          "condition": "pool_hou_dal_phx_2029"
+        },
+        {
+          "year": 2029,
+          "round": "2nd",
+          "originalTeam": "SAC",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "SAC 2029 2nd round pick via Cam Whitmore trade. Conditional — verify specifics on RealGM.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "2nd",
+          "originalTeam": "WAS",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "WAS 2029 2nd round pick (Cam Whitmore trade). Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "Houston's own 2030 1st round pick. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2031,
+          "round": "1st",
+          "originalTeam": "HOU",
+          "currentHolder": "HOU",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "Houston's own 2031 1st round pick. Unprotected.",
+          "condition": null
+        }
+      ]
+    },
+    "OKC": {
+      "name": "Oklahoma City Thunder",
+      "abbr": "OKC",
+      "picks": [
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "WAS",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC own 2026 1st enters the 3-pick pool (OKC/LAC/HOU). Least favorable of the three goes to WAS. OKC receives most favorable; PHI receives 2nd-most via McCain trade 02/05/2026.",
+          "condition": "pool_okc_lac_hou_2026"
+        },
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "LAC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "LAC 2026 1st (Paul George trade) enters pool. OKC gets most favorable of OKC/LAC/HOU pool. PHI gets 2nd-most (McCain trade 02/05/2026). WAS gets least.",
+          "condition": "pool_okc_lac_hou_2026"
+        },
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "PHI",
+          "currentHolder": "OKC",
+          "protection": "top-4 (2026 and 2027)",
+          "swapCondition": null,
+          "notes": "PHI 2026 1st (top-4 protected 2026 and 2027). If not conveyed by 2027, becomes PHI 2027 2nd round pick. OKC–PHI trade 9/2/2022.",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "UTA",
+          "currentHolder": "OKC",
+          "protection": "top-8 (extinguishes if not conveyed)",
+          "swapCondition": null,
+          "notes": "UTA 2026 1st (top-8 protected). Obligation extinguishes entirely if not conveyed — no rollover. OKC–UTA trade 7/7/2021.",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "2nd",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC gets most favorable of OKC/DAL/PHI 2nd round picks. HOU gets 2nd-most; SAS gets least.",
+          "condition": "pool_okc_dal_phi_2026_2nd"
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": "OKC has swap right with LAC 2027 1st — can swap more favorable of OKC own / DEN (positions 6-30) for LAC 2027 1st. OKC–LAC trade 2/5/2026.",
+          "notes": "OKC own 2027 1st. OKC also has swap right with LAC using more favorable of OKC/DEN(6-30).",
+          "condition": "swap_okc_lac_2027"
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "DEN",
+          "currentHolder": "OKC",
+          "protection": "top-5",
+          "swapCondition": null,
+          "notes": "DEN 2027 1st (top-5 protected). Conveys only 2+ years after DEN conveys a 1st to ORL. If never conveyed, becomes DEN 2029 2nd. OKC–DEN trade 9/9/2023.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "SAS",
+          "currentHolder": "OKC",
+          "protection": "top-16",
+          "swapCondition": null,
+          "notes": "SAS 2027 1st (top-16 protected, via SAC). Acquired at 2025 draft. Rolls forward if not conveyed. OKC–SAC–SAS trade 6/25/2025.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "LAC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": "OKC can swap more favorable of OKC own / DEN (6-30) for LAC 2027 1st. OKC–LAC trade 2/5/2026.",
+          "notes": "OKC holds swap right on LAC 2027 1st — can use more favorable of OKC own pick or DEN pick (if DEN finishes 6-30). OKC–LAC trade 2/5/2026.",
+          "condition": "swap_okc_lac_2027"
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
+          "notes": "OKC own 2028 1st. OKC also holds DAL 2028 swap right.",
+          "condition": "swap_okc_dal_2028"
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "DAL",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
+          "notes": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
+          "condition": "swap_okc_dal_2028"
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC own 2029 1st. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "DEN",
+          "currentHolder": "OKC",
+          "protection": "top-5 (conditional timing)",
+          "swapCondition": null,
+          "notes": "DEN 2029 1st (top-5 protected). Conveys only if and 2+ years after DEN conveys a 1st to OKC. Conditional timing. OKC–DEN trade 9/9/2023.",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC own 2030 1st. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2031,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC own 2031 1st. Unprotected.",
+          "condition": null
+        },
+        {
+          "year": 2032,
+          "round": "1st",
+          "originalTeam": "OKC",
+          "currentHolder": "OKC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "OKC own 2032 1st. Unprotected.",
+          "condition": null
+        }
+      ]
     }
   }
 }
