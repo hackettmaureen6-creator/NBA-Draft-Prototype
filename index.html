@@ -793,11 +793,17 @@ const ALL_TEAMS=[
 // ── TEAM SELECTOR SCREEN ───────────────────────────────────────────────────────
 function TeamSelector({available,onSelect}){
   const availSet=new Set(available);
+  const [pendingView,setPendingView]=React.useState(null);
+  const gridRef=React.useRef(null);
   const featureCards=[
-    {icon:'📋',label:'CARDS',color:'#60b0ff',desc:'Browse all draft picks year-by-year. Click any pick card to see a full breakdown, trade history, and flow diagrams.'},
-    {icon:'📅',label:'TIMELINE',color:'#00ff88',desc:'See a team\'s entire draft capital from 2026–2032 in one horizontal view. Great for spotting gaps and busy years at a glance.'},
-    {icon:'🎰',label:'SIMULATOR',color:'#cc66ff',desc:'Set hypothetical lottery finish positions and watch protected picks resolve live. See which picks convey and which stay home.'},
-    {icon:'🔗',label:'LINKED PICKS',color:'#ffb830',desc:'Picks that are part of the same pool or swap right are automatically linked. Click one — all related picks highlight instantly.'},
+    {icon:'📋',label:'CARDS',   color:'#60b0ff',view:'cards',
+     desc:'Browse all draft picks year-by-year. Click any pick card to see a full breakdown, trade history, and flow diagrams.'},
+    {icon:'📅',label:'TIMELINE',color:'#00ff88',view:'timeline',
+     desc:'See a team\'s entire draft capital from 2026–2032 in one horizontal view. Great for spotting gaps and busy years at a glance.'},
+    {icon:'🎰',label:'SIMULATOR',color:'#cc66ff',view:'simulator',
+     desc:'Set hypothetical lottery finish positions and watch protected picks resolve live. See which picks convey and which stay home.'},
+    {icon:'🔗',label:'LINKED PICKS',color:'#ffb830',view:'cards',
+     desc:'Picks sharing a pool or swap right are automatically linked. Click one — all related picks highlight instantly.'},
   ];
   return <div style={{flex:1,display:'flex',flexDirection:'column',overflowY:'auto',background:'#07070f'}}>
     {/* Hero header */}
@@ -820,25 +826,53 @@ function TeamSelector({available,onSelect}){
       <div style={{fontSize:10,color:'#888',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
         textAlign:'center',marginBottom:12}}>HOW TO EXPLORE</div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(190px,1fr))',gap:10}}>
-        {featureCards.map(fc=><div key={fc.label} style={{
-          background:`${fc.color}0d`,border:`1.5px solid ${fc.color}44`,
-          borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden'}}>
-          <div style={{position:'absolute',top:0,left:0,right:0,height:2,
-            background:`linear-gradient(90deg,transparent,${fc.color},transparent)`}}/>
-          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:8}}>
-            <span style={{fontSize:20}}>{fc.icon}</span>
-            <span style={{fontSize:12,fontWeight:900,color:fc.color,letterSpacing:1}}>{fc.label}</span>
-          </div>
-          <div style={{fontSize:11,color:'#c0c0d8',lineHeight:1.6}}>{fc.desc}</div>
-        </div>)}
+        {featureCards.map(fc=>{
+          const [hovered,setHovered]=React.useState(false);
+          return <div key={fc.label}
+            onClick={()=>{setPendingView(fc.view);gridRef.current?.scrollIntoView({behavior:'smooth',block:'start'});}}
+            onMouseEnter={()=>setHovered(true)}
+            onMouseLeave={()=>setHovered(false)}
+            style={{
+              background:hovered?`${fc.color}1a`:`${fc.color}0d`,
+              border:`1.5px solid ${hovered?fc.color:fc.color+'44'}`,
+              borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden',
+              cursor:'pointer',
+              transform:hovered?'translateY(-3px) scale(1.02)':'none',
+              transition:'all 0.15s ease',
+              boxShadow:hovered?`0 6px 24px ${fc.color}33`:'none',
+            }}>
+            <div className="gradient-bar" style={{position:'absolute',top:0,left:0,right:0,height:2,
+              '--g1':fc.color+'44','--g2':fc.color,opacity:hovered?1:0.5}}/>
+            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:8}}>
+              <span style={{fontSize:20}}>{fc.icon}</span>
+              <span style={{fontSize:12,fontWeight:900,color:fc.color,letterSpacing:1}}>{fc.label}</span>
+            </div>
+            <div style={{fontSize:11,color:'#c0c0d8',lineHeight:1.6,marginBottom:10}}>{fc.desc}</div>
+            <div style={{fontSize:10,fontWeight:800,color:fc.color,letterSpacing:.8,
+              opacity:hovered?1:0.6,transition:'opacity 0.15s'}}>
+              SELECT A TEAM →
+            </div>
+          </div>;
+        })}
       </div>
     </div>
 
-    {/* Divider */}
-    <div style={{maxWidth:900,margin:'0 auto',width:'100%',padding:'0 24px 16px',flexShrink:0}}>
+    {/* Divider + pending view banner */}
+    <div ref={gridRef} style={{maxWidth:900,margin:'0 auto',width:'100%',padding:'0 24px 16px',flexShrink:0}}>
       <div style={{height:1,background:'linear-gradient(90deg,transparent,#2a2a40,transparent)'}}/>
-      <div style={{fontSize:10,color:'#888',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
-        textAlign:'center',marginTop:16,marginBottom:4}}>SELECT A TEAM</div>
+      {pendingView
+        ?<div style={{marginTop:14,marginBottom:4,display:'flex',alignItems:'center',justifyContent:'center',gap:10,flexWrap:'wrap'}}>
+            <div style={{fontSize:11,color:'#c0c0d8',fontWeight:700,letterSpacing:.8}}>
+              {{cards:'📋 CARDS',timeline:'📅 TIMELINE',simulator:'🎰 SIMULATOR'}[pendingView]} selected —
+              <span style={{color:'#fff',marginLeft:5}}>now pick a team to open it</span>
+            </div>
+            <button onClick={()=>setPendingView(null)} style={{
+              background:'none',border:'1px solid #333',color:'#666',borderRadius:5,
+              padding:'2px 8px',fontSize:10,cursor:'pointer'}}>✕ clear</button>
+          </div>
+        :<div style={{fontSize:10,color:'#888',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
+            textAlign:'center',marginTop:16,marginBottom:4}}>SELECT A TEAM</div>
+      }
     </div>
 
     {/* Team grid */}
@@ -851,10 +885,10 @@ function TeamSelector({available,onSelect}){
         const sec=cfg.secondary||cfg.primary;
         return <div key={abbr}
           className={isAvail?'team-card-sel team-card-live':''}
-          onClick={isAvail?()=>onSelect(abbr):undefined}
+          onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
           style={{
             background:isAvail?`${cfg.primary}1a`:'#0b0b15',
-            border:`2px solid ${isAvail?cfg.primary+'99':'#181828'}`,
+            border:`2px solid ${isAvail?(pendingView?cfg.primary+'dd':cfg.primary+'99'):'#181828'}`,
             borderRadius:18,padding:'20px 12px 16px',textAlign:'center',
             opacity:isAvail?1:.16,
             cursor:isAvail?'pointer':'default',
@@ -939,9 +973,9 @@ function App(){
     setSelectedKey(key);setSelectedPick(pick||null);setSelectedPickId(pid||null);
   },[]);
 
-  const switchTeam=useCallback((t)=>{
+  const switchTeam=useCallback((t,view='cards')=>{
     setActiveTeam(t);setActiveYear(null);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);
-    setActiveView('cards');
+    setActiveView(view);
   },[]);
 
   const goHome=useCallback(()=>{
