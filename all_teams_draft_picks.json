@@ -1,1105 +1,531 @@
 {
   "metadata": {
     "lastUpdated": "2026-03-10",
-    "sources": [
-      "https://www.hoopsrumors.com/2025/08/traded-first-round-picks-for-2026-nba-draft.html",
-      "https://www.hoopsrumors.com/2025/09/traded-second-round-picks-for-2026-nba-draft.html",
-      "https://www.hoopsrumors.com/2026/02/2026-nba-trade-deadline-recap.html",
-      "https://www.hoopsrumors.com/2026/01/2025-26-in-season-nba-trades.html"
-    ],
-    "notes": "Data current through 2026 NBA Trade Deadline (Feb 5, 2026). Years 2027-2032 reflect known traded picks as of that date. Protection details sourced from Hoops Rumors and cross-referenced with trade deadline recap."
+    "sources": ["RealGM Future Draft Picks", "Hoops Rumors"],
+    "notes": "Initial rendering for all 30 teams. Data current through 2026 NBA Trade Deadline (Feb 5, 2026). To be refined."
   },
   "teams": {
     "ATL": {
       "name": "Atlanta Hawks",
       "abbr": "ATL",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": "ATL receives MORE FAVORABLE of their own pick vs SAS pick (swap rights traded to SAS). See complex scenario below.",
-          "notes": "Part of Spurs/Hawks/Jazz/Timberwolves/Cavaliers swap scenario. SAS receives most favorable of SAS or ATL pick. ATL receives most favorable of: (i) less favorable of ATL and SAS, and (ii) less favorable of CLE and the more favorable of UTH(if top-8)/MIN.",
-          "condition": "pool_spurs_hawks_jazz_min_cle"
-        },
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "NOP",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL receives MORE FAVORABLE of MIL 2026 1st and NOP 2026 1st. MIL receives less favorable. (ATL-NOP trade 6/25/2025; DEN-MIL-NOP-OKC trade 11/23/2020 chain)",
-          "condition": "pool_mil_nop_atl"
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL receives LESS FAVORABLE of ATL/LAC 2026 2nd round picks. Part of Celtics/Pacers/Hawks/Heat/Clippers/Spurs distribution: Grizzlies get most favorable of LAC or best of BOS/IND/MIA; Nets and Nuggets split remaining; Spurs and Timberwolves from remaining pool. ATL gets least favorable of BOS 2nd and most favorable of IND/MIA 2nds.",
-          "condition": "pool_2026_2nd_celtics_group"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "SAS",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL receives SAS 2027 1st round pick. Part of ATL-SAS swap arrangement for 2026; SAS conveys 2027 pick to ATL.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL's own 2027 2nd — previously traded to POR in Hawks-Trail Blazers trade (Feb 1, 2026 Vit Krejci deal), then ATL reacquired it back in same trade. ATL receives: Hawks' 2027 2nd (returned), Knicks' 2030 2nd.",
-          "condition": null
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": "ATL has swap rights: more favorable of ATL and (less favorable of CLE and UTA); other goes to CLE.",
-          "notes": "Complex swap arrangement involving ATL, CLE, UTA for 2028 1st round pick.",
-          "condition": "pool_atl_cle_uta_2028"
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL retains own 2029 1st.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": "More favorable of ATL and MIA 2029 2nd goes to one team; other goes to OKC. (Thunder-Hornets trade context: Hawks/Heat 2029 2nd most favorable to CHA via OKC trade.)",
-          "notes": "OKC traded most favorable of Hawks/Heat 2029 2nd to Hornets in Thunder-Hornets Dieng deal (Feb 4, 2026). ATL 2029 2nd involved in that pool.",
-          "condition": "pool_atl_mia_2029_2nd"
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL retains own 2030 1st.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "2nd",
-          "originalTeam": "NYK",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL receives NYK 2030 2nd round pick via Hawks-Trail Blazers trade (Feb 1, 2026). POR originally received this pick then sent to ATL.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL retains own 2031 1st.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "2nd",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": "31-55",
-          "swapCondition": null,
-          "notes": "ATL own 2031 2nd or swap for HOU 2031 2nd (31-55 range).",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "ATL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL retains own 2032 1st.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "2nd",
-          "originalTeam": "LAL",
-          "currentHolder": "ATL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "ATL receives LAL 2032 2nd round pick via Lakers-Hawks trade (Feb 5, 2026 Luke Kennard deal). Hawks received Gabe Vincent + LAL 2032 2nd.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": "Part of SAS/ATL/CLE/MIN/UTA swap scenario. SAS gets most favorable of SAS or ATL.", "notes": "ATL receives more favorable of: (less favorable of ATL/SAS) vs (less favorable of CLE and more favorable of UTA top-8/MIN).", "condition": "pool_spurs_hawks_jazz_min_cle" },
+        { "year": 2026, "round": "1st", "originalTeam": "NOP", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL receives MORE FAVORABLE of MIL 2026 1st and NOP 2026 1st. MIL receives less favorable.", "condition": "pool_mil_nop_atl" },
+        { "year": 2026, "round": "2nd", "originalTeam": "DEN", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "Part of 2026 2nd round Celtics group pool. ATL receives least favorable of ATL/LAC 2026 2nds.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "SAS", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL receives SAS 2027 1st as part of the 2026 swap arrangement.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL retains own 2027 2nd (reacquired in Hawks-Trail Blazers trade Feb 1, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": "ATL gets more favorable of ATL and (less favorable of CLE/UTA). Complex swap with CLE and UTA.", "notes": "Complex swap arrangement involving ATL, CLE, UTA for 2028 1st.", "condition": "pool_atl_cle_uta_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": "Most favorable of ATL/MIA 2029 2nd goes to CHA via OKC. ATL may retain less favorable.", "notes": "OKC traded most favorable of Hawks/Heat 2029 2nd to Hornets (Thunder-Hornets Dieng deal Feb 4, 2026).", "condition": "pool_atl_mia_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL retains own 2030 1st.", "condition": null },
+        { "year": 2030, "round": "2nd", "originalTeam": "NYK", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL receives NYK 2030 2nd via Hawks-Trail Blazers trade (Feb 1, 2026).", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "ATL", "currentHolder": "ATL", "protection": "31-55", "swapCondition": null, "notes": "ATL own 2031 2nd; conditional swap with HOU 2031 2nd (31-55 range).", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "ATL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "LAL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "ATL receives LAL 2032 2nd via Lakers-Hawks trade (Feb 5, 2026 Luke Kennard deal).", "condition": null }
       ]
     },
     "BOS": {
       "name": "Boston Celtics",
       "abbr": "BOS",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS retains own 2026 1st round pick.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "DET",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS receives MOST FAVORABLE of DET/MIL/ORL 2026 2nd round picks. Magic receives 2nd-most favorable; Pelicans receive least favorable.",
-          "condition": "pool_det_mil_orl_2026_2nd"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS retains own 2027 1st.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS receives DEN 2027 2nd round pick via Celtics-Bulls trade (Feb 5, 2026 Anfernee Simons deal). Celtics acquired Vucevic + DEN 2027 2nd.",
-          "condition": null
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": "SAS can swap 2-30 with BOS. If SAS pick is in positions 2-30, San Antonio has right to swap with Boston.",
-          "notes": "BOS retains own 2028 1st. SAS has swap right on this pick (positions 2-30).",
-          "condition": "swap_bos_sas_2028"
-        },
-        {
-          "year": 2028,
-          "round": "2nd",
-          "originalTeam": "NYK",
-          "currentHolder": "BOS",
-          "protection": "46-60",
-          "swapCondition": null,
-          "notes": "BOS receives NYK 2028 2nd if it lands in picks 46-60.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "POR",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS 2029 1st traded to POR. Part of: most and least favorable of BOS/MIL/POR goes to POR, then other goes to WAS.",
-          "condition": "pool_bos_mil_por_2029"
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "OKC",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS receives OKC 2029 2nd round pick.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS retains own 2030 1st.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "2nd",
-          "originalTeam": "BKN",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS receives BKN 2030 2nd (via HOU).",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "2nd",
-          "originalTeam": "CHA",
-          "currentHolder": "BOS",
-          "protection": "56-60",
-          "swapCondition": null,
-          "notes": "BOS receives CHA 2030 2nd (top-55 protected) via Celtics-Hornets Xavier Tillman trade (Feb 5, 2026). Celtics acquired CHA 2030 2nd top-55 protected — meaning BOS only receives if it falls picks 56-60.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS retains own 2031 1st.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "2nd",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": "BOS holds lesser of own/CLE 2031 2nd (CLE 2031 2nd goes to UTA). Also holds HOU conditional pick (31-55) or swap option.",
-          "notes": "Complex 2031 2nd arrangement. BOS retains own or CLE pick (whichever less favorable to CLE-UTA deal).",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "BOS",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS retains own 2032 1st.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "DET", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS receives MOST FAVORABLE of DET/MIL/ORL 2026 2nds. Magic gets 2nd-most; Pelicans get least.", "condition": "pool_det_mil_orl_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "DEN", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS receives DEN 2027 2nd via Celtics-Bulls Anfernee Simons trade (Feb 5, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": "SAS can swap picks 2-30 with BOS 2028 1st.", "notes": "BOS retains own 2028 1st. SAS holds swap right (positions 2-30).", "condition": "swap_bos_sas_2028" },
+        { "year": 2028, "round": "2nd", "originalTeam": "NYK", "currentHolder": "BOS", "protection": "46-60", "swapCondition": null, "notes": "BOS receives NYK 2028 2nd if it lands picks 46-60.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "BOS", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "BOS 2029 1st traded to POR. POR gets most and least favorable of BOS/MIL/POR pool; WAS gets middle.", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2029, "round": "2nd", "originalTeam": "OKC", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS receives OKC 2029 2nd.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2030 1st.", "condition": null },
+        { "year": 2030, "round": "2nd", "originalTeam": "BKN", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS receives BKN 2030 2nd (via HOU).", "condition": null },
+        { "year": 2030, "round": "2nd", "originalTeam": "CHA", "currentHolder": "BOS", "protection": "56-60", "swapCondition": null, "notes": "BOS receives CHA 2030 2nd (top-55 protected) via Celtics-Hornets Xavier Tillman trade (Feb 5, 2026). Conveyed only if picks 56-60.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2031 2nd.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "BOS", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "BOS retains own 2032 1st.", "condition": null }
       ]
     },
     "BKN": {
       "name": "Brooklyn Nets",
       "abbr": "BKN",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN retains own 2026 1st round pick.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "BKN",
-          "currentHolder": "MIA",
-          "protection": "top-55",
-          "swapCondition": null,
-          "notes": "BKN 2026 2nd traded to Heat (top-55 protected). If pick lands top-55, BKN keeps it and obligation to MIA is extinguished.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "LAC",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives from Celtics/Pacers/Hawks/Heat/Clippers/Spurs 2026 2nd distribution. Nets receive pick from remaining pool after Grizzlies take most favorable.",
-          "condition": "pool_2026_2nd_celtics_group"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": "HOU holds swap right: HOU can swap own 2027 1st for BKN's 2027 1st if BKN pick is more favorable.",
-          "notes": "HOU-BKN trade (6/26/2024). Houston controls swap right — if BKN 2027 1st is more favorable than HOU's own, HOU can swap.",
-          "condition": "swap_hou_bkn_2027"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "NYK",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives NYK 2027 1st round pick.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "BKN",
-          "currentHolder": "POR",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN 2027 2nd goes to POR (via trade chain).",
-          "condition": null
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": "NYK has swap right with BKN 2028 1st.",
-          "notes": "BKN 2028 1st: Two most favorable picks from BKN/PHI(9-30 if PHI conveys 1st to OKC by 2026)/PHX. PHI conveys 1-8 to OKC if applicable. BKN retains best picks in pool.",
-          "condition": "pool_bkn_phi_phx_2028"
-        },
-        {
-          "year": 2028,
-          "round": "2nd",
-          "originalTeam": "NYK",
-          "currentHolder": "BKN",
-          "protection": "46-60",
-          "swapCondition": null,
-          "notes": "BKN receives NYK 2028 2nd if it falls in picks 46-60 (via ORL to PHX to BKN chain).",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN retains own 2029 1st.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives LEAST FAVORABLE of DAL/HOU/PHX 2029 1st pool. HOU gets 2 most favorable of the three.",
-          "condition": "pool_hou_dal_phx_2029"
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN retains own 2030 1st.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN retains own 2031 1st.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN retains own 2032 1st.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "DEN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives DEN 2032 1st round pick (Nuggets-Nets Hunter Tyson trade, Feb 5, 2026).",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives DEN 2032 2nd round pick (Nuggets-Nets Hunter Tyson trade, Feb 5, 2026). Nets acquired Hunter Tyson + DEN 2032 2nd.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "2nd",
-          "originalTeam": "TOR",
-          "currentHolder": "BKN",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BKN receives TOR 2032 2nd round pick via Raptors-Nets-Clippers three-team Chris Paul trade (Feb 5, 2026). Nets acquired Ochai Agbaji + TOR 2032 2nd + cash.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "BKN", "currentHolder": "MIA", "protection": "top-55", "swapCondition": null, "notes": "BKN 2026 2nd traded to Heat (top-55 protected). If top-55, BKN keeps it.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "LAC", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives pick from Celtics/Pacers group 2026 2nd pool.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "BKN", "currentHolder": "HOU", "protection": null, "swapCondition": "HOU holds swap right — if BKN 2027 1st is more favorable, HOU can swap.", "notes": "HOU-BKN trade (6/26/2024). Houston controls swap right.", "condition": "swap_hou_bkn_2027" },
+        { "year": 2027, "round": "1st", "originalTeam": "NYK", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives NYK 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "BKN", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "BKN 2027 2nd goes to POR.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": "NYK has swap right with BKN 2028 1st. Two most favorable of BKN/PHI(9-30)/PHX go to BKN.", "notes": "BKN 2028 1st is best of BKN/PHI(9-30)/PHX pool. PHI 1-8 goes to OKC.", "condition": "pool_bkn_phi_phx_2028" },
+        { "year": 2028, "round": "2nd", "originalTeam": "NYK", "currentHolder": "BKN", "protection": "46-60", "swapCondition": null, "notes": "BKN receives NYK 2028 2nd if picks 46-60.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "HOU", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives LEAST FAVORABLE of HOU/DAL/PHX 2029 1st pool. HOU gets 2 most favorable.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2030, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "BKN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "DEN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives DEN 2032 1st (Nuggets-Nets Hunter Tyson trade, Feb 5, 2026).", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "DEN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives DEN 2032 2nd (Nuggets-Nets Hunter Tyson trade, Feb 5, 2026).", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "TOR", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "BKN receives TOR 2032 2nd via Raptors-Nets-Clippers Chris Paul trade (Feb 5, 2026).", "condition": null }
       ]
     },
     "CHA": {
       "name": "Charlotte Hornets",
       "abbr": "CHA",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2026 1st. CHA receives LEAST FAVORABLE pick in Wizards/Suns/Magic/Grizzlies/Hornets scenario — the least favorable of MEM own, ORL, and least favorable of WAS(top-8)/PHX.",
-          "condition": "pool_was_phx_orl_mem_cha_2026"
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "CHA",
-          "currentHolder": "SAC",
-          "protection": "31-55",
-          "swapCondition": null,
-          "notes": "CHA 2026 2nd: Kings receive if it lands 31-55; Pistons receive if it lands 56-60. Obligation to non-receiving team extinguished.",
-          "condition": "pool_cha_2026_2nd_sac_det"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2027 1st.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "ORL",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA receives LEAST FAVORABLE of ORL/BOS 2027 2nds via Hornets-Magic Tyus Jones trade (Feb 4, 2026). Hornets received Jones + least favorable of Magic's or Celtics' 2027 2nd.",
-          "condition": "pool_orl_bos_2027_2nd"
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2028 1st.",
-          "condition": null
-        },
-        {
-          "year": 2028,
-          "round": "2nd",
-          "originalTeam": "ORL",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA receives ORL 2028 2nd round pick via Hornets-Magic Tyus Jones trade (Feb 4, 2026).",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2029 1st.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "ATL",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA receives MOST FAVORABLE of ATL/MIA 2029 2nd picks via Thunder-Hornets Ousmane Dieng trade (Feb 4, 2026). OKC traded most favorable of Hawks/Heat 2029 2nd to CHA.",
-          "condition": "pool_atl_mia_2029_2nd"
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2030 1st.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "2nd",
-          "originalTeam": "CHA",
-          "currentHolder": "BOS",
-          "protection": "top-55",
-          "swapCondition": null,
-          "notes": "CHA 2030 2nd traded to BOS (top-55 protected) via Celtics-Hornets Xavier Tillman trade (Feb 5, 2026). BOS only receives if pick falls 56-60.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2031 1st.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "CHA",
-          "currentHolder": "CHA",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHA retains own 2032 1st.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2026 1st. Receives LEAST FAVORABLE of MEM/ORL/WAS(top-8)/PHX pool.", "condition": "pool_was_phx_orl_mem_cha_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "CHA", "currentHolder": "SAC", "protection": "31-55", "swapCondition": null, "notes": "CHA 2026 2nd: SAC receives if 31-55; DET receives if 56-60.", "condition": "pool_cha_2026_2nd_sac_det" },
+        { "year": 2027, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "ORL", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA receives LEAST FAVORABLE of ORL/BOS 2027 2nds via Hornets-Magic Tyus Jones trade (Feb 4, 2026).", "condition": "pool_orl_bos_2027_2nd" },
+        { "year": 2028, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2028 1st.", "condition": null },
+        { "year": 2028, "round": "2nd", "originalTeam": "ORL", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA receives ORL 2028 2nd via Hornets-Magic Tyus Jones trade (Feb 4, 2026).", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "ATL", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA receives MOST FAVORABLE of ATL/MIA 2029 2nds via Thunder-Hornets Dieng trade (Feb 4, 2026).", "condition": "pool_atl_mia_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2030 1st.", "condition": null },
+        { "year": 2030, "round": "2nd", "originalTeam": "CHA", "currentHolder": "BOS", "protection": "top-55", "swapCondition": null, "notes": "CHA 2030 2nd traded to BOS (top-55 protected) via Celtics-Hornets Xavier Tillman trade (Feb 5, 2026).", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "CHA", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "CHA retains own 2032 1st.", "condition": null }
       ]
     },
     "CHI": {
       "name": "Chicago Bulls",
       "abbr": "CHI",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "POR",
-          "currentHolder": "CHI",
-          "protection": "top-14",
-          "swapCondition": null,
-          "notes": "CHI receives POR 2026 1st (top-14 protected). If pick lands top-14, Trail Blazers owe Bulls POR 2027 1st (top-14 protected instead). CHI-POR trade.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "NYK",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives MOST FAVORABLE of NYK/MIN/POR/NOP 2026 2nd round picks. Knicks receive least favorable of NYK/MIN; Spurs receive least favorable of POR/NOP; Wizards receive second-least of the four. (Knicks/Timberwolves/Trail Blazers/Pelicans distribution)",
-          "condition": "pool_nyk_min_por_nop_2026_2nd"
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives LEAST FAVORABLE of DEN/GSW 2026 2nd picks via Bulls-Timberwolves Ayo Dosunmu trade (Feb 5, 2026). Bulls acquired Rob Dillingham + Leonard Miller + least favorable DEN/GSW 2026 2nd + CLE 2027 2nd + most favorable MIN/GSW 2031 + most favorable PHX/HOU 2032 2nd.",
-          "condition": "pool_den_gsw_2026_2nd"
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "POR",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives most favorable of POR/NOP 2026 2nd (part of NYK/MIN/POR/NOP pool where CHI gets overall most favorable). See also Celtics-Bulls Simons trade: Bulls receive most favorable of POR/NOP/MIN/NYK 2026 2nd.",
-          "condition": "pool_nyk_min_por_nop_2026_2nd"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "POR",
-          "currentHolder": "CHI",
-          "protection": "top-14",
-          "swapCondition": null,
-          "notes": "If POR 2026 1st (top-14 protected) is NOT conveyed, POR owes CHI their 2027 1st (top-14 protected) instead.",
-          "condition": "rollover_por_2026_to_2027"
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives DEN 2027 2nd via three-team Cavaliers-Kings-Bulls trade (Feb 1, 2026 Ellis/Schröder deal). Bulls acquired Dario Saric + DEN 2027 2nd (from Cavaliers) + least favorable DET/MIL/NYK 2029 2nd (from Kings).",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "CLE",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives CLE 2027 2nd round pick via Bulls-Timberwolves Ayo Dosunmu trade (Feb 5, 2026).",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "BUL",
-          "currentHolder": "DAL",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI 2027 2nd traded to Mavericks via Mavericks-Wizards-Hornets Anthony Davis/Khris Middleton three-team trade (Feb 5, 2026). DAL received CHI 2027 2nd among other assets.",
-          "condition": null
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "CHI",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI retains own 2028 1st.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "CHI",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI retains own 2029 1st.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "DET",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives LEAST FAVORABLE of DET/MIL/NYK 2029 2nd picks via three-team Cavaliers-Kings-Bulls trade (Feb 1, 2026). Kings sent least favorable of those three to Bulls.",
-          "condition": "pool_det_mil_nyk_2029_2nd"
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "CHI",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI retains own 2030 1st.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "CHI",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI retains own 2031 1st.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives DEN 2031 2nd round pick via Bulls-Hornets Coby White trade (Feb 4, 2026). Bulls acquired Collin Sexton + Ousmane Dieng + DEN 2031 2nd + NYK 2031 2nd.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "2nd",
-          "originalTeam": "NYK",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives NYK 2031 2nd round pick via Bulls-Hornets Coby White trade (Feb 4, 2026).",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "2nd",
-          "originalTeam": "MIN",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives MOST FAVORABLE of MIN/GSW 2031 picks via Bulls-Timberwolves Ayo Dosunmu trade (Feb 5, 2026).",
-          "condition": "pool_min_gsw_2031"
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "CHI",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI retains own 2032 1st.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "2nd",
-          "originalTeam": "PHX",
-          "currentHolder": "CHI",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI receives MOST FAVORABLE of PHX/HOU 2032 2nd picks via Bulls-Timberwolves Ayo Dosunmu trade (Feb 5, 2026).",
-          "condition": "pool_phx_hou_2032_2nd"
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "POR", "currentHolder": "CHI", "protection": "top-14", "swapCondition": null, "notes": "CHI receives POR 2026 1st (top-14 protected). If top-14, rolls to POR 2027 1st (top-14 protected).", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "NYK", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives MOST FAVORABLE of NYK/MIN/POR/NOP 2026 2nds.", "condition": "pool_nyk_min_por_nop_2026_2nd" },
+        { "year": 2026, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives LEAST FAVORABLE of DEN/GSW 2026 2nds (Bulls-Timberwolves Ayo Dosunmu trade Feb 5, 2026).", "condition": "pool_den_gsw_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "POR", "currentHolder": "CHI", "protection": "top-14", "swapCondition": null, "notes": "Rolls forward if POR 2026 1st not conveyed (top-14 protected).", "condition": "rollover_por_2026_to_2027" },
+        { "year": 2027, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives DEN 2027 2nd via three-team Cavaliers-Kings-Bulls trade (Feb 1, 2026).", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "CLE", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives CLE 2027 2nd via Bulls-Timberwolves Ayo Dosunmu trade (Feb 5, 2026).", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "CHI", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "CHI 2027 2nd traded to Mavericks via Mavericks-Wizards-Hornets three-team trade (Feb 5, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "CHI", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "CHI", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "DET", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives LEAST FAVORABLE of DET/MIL/NYK 2029 2nds via Cavaliers-Kings-Bulls trade (Feb 1, 2026).", "condition": "pool_det_mil_nyk_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "CHI", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "CHI", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives DEN 2031 2nd via Bulls-Hornets Coby White trade (Feb 4, 2026).", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "NYK", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives NYK 2031 2nd via Bulls-Hornets Coby White trade (Feb 4, 2026).", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "MIN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives MOST FAVORABLE of MIN/GSW 2031 2nds via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).", "condition": "pool_min_gsw_2031" },
+        { "year": 2032, "round": "1st", "originalTeam": "CHI", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "PHX", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CHI receives MOST FAVORABLE of PHX/HOU 2032 2nds via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).", "condition": "pool_phx_hou_2032_2nd" }
+      ]
+    },
+    "CLE": {
+      "name": "Cleveland Cavaliers",
+      "abbr": "CLE",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": "Part of SAS/ATL/CLE/MIN/UTA swap scenario. CLE pick involved in determining ATL's 2026 pick.", "notes": "CLE retains own 2026 1st. Less favorable of CLE and more favorable of UTA(top-8)/MIN goes to ATL pool.", "condition": "pool_spurs_hawks_jazz_min_cle" },
+        { "year": 2026, "round": "2nd", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2026 2nd.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "CLE", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "CLE 2027 2nd traded to CHI via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": "ATL gets more favorable of ATL vs (less favorable of CLE/UTA) for 2028 swap.", "notes": "CLE 2028 1st in swap pool with ATL and UTA.", "condition": "pool_atl_cle_uta_2028" },
+        { "year": 2028, "round": "2nd", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2028 2nd.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2029 2nd.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "CLE", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "CLE 2031 2nd goes to UTA (Jazz received via various trades).", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "CLE", "currentHolder": "CLE", "protection": null, "swapCondition": null, "notes": "CLE retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "DAL": {
+      "name": "Dallas Mavericks",
+      "abbr": "DAL",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "DAL", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "DAL 2026 2nd in OKC/DAL/PHI pool: OKC gets most favorable, HOU gets 2nd, SAS gets least.", "condition": "pool_okc_dal_phi_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "CHI", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL receives CHI 2027 2nd via Mavericks-Wizards-Hornets three-team trade (Feb 5, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL's pick is more favorable.", "notes": "DAL 2028 1st in swap with OKC. OKC holds swap right (OKC-DAL trade 2/8/2024).", "condition": "swap_okc_dal_2028" },
+        { "year": 2028, "round": "2nd", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2028 2nd.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "DAL", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "DAL 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets least.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2029, "round": "2nd", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2029 2nd.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "DAL", "currentHolder": "DAL", "protection": null, "swapCondition": null, "notes": "DAL retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "DEN": {
+      "name": "Denver Nuggets",
+      "abbr": "DEN",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "DEN", "currentHolder": "DEN", "protection": null, "swapCondition": null, "notes": "DEN retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "DEN", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "DEN 2026 2nd split in Celtics group pool and DEN/GSW pool going to ATL and CHI.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2026, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "DEN 2026 2nd; CHI receives least favorable of DEN/GSW 2026 2nds.", "condition": "pool_den_gsw_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "DEN", "currentHolder": "OKC", "protection": "top-5", "swapCondition": null, "notes": "DEN 2027 1st (top-5 protected) to OKC. Conveys 2+ years after DEN sends a 1st to ORL. If never conveyed, becomes DEN 2029 2nd.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "DEN", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "DEN 2027 2nd to BOS via Celtics-Bulls Simons trade (Feb 5, 2026).", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "DEN 2027 2nd to CHI via Cavaliers-Kings-Bulls trade (Feb 1, 2026).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "DEN", "currentHolder": "DEN", "protection": null, "swapCondition": null, "notes": "DEN retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "DEN", "currentHolder": "OKC", "protection": "top-5", "swapCondition": null, "notes": "DEN 2029 1st (top-5 protected) to OKC. Conditional timing: 2+ years after DEN conveys first 1st to OKC. OKC-DEN trade 9/9/2023.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "DEN", "currentHolder": "DEN", "protection": null, "swapCondition": null, "notes": "DEN retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "DEN", "currentHolder": "DEN", "protection": null, "swapCondition": null, "notes": "DEN retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "DEN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "DEN 2031 2nd to CHI via Bulls-Hornets Coby White trade (Feb 4, 2026).", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "DEN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "DEN 2032 1st to BKN via Nuggets-Nets Hunter Tyson trade (Feb 5, 2026).", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "DEN", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "DEN 2032 2nd to BKN via Nuggets-Nets Hunter Tyson trade (Feb 5, 2026).", "condition": null }
+      ]
+    },
+    "DET": {
+      "name": "Detroit Pistons",
+      "abbr": "DET",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "DET", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "DET 2026 2nd in pool with MIL/ORL: BOS gets most favorable, ORL gets 2nd-most, NOP gets least.", "condition": "pool_det_mil_orl_2026_2nd" },
+        { "year": 2026, "round": "2nd", "originalTeam": "CHA", "currentHolder": "DET", "protection": "56-60", "swapCondition": null, "notes": "DET receives CHA 2026 2nd if it lands picks 56-60.", "condition": "pool_cha_2026_2nd_sac_det" },
+        { "year": 2027, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "DET", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "DET 2029 2nd in pool with MIL/NYK: most favorable to SAC, then to CHI as least favorable per Cavaliers-Kings-Bulls chain.", "condition": "pool_det_mil_nyk_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "DET", "currentHolder": "DET", "protection": null, "swapCondition": null, "notes": "DET retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "GSW": {
+      "name": "Golden State Warriors",
+      "abbr": "GSW",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "GSW", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "GSW 2026 2nd in pool with DEN: CHI gets least favorable via Bulls-Timberwolves trade (Feb 5, 2026).", "condition": "pool_den_gsw_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "GSW", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "GSW 2031 2nd in pool with MIN: CHI gets most favorable via Bulls-Timberwolves trade (Feb 5, 2026).", "condition": "pool_min_gsw_2031" },
+        { "year": 2032, "round": "1st", "originalTeam": "GSW", "currentHolder": "GSW", "protection": null, "swapCondition": null, "notes": "GSW retains own 2032 1st.", "condition": null }
       ]
     },
     "HOU": {
       "name": "Houston Rockets",
       "abbr": "HOU",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": "top-4",
-          "swapCondition": null,
-          "notes": "Top-4 protected for HOU. If HOU finishes #5-30 → pick enters OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (via McCain trade 02/05/2026), WAS gets least favorable.",
-          "condition": "pool_okc_lac_hou_2026"
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "Houston's own 2026 2nd round pick. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "CHI",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "CHI 2026 2nd round pick via Washington (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025).",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "WAS",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "WAS 2026 2nd round pick (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025).",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "Houston's own 2027 1st round pick. HOU also holds swap right with BKN — if BKN's 2027 1st is more favorable, HOU can swap. HOU–BKN trade 6/26/2024.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "PHX",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain). HOU–BKN trade 6/26/2024.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "BKN",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": "HOU can swap their own 2027 1st for BKN's 2027 1st if BKN pick is more favorable.",
-          "notes": "HOU holds swap right — if BKN 2027 1st is more favorable than HOU's own, HOU can swap. HOU–BKN trade 6/26/2024.",
-          "condition": "swap_hou_bkn_2027"
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "Houston's own 2028 1st round pick. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "HOU receives 2 MOST favorable of HOU/DAL/PHX 2029 1sts. BKN receives least favorable of the three. BKN–HOU trade 6/26/2024.",
-          "condition": "pool_hou_dal_phx_2029"
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "DAL",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "DAL 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024.",
-          "condition": "pool_hou_dal_phx_2029"
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "PHX",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "PHX 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst. BKN–HOU trade 6/26/2024.",
-          "condition": "pool_hou_dal_phx_2029"
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "SAC",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "SAC 2029 2nd round pick via Cam Whitmore trade. Conditional — verify specifics on RealGM.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "2nd",
-          "originalTeam": "WAS",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "WAS 2029 2nd round pick (Cam Whitmore trade). Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "Houston's own 2030 1st round pick. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "HOU",
-          "currentHolder": "HOU",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "Houston's own 2031 1st round pick. Unprotected.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": "top-4", "swapCondition": null, "notes": "Top-4 protected for HOU. If #5-30 → enters OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (McCain trade 02/05/2026), WAS gets least.", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "HOU retains own 2026 2nd.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "CHI", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "CHI 2026 2nd via Washington (Cam Whitmore trade HOU-WAS-NOP 6/26/2025).", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "WAS", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "WAS 2026 2nd (Cam Whitmore trade HOU-WAS-NOP 6/26/2025).", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": "HOU holds swap right: if BKN 2027 1st is more favorable than HOU's own, HOU can swap. HOU-BKN trade 6/26/2024.", "notes": "HOU own 2027 1st plus BKN swap right.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "PHX", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain). HOU-BKN trade 6/26/2024.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "BKN", "currentHolder": "HOU", "protection": null, "swapCondition": "HOU can swap own 2027 1st for BKN 2027 1st if BKN pick is more favorable.", "notes": "HOU holds swap right on BKN 2027 1st.", "condition": "swap_hou_bkn_2027" },
+        { "year": 2028, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "HOU retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "HOU receives 2 MOST favorable of HOU/DAL/PHX 2029 1sts. BKN receives least. BKN-HOU trade 6/26/2024.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2029, "round": "1st", "originalTeam": "DAL", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "DAL 2029 1st in HOU/DAL/PHX pool — HOU gets 2 most favorable.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2029, "round": "1st", "originalTeam": "PHX", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "PHX 2029 1st in HOU/DAL/PHX pool — HOU gets 2 most favorable.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2029, "round": "2nd", "originalTeam": "SAC", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "SAC 2029 2nd via Cam Whitmore trade.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "WAS", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "WAS 2029 2nd (Cam Whitmore trade). Unprotected.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "HOU retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "HOU", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "HOU retains own 2031 1st.", "condition": null }
+      ]
+    },
+    "IND": {
+      "name": "Indiana Pacers",
+      "abbr": "IND",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "IND", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "IND 2026 2nd in Celtics/Pacers/Hawks/Heat/Clippers group pool. MEM gets most favorable of LAC or best of BOS/IND/MIA; Nets and Nuggets get others.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "IND", "currentHolder": "IND", "protection": null, "swapCondition": null, "notes": "IND retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "LAC": {
+      "name": "Los Angeles Clippers",
+      "abbr": "LAC",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "LAC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "LAC 2026 1st (Paul George trade) in OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (McCain trade), WAS gets least.", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "LAC", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "LAC 2026 2nd in Celtics group pool. ATL receives least favorable of ATL/LAC 2026 2nds.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "LAC", "currentHolder": "OKC", "protection": null, "swapCondition": "OKC can swap more favorable of OKC own/DEN(6-30) for LAC 2027 1st. OKC-LAC trade 2/5/2026.", "notes": "OKC holds swap right on LAC 2027 1st.", "condition": "swap_okc_lac_2027" },
+        { "year": 2027, "round": "2nd", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "LAC", "currentHolder": "LAC", "protection": null, "swapCondition": null, "notes": "LAC retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "LAL": {
+      "name": "Los Angeles Lakers",
+      "abbr": "LAL",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2026 2nd.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "LAL", "currentHolder": "LAL", "protection": null, "swapCondition": null, "notes": "LAL retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "LAL", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "LAL 2032 2nd traded to ATL via Lakers-Hawks trade (Feb 5, 2026 Luke Kennard deal).", "condition": null }
+      ]
+    },
+    "MEM": {
+      "name": "Memphis Grizzlies",
+      "abbr": "MEM",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM 2026 1st in WAS/PHX/ORL/MEM/CHA pool: MEM receives most favorable of MEM/ORL and least favorable of WAS(top-8)/PHX. CHA gets least overall.", "condition": "pool_was_phx_orl_mem_cha_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "IND", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM receives most favorable of LAC or best of BOS/IND/MIA 2026 2nds from Celtics group pool.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "MEM", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MEM retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "MIA": {
+      "name": "Miami Heat",
+      "abbr": "MIA",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "BKN", "currentHolder": "MIA", "protection": "top-55", "swapCondition": null, "notes": "MIA receives BKN 2026 2nd (top-55 protected). If BKN pick lands top-55, BKN keeps it.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "MIA", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "MIA 2026 2nd in Celtics group pool going to MEM.", "condition": "pool_2026_2nd_celtics_group" },
+        { "year": 2027, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": "Most favorable of ATL/MIA 2029 2nd goes to CHA via OKC (Thunder-Hornets Dieng deal Feb 4, 2026).", "notes": "MIA 2029 2nd in pool with ATL; most favorable goes to CHA.", "condition": "pool_atl_mia_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "MIA", "currentHolder": "MIA", "protection": null, "swapCondition": null, "notes": "MIA retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "MIL": {
+      "name": "Milwaukee Bucks",
+      "abbr": "MIL",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL 2026 1st in pool with ATL/NOP. ATL gets most favorable of MIL/NOP; MIL gets less favorable.", "condition": "pool_mil_nop_atl" },
+        { "year": 2026, "round": "2nd", "originalTeam": "MIL", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "MIL 2026 2nd in pool with DET/ORL: BOS gets most favorable, ORL gets 2nd, NOP gets least.", "condition": "pool_det_mil_orl_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "MIL", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "MIL 2029 1st in BOS/MIL/POR pool: POR gets most and least favorable; WAS gets middle.", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2029, "round": "2nd", "originalTeam": "MIL", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "MIL 2029 2nd in pool with DET/NYK: most favorable to SAC, then CHI gets least favorable.", "condition": "pool_det_mil_nyk_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "MIL", "currentHolder": "MIL", "protection": null, "swapCondition": null, "notes": "MIL retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "MIN": {
+      "name": "Minnesota Timberwolves",
+      "abbr": "MIN",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": "Part of SAS/ATL/CLE/MIN/UTA swap scenario. MIN pick involved in pool determining ATL's 2026 pick.", "notes": "MIN own 2026 1st — part of complex 5-team swap scenario involving SAS, ATL, CLE, UTA.", "condition": "pool_spurs_hawks_jazz_min_cle" },
+        { "year": 2026, "round": "2nd", "originalTeam": "MIN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "MIN 2026 2nd in NYK/MIN/POR/NOP pool: CHI gets most favorable.", "condition": "pool_nyk_min_por_nop_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2027 1st.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "MIN", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "MIN 2031 2nd in pool with GSW: CHI gets most favorable via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).", "condition": "pool_min_gsw_2031" },
+        { "year": 2032, "round": "1st", "originalTeam": "MIN", "currentHolder": "MIN", "protection": null, "swapCondition": null, "notes": "MIN retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "NOP": {
+      "name": "New Orleans Pelicans",
+      "abbr": "NOP",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "NOP", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "NOP 2026 1st in pool with MIL: ATL gets most favorable of MIL/NOP, MIL gets less favorable.", "condition": "pool_mil_nop_atl" },
+        { "year": 2026, "round": "2nd", "originalTeam": "NOP", "currentHolder": "BOS", "protection": null, "swapCondition": null, "notes": "NOP 2026 2nd in pool with DET/MIL/ORL: NOP gets least favorable.", "condition": "pool_det_mil_orl_2026_2nd" },
+        { "year": 2026, "round": "2nd", "originalTeam": "POR", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP receives pick from NYK/MIN/POR/NOP 2026 2nd pool (SAS gets least of POR/NOP, WAS gets 2nd-least overall).", "condition": "pool_nyk_min_por_nop_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "NOP", "currentHolder": "NOP", "protection": null, "swapCondition": null, "notes": "NOP retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "NYK": {
+      "name": "New York Knicks",
+      "abbr": "NYK",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "NYK", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "NYK 2026 2nd in NYK/MIN/POR/NOP pool: CHI gets most favorable, NYK gets least favorable of NYK/MIN.", "condition": "pool_nyk_min_por_nop_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "NYK", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "NYK 2027 1st traded to BKN.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": "NYK has swap right with BKN 2028 1st.", "notes": "NYK retains own 2028 1st. Also holds swap right on BKN's 2028 1st.", "condition": null },
+        { "year": 2028, "round": "2nd", "originalTeam": "NYK", "currentHolder": "BOS", "protection": "46-60", "swapCondition": null, "notes": "NYK 2028 2nd traded split: BOS receives if 46-60; BKN receives if 46-60 (separate obligations).", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "NYK", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "NYK 2029 2nd in pool with DET/MIL: most favorable to SAC, least to CHI.", "condition": "pool_det_mil_nyk_2029_2nd" },
+        { "year": 2030, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2030 1st.", "condition": null },
+        { "year": 2030, "round": "2nd", "originalTeam": "NYK", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "NYK 2030 2nd traded to ATL via Hawks-Trail Blazers trade (Feb 1, 2026).", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "NYK", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "NYK 2031 2nd traded to CHI via Bulls-Hornets Coby White trade (Feb 4, 2026).", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "NYK", "currentHolder": "NYK", "protection": null, "swapCondition": null, "notes": "NYK retains own 2032 1st.", "condition": null }
       ]
     },
     "OKC": {
       "name": "Oklahoma City Thunder",
       "abbr": "OKC",
       "picks": [
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "WAS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC own 2026 1st enters the 3-pick pool (OKC/LAC/HOU). Least favorable of the three goes to WAS. OKC receives most favorable; PHI receives 2nd-most via McCain trade 02/05/2026.",
-          "condition": "pool_okc_lac_hou_2026"
-        },
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "LAC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "LAC 2026 1st (Paul George trade) enters pool. OKC gets most favorable of OKC/LAC/HOU pool. PHI gets 2nd-most (McCain trade 02/05/2026). WAS gets least.",
-          "condition": "pool_okc_lac_hou_2026"
-        },
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "PHI",
-          "currentHolder": "OKC",
-          "protection": "top-4 (2026 and 2027)",
-          "swapCondition": null,
-          "notes": "PHI 2026 1st (top-4 protected 2026 and 2027). If not conveyed by 2027, becomes PHI 2027 2nd round pick. OKC–PHI trade 9/2/2022.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "1st",
-          "originalTeam": "UTA",
-          "currentHolder": "OKC",
-          "protection": "top-8 (extinguishes if not conveyed)",
-          "swapCondition": null,
-          "notes": "UTA 2026 1st (top-8 protected). Obligation extinguishes entirely if not conveyed — no rollover. OKC–UTA trade 7/7/2021.",
-          "condition": null
-        },
-        {
-          "year": 2026,
-          "round": "2nd",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC gets most favorable of OKC/DAL/PHI 2nd round picks. HOU gets 2nd-most; SAS gets least.",
-          "condition": "pool_okc_dal_phi_2026_2nd"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": "OKC has swap right with LAC 2027 1st — can swap more favorable of OKC own / DEN (positions 6-30) for LAC 2027 1st. OKC–LAC trade 2/5/2026.",
-          "notes": "OKC own 2027 1st. OKC also has swap right with LAC using more favorable of OKC/DEN(6-30).",
-          "condition": "swap_okc_lac_2027"
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "DEN",
-          "currentHolder": "OKC",
-          "protection": "top-5",
-          "swapCondition": null,
-          "notes": "DEN 2027 1st (top-5 protected). Conveys only 2+ years after DEN conveys a 1st to ORL. If never conveyed, becomes DEN 2029 2nd. OKC–DEN trade 9/9/2023.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "SAS",
-          "currentHolder": "OKC",
-          "protection": "top-16",
-          "swapCondition": null,
-          "notes": "SAS 2027 1st (top-16 protected, via SAC). Acquired at 2025 draft. Rolls forward if not conveyed. OKC–SAC–SAS trade 6/25/2025.",
-          "condition": null
-        },
-        {
-          "year": 2027,
-          "round": "1st",
-          "originalTeam": "LAC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": "OKC can swap more favorable of OKC own / DEN (6-30) for LAC 2027 1st. OKC–LAC trade 2/5/2026.",
-          "notes": "OKC holds swap right on LAC 2027 1st — can use more favorable of OKC own pick or DEN pick (if DEN finishes 6-30). OKC–LAC trade 2/5/2026.",
-          "condition": "swap_okc_lac_2027"
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
-          "notes": "OKC own 2028 1st. OKC also holds DAL 2028 swap right.",
-          "condition": "swap_okc_dal_2028"
-        },
-        {
-          "year": 2028,
-          "round": "1st",
-          "originalTeam": "DAL",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
-          "notes": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024.",
-          "condition": "swap_okc_dal_2028"
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC own 2029 1st. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2029,
-          "round": "1st",
-          "originalTeam": "DEN",
-          "currentHolder": "OKC",
-          "protection": "top-5 (conditional timing)",
-          "swapCondition": null,
-          "notes": "DEN 2029 1st (top-5 protected). Conveys only if and 2+ years after DEN conveys a 1st to OKC. Conditional timing. OKC–DEN trade 9/9/2023.",
-          "condition": null
-        },
-        {
-          "year": 2030,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC own 2030 1st. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2031,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC own 2031 1st. Unprotected.",
-          "condition": null
-        },
-        {
-          "year": 2032,
-          "round": "1st",
-          "originalTeam": "OKC",
-          "currentHolder": "OKC",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "OKC own 2032 1st. Unprotected.",
-          "condition": null
-        }
+        { "year": 2026, "round": "1st", "originalTeam": "OKC", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "OKC own 2026 1st in 3-pick pool (OKC/LAC/HOU). OKC receives most favorable; PHI receives 2nd-most (McCain trade 02/05/2026); WAS gets least.", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "1st", "originalTeam": "LAC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "LAC 2026 1st (Paul George trade) in OKC/LAC/HOU pool.", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "1st", "originalTeam": "PHI", "currentHolder": "OKC", "protection": "top-4 (2026 and 2027)", "swapCondition": null, "notes": "PHI 2026 1st (top-4 protected 2026/2027). If not conveyed by 2027, becomes PHI 2027 2nd. OKC-PHI trade 9/2/2022.", "condition": null },
+        { "year": 2026, "round": "1st", "originalTeam": "UTA", "currentHolder": "OKC", "protection": "top-8 (extinguishes if not conveyed)", "swapCondition": null, "notes": "UTA 2026 1st (top-8 protected). Extinguishes entirely if not conveyed — no rollover. OKC-UTA trade 7/7/2021.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "OKC gets most favorable of OKC/DAL/PHI 2026 2nds. HOU gets 2nd-most; SAS gets least.", "condition": "pool_okc_dal_phi_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": "OKC holds swap right with LAC 2027 1st using more favorable of OKC own/DEN(6-30). OKC-LAC trade 2/5/2026.", "notes": "OKC own 2027 1st plus swap right vs LAC.", "condition": "swap_okc_lac_2027" },
+        { "year": 2027, "round": "1st", "originalTeam": "DEN", "currentHolder": "OKC", "protection": "top-5", "swapCondition": null, "notes": "DEN 2027 1st (top-5 protected). Conveys 2+ years after DEN conveys a 1st to ORL. If never, becomes DEN 2029 2nd. OKC-DEN trade 9/9/2023.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "SAS", "currentHolder": "OKC", "protection": "top-16", "swapCondition": null, "notes": "SAS 2027 1st (top-16 protected, via SAC). Acquired at 2025 draft. OKC-SAC-SAS trade 6/25/2025.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "LAC", "currentHolder": "OKC", "protection": null, "swapCondition": "OKC can swap more favorable of OKC own/DEN(6-30) for LAC 2027 1st.", "notes": "OKC holds swap right on LAC 2027 1st. OKC-LAC trade 2/5/2026.", "condition": "swap_okc_lac_2027" },
+        { "year": 2028, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable.", "notes": "OKC own 2028 1st plus DAL swap right. OKC-DAL trade 2/8/2024.", "condition": "swap_okc_dal_2028" },
+        { "year": 2028, "round": "1st", "originalTeam": "DAL", "currentHolder": "OKC", "protection": null, "swapCondition": "OKC can swap own 2028 1st for DAL 2028 1st if DAL's pick is more favorable.", "notes": "OKC holds swap right on DAL 2028 1st. OKC-DAL trade 2/8/2024.", "condition": "swap_okc_dal_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "OKC own 2029 1st. Unprotected.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "DEN", "currentHolder": "OKC", "protection": "top-5 (conditional timing)", "swapCondition": null, "notes": "DEN 2029 1st (top-5 protected). Conditional: 2+ years after DEN conveys first 1st to OKC. OKC-DEN trade 9/9/2023.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "OKC own 2030 1st. Unprotected.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "OKC own 2031 1st. Unprotected.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "OKC", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "OKC own 2032 1st. Unprotected.", "condition": null }
+      ]
+    },
+    "ORL": {
+      "name": "Orlando Magic",
+      "abbr": "ORL",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "ORL", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "ORL 2026 1st in WAS/PHX/ORL/MEM/CHA pool: MEM gets most favorable of MEM/ORL; CHA gets least.", "condition": "pool_was_phx_orl_mem_cha_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL 2026 2nd in pool with DET/MIL: ORL receives 2nd-most favorable (BOS gets most, NOP gets least).", "condition": "pool_det_mil_orl_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "ORL", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "ORL 2027 2nd in pool with BOS: CHA gets least favorable (Hornets-Magic Tyus Jones trade Feb 4, 2026).", "condition": "pool_orl_bos_2027_2nd" },
+        { "year": 2028, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2028 1st.", "condition": null },
+        { "year": 2028, "round": "2nd", "originalTeam": "ORL", "currentHolder": "CHA", "protection": null, "swapCondition": null, "notes": "ORL 2028 2nd traded to CHA via Hornets-Magic Tyus Jones trade (Feb 4, 2026).", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "ORL", "currentHolder": "ORL", "protection": null, "swapCondition": null, "notes": "ORL retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "PHI": {
+      "name": "Philadelphia 76ers",
+      "abbr": "PHI",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "PHI", "currentHolder": "OKC", "protection": "top-4 (2026 and 2027)", "swapCondition": null, "notes": "PHI 2026 1st (top-4 protected 2026/2027) to OKC. If not conveyed by 2027, becomes PHI 2027 2nd. OKC-PHI trade 9/2/2022.", "condition": null },
+        { "year": 2026, "round": "1st", "originalTeam": "HOU", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI receives 2nd-most favorable pick from OKC/LAC/HOU 2026 pool via McCain trade (Feb 5, 2026).", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "PHI", "currentHolder": "OKC", "protection": null, "swapCondition": null, "notes": "PHI 2026 2nd in OKC/DAL/PHI pool: OKC gets most favorable, HOU gets 2nd, SAS gets least.", "condition": "pool_okc_dal_phi_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2027 2nd (would be owed to OKC if 2026 PHI 1st not conveyed, but that obligation is structured differently).", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "PHI", "currentHolder": "BKN", "protection": "9-30 if conveyed to OKC by 2026", "swapCondition": null, "notes": "PHI 2028 1st: if PHI 1-8, goes to OKC; if PHI 9-30, goes to BKN pool. Two most favorable of BKN/PHI(9-30)/PHX go to BKN.", "condition": "pool_bkn_phi_phx_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "PHI", "currentHolder": "PHI", "protection": null, "swapCondition": null, "notes": "PHI retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "PHX": {
+      "name": "Phoenix Suns",
+      "abbr": "PHX",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "PHX", "currentHolder": "MEM", "protection": null, "swapCondition": null, "notes": "PHX 2026 1st in WAS/PHX/ORL/MEM/CHA pool. WAS gets more favorable of WAS(top-8)/PHX; MEM gets most of MEM/ORL; CHA gets least.", "condition": "pool_was_phx_orl_mem_cha_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "PHX", "currentHolder": "PHX", "protection": null, "swapCondition": null, "notes": "PHX retains own 2026 2nd.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "PHX", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain) to HOU. HOU-BKN trade 6/26/2024.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "PHX", "currentHolder": "PHX", "protection": null, "swapCondition": null, "notes": "PHX retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "PHX", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "PHX 2028 1st in BKN/PHI(9-30)/PHX pool: BKN gets two most favorable. OKC gets PHI(1-8).", "condition": "pool_bkn_phi_phx_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "PHX", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "PHX 2029 1st in HOU/DAL/PHX pool: HOU gets 2 most favorable, BKN gets least. BKN-HOU trade 6/26/2024.", "condition": "pool_hou_dal_phx_2029" },
+        { "year": 2030, "round": "1st", "originalTeam": "PHX", "currentHolder": "PHX", "protection": null, "swapCondition": null, "notes": "PHX retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "PHX", "currentHolder": "PHX", "protection": null, "swapCondition": null, "notes": "PHX retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "PHX", "currentHolder": "PHX", "protection": null, "swapCondition": null, "notes": "PHX retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "PHX", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "PHX 2032 2nd in pool with HOU: CHI gets most favorable via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).", "condition": "pool_phx_hou_2032_2nd" }
+      ]
+    },
+    "POR": {
+      "name": "Portland Trail Blazers",
+      "abbr": "POR",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "POR", "currentHolder": "CHI", "protection": "top-14", "swapCondition": null, "notes": "POR 2026 1st (top-14 protected) owed to CHI. If top-14, rolls to POR 2027 1st (top-14 protected).", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "POR", "currentHolder": "CHI", "protection": null, "swapCondition": null, "notes": "POR 2026 2nd in NYK/MIN/POR/NOP pool: CHI gets most favorable.", "condition": "pool_nyk_min_por_nop_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "POR", "currentHolder": "CHI", "protection": "top-14", "swapCondition": null, "notes": "POR 2027 1st (top-14 protected) owed to CHI if 2026 pick not conveyed.", "condition": "rollover_por_2026_to_2027" },
+        { "year": 2027, "round": "2nd", "originalTeam": "BKN", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR receives BKN 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "POR", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "BOS", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR receives most and least favorable of BOS/MIL/POR 2029 1st pool; WAS gets the middle pick.", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2029, "round": "1st", "originalTeam": "MIL", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR receives most and least favorable of BOS/MIL/POR pool. MIL 2029 1st part of this pool.", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2029, "round": "1st", "originalTeam": "POR", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR own 2029 1st — part of BOS/MIL/POR pool where POR gets most and least favorable.", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2030, "round": "1st", "originalTeam": "POR", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "POR", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "POR", "currentHolder": "POR", "protection": null, "swapCondition": null, "notes": "POR retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "SAC": {
+      "name": "Sacramento Kings",
+      "abbr": "SAC",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "CHA", "currentHolder": "SAC", "protection": "31-55", "swapCondition": null, "notes": "SAC receives CHA 2026 2nd if it lands 31-55; DET receives if 56-60.", "condition": "pool_cha_2026_2nd_sac_det" },
+        { "year": 2027, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2029 1st.", "condition": null },
+        { "year": 2029, "round": "2nd", "originalTeam": "DET", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC receives most favorable of DET/MIL/NYK 2029 2nds via Cavaliers-Kings-Bulls chain. SAC then sends least favorable to CHI.", "condition": "pool_det_mil_nyk_2029_2nd" },
+        { "year": 2029, "round": "2nd", "originalTeam": "SAC", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "SAC 2029 2nd traded to HOU via Cam Whitmore trade.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "SAC", "currentHolder": "SAC", "protection": null, "swapCondition": null, "notes": "SAC retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "SAS": {
+      "name": "San Antonio Spurs",
+      "abbr": "SAS",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": "SAS receives most favorable of SAS or ATL 2026 1st in 5-team swap scenario (SAS/ATL/CLE/MIN/UTA).", "notes": "SAS gets best of SAS or ATL pick in complex 5-team swap pool.", "condition": "pool_spurs_hawks_jazz_min_cle" },
+        { "year": 2026, "round": "2nd", "originalTeam": "NOP", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS receives least favorable of OKC/DAL/PHI 2026 2nds. Also receives some picks from NYK/MIN/POR/NOP pool (least of POR/NOP).", "condition": "pool_okc_dal_phi_2026_2nd" },
+        { "year": 2027, "round": "1st", "originalTeam": "SAS", "currentHolder": "ATL", "protection": null, "swapCondition": null, "notes": "SAS 2027 1st goes to ATL as part of the 2026 swap arrangement.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": "SAS holds swap right on BOS 2028 1st (positions 2-30).", "notes": "SAS retains own 2028 1st plus holds swap right on BOS 2028 1st.", "condition": "swap_bos_sas_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "SAS", "currentHolder": "SAS", "protection": null, "swapCondition": null, "notes": "SAS retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "TOR": {
+      "name": "Toronto Raptors",
+      "abbr": "TOR",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2026 1st.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2026 2nd.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "TOR", "currentHolder": "TOR", "protection": null, "swapCondition": null, "notes": "TOR retains own 2032 1st.", "condition": null },
+        { "year": 2032, "round": "2nd", "originalTeam": "TOR", "currentHolder": "BKN", "protection": null, "swapCondition": null, "notes": "TOR 2032 2nd traded to BKN via Raptors-Nets-Clippers Chris Paul three-team trade (Feb 5, 2026).", "condition": null }
+      ]
+    },
+    "UTA": {
+      "name": "Utah Jazz",
+      "abbr": "UTA",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "UTA", "currentHolder": "OKC", "protection": "top-8 (extinguishes if not conveyed)", "swapCondition": null, "notes": "UTA 2026 1st (top-8 protected) to OKC. Extinguishes entirely if not conveyed — no rollover. OKC-UTA trade 7/7/2021.", "condition": null },
+        { "year": 2026, "round": "2nd", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2026 2nd.", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": "UTA 2028 1st in swap pool with ATL and CLE. ATL gets more favorable of ATL vs (less favorable of CLE/UTA).", "notes": "UTA 2028 1st in ATL/CLE/UTA swap pool.", "condition": "pool_atl_cle_uta_2028" },
+        { "year": 2029, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2029 1st.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2031 1st.", "condition": null },
+        { "year": 2031, "round": "2nd", "originalTeam": "CLE", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA receives CLE 2031 2nd via various trade arrangements.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "UTA", "currentHolder": "UTA", "protection": null, "swapCondition": null, "notes": "UTA retains own 2032 1st.", "condition": null }
+      ]
+    },
+    "WAS": {
+      "name": "Washington Wizards",
+      "abbr": "WAS",
+      "picks": [
+        { "year": 2026, "round": "1st", "originalTeam": "WAS", "currentHolder": "MEM", "protection": "top-8", "swapCondition": null, "notes": "WAS 2026 1st (top-8 protected) in WAS/PHX/ORL/MEM/CHA pool. If top-8, WAS keeps it; if 9-30, goes to pool where MEM gets most favorable of MEM/ORL and WAS(9-30)/PHX.", "condition": "pool_was_phx_orl_mem_cha_2026" },
+        { "year": 2026, "round": "1st", "originalTeam": "OKC", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS receives LEAST FAVORABLE of OKC/LAC/HOU 2026 1st pool (McCain trade Feb 5, 2026 chain).", "condition": "pool_okc_lac_hou_2026" },
+        { "year": 2026, "round": "2nd", "originalTeam": "WAS", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "WAS 2026 2nd traded to HOU via Cam Whitmore trade (HOU-WAS-NOP 6/26/2025).", "condition": null },
+        { "year": 2027, "round": "1st", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2027 1st.", "condition": null },
+        { "year": 2027, "round": "2nd", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2027 2nd.", "condition": null },
+        { "year": 2028, "round": "1st", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2028 1st.", "condition": null },
+        { "year": 2029, "round": "1st", "originalTeam": "BOS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS receives the middle pick from BOS/MIL/POR 2029 1st pool (POR gets most and least; WAS gets middle).", "condition": "pool_bos_mil_por_2029" },
+        { "year": 2029, "round": "2nd", "originalTeam": "WAS", "currentHolder": "HOU", "protection": null, "swapCondition": null, "notes": "WAS 2029 2nd traded to HOU via Cam Whitmore trade.", "condition": null },
+        { "year": 2030, "round": "1st", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2030 1st.", "condition": null },
+        { "year": 2031, "round": "1st", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2031 1st.", "condition": null },
+        { "year": 2032, "round": "1st", "originalTeam": "WAS", "currentHolder": "WAS", "protection": null, "swapCondition": null, "notes": "WAS retains own 2032 1st.", "condition": null }
       ]
     }
   }
