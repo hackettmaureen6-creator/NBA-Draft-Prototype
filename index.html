@@ -22,11 +22,28 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 @keyframes slideIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
 @keyframes spin{to{transform:rotate(360deg)}}
-.pick-card{transition:transform 0.13s ease,box-shadow 0.13s ease,border-color 0.13s ease;cursor:pointer}
-.pick-card:hover{transform:translateY(-2px) scale(1.01)}
+@keyframes cardGlow{
+  0%,100%{box-shadow:0 0 10px var(--glow-a),0 4px 28px var(--glow-b),inset 0 0 0px transparent}
+  50%{box-shadow:0 0 28px var(--glow-a),0 6px 56px var(--glow-b),inset 0 0 14px var(--glow-c)}
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes pickGlow{
+  0%,100%{box-shadow:0 0 6px var(--pick-glow,transparent)}
+  50%{box-shadow:0 0 18px var(--pick-glow,transparent),0 2px 32px var(--pick-glow-b,transparent)}
+}
+.team-card-sel{transition:transform 0.14s ease;cursor:pointer}
+.team-card-sel:hover{transform:translateY(-4px) scale(1.04)}
+.team-card-live{animation:cardGlow 2.8s ease-in-out infinite}
+.pick-card{transition:transform 0.13s ease,border-color 0.13s ease;cursor:pointer;animation:pickGlow 3s ease-in-out infinite}
+.pick-card:hover{transform:translateY(-3px) scale(1.02)}
 .team-btn{transition:all 0.12s ease;cursor:pointer}
 .year-pill{transition:all 0.12s ease;cursor:pointer}
 .view-tab{transition:all 0.12s ease;cursor:pointer}
+.gradient-bar{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:gradientShift 3s ease infinite}
 </style>
 </head>
 <body>
@@ -67,6 +84,18 @@ const TEAM_CFG={
   UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#002B5C",secondary:"#00471B"},
   WAS:{name:"Washington Wizards",   short:"Wizards",     primary:"#E31837",secondary:"#002B5C"},
 };
+
+// ── TEAM LOGO URLS (ESPN CDN) ─────────────────────────────────────────────────
+const ESPN_MAP={
+  ATL:'atl',BOS:'bos',BKN:'bkn',CHA:'cha',CHI:'chi',CLE:'cle',DAL:'dal',DEN:'den',
+  DET:'det',GSW:'gs',HOU:'hou',IND:'ind',LAC:'lac',LAL:'lal',MEM:'mem',MIA:'mia',
+  MIL:'mil',MIN:'min',NOP:'no',NYK:'ny',OKC:'okc',ORL:'orl',PHI:'phi',PHX:'phx',
+  POR:'por',SAC:'sac',SAS:'sa',TOR:'tor',UTA:'utah',WAS:'wsh',
+};
+function logoUrl(abbr){
+  const e=ESPN_MAP[abbr]||abbr.toLowerCase();
+  return `https://a.espncdn.com/i/teamlogos/nba/500/${e}.png`;
+}
 
 // ── PICK TYPE ────────────────────────────────────────────────────────────────
 function getPickType(pick,teamAbbr){
@@ -200,15 +229,17 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
   const isOwnHolder=pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
   return <div className="pick-card" onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
-    border:`2px solid ${isSelected||isLinked?cfg.border:'#1e1e2e'}`,
-    borderRadius:12,padding:'12px 14px',width:210,flexShrink:0,
+    border:`2px solid ${isSelected||isLinked?cfg.border:'#252535'}`,
+    borderRadius:14,padding:'12px 14px',width:210,flexShrink:0,
     position:'relative',overflow:'hidden',
-    boxShadow:isSelected?`0 0 26px ${cfg.border}55`:isLinked?`0 0 10px ${cfg.border}22`:'none',
+    '--pick-glow': isSelected?`${cfg.border}88`:isLinked?`${cfg.border}44`:`${cfg.border}22`,
+    '--pick-glow-b': isSelected?`${cfg.border}44`:isLinked?`${cfg.border}22`:'transparent',
     transform:isSelected?'scale(1.03)':'scale(1)',
   }}>
-    {isLinked&&!isSelected&&<div style={{position:'absolute',top:0,left:0,right:0,height:2,
-      background:`linear-gradient(90deg,transparent,${cfg.border},transparent)`,
-      animation:'pulse 1.5s ease-in-out infinite'}}/>}
+    <div className="gradient-bar" style={{position:'absolute',top:0,left:0,right:0,height:isSelected?3:2,
+      '--g1':isSelected?cfg.border+'cc':cfg.border+'44',
+      '--g2':cfg.border,opacity:isSelected?1:isLinked?0.9:0.4}}/>
+
     {/* ID + round badge */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
       <span style={{fontSize:11,fontFamily:'monospace',color:'#c0c0d0',fontWeight:700,letterSpacing:.3}}>{pickId}</span>
@@ -817,24 +848,41 @@ function TeamSelector({available,onSelect}){
       {ALL_TEAMS.map(abbr=>{
         const cfg=TEAM_CFG[abbr]||{primary:'#888',secondary:'#444',name:abbr,short:abbr};
         const isAvail=availSet.has(abbr);
-        return <div key={abbr} className={isAvail?'team-card-sel':''} onClick={isAvail?()=>onSelect(abbr):undefined}
+        const sec=cfg.secondary||cfg.primary;
+        return <div key={abbr}
+          className={isAvail?'team-card-sel team-card-live':''}
+          onClick={isAvail?()=>onSelect(abbr):undefined}
           style={{
-            background:isAvail?`${cfg.primary}28`:'#0d0d18',
-            border:`2px solid ${isAvail?cfg.primary:'#1a1a28'}`,
-            borderRadius:12,padding:'16px 12px',textAlign:'center',
-            boxShadow:isAvail?`0 0 22px ${cfg.primary}40`:'none',
-            opacity:isAvail?1:.22,
+            background:isAvail?`${cfg.primary}1a`:'#0b0b15',
+            border:`2px solid ${isAvail?cfg.primary+'99':'#181828'}`,
+            borderRadius:18,padding:'20px 12px 16px',textAlign:'center',
+            opacity:isAvail?1:.16,
             cursor:isAvail?'pointer':'default',
             position:'relative',overflow:'hidden',
+            '--glow-a':`${cfg.primary}66`,
+            '--glow-b':`${cfg.primary}33`,
+            '--glow-c':`${cfg.primary}18`,
           }}>
-          {isAvail&&<div style={{position:'absolute',top:0,left:0,right:0,height:3,
-            background:`linear-gradient(90deg,${cfg.primary},${cfg.secondary||cfg.primary})`}}/>}
-          <div style={{fontSize:22,fontWeight:900,color:isAvail?cfg.primary:'#555',
-            letterSpacing:.5,lineHeight:1,marginTop:isAvail?6:0}}>{abbr}</div>
-          <div style={{fontSize:11,color:isAvail?'#d0d0e8':'#2a2a3a',marginTop:5,
+          {/* Animated gradient top bar */}
+          {isAvail&&<div className="gradient-bar" style={{
+            position:'absolute',top:0,left:0,right:0,height:4,borderRadius:'18px 18px 0 0',
+            '--g1':cfg.primary,'--g2':sec,
+          }}/>}
+          {/* Team logo */}
+          <div style={{display:'flex',justifyContent:'center',marginBottom:8,marginTop:isAvail?4:0}}>
+            <img src={logoUrl(abbr)} alt={abbr} width={52} height={52}
+              style={{objectFit:'contain',
+                filter:isAvail?`drop-shadow(0 0 8px ${cfg.primary}88)`:'grayscale(1) opacity(0.15)',
+                transition:'filter 0.2s'}}
+              onError={e=>{e.currentTarget.style.display='none';}}
+            />
+          </div>
+          <div style={{fontSize:16,fontWeight:900,color:isAvail?'#fff':'#2a2a3a',
+            letterSpacing:.5,lineHeight:1}}>{abbr}</div>
+          <div style={{fontSize:10,color:isAvail?'#c8c8e0':'#1e1e2e',marginTop:4,
             fontWeight:600,letterSpacing:.3,lineHeight:1.3}}>{cfg.short||cfg.name}</div>
           {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:800,
-            letterSpacing:.5}}>VIEW PICKS →</div>}
+            letterSpacing:.8}}>VIEW PICKS →</div>}
         </div>;
       })}
     </div>
