@@ -635,54 +635,117 @@ function SimSlider({finish,setFinish,color,teamName}){
   </div>;
 }
 
-function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
+function LotterySimulator({activeTeam,tc,holdings,houFinish,setHouFinish,okcFinish,setOkcFinish}){
+  const [teamFinish,setTeamFinish]=useState(5);
+  const isHOU=activeTeam==='HOU';
+  const isOKC=activeTeam==='OKC';
+  const isHouOkc=isHOU||isOKC;
+  const finish=isHOU?houFinish:isOKC?okcFinish:teamFinish;
+  const setFinish=isHOU?setHouFinish:isOKC?setOkcFinish:setTeamFinish;
   const conveys=houFinish>4;
-  return <div style={{animation:'fadeUp 0.2s ease',maxWidth:560}}>
-    <div style={{fontSize:10,color:'#999',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:700}}>
-      🎰 What-If Lottery Simulator — 2026 Draft
+
+  // Find any protected picks this team holds (incoming or own)
+  const protectedPicks=holdings.filter(p=>p.protection);
+
+  return <div style={{animation:'fadeUp 0.2s ease',maxWidth:600}}>
+    <div style={{fontSize:11,color:'#999',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:700}}>
+      🎰 Lottery Simulator — 2026 Draft
     </div>
-    <SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" teamName="Houston Rockets"/>
-    <SimSlider finish={okcFinish} setFinish={setOkcFinish} color="#007AC1" teamName="OKC Thunder"/>
-    {/* P001 resolution */}
-    <div style={{background:'#0f0f1e',border:`2px solid ${conveys?'#f0a500':'#2ecc71'}`,
-      borderRadius:10,padding:14,marginBottom:12,transition:'border-color 0.3s'}}>
-      <div style={{fontSize:11,color:'#999',marginBottom:8,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
-        P001 — HOU 2026 1st · Resolution
+
+    {/* Active team slider — always shown */}
+    <SimSlider finish={finish} setFinish={setFinish} color={tc.primary} teamName={tc.name}/>
+
+    {/* Protected picks resolution for this team */}
+    {protectedPicks.length>0&&<div style={{marginBottom:12}}>
+      <div style={{fontSize:11,color:'#999',fontWeight:700,textTransform:'uppercase',letterSpacing:1,marginBottom:8}}>
+        PROTECTED PICK RESOLUTIONS
       </div>
-      {conveys?<>
-        <div style={{fontSize:12,color:'#f0a500',fontWeight:800,marginBottom:10}}>
-          ⚡ HOU finishes #{houFinish} → pick exits top-4 → CONVEYS into pool
+      {protectedPicks.map((pick,i)=>{
+        const pid=pick._id||`P${String(i+1).padStart(3,'0')}`;
+        const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
+        // Parse protection threshold from text like "Top-4 protected" or "Top-8 Protected"
+        const match=(pick.protection||'').match(/top-?(\d+)/i);
+        const threshold=match?parseInt(match[1]):null;
+        const withinProt=threshold?finish<=threshold:null;
+        return <div key={pid} style={{background:'#0f0f1e',
+          border:`2px solid ${withinProt===null?'#252535':withinProt?'#2ecc71':'#f0a500'}`,
+          borderRadius:10,padding:14,marginBottom:8,transition:'border-color 0.3s'}}>
+          <div style={{fontSize:11,color:'#aaa',fontWeight:700,marginBottom:6}}>
+            {pid} — <span style={{color:origCfg.primary}}>{pick.originalTeam}</span> {pick.year} {pick.round}
+            <span style={{fontSize:10,color:'#f0a500',marginLeft:8}}>{pick.protection}</span>
+          </div>
+          {withinProt===null
+            ?<div style={{fontSize:11,color:'#888'}}>Adjust finish to see resolution</div>
+            :withinProt
+              ?<div style={{fontSize:12,fontWeight:800,color:'#2ecc71'}}>
+                  ✅ Finish #{finish} — within protection. Pick stays / does not convey.
+                </div>
+              :<div style={{fontSize:12,fontWeight:800,color:'#f0a500'}}>
+                  ⚡ Finish #{finish} — outside protection threshold. Pick likely conveys.
+                </div>
+          }
+        </div>;
+      })}
+    </div>}
+
+    {/* HOU/OKC specific pool resolution */}
+    {isHouOkc&&<>
+      <div style={{fontSize:11,color:'#999',fontWeight:700,textTransform:'uppercase',letterSpacing:1,marginBottom:8}}>
+        PICK POOL RESOLUTIONS
+      </div>
+
+      {/* HOU slider (show alongside OKC if viewing OKC) */}
+      {isOKC&&<SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" teamName="Houston Rockets"/>}
+
+      {/* P001 pool */}
+      <div style={{background:'#0f0f1e',border:`2px solid ${conveys?'#f0a500':'#2ecc71'}`,
+        borderRadius:10,padding:14,marginBottom:10,transition:'border-color 0.3s'}}>
+        <div style={{fontSize:11,color:'#999',marginBottom:8,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+          P001 — HOU 2026 1st · OKC/LAC/HOU Pool Resolution
         </div>
-        <div style={{display:'flex',flexDirection:'column',gap:6}}>
-          {[['🥇','BEST → OKC','#007AC1','Most favorable of OKC/LAC/HOU pool'],
-            ['🥈','2nd → PHI','#4a9eff','via McCain trade 02/05/2026'],
-            ['🥉','WORST → WAS','#E31837','Washington Wizards'],
-          ].map(([icon,label,color,sub])=><div key={label} style={{display:'flex',alignItems:'center',gap:10,
-            padding:'8px 12px',background:`${color}18`,borderRadius:8,border:`1px solid ${color}44`}}>
-            <span style={{fontSize:16}}>{icon}</span>
-            <div>
-              <div style={{fontSize:11,fontWeight:800,color}}>{label}</div>
-              <div style={{fontSize:11,color:'#999'}}>{sub}</div>
-            </div>
-          </div>)}
+        {conveys?<>
+          <div style={{fontSize:12,color:'#f0a500',fontWeight:800,marginBottom:10}}>
+            ⚡ HOU finishes #{houFinish} → exits top-4 → CONVEYS into pool
+          </div>
+          <div style={{display:'flex',flexDirection:'column',gap:6}}>
+            {[['🥇','BEST → OKC','#007AC1','Most favorable of OKC/LAC/HOU pool'],
+              ['🥈','2nd → PHI','#4a9eff','via McCain trade 02/05/2026'],
+              ['🥉','WORST → WAS','#E31837','Washington Wizards'],
+            ].map(([icon,label,color,sub])=><div key={label} style={{display:'flex',alignItems:'center',gap:10,
+              padding:'8px 12px',background:`${color}18`,borderRadius:8,border:`1px solid ${color}44`}}>
+              <span style={{fontSize:16}}>{icon}</span>
+              <div>
+                <div style={{fontSize:11,fontWeight:800,color}}>{label}</div>
+                <div style={{fontSize:11,color:'#999'}}>{sub}</div>
+              </div>
+            </div>)}
+          </div>
+        </>:<div style={{fontSize:12,color:'#2ecc71',fontWeight:800}}>
+          ✅ HOU finishes #{houFinish} (top-4 protected) → HOU KEEPS the pick. Pool does not activate.
+        </div>}
+      </div>
+
+      {/* P021 UTA */}
+      <div style={{background:'#0f0f1e',border:'1px solid #252535',borderRadius:10,padding:14,marginBottom:12}}>
+        <div style={{fontSize:11,color:'#999',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+          P021 — UTA 2026 1st (Top-8 Protected) → OKC
         </div>
-      </>:<div style={{fontSize:12,color:'#2ecc71',fontWeight:800}}>
-        ✅ HOU finishes #{houFinish} (top-4 protected) → HOU KEEPS the pick. Pool does not activate.
-      </div>}
-    </div>
-    {/* P021 UTA resolution */}
-    <div style={{background:'#0f0f1e',border:'1px solid #252535',borderRadius:10,padding:14,marginBottom:12}}>
-      <div style={{fontSize:11,color:'#999',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
-        P021 — UTA 2026 1st (Top-8 Protected) → OKC
+        <div style={{fontSize:12,fontWeight:800,color:okcFinish<=8?'#f0a500':'#2ecc71'}}>
+          {okcFinish<=8
+            ?`⚡ OKC proxy #${okcFinish} → UTA likely top-8 → pick may NOT convey (obligation extinguishes)`
+            :`✅ If UTA finishes outside top-8 → pick conveys to OKC`}
+        </div>
+        <div style={{fontSize:11,color:'#777',marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
       </div>
-      <div style={{fontSize:12,fontWeight:800,color:okcFinish<=8?'#f0a500':'#2ecc71'}}>
-        {okcFinish<=8
-          ?`⚡ OKC proxy #${okcFinish} → UTA likely top-8 → pick may NOT convey (obligation extinguishes)`
-          :`✅ If UTA finishes outside top-8 → pick conveys to OKC`}
-      </div>
-      <div style={{fontSize:11,color:'#777',marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
-    </div>
-    <div style={{fontSize:11,color:'#777',fontStyle:'italic',lineHeight:1.6}}>
+    </>}
+
+    {protectedPicks.length===0&&!isHouOkc&&<div style={{background:'#0f0f1e',border:'1px solid #1e1e2e',
+      borderRadius:10,padding:16,textAlign:'center',color:'#555',fontSize:12}}>
+      No protected picks tracked for this team yet.<br/>
+      <span style={{fontSize:11,color:'#444'}}>Lottery odds above reflect a hypothetical finish position.</span>
+    </div>}
+
+    <div style={{fontSize:11,color:'#777',fontStyle:'italic',lineHeight:1.6,marginTop:8}}>
       Covers 2026 draft · Positions approximate · Always verify on RealGM for official resolution
     </div>
   </div>;
@@ -879,7 +942,7 @@ function App(){
     {/* ── VIEW TABS ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       gap:6,background:'#0a0a12',flexShrink:0}}>
-      {['cards','timeline','simulator'].filter(id=>id!=='simulator'||hasSimulator).map(id=>{
+      {['cards','timeline','simulator'].map(id=>{
         const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'}}[id];
         const isActive=activeView===id;
         return <button key={id} className="view-tab" onClick={()=>setActiveView(id)} style={{
@@ -924,7 +987,8 @@ function App(){
     </div>}
 
     {activeView==='simulator'&&<div style={{flex:1,padding:'20px',overflowY:'auto'}}>
-      <LotterySimulator houFinish={houFinish} setHouFinish={setHouFinish}
+      <LotterySimulator activeTeam={activeTeam} tc={tc} holdings={holdings}
+        houFinish={houFinish} setHouFinish={setHouFinish}
         okcFinish={okcFinish} setOkcFinish={setOkcFinish}/>
     </div>}
 
