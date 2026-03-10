@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA Draft Capital Explorer — HOU & OKC</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080810; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+@keyframes pulse { 0%,100%{opacity:.3}50%{opacity:1} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
+@keyframes slideIn { from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)} }
+@keyframes glow { 0%,100%{box-shadow:0 0 8px #CE114144}50%{box-shadow:0 0 22px #CE114188} }
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:#111}
+::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
+.pick-card:hover { transform: translateY(-2px) !important; }
+.year-btn:hover { border-color: #444 !important; }
+.tab-btn:hover { opacity: .85; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useMemo, useCallback } = React;
+
+// ── TEAM CONFIG ──────────────────────────────────────────────────────────────
+const TEAMS_CFG = {
+  HOU: { name:"Houston Rockets",      abbr:"HOU", primary:"#CE1141", secondary:"#C4CED4", bg:"#0a0005" },
+  OKC: { name:"Oklahoma City Thunder",abbr:"OKC", primary:"#007AC1", secondary:"#EF3B24", bg:"#00050a" },
+};
+
+const TEAM_COLORS = {
+  Houston:       "#CE1141", Oklahoma:      "#007AC1", Milwaukee:     "#00471B",
+  "New Orleans": "#C8102E", Atlanta:       "#E03A3E", Phoenix:       "#E56020",
+  Brooklyn:      "#aaaaaa", Dallas:        "#00538C", Chicago:       "#CE1141",
+  Washington:    "#E31837", Sacramento:    "#5A2D81", "LA Clippers": "#C8102E",
+  Philadelphia:  "#006BB6", Utah:          "#002B5C", Denver:        "#0E2240",
+  "San Antonio": "#C4CED4",
+};
+const abbr = (t) => ({ Houston:"HOU",Oklahoma:"OKC",Milwaukee:"MIL","New Orleans":"NOP",
+  Atlanta:"ATL",Phoenix:"PHX",Brooklyn:"BKN",Dallas:"DAL",Chicago:"CHI",
+  Washington:"WAS",Sacramento:"SAC","LA Clippers":"LAC",Philadelphia:"PHI",
+  Utah:"UTA",Denver:"DEN","San Antonio":"SAS" }[t] || t.slice(0,3).toUpperCase());
+
+// ── LOTTERY ODDS ─────────────────────────────────────────────────────────────
+const LOTTERY_ODDS = {
+  1:{top1:14.0,top4:52.1}, 2:{top1:13.4,top4:49.4}, 3:{top1:12.7,top4:46.3},
+  4:{top1:12.0,top4:43.0}, 5:{top1:10.5,top4:38.4}, 6:{top1:9.0,top4:33.1},
+  7:{top1:7.5,top4:27.5},  8:{top1:6.0,top4:22.0},  9:{top1:4.5,top4:16.5},
+  10:{top1:3.0,top4:11.0}, 11:{top1:2.0,top4:7.4},  12:{top1:1.5,top4:5.6},
+  13:{top1:1.0,top4:3.7},  14:{top1:0.5,top4:1.8},
+};
+
+// ── ALL PICKS DATA ───────────────────────────────────────────────────────────
+const ALL_PICKS = [
+  // HOU picks
+  {id:"P001",year:2026,round:"1st",orig:"Houston",owner:"Philadelphia",type:"protected",label:"Top-4 Protected",tag:"HOU",linked:["P018","P019"],condition:"pool3",
+   detail:"Top-4 protected for HOU. If HOU finishes #5-30 → enters OKC/LAC/HOU pool: OKC gets most favorable, PHI gets 2nd-most (via McCain trade 02/05/2026), WAS gets least favorable."},
+  {id:"P002",year:2026,round:"2nd",orig:"Houston",owner:"Houston",type:"own",label:"Own Pick",tag:"HOU",linked:[],condition:null,detail:"Houston's own 2026 2nd round pick. Unprotected."},
+  {id:"P003",year:2026,round:"1st",orig:"Milwaukee",owner:"Atlanta",type:"more-favorable",label:"More Favorable",tag:"HOU",linked:["P004"],condition:"milnop",detail:"ATL receives the MORE favorable of MIL 2026 1st and NOP 2026 1st."},
+  {id:"P004",year:2026,round:"1st",orig:"New Orleans",owner:"Milwaukee",type:"less-favorable",label:"Less Favorable",tag:"HOU",linked:["P003"],condition:"milnop",detail:"MIL receives the LESS favorable of the two. NOP holds swap right for MIL pick. DEN–MIL–NOP–OKC trade 11/23/2020; ATL–NOP trade 6/25/2025."},
+  {id:"P005",year:2026,round:"2nd",orig:"Chicago",owner:"Houston",type:"incoming",label:"Incoming",tag:"HOU",linked:[],condition:null,detail:"CHI 2026 2nd round pick via Washington (Cam Whitmore trade, HOU–WAS–NOP 6/26/2025)."},
+  {id:"P006",year:2026,round:"2nd",orig:"Washington",owner:"Houston",type:"incoming",label:"Incoming",tag:"HOU",linked:[],condition:null,detail:"WAS 2026 2nd round pick (Cam Whitmore trade)."},
+  {id:"P007",year:2027,round:"1st",orig:"Houston",owner:"Houston",type:"own",label:"Own Pick",tag:"HOU",linked:["P009"],condition:null,detail:"Houston's own 2027 1st round pick. HOU also holds swap right with BKN (P009)."},
+  {id:"P008",year:2027,round:"1st",orig:"Phoenix",owner:"Houston",type:"incoming",label:"Incoming",tag:"HOU",linked:[],condition:null,detail:"PHX 2027 1st (unprotected, via BKN — KD/Harden trade chain). HOU–BKN trade 6/26/2024."},
+  {id:"P009",year:2027,round:"1st",orig:"Brooklyn",owner:"Houston",type:"swap",label:"Swap Right",tag:"HOU",linked:["P007"],condition:"swap",detail:"HOU can swap their own 2027 1st for BKN's 2027 1st if BKN pick is more favorable."},
+  {id:"P010",year:2028,round:"1st",orig:"Houston",owner:"Houston",type:"own",label:"Own Pick",tag:"HOU",linked:[],condition:null,detail:"Houston's own 2028 1st round pick. Unprotected."},
+  {id:"P011",year:2029,round:"1st",orig:"Houston",owner:"Houston",type:"more-favorable",label:"Pool: 2 Best",tag:"HOU",linked:["P012","P013"],condition:"houdalpHX",detail:"HOU receives 2 MOST favorable of HOU/DAL/PHX 2029 1sts. BKN receives least. BKN–HOU trade 6/26/2024."},
+  {id:"P012",year:2029,round:"1st",orig:"Dallas",owner:"Houston",type:"more-favorable",label:"Pool: 2 Best",tag:"HOU",linked:["P011","P013"],condition:"houdalpHX",detail:"DAL 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst."},
+  {id:"P013",year:2029,round:"1st",orig:"Phoenix",owner:"Houston",type:"more-favorable",label:"Pool: 2 Best",tag:"HOU",linked:["P011","P012"],condition:"houdalpHX",detail:"PHX 2029 1st in HOU/DAL/PHX pool. HOU gets 2 most favorable; BKN gets worst."},
+  {id:"P014",year:2029,round:"2nd",orig:"Sacramento",owner:"Houston",type:"incoming",label:"Conditional",tag:"HOU",linked:[],condition:null,detail:"SAC 2029 2nd (via Cam Whitmore trade). Conditional — verify specifics on RealGM."},
+  {id:"P015",year:2029,round:"2nd",orig:"Washington",owner:"Houston",type:"incoming",label:"Incoming",tag:"HOU",linked:[],condition:null,detail:"WAS 2029 2nd (Cam Whitmore trade). Unprotected."},
+  {id:"P016",year:2030,round:"1st",orig:"Houston",owner:"Houston",type:"own",label:"Own Pick",tag:"HOU",linked:[],condition:null,detail:"Houston's own 2030 1st round pick. Unprotected."},
+  {id:"P017",year:2031,round:"1st",orig:"Houston",owner:"Houston",type:"own",label:"Own Pick",tag:"HOU",linked:[],condition:null,detail:"Houston's own 2031 1st round pick. Unprotected."},
+  // OKC picks
+  {id:"P018",year:2026,round:"1st",orig:"Oklahoma",owner:"Washington",type:"less-favorable",label:"Less Favorable",tag:"OKC",linked:["P001","P019"],condition:"pool3",detail:"OKC own 2026 1st enters the 3-pick pool (OKC/LAC/HOU). Least favorable of the three goes to WAS."},
+  {id:"P019",year:2026,round:"1st",orig:"LA Clippers",owner:"Oklahoma",type:"more-favorable",label:"Most Favorable",tag:"OKC",linked:["P001","P018"],condition:"pool3",detail:"LAC 2026 1st (Paul George trade) enters pool. OKC gets most favorable of OKC/LAC/HOU pool. PHI gets 2nd-most (McCain trade 02/05/2026). WAS gets least."},
+  {id:"P020",year:2026,round:"1st",orig:"Philadelphia",owner:"Oklahoma",type:"protected",label:"Top-4 Protected",tag:"OKC",linked:[],condition:null,detail:"PHI 2026 1st (top-4 protected 2026 and 2027). If not conveyed by 2027, becomes PHI 2027 2nd round pick. OKC–PHI trade 9/2/2022."},
+  {id:"P021",year:2026,round:"1st",orig:"Utah",owner:"Oklahoma",type:"protected",label:"Top-8 Protected",tag:"OKC",linked:[],condition:null,detail:"UTA 2026 1st (top-8 protected). Obligation extinguishes entirely if not conveyed. OKC–UTA trade 7/7/2021."},
+  {id:"P022",year:2026,round:"2nd",orig:"Oklahoma",owner:"Oklahoma",type:"more-favorable",label:"Most Favorable",tag:"OKC",linked:[],condition:null,detail:"OKC gets most favorable of OKC/DAL/PHI 2nd round picks. HOU gets 2nd-most; SAS gets least."},
+  {id:"P023",year:2027,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:["P026"],condition:null,detail:"OKC own 2027 1st. OKC also has swap right with LAC (P026) using more favorable of OKC/DEN(6-30)."},
+  {id:"P024",year:2027,round:"1st",orig:"Denver",owner:"Oklahoma",type:"protected",label:"Top-5 Protected",tag:"OKC",linked:[],condition:null,detail:"DEN 2027 1st (top-5 protected). Conveys only 2+ years after DEN conveys a 1st to ORL. If never conveyed, becomes DEN 2029 2nd. OKC–DEN trade 9/9/2023."},
+  {id:"P025",year:2027,round:"1st",orig:"San Antonio",owner:"Oklahoma",type:"protected",label:"Top-16 Protected",tag:"OKC",linked:[],condition:null,detail:"SAS 2027 1st (top-16 protected, via SAC). Acquired at 2025 draft. Rolls forward if not conveyed. OKC–SAC–SAS trade 6/25/2025."},
+  {id:"P026",year:2027,round:"1st",orig:"LA Clippers",owner:"Oklahoma",type:"swap",label:"Swap Right",tag:"OKC",linked:["P023"],condition:"swap",detail:"OKC can swap more favorable of OKC own / DEN (6-30) for LAC 2027 1st. OKC–LAC trade 2/5/2026."},
+  {id:"P027",year:2028,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:["P028"],condition:null,detail:"OKC own 2028 1st. OKC also holds DAL 2028 swap right (P028)."},
+  {id:"P028",year:2028,round:"1st",orig:"Dallas",owner:"Oklahoma",type:"swap",label:"Swap Right",tag:"OKC",linked:["P027"],condition:"swap",detail:"OKC can swap own 2028 1st for DAL 2028 1st if DAL pick is more favorable. OKC–DAL trade 2/8/2024."},
+  {id:"P029",year:2029,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:[],condition:null,detail:"OKC own 2029 1st. Unprotected."},
+  {id:"P030",year:2029,round:"1st",orig:"Denver",owner:"Oklahoma",type:"protected",label:"Top-5 Protected",tag:"OKC",linked:[],condition:null,detail:"DEN 2029 1st (top-5 protected). Conveys only if and 2+ years after DEN conveys a 1st to OKC. Conditional timing. OKC–DEN trade 9/9/2023."},
+  {id:"P031",year:2030,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:[],condition:null,detail:"OKC own 2030 1st. Unprotected."},
+  {id:"P032",year:2031,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:[],condition:null,detail:"OKC own 2031 1st. Unprotected."},
+  {id:"P033",year:2032,round:"1st",orig:"Oklahoma",owner:"Oklahoma",type:"own",label:"Own Pick",tag:"OKC",linked:[],condition:null,detail:"OKC own 2032 1st. Unprotected."},
+];
+
+const TYPE_STYLES = {
+  "own":            {bg:"#CE1141",border:"#FF6B8A",text:"#fff",icon:"🏀"},
+  "incoming":       {bg:"#1a4a2e",border:"#2ecc71",text:"#2ecc71",icon:"⬇️"},
+  "protected":      {bg:"#7a4f00",border:"#f0a500",text:"#f0a500",icon:"🛡️"},
+  "more-favorable": {bg:"#0d2d5c",border:"#4a9eff",text:"#4a9eff",icon:"⚖️"},
+  "less-favorable": {bg:"#3d1a00",border:"#ff8c42",text:"#ff8c42",icon:"⚖️"},
+  "swap":           {bg:"#2d0d5c",border:"#b44aff",text:"#b44aff",icon:"🔄"},
+};
+
+// ── BASKETBALL SVG ───────────────────────────────────────────────────────────
+function Ball({size=28}) {
+  return <svg width={size} height={size} viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="48" fill="#E8621A" stroke="#c04a00" strokeWidth="3"/>
+    <path d="M50 2 Q70 30 70 50 Q70 70 50 98" fill="none" stroke="#c04a00" strokeWidth="3.5"/>
+    <path d="M50 2 Q30 30 30 50 Q30 70 50 98" fill="none" stroke="#c04a00" strokeWidth="3.5"/>
+    <path d="M2 50 Q30 30 50 30 Q70 30 98 50" fill="none" stroke="#c04a00" strokeWidth="3.5"/>
+    <path d="M2 50 Q30 70 50 70 Q70 70 98 50" fill="none" stroke="#c04a00" strokeWidth="3.5"/>
+  </svg>;
+}
+
+// ── PICK CARD ────────────────────────────────────────────────────────────────
+function PickCard({pick, isSelected, isLinked, onClick}) {
+  const s = TYPE_STYLES[pick.type] || TYPE_STYLES.own;
+  const isSelf = pick.orig === pick.owner;
+  const oc = TEAM_COLORS[pick.orig] || "#888";
+  const owc = TEAM_COLORS[pick.owner] || "#2ecc71";
+  return <div className="pick-card" onClick={()=>onClick(pick)} style={{
+    background: isSelected ? s.bg : "#181828",
+    border:`2px solid ${isSelected||isLinked ? s.border : "#252535"}`,
+    borderRadius:12, padding:"11px 13px", cursor:"pointer",
+    transition:"all 0.18s", minWidth:152, position:"relative", overflow:"hidden",
+    transform: isSelected?"scale(1.04)":isLinked?"scale(1.01)":"scale(1)",
+    boxShadow: isSelected?`0 0 24px ${s.border}55`:isLinked?`0 0 10px ${s.border}33`:"none",
+  }}>
+    {isLinked && !isSelected && <div style={{position:"absolute",top:0,left:0,right:0,height:2,
+      background:`linear-gradient(90deg,transparent,${s.border},transparent)`,animation:"pulse 1.5s ease-in-out infinite"}}/>}
+    <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}>
+      <span style={{fontSize:9,fontFamily:"monospace",color:"#aaa",fontWeight:700}}>{pick.id}</span>
+      <span style={{fontSize:10,color:s.text,fontWeight:700,background:s.bg,
+        border:`1px solid ${s.border}`,borderRadius:4,padding:"1px 5px"}}>{pick.round}</span>
+    </div>
+    <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:7}}>
+      <Ball size={20}/>
+      <div>
+        <div style={{fontSize:13,fontWeight:800,color:oc,letterSpacing:.5}}>{abbr(pick.orig)}</div>
+        {!isSelf && <div style={{fontSize:10,color:"#aaa"}}>→ <span style={{color:owc}}>{abbr(pick.owner)}</span></div>}
+      </div>
+    </div>
+    <div style={{fontSize:9,color:s.text,fontWeight:700,textTransform:"uppercase",letterSpacing:.4}}>
+      {s.icon} {pick.label}
+    </div>
+    {pick.linked.length>0 && <div style={{marginTop:4,fontSize:8,color:"#aaa"}}>🔗 {pick.linked.join(", ")}</div>}
+  </div>;
+}
+
+// ── FLOW DIAGRAMS ────────────────────────────────────────────────────────────
+function FlowBox({label,sub,color,bold,dim}) {
+  return <div style={{background:`${color}18`,border:`${bold?"2":"1"}px solid ${color}${bold?"":"66"}`,
+    borderRadius:8,padding:"7px 12px",minWidth:100}}>
+    <div style={{fontSize:11,color,fontWeight:bold?800:600}}>{label}</div>
+    {sub && <div style={{fontSize:9,color:"#aaa",marginTop:2}}>{sub}</div>}
+    {dim && <div style={{fontSize:9,color:"#aaa",marginTop:2}}>{dim}</div>}
+  </div>;
+}
+
+function Arrow({label,color="#555"}) {
+  return <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"0 4px"}}>
+    <div style={{fontSize:18,color}}>→</div>
+    {label && <div style={{fontSize:8,color:"#aaa",textAlign:"center",maxWidth:60}}>{label}</div>}
+  </div>;
+}
+
+function FlowDiagram({pick, houFinish, okcFinish}) {
+  if (!pick.condition) return null;
+
+  if (pick.condition === "pool3") {
+    const houConveys = houFinish > 4;
+    return <div style={{marginTop:14}}>
+      <div style={{fontSize:10,color:"#888",marginBottom:8,textTransform:"uppercase",letterSpacing:1}}>
+        OKC / LAC / HOU 2026 Pool {houConveys ? "— HOU pick CONVEYS 🟡" : "— HOU pick STAYS 🔴"}
+      </div>
+      <div style={{fontSize:10,color:houConveys?"#f0a500":"#CE1141",marginBottom:10,fontWeight:700}}>
+        {houConveys
+          ? `HOU finishes #${houFinish} → pick enters pool → OKC gets best, PHI gets 2nd, WAS gets worst`
+          : `HOU finishes #${houFinish} (top-4) → HOU keeps pick, pool doesn't activate`}
+      </div>
+      {houConveys && <div style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center"}}>
+        <FlowBox label="OKC own 2026 1st" color="#007AC1" sub="P018"/>
+        <FlowBox label="LAC 2026 1st" color="#C8102E" sub="P019 (PG trade)"/>
+        <FlowBox label="HOU 2026 1st" color="#CE1141" sub={`P001 (#${houFinish})`}/>
+        <Arrow label="rank all 3" color="#f0a500"/>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label="BEST → OKC" color="#007AC1" bold sub="Oklahoma City Thunder ✓"/>
+          <FlowBox label="2nd → PHI" color="#006BB6" bold sub="via McCain trade 2/5/2026"/>
+          <FlowBox label="WORST → WAS" color="#E31837" sub="Washington Wizards"/>
+        </div>
+      </div>}
+    </div>;
+  }
+
+  if (pick.condition === "milnop") {
+    return <div style={{marginTop:14}}>
+      <div style={{fontSize:10,color:"#888",marginBottom:8,textTransform:"uppercase",letterSpacing:1}}>MIL / NOP Pick Flow</div>
+      <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label="MIL 2026 1st" color="#00471B" sub="P003"/>
+          <FlowBox label="NOP 2026 1st" color="#C8102E" sub="P004"/>
+        </div>
+        <Arrow label="⚖️ compare" color="#4a9eff"/>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label="MORE Favorable → ATL" color="#E03A3E" bold sub="Higher lottery position"/>
+          <FlowBox label="LESS Favorable → MIL" color="#00471B" bold sub="NOP holds swap right"/>
+        </div>
+      </div>
+      <div style={{marginTop:7,fontSize:9,color:"#aaa"}}>DEN–MIL–NOP–OKC 11/23/2020 · ATL–NOP 6/25/2025</div>
+    </div>;
+  }
+
+  if (pick.condition === "swap") {
+    return <div style={{marginTop:14}}>
+      <div style={{fontSize:10,color:"#888",marginBottom:8,textTransform:"uppercase",letterSpacing:1}}>Swap Right</div>
+      <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label={`${abbr(pick.orig)} own 1st`} color={TEAM_COLORS[pick.linked[0]]||"#888"}/>
+          <FlowBox label={`${abbr(pick.orig)} 1st`} color={TEAM_COLORS[pick.orig]||"#888"} sub="swap target"/>
+        </div>
+        <Arrow label="🔄 choose best" color="#b44aff"/>
+        <FlowBox label="Take more favorable" color="#b44aff" bold sub="Full optionality"/>
+      </div>
+    </div>;
+  }
+
+  if (pick.condition === "houdalpHX") {
+    return <div style={{marginTop:14}}>
+      <div style={{fontSize:10,color:"#888",marginBottom:8,textTransform:"uppercase",letterSpacing:1}}>2029 HOU/DAL/PHX Pool</div>
+      <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label="HOU 2029 1st" color="#CE1141" sub="P011"/>
+          <FlowBox label="DAL 2029 1st" color="#00538C" sub="P012"/>
+          <FlowBox label="PHX 2029 1st" color="#E56020" sub="P013"/>
+        </div>
+        <Arrow label="rank all 3" color="#4a9eff"/>
+        <div style={{display:"flex",flexDirection:"column",gap:5}}>
+          <FlowBox label="2 BEST → HOU ✓✓" color="#CE1141" bold/>
+          <FlowBox label="WORST → BKN" color="#aaaaaa" sub="BKN–HOU trade 6/26/2024"/>
+        </div>
+      </div>
+    </div>;
+  }
+
+  return null;
+}
+
+// ── TIMELINE VIEW ────────────────────────────────────────────────────────────
+function Timeline({picks, activeTeam, onPickClick, selectedPick}) {
+  const years = [...new Set(picks.map(p=>p.year))].sort();
+  const filtered = picks.filter(p => p.tag === activeTeam ||
+    (activeTeam === "HOU" && ["Atlanta","Milwaukee","New Orleans","Oklahoma","Philadelphia","Washington"].includes(p.owner) && p.tag==="HOU") ||
+    (activeTeam === "OKC" && p.tag==="OKC"));
+
+  return <div style={{overflowX:"auto",paddingBottom:8}}>
+    <div style={{minWidth:700}}>
+      {/* Year headers */}
+      <div style={{display:"flex",marginBottom:6}}>
+        <div style={{width:70,flexShrink:0}}/>
+        {years.map(y => <div key={y} style={{flex:1,textAlign:"center",fontSize:11,fontWeight:800,
+          color: y===2026?"#f0a500":"#555",letterSpacing:1}}>{y}</div>)}
+      </div>
+      {/* 1st round row */}
+      {["1st","2nd"].map(round =>
+        <div key={round} style={{display:"flex",alignItems:"center",marginBottom:8}}>
+          <div style={{width:70,flexShrink:0,fontSize:9,color:"#aaa",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>
+            {round} Rd
+          </div>
+          {years.map(y => {
+            const yp = filtered.filter(p=>p.year===y && p.round===round);
+            return <div key={y} style={{flex:1,display:"flex",flexWrap:"wrap",gap:3,justifyContent:"center",padding:"0 2px"}}>
+              {yp.length===0
+                ? <div style={{width:10,height:32,borderRadius:4,background:"#1a1a2a"}}/>
+                : yp.map(p => {
+                  const s = TYPE_STYLES[p.type]||TYPE_STYLES.own;
+                  const isSel = selectedPick?.id===p.id;
+                  return <div key={p.id} onClick={()=>onPickClick(p)} title={`${p.id}: ${abbr(p.orig)}→${abbr(p.owner)}`}
+                    style={{width:28,height:32,borderRadius:5,background:isSel?s.border:s.bg,
+                      border:`1.5px solid ${s.border}`,cursor:"pointer",display:"flex",
+                      flexDirection:"column",alignItems:"center",justifyContent:"center",
+                      transition:"all 0.15s",transform:isSel?"scale(1.15)":"scale(1)",
+                      boxShadow:isSel?`0 0 10px ${s.border}`:"none",fontSize:7,color:"#fff",fontWeight:700}}>
+                    <div style={{fontSize:8}}>{s.icon}</div>
+                    <div style={{fontSize:6,opacity:.7}}>{p.id.replace("P","")}</div>
+                  </div>;
+                })
+              }
+            </div>;
+          })}
+        </div>
+      )}
+    </div>
+  </div>;
+}
+
+// ── LOTTERY SIMULATOR ────────────────────────────────────────────────────────
+function SimSlider({finish, setFinish, color, team}) {
+  const pct = ((finish - 1) / 13) * 100;
+  const positions = Array.from({length:14},(_,i)=>i+1);
+  return <div style={{marginBottom:20,background:"#181828",border:`2px solid ${color}44`,borderRadius:12,padding:16}}>
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+      <div style={{fontSize:13,fontWeight:800,color:color}}>{team}</div>
+      <div style={{display:"flex",alignItems:"baseline",gap:4}}>
+        <div style={{fontSize:28,fontWeight:900,color:color,lineHeight:1}}>#{finish}</div>
+        <div style={{fontSize:10,color:"#aaa"}}>lottery finish</div>
+      </div>
+    </div>
+
+    {/* Custom styled slider track */}
+    <div style={{position:"relative",marginBottom:10}}>
+      {/* Track background */}
+      <div style={{height:10,borderRadius:5,background:"#0d0d1a",border:"1px solid #333",position:"relative",overflow:"hidden"}}>
+        {/* Filled portion */}
+        <div style={{position:"absolute",left:0,top:0,bottom:0,width:`${pct}%`,
+          background:`linear-gradient(90deg, ${color}88, ${color})`,borderRadius:5,transition:"width 0.1s"}}/>
+      </div>
+      {/* Actual range input overlaid */}
+      <input type="range" min="1" max="14" value={finish}
+        onChange={e => setFinish(Number(e.target.value))}
+        style={{
+          position:"absolute",top:-4,left:0,width:"100%",height:18,
+          opacity:0,cursor:"grab",margin:0,padding:0,
+        }}/>
+      {/* Visible thumb */}
+      <div style={{
+        position:"absolute",
+        top:"50%",
+        left:`calc(${pct}% - 12px)`,
+        transform:"translateY(-50%) translateY(-5px)",
+        width:24,height:24,borderRadius:"50%",
+        background:color,border:"3px solid #fff",
+        boxShadow:`0 0 10px ${color}`,
+        pointerEvents:"none",
+        transition:"left 0.1s",
+        display:"flex",alignItems:"center",justifyContent:"center",
+      }}>
+        <div style={{fontSize:8,color:"#fff",fontWeight:900}}>{finish}</div>
+      </div>
+    </div>
+
+    {/* Position markers */}
+    <div style={{display:"flex",justifyContent:"space-between",marginBottom:12,marginTop:4}}>
+      {positions.map(i => <div key={i} style={{
+        width:14,height:14,borderRadius:"50%",
+        background: i===finish ? color : i<finish ? `${color}44` : "#1e1e2e",
+        border: i===finish ? `2px solid #fff` : `1px solid ${i<finish?color+"66":"#333"}`,
+        cursor:"pointer",
+        display:"flex",alignItems:"center",justifyContent:"center",
+        fontSize:7,color: i===finish?"#fff":"#555",fontWeight:700,
+        transition:"all 0.15s",
+        transform: i===finish?"scale(1.3)":"scale(1)",
+      }} onClick={()=>setFinish(i)} title={`#${i}`}>{i}</div>)}
+    </div>
+
+    <div style={{display:"flex",justifyContent:"space-between",fontSize:9,color:"#888",marginBottom:12}}>
+      <span>◀ Worst record</span><span>Best lottery ▶</span>
+    </div>
+
+    {/* Odds pills */}
+    <div style={{display:"flex",gap:8}}>
+      <div style={{flex:1,background:"#0d0d1a",border:`1px solid ${color}55`,borderRadius:8,padding:"10px",textAlign:"center"}}>
+        <div style={{fontSize:22,fontWeight:900,color:color}}>{LOTTERY_ODDS[finish]?.top1 ?? "—"}<span style={{fontSize:12}}>%</span></div>
+        <div style={{fontSize:9,color:"#aaa",marginTop:2}}>🎯 #1 Overall Pick</div>
+      </div>
+      <div style={{flex:1,background:"#0d0d1a",border:`1px solid ${color}55`,borderRadius:8,padding:"10px",textAlign:"center"}}>
+        <div style={{fontSize:22,fontWeight:900,color:color}}>{LOTTERY_ODDS[finish]?.top4 ?? "—"}<span style={{fontSize:12}}>%</span></div>
+        <div style={{fontSize:9,color:"#aaa",marginTop:2}}>🏆 Top-4 Pick</div>
+      </div>
+    </div>
+  </div>;
+}
+
+function LotterySimulator({activeTeam, houFinish, setHouFinish, okcFinish, setOkcFinish}) {
+  const houPickConveys = houFinish > 4;
+
+  return <div style={{animation:"slideIn 0.2s ease"}}>
+    <div style={{fontSize:11,color:"#aaa",marginBottom:14,textTransform:"uppercase",letterSpacing:1}}>
+      🎰 What-If Lottery Simulator — 2026 Draft
+    </div>
+
+    <SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" team="Houston Rockets"/>
+    <SimSlider finish={okcFinish} setFinish={setOkcFinish} color="#007AC1" team="Oklahoma City Thunder"/>
+
+    {/* P001 resolution — reactive to houFinish */}
+    <div style={{background:"#0f0f22",
+      border:`2px solid ${houPickConveys ? "#f0a500" : "#CE1141"}`,
+      borderRadius:10,padding:14,marginBottom:10,transition:"border-color 0.3s"}}>
+      <div style={{fontSize:10,color:"#aaa",marginBottom:8,fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>
+        P001 — HOU 2026 1st · Resolution
+      </div>
+      {houPickConveys
+        ? <div>
+            <div style={{fontSize:13,color:"#f0a500",fontWeight:800,marginBottom:10}}>
+              ⚡ HOU finishes #{houFinish} → pick exits top-4 → CONVEYS into pool
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:6}}>
+              <div style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",background:"#007AC122",borderRadius:8,border:"1px solid #007AC166"}}>
+                <span style={{fontSize:18}}>🥇</span>
+                <div>
+                  <div style={{fontSize:12,fontWeight:800,color:"#007AC1"}}>BEST of pool → OKC</div>
+                  <div style={{fontSize:9,color:"#aaa"}}>Most favorable of OKC own / LAC / HOU</div>
+                </div>
+              </div>
+              <div style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",background:"#006BB622",borderRadius:8,border:"1px solid #006BB666"}}>
+                <span style={{fontSize:18}}>🥈</span>
+                <div>
+                  <div style={{fontSize:12,fontWeight:800,color:"#6bb3ff"}}>2nd BEST → PHI</div>
+                  <div style={{fontSize:9,color:"#aaa"}}>via McCain trade 02/05/2026</div>
+                </div>
+              </div>
+              <div style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",background:"#E3183722",borderRadius:8,border:"1px solid #E3183766"}}>
+                <span style={{fontSize:18}}>🥉</span>
+                <div>
+                  <div style={{fontSize:12,fontWeight:800,color:"#E31837"}}>WORST → WAS</div>
+                  <div style={{fontSize:9,color:"#aaa"}}>Washington Wizards</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        : <div style={{fontSize:13,color:"#2ecc71",fontWeight:800}}>
+            ✅ HOU finishes #{houFinish} (top-4 protected) → HOU KEEPS the pick. Pool does not activate.
+          </div>
+      }
+    </div>
+
+    {/* P021 UTA resolution */}
+    <div style={{background:"#0f0f22",border:"1px solid #002B5C",borderRadius:10,padding:14,marginBottom:10}}>
+      <div style={{fontSize:10,color:"#aaa",marginBottom:6,fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>
+        P021 — UTA 2026 1st (Top-8 Protected) → OKC
+      </div>
+      {okcFinish <= 8
+        ? <div style={{fontSize:13,color:"#f0a500",fontWeight:800}}>
+            ⚡ OKC proxy finish #{okcFinish} suggests UTA in top-8 → pick may NOT convey. Obligation extinguishes!
+          </div>
+        : <div style={{fontSize:13,color:"#2ecc71",fontWeight:800}}>
+            ✅ If UTA finishes outside top-8 → pick conveys to OKC
+          </div>
+      }
+      <div style={{fontSize:9,color:"#aaa",marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
+    </div>
+
+    <div style={{fontSize:9,color:"#888",marginTop:10,fontStyle:"italic",lineHeight:1.6}}>
+      Simulator covers 2026 draft · Lottery positions approximate · Always verify on RealGM for official resolution
+    </div>
+  </div>;
+}
+
+// ── MAIN APP ─────────────────────────────────────────────────────────────────
+function App() {
+  const [activeTeam, setActiveTeam] = useState("HOU");
+  const [selectedYear, setSelectedYear] = useState(2026);
+  const [selectedPick, setSelectedPick] = useState(null);
+  const [view, setView] = useState("cards"); // cards | timeline | simulator
+  const [houFinish, setHouFinish] = useState(5);
+  const [okcFinish, setOkcFinish] = useState(6);
+
+  const teamCfg = TEAMS_CFG[activeTeam];
+  // houFinish/okcFinish lifted here so simulator, flow diagrams, and cards all share the same state
+
+  // Filter picks for active team
+  const teamPicks = useMemo(() => ALL_PICKS.filter(p => p.tag === activeTeam), [activeTeam]);
+
+  // Also show picks involving the active team from other tags
+  const involvedPicks = useMemo(() => ALL_PICKS.filter(p =>
+    p.tag !== activeTeam && (
+      p.linked.some(lid => teamPicks.find(tp=>tp.id===lid)) ||
+      [p.orig, p.owner].includes(activeTeam==="HOU"?"Houston":"Oklahoma")
+    )
+  ), [activeTeam, teamPicks]);
+
+  const allRelevant = useMemo(() => [...teamPicks, ...involvedPicks], [teamPicks, involvedPicks]);
+
+  const years = useMemo(() => [...new Set(teamPicks.map(p=>p.year))].sort(), [teamPicks]);
+  const picksThisYear = useMemo(() => teamPicks.filter(p=>p.year===selectedYear), [teamPicks, selectedYear]);
+  const firstRound = picksThisYear.filter(p=>p.round==="1st");
+  const secondRound = picksThisYear.filter(p=>p.round==="2nd");
+  const linkedIds = selectedPick?.linked || [];
+
+  const clickPick = useCallback((p) => {
+    setSelectedPick(prev => prev?.id===p.id ? null : p);
+    if (p.year !== selectedYear) setSelectedYear(p.year);
+    if (p.tag !== activeTeam) setActiveTeam(p.tag);
+  }, [selectedYear, activeTeam]);
+
+  // Summary stats
+  const stats = useMemo(() => [
+    {label:"1st Round",val:teamPicks.filter(p=>p.round==="1st").length,color:teamCfg.primary},
+    {label:"2nd Round",val:teamPicks.filter(p=>p.round==="2nd").length,color:teamCfg.secondary},
+    {label:"Conditional",val:teamPicks.filter(p=>["more-favorable","less-favorable","protected","swap"].includes(p.type)).length,color:"#f0a500"},
+  ], [teamPicks, teamCfg]);
+
+  return <div style={{minHeight:"100vh",background:"#0d0d1a",color:"#fff",padding:20}}>
+    <style>{`
+      @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+      @keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+      @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+      input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:#222;outline:none}
+      input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;cursor:pointer}
+    `}</style>
+
+    {/* ── HEADER ── */}
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:18,flexWrap:"wrap",gap:10}}>
+      <div style={{display:"flex",alignItems:"center",gap:12}}>
+        <Ball size={38}/>
+        <div>
+          <div style={{fontSize:20,fontWeight:900,letterSpacing:-0.5}}>NBA DRAFT CAPITAL EXPLORER</div>
+          <div style={{fontSize:10,color:teamCfg.primary,fontWeight:700,letterSpacing:2,textTransform:"uppercase"}}>
+            {teamCfg.name} · {years[0]}–{years[years.length-1]}
+          </div>
+        </div>
+      </div>
+      <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+        {stats.map(s=><div key={s.label} style={{background:"#181828",border:`1px solid ${s.color}33`,borderRadius:8,padding:"5px 14px",textAlign:"center"}}>
+          <div style={{fontSize:20,fontWeight:900,color:s.color}}>{s.val}</div>
+          <div style={{fontSize:8,color:"#aaa",textTransform:"uppercase",letterSpacing:.5}}>{s.label}</div>
+        </div>)}
+      </div>
+    </div>
+
+    {/* ── TEAM SWITCHER ── */}
+    <div style={{display:"flex",gap:6,marginBottom:14,flexWrap:"wrap",alignItems:"center"}}>
+      <div style={{fontSize:9,color:"#aaa",textTransform:"uppercase",letterSpacing:1,marginRight:4}}>Team:</div>
+      {Object.values(TEAMS_CFG).map(t=><button key={t.abbr} className="tab-btn" onClick={()=>{setActiveTeam(t.abbr);setSelectedPick(null);setSelectedYear(t.abbr==="OKC"?2026:2026)}}
+        style={{background:activeTeam===t.abbr?t.primary:"#181828",border:`2px solid ${activeTeam===t.abbr?t.primary:"#252535"}`,
+          color:activeTeam===t.abbr?"#fff":"#777",borderRadius:8,padding:"7px 16px",cursor:"pointer",fontWeight:800,fontSize:12,transition:"all 0.15s"}}>
+        {t.abbr} <span style={{fontSize:9,opacity:.6,marginLeft:4}}>{t.name.split(" ").slice(-1)}</span>
+      </button>)}
+      <div style={{fontSize:9,color:"#999",marginLeft:8}}>🔗 Shared picks shown across teams</div>
+    </div>
+
+    {/* ── VIEW SWITCHER ── */}
+    <div style={{display:"flex",gap:4,marginBottom:14,background:"#181828",borderRadius:10,padding:3,width:"fit-content"}}>
+      {[["cards","📋 Cards"],["timeline","📅 Timeline"],["simulator","🎰 Simulator"]].map(([v,label])=>
+        <button key={v} onClick={()=>setView(v)} style={{background:view===v?teamCfg.primary:"transparent",
+          border:"none",color:view===v?"#fff":"#555",borderRadius:7,padding:"6px 14px",cursor:"pointer",
+          fontWeight:700,fontSize:11,transition:"all 0.15s"}}>
+          {label}
+        </button>
+      )}
+    </div>
+
+    {/* ── CARDS VIEW ── */}
+    {view==="cards" && <>
+      {/* Year tabs */}
+      <div style={{display:"flex",gap:5,marginBottom:14,overflowX:"auto",paddingBottom:4}}>
+        {years.map(y=>{
+          const yp = teamPicks.filter(p=>p.year===y);
+          const hasCond = yp.some(p=>p.condition);
+          return <button key={y} className="year-btn" onClick={()=>{setSelectedYear(y);setSelectedPick(null);}}
+            style={{background:selectedYear===y?teamCfg.primary:"#181828",border:`2px solid ${selectedYear===y?teamCfg.primary:hasCond?"#f0a50055":"#252535"}`,
+              color:selectedYear===y?"#fff":"#666",borderRadius:8,padding:"7px 16px",cursor:"pointer",
+              fontWeight:800,fontSize:12,letterSpacing:.5,whiteSpace:"nowrap",transition:"all 0.15s",position:"relative"}}>
+            {y}
+            {hasCond&&<span style={{position:"absolute",top:-4,right:-4,width:8,height:8,background:"#f0a500",borderRadius:"50%",border:"2px solid #080810"}}/>}
+            <div style={{fontSize:8,color:selectedYear===y?"#ffffff55":"#333",marginTop:1}}>{yp.length} picks</div>
+          </button>;
+        })}
+        <div style={{display:"flex",alignItems:"center",gap:4,marginLeft:6,fontSize:8,color:"#888"}}>
+          <span style={{width:7,height:7,background:"#f0a500",borderRadius:"50%",display:"inline-block"}}/>conditional
+        </div>
+      </div>
+
+      <div style={{display:"flex",gap:14,alignItems:"flex-start",flexWrap:"wrap"}}>
+        {/* Pick cards */}
+        <div style={{flex:"1 1 380px",animation:"fadeUp 0.2s ease"}}>
+          {firstRound.length>0 && <div style={{marginBottom:14}}>
+            <div style={{fontSize:9,color:"#aaa",textTransform:"uppercase",letterSpacing:2,marginBottom:8,fontWeight:700}}>◆ 1st Round</div>
+            <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+              {firstRound.map(p=><PickCard key={p.id} pick={p} isSelected={selectedPick?.id===p.id}
+                isLinked={linkedIds.includes(p.id)} onClick={clickPick}/>)}
+            </div>
+          </div>}
+          {secondRound.length>0 && <div>
+            <div style={{fontSize:9,color:"#aaa",textTransform:"uppercase",letterSpacing:2,marginBottom:8,fontWeight:700}}>◇ 2nd Round</div>
+            <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+              {secondRound.map(p=><PickCard key={p.id} pick={p} isSelected={selectedPick?.id===p.id}
+                isLinked={linkedIds.includes(p.id)} onClick={clickPick}/>)}
+            </div>
+          </div>}
+          {picksThisYear.length===0 && <div style={{color:"#888",fontSize:13,padding:20}}>No picks recorded for {selectedYear}</div>}
+        </div>
+
+        {/* Detail panel */}
+        <div style={{flex:"1 1 280px",minWidth:270,background:"#181828",border:"1px solid #1e1e2e",borderRadius:14,padding:18}}>
+          {selectedPick ? <div style={{animation:"slideIn 0.18s ease"}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+              <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                <Ball size={26}/>
+                <div>
+                  <div style={{fontSize:15,fontWeight:900}}>{abbr(selectedPick.orig)} {selectedPick.year} {selectedPick.round}</div>
+                  <div style={{fontSize:9,color:"#aaa",fontFamily:"monospace"}}>{selectedPick.id}</div>
+                </div>
+              </div>
+              <button onClick={()=>setSelectedPick(null)} style={{background:"none",border:"none",color:"#aaa",cursor:"pointer",fontSize:18}}>✕</button>
+            </div>
+
+            <div style={{display:"flex",gap:6,marginBottom:12}}>
+              <div style={{flex:1,background:"#0d0d1a",borderRadius:8,padding:"7px 9px"}}>
+                <div style={{fontSize:8,color:"#aaa",marginBottom:2}}>ORIGINAL</div>
+                <div style={{fontSize:13,fontWeight:800,color:TEAM_COLORS[selectedPick.orig]||"#fff"}}>{abbr(selectedPick.orig)}</div>
+              </div>
+              <div style={{color:"#888",display:"flex",alignItems:"center",fontSize:16}}>→</div>
+              <div style={{flex:1,background:"#0d0d1a",borderRadius:8,padding:"7px 9px"}}>
+                <div style={{fontSize:8,color:"#aaa",marginBottom:2}}>OWNER</div>
+                <div style={{fontSize:13,fontWeight:800,color:TEAM_COLORS[selectedPick.owner]||"#2ecc71"}}>{abbr(selectedPick.owner)}</div>
+              </div>
+            </div>
+
+            <div style={{background:"#0d0d1a",borderRadius:8,padding:10,marginBottom:10,fontSize:11,color:"#aaa",lineHeight:1.7}}>
+              {selectedPick.detail}
+            </div>
+
+            {selectedPick.linked.length>0 && <div style={{marginBottom:10}}>
+              <div style={{fontSize:8,color:"#aaa",textTransform:"uppercase",letterSpacing:1,marginBottom:5}}>Linked Picks</div>
+              <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
+                {selectedPick.linked.map(lid => {
+                  const lp = ALL_PICKS.find(p=>p.id===lid);
+                  return <div key={lid} onClick={()=>lp&&clickPick(lp)}
+                    style={{background:"#4a9eff18",border:"1px solid #4a9eff44",borderRadius:6,padding:"3px 9px",
+                      fontSize:10,color:"#4a9eff",fontFamily:"monospace",cursor:lp?"pointer":"default",
+                      transition:"all 0.15s"}}
+                    title={lp?`Click to view ${lid}`:""}
+                  >{lid} {lp?<span style={{fontSize:8,opacity:.6}}>({abbr(lp.orig)}→{abbr(lp.owner)})</span>:null}</div>;
+                })}
+              </div>
+            </div>}
+
+            <FlowDiagram pick={selectedPick} houFinish={houFinish} okcFinish={okcFinish}/>
+          </div> : <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:180,color:"#aaa"}}>
+            <Ball size={48}/>
+            <div style={{marginTop:12,fontSize:12,fontWeight:700,color:"#888"}}>Select a pick to see details</div>
+            <div style={{fontSize:10,color:"#aaa",marginTop:4}}>Click any card · Linked picks are clickable</div>
+            <div style={{marginTop:14,fontSize:9,color:"#aaa",textAlign:"center",lineHeight:2}}>
+              🛡️ Protected · ⚖️ Conditional<br/>🔄 Swap · ⬇️ Incoming · 🏀 Own
+            </div>
+          </div>}
+        </div>
+      </div>
+    </>}
+
+    {/* ── TIMELINE VIEW ── */}
+    {view==="timeline" && <div style={{animation:"fadeUp 0.2s ease"}}>
+      <div style={{fontSize:10,color:"#aaa",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
+        Full Pick Landscape — {teamCfg.name} · hover for details · click to select
+      </div>
+      <Timeline picks={ALL_PICKS} activeTeam={activeTeam} onPickClick={clickPick} selectedPick={selectedPick}/>
+
+      {/* Lottery sliders embedded in timeline */}
+      <div style={{marginTop:20,borderTop:"1px solid #22223a",paddingTop:16}}>
+        <div style={{fontSize:10,color:"#aaa",marginBottom:12,textTransform:"uppercase",letterSpacing:1,display:"flex",alignItems:"center",gap:8}}>
+          🎰 <span>Lottery Finish — adjust to see pick resolutions</span>
+        </div>
+        <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+          <div style={{flex:"1 1 260px"}}>
+            <SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" team="Houston Rockets"/>
+          </div>
+          <div style={{flex:"1 1 260px"}}>
+            <SimSlider finish={okcFinish} setFinish={setOkcFinish} color="#007AC1" team="Oklahoma City Thunder"/>
+          </div>
+        </div>
+        {/* P001 mini resolution block */}
+        <div style={{marginTop:8,background:"#0f0f22",border:`2px solid ${houFinish>4?"#f0a500":"#CE1141"}`,borderRadius:10,padding:12,transition:"border-color 0.3s"}}>
+          <div style={{fontSize:10,color:"#aaa",marginBottom:6,fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>P001 — HOU 2026 1st Resolution</div>
+          {houFinish > 4
+            ? <div style={{fontSize:12,color:"#f0a500",fontWeight:800}}>⚡ HOU finishes #{houFinish} → CONVEYS into pool · OKC gets best · PHI gets 2nd · WAS gets worst</div>
+            : <div style={{fontSize:12,color:"#2ecc71",fontWeight:800}}>✅ HOU finishes #{houFinish} (top-4 protected) → HOU KEEPS the pick</div>
+          }
+        </div>
+      </div>
+
+      {selectedPick && <div style={{marginTop:14,background:"#181828",border:"1px solid #22223a",borderRadius:12,padding:16,animation:"slideIn 0.18s ease"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+          <div style={{fontSize:14,fontWeight:900}}>{selectedPick.id} — {abbr(selectedPick.orig)} {selectedPick.year} {selectedPick.round}</div>
+          <button onClick={()=>setSelectedPick(null)} style={{background:"none",border:"none",color:"#aaa",cursor:"pointer",fontSize:16}}>✕</button>
+        </div>
+        <div style={{fontSize:11,color:"#888",lineHeight:1.7,marginBottom:8}}>{selectedPick.detail}</div>
+        <FlowDiagram pick={selectedPick} houFinish={houFinish} okcFinish={okcFinish}/>
+      </div>}
+    </div>}
+
+    {/* ── SIMULATOR VIEW ── */}
+    {view==="simulator" && <div style={{maxWidth:560,animation:"fadeUp 0.2s ease"}}>
+      <LotterySimulator activeTeam={activeTeam} houFinish={houFinish} setHouFinish={setHouFinish}
+        okcFinish={okcFinish} setOkcFinish={setOkcFinish}/>
+    </div>}
+
+    {/* ── LEGEND ── */}
+    <div style={{marginTop:18,borderTop:"1px solid #13131f",paddingTop:12,display:"flex",gap:12,flexWrap:"wrap"}}>
+      {Object.entries(TYPE_STYLES).map(([type,s])=><div key={type} style={{display:"flex",alignItems:"center",gap:4,fontSize:9,color:"#999"}}>
+        <div style={{width:9,height:9,borderRadius:2,background:s.bg,border:`1px solid ${s.border}`}}/>
+        {s.icon} {type.replace("-"," ").toUpperCase()}
+      </div>)}
+    </div>
+    <div style={{marginTop:8,fontSize:8,color:"#aaa",textAlign:"right"}}>
+      Source: RealGM Trade Tracker · Data as of March 2026
+    </div>
+  </div>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(App));
+</script>
+</body>
+</html>
