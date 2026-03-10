@@ -22,6 +22,15 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 @keyframes slideIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:768px){
+  .team-screen{height:auto!important;overflow:visible!important;min-height:100vh}
+  .two-panel{flex-direction:column!important;overflow:visible!important;height:auto!important}
+  .panel-picks{flex:none!important;width:100%!important;border-right:none!important;border-bottom:1px solid #0d0d1a!important;max-height:none!important}
+  .panel-detail{flex:none!important;width:100%!important;min-height:320px}
+  .pick-card{width:160px!important}
+  .team-row-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .header-stats{display:none!important}
+}
 @keyframes cardGlow{
   0%,100%{box-shadow:0 0 10px var(--glow-a),0 4px 28px var(--glow-b),inset 0 0 0px transparent}
   50%{box-shadow:0 0 28px var(--glow-a),0 6px 56px var(--glow-b),inset 0 0 14px var(--glow-c)}
@@ -794,66 +803,166 @@ const ALL_TEAMS=[
 function TeamSelector({available,onSelect}){
   const availSet=new Set(available);
   const [pendingView,setPendingView]=React.useState(null);
+  const [hovered,setHovered]=React.useState(null);
   const gridRef=React.useRef(null);
-  const featureCards=[
-    {icon:'📋',label:'CARDS',   color:'#60b0ff',view:'cards',
-     desc:'Browse all draft picks year-by-year. Click any pick card to see a full breakdown, trade history, and flow diagrams.'},
-    {icon:'📅',label:'TIMELINE',color:'#00ff88',view:'timeline',
-     desc:'See a team\'s entire draft capital from 2026–2032 in one horizontal view. Great for spotting gaps and busy years at a glance.'},
-    {icon:'🎰',label:'SIMULATOR',color:'#cc66ff',view:'simulator',
-     desc:'Set hypothetical lottery finish positions and watch protected picks resolve live. See which picks convey and which stay home.'},
-    {icon:'🔗',label:'LINKED PICKS',color:'#ffb830',view:'cards',
-     desc:'Picks sharing a pool or swap right are automatically linked. Click one — all related picks highlight instantly.'},
+
+  // ── Blueprint mini-previews ──────────────────────────────────────────────
+  function CardsPreview(){
+    return <div style={{display:'flex',gap:5,justifyContent:'center',padding:'10px 0 6px'}}>
+      {[{t:'HOU',lb:'OWN PICK',c:'#ff2d5e',ic:'🏀'},{t:'BKN',lb:'INCOMING',c:'#00ff88',ic:'⬇'},{t:'PHI',lb:'PROTECTED',c:'#ffb830',ic:'🛡'}].map(p=>
+        <div key={p.t} style={{background:`${p.c}12`,border:`1.5px solid ${p.c}55`,borderRadius:8,padding:'7px 6px',flex:1,textAlign:'center',maxWidth:68}}>
+          <div style={{fontSize:14}}>{p.ic}</div>
+          <div style={{fontSize:12,fontWeight:900,color:p.c,lineHeight:1.1,marginTop:3}}>{p.t}</div>
+          <div style={{fontSize:7,color:'#888',marginTop:3,letterSpacing:.3,lineHeight:1.3}}>{p.lb}</div>
+        </div>
+      )}
+    </div>;
+  }
+  function TimelinePreview(){
+    const yrs=['\'26','\'27','\'28','\'29','\'30'];
+    return <div style={{padding:'10px 4px 6px'}}>
+      <div style={{display:'flex',gap:2,marginBottom:5,paddingLeft:22}}>
+        {yrs.map(y=><div key={y} style={{flex:1,textAlign:'center',fontSize:8,color:'#888',fontWeight:700}}>{y}</div>)}
+      </div>
+      {[['1ST','#ff2d5e',[1,1,1,1,1]],['2ND','#60b0ff',[1,1,0,1,1]]].map(([rd,c,cells])=>
+        <div key={rd} style={{display:'flex',alignItems:'center',gap:2,marginBottom:4}}>
+          <div style={{width:20,fontSize:7,color:'#888',fontWeight:700,flexShrink:0}}>{rd}</div>
+          {cells.map((h,i)=><div key={i} style={{flex:1,height:16,borderRadius:3,
+            background:h?`${c}30`:'#0d0d16',border:`1px solid ${h?c+'55':'#1a1a2a'}`}}/>)}
+        </div>
+      )}
+    </div>;
+  }
+  function SimulatorPreview(){
+    return <div style={{padding:'10px 0 6px',textAlign:'center'}}>
+      <div style={{display:'flex',gap:3,justifyContent:'center',marginBottom:10,flexWrap:'wrap'}}>
+        {Array.from({length:9},(_,i)=>i+1).map(i=><div key={i} style={{
+          width:20,height:20,borderRadius:'50%',fontSize:9,fontWeight:700,
+          background:i===5?'#cc66ff':'#111',border:`1.5px solid ${i===5?'#cc66ff':'#2a2a3a'}`,
+          display:'flex',alignItems:'center',justifyContent:'center',
+          color:i===5?'#fff':'#555',
+          boxShadow:i===5?'0 0 8px #cc66ff88':undefined,
+        }}>{i}</div>)}
+      </div>
+      <div style={{display:'flex',gap:6,justifyContent:'center'}}>
+        {[['10.5%','#1 PICK'],['38.4%','TOP-4']].map(([pct,lb])=>
+          <div key={lb} style={{background:'#cc66ff14',border:'1px solid #cc66ff44',borderRadius:6,padding:'5px 10px',minWidth:58}}>
+            <div style={{fontSize:16,fontWeight:900,color:'#cc66ff',lineHeight:1}}>{pct}</div>
+            <div style={{fontSize:7,color:'#888',marginTop:2,letterSpacing:.5}}>{lb}</div>
+          </div>
+        )}
+      </div>
+    </div>;
+  }
+  function LinkedPreview(){
+    const picks=[{id:'P001',t:'HOU',c:'#ff2d5e'},{id:'P018',t:'OKC',c:'#007AC1'},{id:'P019',t:'LAC',c:'#C8102E'}];
+    return <div style={{padding:'10px 0 6px'}}>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:3,marginBottom:8}}>
+        {picks.map((p,i)=><React.Fragment key={p.id}>
+          {i>0&&<div style={{height:1,width:14,background:'#ffb83066',flexShrink:0}}/>}
+          <div style={{background:`${p.c}16`,border:`1.5px solid ${p.c}66`,borderRadius:6,padding:'4px 8px',textAlign:'center'}}>
+            <div style={{fontSize:7,fontFamily:'monospace',color:'#b0b0c8',letterSpacing:.3}}>{p.id}</div>
+            <div style={{fontSize:11,fontWeight:900,color:p.c,marginTop:1}}>{p.t}</div>
+          </div>
+        </React.Fragment>)}
+      </div>
+      <div style={{background:'#ffb83010',border:'1px solid #ffb83033',borderRadius:5,padding:'5px 8px',textAlign:'center'}}>
+        <div style={{fontSize:8,color:'#ffb830',fontWeight:800,letterSpacing:.8}}>OKC / LAC / HOU · 2026 POOL</div>
+      </div>
+    </div>;
+  }
+
+  const blueprints=[
+    {icon:'📋',label:'CARDS',    color:'#60b0ff',view:'cards',    Preview:CardsPreview,
+     desc:'Click any pick card for a full breakdown, trade history, and flow diagram.'},
+    {icon:'📅',label:'TIMELINE', color:'#00ff88',view:'timeline', Preview:TimelinePreview,
+     desc:'All draft capital from 2026–2032 in one horizontal view. Spot gaps instantly.'},
+    {icon:'🎰',label:'SIMULATOR',color:'#cc66ff',view:'simulator',Preview:SimulatorPreview,
+     desc:'Set lottery positions and watch protected picks resolve live.'},
+    {icon:'🔗',label:'LINKED PICKS',color:'#ffb830',view:'cards', Preview:LinkedPreview,
+     desc:'Picks sharing a pool or swap right highlight together when you click one.'},
   ];
+
   return <div style={{flex:1,display:'flex',flexDirection:'column',overflowY:'auto',background:'#07070f'}}>
-    {/* Hero header */}
-    <div style={{padding:'44px 20px 20px',textAlign:'center',flexShrink:0}}>
-      <div style={{display:'flex',justifyContent:'center',marginBottom:18}}>
-        <Ball size={72}/>
+
+    {/* ── HERO ── */}
+    <div style={{
+      padding:'52px 24px 48px',textAlign:'center',flexShrink:0,position:'relative',
+      background:'radial-gradient(ellipse 80% 50% at 50% 0%,#1a0a2e 0%,#07070f 70%)',
+    }}>
+      <div style={{display:'flex',justifyContent:'center',marginBottom:20}}>
+        <Ball size={64}/>
       </div>
-      <div style={{fontSize:32,fontWeight:900,letterSpacing:3,lineHeight:1.1,
-        background:'linear-gradient(135deg,#ffffff 0%,#b0b0ff 50%,#ff6b8a 100%)',
-        WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
+      <h1 style={{
+        fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
+        letterSpacing:'0.06em',lineHeight:1.05,margin:'0 0 14px',
+        background:'linear-gradient(135deg,#ffffff 0%,#c8c8ff 35%,#ff6b8a 100%)',
+        WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
+      }}>
         NBA DRAFT CAPITAL EXPLORER
-      </div>
-      <div style={{fontSize:13,color:'#c0c0d8',marginTop:10,letterSpacing:1.5,fontWeight:600}}>
+      </h1>
+      <p style={{fontSize:13,color:'#b0b0cc',marginBottom:0,letterSpacing:2,fontWeight:600}}>
         ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · POOLS
-      </div>
+      </p>
     </div>
 
-    {/* How-to feature guide */}
-    <div style={{padding:'0 24px 20px',maxWidth:900,margin:'0 auto',width:'100%',flexShrink:0}}>
-      <div style={{fontSize:10,color:'#888',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
-        textAlign:'center',marginBottom:12}}>HOW TO EXPLORE</div>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(190px,1fr))',gap:10}}>
-        {featureCards.map(fc=>{
-          const [hovered,setHovered]=React.useState(false);
-          return <div key={fc.label}
-            onClick={()=>{setPendingView(fc.view);gridRef.current?.scrollIntoView({behavior:'smooth',block:'start'});}}
-            onMouseEnter={()=>setHovered(true)}
-            onMouseLeave={()=>setHovered(false)}
-            style={{
-              background:hovered?`${fc.color}1a`:`${fc.color}0d`,
-              border:`1.5px solid ${hovered?fc.color:fc.color+'44'}`,
-              borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden',
-              cursor:'pointer',
-              transform:hovered?'translateY(-3px) scale(1.02)':'none',
-              transition:'all 0.15s ease',
-              boxShadow:hovered?`0 6px 24px ${fc.color}33`:'none',
-            }}>
-            <div className="gradient-bar" style={{position:'absolute',top:0,left:0,right:0,height:2,
-              '--g1':fc.color+'44','--g2':fc.color,opacity:hovered?1:0.5}}/>
-            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:8}}>
-              <span style={{fontSize:20}}>{fc.icon}</span>
-              <span style={{fontSize:12,fontWeight:900,color:fc.color,letterSpacing:1}}>{fc.label}</span>
-            </div>
-            <div style={{fontSize:11,color:'#c0c0d8',lineHeight:1.6,marginBottom:10}}>{fc.desc}</div>
-            <div style={{fontSize:10,fontWeight:800,color:fc.color,letterSpacing:.8,
-              opacity:hovered?1:0.6,transition:'opacity 0.15s'}}>
-              SELECT A TEAM →
-            </div>
-          </div>;
-        })}
+    {/* ── BLUEPRINT SECTION ── */}
+    <div style={{
+      padding:'0 24px 32px',flexShrink:0,
+      background:'radial-gradient(ellipse 100% 100% at 50% 0%,#080816 0%,#07070f 100%)',
+      backgroundImage:'radial-gradient(#ffffff06 1px,transparent 1px)',
+      backgroundSize:'18px 18px',
+    }}>
+      <div style={{maxWidth:960,margin:'0 auto'}}>
+        <div style={{textAlign:'center',marginBottom:20,paddingTop:8}}>
+          <span style={{fontSize:10,color:'#555',fontWeight:800,letterSpacing:3,textTransform:'uppercase',
+            borderTop:'1px solid #1e1e2e',borderBottom:'1px solid #1e1e2e',padding:'5px 16px'}}>
+            WHAT YOU CAN DO
+          </span>
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(210px,1fr))',gap:14}}>
+          {blueprints.map(bp=>{
+            const isH=hovered===bp.label;
+            return <div key={bp.label}
+              onClick={()=>{setPendingView(bp.view);gridRef.current?.scrollIntoView({behavior:'smooth',block:'start'});}}
+              onMouseEnter={()=>setHovered(bp.label)}
+              onMouseLeave={()=>setHovered(null)}
+              style={{
+                background:isH?`${bp.color}14`:`${bp.color}07`,
+                border:`1.5px solid ${isH?bp.color:bp.color+'33'}`,
+                borderRadius:14,overflow:'hidden',cursor:'pointer',
+                transform:isH?'translateY(-4px)':'none',
+                transition:'all 0.18s ease',
+                boxShadow:isH?`0 8px 32px ${bp.color}30,0 0 0 1px ${bp.color}22`:'none',
+                position:'relative',
+              }}>
+              {/* Animated top bar */}
+              <div className="gradient-bar" style={{
+                position:'absolute',top:0,left:0,right:0,height:3,
+                '--g1':bp.color+'55','--g2':bp.color,opacity:isH?1:0.4,
+              }}/>
+              {/* Header */}
+              <div style={{padding:'14px 16px 0',display:'flex',alignItems:'center',gap:8}}>
+                <span style={{fontSize:18}}>{bp.icon}</span>
+                <span style={{fontSize:12,fontWeight:900,color:bp.color,letterSpacing:1.2}}>{bp.label}</span>
+                {/* Corner bracket decoration */}
+                <div style={{marginLeft:'auto',fontSize:10,color:bp.color+'55',fontFamily:'monospace'}}>[ ]</div>
+              </div>
+              {/* Mini visual preview */}
+              <div style={{padding:'0 12px',minHeight:88}}>
+                <bp.Preview/>
+              </div>
+              {/* Description + CTA */}
+              <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}18`,marginTop:4,paddingTop:10}}>
+                <div style={{fontSize:11,color:'#b0b0c8',lineHeight:1.6,marginBottom:8}}>{bp.desc}</div>
+                <div style={{fontSize:10,fontWeight:800,color:bp.color,letterSpacing:.8,
+                  opacity:isH?1:0.55,transition:'opacity 0.18s'}}>
+                  SELECT A TEAM →
+                </div>
+              </div>
+            </div>;
+          })}
+        </div>
       </div>
     </div>
 
@@ -1023,7 +1132,7 @@ function App(){
           </div>
         </div>
       </div>
-      <div style={{display:'flex',gap:8}}>
+      <div className="header-stats" style={{display:'flex',gap:8}}>
         {[{v:stats.first,l:'1ST ROUND',c:tc.primary},{v:stats.second,l:'2ND ROUND',c:'#e0e0e0'},
           {v:stats.cond,l:'CONDITIONAL',c:'#f0a500'}].map(s=>
           <div key={s.l} style={{background:'#111',border:`1px solid ${s.c}33`,borderRadius:8,
@@ -1036,8 +1145,8 @@ function App(){
     </div>
 
     {/* ── TEAM ROW ── */}
-    <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
-      alignItems:'center',gap:8,flexWrap:'wrap',background:'#0c0c14',flexShrink:0}}>
+    <div className="team-row-scroll" style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
+      alignItems:'center',gap:8,flexWrap:'nowrap',background:'#0c0c14',flexShrink:0,overflowX:'auto'}}>
       <span style={{fontSize:10,color:'#c0c0d8',fontWeight:700,letterSpacing:.5,marginRight:2}}>TEAM:</span>
       {available.map(t=>{
         const tcb=TEAM_CFG[t]||{primary:'#888',short:t};
@@ -1071,16 +1180,16 @@ function App(){
     </div>
 
     {/* ── MAIN ── */}
-    {activeView==='cards'&&<div style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
+    {activeView==='cards'&&<div className="two-panel" style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
       {/* Left: picks */}
-      <div style={{flex:'0 0 58%',padding:'16px 20px',overflowY:'auto',borderRight:'1px solid #0d0d1a'}}>
+      <div className="panel-picks" style={{flex:'0 0 58%',padding:'16px 20px',overflowY:'auto',borderRight:'1px solid #0d0d1a'}}>
         <YearPills years={years} selected={activeYear} onChange={setActiveYear}
           holdings={holdings} primary={tc.primary}/>
         <PicksGrid picks={filtered} teamAbbr={activeTeam} selectedKey={selectedKey}
           onPickClick={handlePick} allHoldings={holdings}/>
       </div>
       {/* Right: detail */}
-      <div style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
+      <div className="panel-detail" style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
         {selectedPick
           ?<DetailPanel pick={selectedPick} teamAbbr={activeTeam} pickId={selectedPickId}
               allTeamPicks={holdings} houFinish={houFinish} okcFinish={okcFinish}
