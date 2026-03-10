@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA Draft Capital Explorer</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js" crossorigin></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#08080f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;min-height:100vh}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:#111}
+::-webkit-scrollbar-thumb{background:#2a2a3a;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#3a3a4a}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 transparent}50%{box-shadow:0 0 18px currentColor}}
+.team-card{transition:all 0.16s ease;cursor:pointer}
+.team-card:hover{transform:translateY(-4px) scale(1.02)}
+.pick-card{transition:all 0.14s ease;cursor:pointer}
+.pick-card:hover{transform:translateY(-2px)}
+.year-pill{transition:all 0.12s ease;cursor:pointer}
+.year-pill:hover{opacity:.85}
+.back-btn{transition:all 0.12s ease;cursor:pointer}
+.back-btn:hover{background:#1e1e2e!important;color:#fff!important}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState, useEffect, useMemo, useCallback} = React;
+
+// ── ALL 30 TEAM CONFIGS ────────────────────────────────────────────────────────
+const TEAM_CFG = {
+  ATL:{name:"Atlanta Hawks",        primary:"#E03A3E",secondary:"#C1D32F"},
+  BOS:{name:"Boston Celtics",       primary:"#007A33",secondary:"#BA9653"},
+  BKN:{name:"Brooklyn Nets",        primary:"#AAAAAA",secondary:"#444444"},
+  CHA:{name:"Charlotte Hornets",    primary:"#00788C",secondary:"#1D1160"},
+  CHI:{name:"Chicago Bulls",        primary:"#CE1141",secondary:"#000000"},
+  CLE:{name:"Cleveland Cavaliers",  primary:"#860038",secondary:"#FDBB30"},
+  DAL:{name:"Dallas Mavericks",     primary:"#00538C",secondary:"#002B5E"},
+  DEN:{name:"Denver Nuggets",       primary:"#FEC524",secondary:"#0E2240"},
+  DET:{name:"Detroit Pistons",      primary:"#C8102E",secondary:"#1D42BA"},
+  GSW:{name:"Golden State Warriors",primary:"#FFC72C",secondary:"#1D428A"},
+  HOU:{name:"Houston Rockets",      primary:"#CE1141",secondary:"#C4CED4"},
+  IND:{name:"Indiana Pacers",       primary:"#FDBB30",secondary:"#002D62"},
+  LAC:{name:"LA Clippers",          primary:"#C8102E",secondary:"#1D428A"},
+  LAL:{name:"Los Angeles Lakers",   primary:"#FDB927",secondary:"#552583"},
+  MEM:{name:"Memphis Grizzlies",    primary:"#5D76A9",secondary:"#12173F"},
+  MIA:{name:"Miami Heat",           primary:"#98002E",secondary:"#F9A01B"},
+  MIL:{name:"Milwaukee Bucks",      primary:"#00471B",secondary:"#EEE1C6"},
+  MIN:{name:"Minnesota Timberwolves",primary:"#236192",secondary:"#0C2340"},
+  NOP:{name:"New Orleans Pelicans", primary:"#C8102E",secondary:"#0C2340"},
+  NYK:{name:"New York Knicks",      primary:"#F58426",secondary:"#006BB6"},
+  OKC:{name:"OKC Thunder",          primary:"#007AC1",secondary:"#EF3B24"},
+  ORL:{name:"Orlando Magic",        primary:"#0077C0",secondary:"#C4CED4"},
+  PHI:{name:"Philadelphia 76ers",   primary:"#006BB6",secondary:"#ED174C"},
+  PHX:{name:"Phoenix Suns",         primary:"#E56020",secondary:"#1D1160"},
+  POR:{name:"Portland Trail Blazers",primary:"#E03A3E",secondary:"#000000"},
+  SAC:{name:"Sacramento Kings",     primary:"#5A2D81",secondary:"#63727A"},
+  SAS:{name:"San Antonio Spurs",    primary:"#C4CED4",secondary:"#000000"},
+  TOR:{name:"Toronto Raptors",      primary:"#CE1141",secondary:"#000000"},
+  UTA:{name:"Utah Jazz",            primary:"#002B5C",secondary:"#00471B"},
+  WAS:{name:"Washington Wizards",   primary:"#E31837",secondary:"#002B5C"},
+};
+
+// ── PICK TYPE CLASSIFICATION ───────────────────────────────────────────────────
+function getPickType(pick, teamAbbr) {
+  if (pick.currentHolder !== teamAbbr) return 'obligation';
+  if (pick.swapCondition)              return 'swap';
+  if (pick.protection)                 return 'protected';
+  if (pick.condition)                  return 'pool';
+  if (pick.originalTeam !== teamAbbr)  return 'incoming';
+  return 'own';
+}
+
+const TYPE_CFG = {
+  own:        {bg:"#05180c",border:"#22c55e",text:"#22c55e",label:"OWN PICK",    icon:"●", desc:"Retained own pick"},
+  incoming:   {bg:"#050e1c",border:"#60a5fa",text:"#60a5fa",label:"RECEIVED",    icon:"↓", desc:"Received via trade"},
+  protected:  {bg:"#191000",border:"#fbbf24",text:"#fbbf24",label:"PROTECTED",   icon:"⬡", desc:"Has protection clauses"},
+  swap:       {bg:"#120622",border:"#c084fc",text:"#c084fc",label:"SWAP RIGHT",  icon:"⇄", desc:"Pick swap option"},
+  pool:       {bg:"#031614",border:"#2dd4bf",text:"#2dd4bf",label:"CONDITIONAL", icon:"⊕", desc:"Part of pick pool"},
+  obligation: {bg:"#190509",border:"#f87171",text:"#f87171",label:"OWED OUT",    icon:"↑", desc:"Owed to another team"},
+};
+
+// ── BASKETBALL SVG ────────────────────────────────────────────────────────────
+function Ball({size=20}) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="#E8621A" stroke="#b84a00" strokeWidth="3"/>
+      <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#b84a0066" strokeWidth="3.5"/>
+      <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#b84a0066" strokeWidth="3.5"/>
+      <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#b84a0066" strokeWidth="3.5"/>
+      <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#b84a0066" strokeWidth="3.5"/>
+    </svg>
+  );
+}
+
+// ── LOADING / ERROR ───────────────────────────────────────────────────────────
+function LoadingScreen() {
+  return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",
+      minHeight:"100vh",flexDirection:"column",gap:16}}>
+      <div style={{width:40,height:40,border:"3px solid #1a1a2e",
+        borderTop:"3px solid #60a5fa",borderRadius:"50%",animation:"spin 0.8s linear infinite"}}/>
+      <div style={{color:"#555",fontSize:13}}>Loading draft capital data…</div>
+    </div>
+  );
+}
+
+function ErrorScreen({error, onRetry}) {
+  return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",
+      minHeight:"100vh",flexDirection:"column",gap:12,padding:20,textAlign:"center"}}>
+      <div style={{fontSize:32}}>⚠️</div>
+      <div style={{fontSize:16,fontWeight:700,color:"#f87171"}}>Failed to load data</div>
+      <div style={{fontSize:12,color:"#555",maxWidth:340}}>{error}</div>
+      <button onClick={onRetry} style={{background:"#1e1e2e",border:"1px solid #333",
+        color:"#aaa",borderRadius:7,padding:"8px 18px",cursor:"pointer",fontSize:12,marginTop:4}}>
+        Try Again
+      </button>
+    </div>
+  );
+}
+
+// ── HEADER ────────────────────────────────────────────────────────────────────
+function Header({meta, onBack, teamName, teamColor}) {
+  return (
+    <div style={{background:"#0c0c18",borderBottom:"1px solid #14142a",
+      padding:"12px 20px",display:"flex",alignItems:"center",
+      justifyContent:"space-between",position:"sticky",top:0,zIndex:100}}>
+      <div style={{display:"flex",alignItems:"center",gap:10}}>
+        {onBack && (
+          <button className="back-btn" onClick={onBack} style={{
+            background:"transparent",border:"1px solid #252535",color:"#888",
+            borderRadius:6,padding:"5px 12px",fontSize:11,letterSpacing:.3}}>
+            ← All Teams
+          </button>
+        )}
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+          <Ball size={18}/>
+          <span style={{fontSize:14,fontWeight:800,letterSpacing:.3}}>
+            NBA Draft Capital
+          </span>
+          {teamName && (
+            <span style={{fontSize:14,fontWeight:800,color:teamColor||"#aaa"}}>
+              / {teamName}
+            </span>
+          )}
+        </div>
+      </div>
+      {meta && (
+        <div style={{fontSize:9,color:"#333",textAlign:"right"}}>
+          Through 2026 Trade Deadline
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── TEAM SELECTOR ─────────────────────────────────────────────────────────────
+function TeamCard({abbr, isAvailable, onClick}) {
+  const cfg = TEAM_CFG[abbr] || {name:abbr,primary:"#444",secondary:"#222"};
+  const nameParts = cfg.name.split(" ");
+  const nickname = nameParts.slice(1).join(" ") || cfg.name;
+  const city = nameParts[0];
+
+  if (!isAvailable) {
+    return (
+      <div style={{background:"#0d0d18",border:"1px solid #151520",borderRadius:10,
+        padding:"12px 8px",textAlign:"center",opacity:.35,cursor:"default"}}>
+        <div style={{fontSize:18,fontWeight:900,color:"#333",letterSpacing:1}}>{abbr}</div>
+        <div style={{fontSize:8,color:"#222",marginTop:2}}>{nickname}</div>
+        <div style={{fontSize:7,color:"#1a1a1a",marginTop:1}}>No data</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="team-card" onClick={()=>onClick(abbr)}
+      style={{background:`linear-gradient(145deg, ${cfg.primary}18 0%, ${cfg.secondary}0c 100%)`,
+        border:`1.5px solid ${cfg.primary}40`,borderRadius:10,padding:"14px 8px",textAlign:"center",
+        userSelect:"none",position:"relative",overflow:"hidden"}}>
+      <div style={{position:"absolute",top:0,left:0,right:0,height:2,
+        background:`linear-gradient(90deg, transparent, ${cfg.primary}88, transparent)`}}/>
+      <div style={{fontSize:20,fontWeight:900,color:cfg.primary,letterSpacing:1,lineHeight:1}}>
+        {abbr}
+      </div>
+      <div style={{fontSize:8,color:"#888",marginTop:4,lineHeight:1.4}}>{nickname}</div>
+      <div style={{fontSize:7,color:"#444",marginTop:2}}>{city}</div>
+    </div>
+  );
+}
+
+// All 30 NBA teams in conference/division order for the selector grid
+const ALL_TEAMS_ORDER = [
+  // Atlantic
+  "BOS","BKN","NYK","PHI","TOR",
+  // Central
+  "CHI","CLE","DET","IND","MIL",
+  // Southeast
+  "ATL","CHA","MIA","ORL","WAS",
+  // Northwest
+  "DEN","MIN","OKC","POR","UTA",
+  // Pacific
+  "GSW","LAC","LAL","PHX","SAC",
+  // Southwest
+  "DAL","HOU","MEM","NOP","SAS",
+];
+
+function TeamSelector({availableTeams, onSelect}) {
+  const available = new Set(availableTeams);
+  return (
+    <div style={{padding:"28px 20px",maxWidth:960,margin:"0 auto",animation:"fadeUp 0.3s ease"}}>
+      <div style={{textAlign:"center",marginBottom:28}}>
+        <div style={{fontSize:28,fontWeight:900,letterSpacing:-.5,marginBottom:6}}>
+          Select a Team
+        </div>
+        <div style={{fontSize:12,color:"#555"}}>
+          {availableTeams.length} of 30 teams loaded · 2026–2032 draft capital
+        </div>
+      </div>
+
+      {/* Legend */}
+      <div style={{display:"flex",gap:16,justifyContent:"center",marginBottom:20,flexWrap:"wrap"}}>
+        {Object.entries(TYPE_CFG).filter(([k])=>k!=='obligation').map(([k,v])=>(
+          <div key={k} style={{display:"flex",alignItems:"center",gap:5}}>
+            <div style={{width:8,height:8,borderRadius:"50%",background:v.border}}/>
+            <span style={{fontSize:9,color:"#666"}}>{v.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(110px,1fr))",gap:8}}>
+        {ALL_TEAMS_ORDER.map(abbr => (
+          <TeamCard key={abbr} abbr={abbr}
+            isAvailable={available.has(abbr)}
+            onClick={onSelect}/>
+        ))}
+      </div>
+
+      <div style={{marginTop:20,textAlign:"center",fontSize:10,color:"#2a2a3a"}}>
+        Data sources: Hoops Rumors · Trade Deadline Feb 5 2026 · Verify details on RealGM
+      </div>
+    </div>
+  );
+}
+
+// ── PICK CARD ────────────────────────────────────────────────────────────────
+function PickCard({pick, teamAbbr, isSelected, onClick}) {
+  const type = getPickType(pick, teamAbbr);
+  const cfg = TYPE_CFG[type];
+  const origCfg = TEAM_CFG[pick.originalTeam];
+  const holderCfg = TEAM_CFG[pick.currentHolder];
+  const isOwn = pick.originalTeam === teamAbbr;
+  const isHolder = pick.currentHolder === teamAbbr;
+
+  return (
+    <div className="pick-card" onClick={onClick}
+      style={{background: isSelected ? cfg.bg : "#0f0f1e",
+        border:`2px solid ${isSelected ? cfg.border : "#1c1c2e"}`,
+        borderRadius:11,padding:"11px 12px",minWidth:148,
+        boxShadow: isSelected ? `0 0 20px ${cfg.border}30` : "none",
+        transform: isSelected ? "translateY(-3px) scale(1.02)" : undefined,
+        animation:"fadeUp 0.2s ease"}}>
+
+      {/* Round badge + year */}
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:7}}>
+        <span style={{fontSize:8,color:"#444",fontWeight:700,letterSpacing:.5}}>
+          {pick.year}
+        </span>
+        <span style={{fontSize:9,fontWeight:800,color:cfg.text,
+          background:`${cfg.border}18`,border:`1px solid ${cfg.border}44`,
+          borderRadius:4,padding:"1px 6px"}}>
+          {pick.round}
+        </span>
+      </div>
+
+      {/* Team indicator */}
+      <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:7}}>
+        <div style={{width:28,height:28,borderRadius:6,
+          background:`${origCfg?.primary||"#555"}22`,
+          border:`1px solid ${origCfg?.primary||"#555"}44`,
+          display:"flex",alignItems:"center",justifyContent:"center",
+          fontSize:8,fontWeight:900,color:origCfg?.primary||"#888",letterSpacing:.3}}>
+          {pick.originalTeam}
+        </div>
+        {!isHolder && (
+          <div style={{fontSize:9,color:"#555"}}>
+            → <span style={{color:holderCfg?.primary||"#aaa",fontWeight:700}}>
+              {pick.currentHolder}
+            </span>
+          </div>
+        )}
+        {isHolder && !isOwn && (
+          <div style={{fontSize:8,color:"#555"}}>
+            from <span style={{color:origCfg?.primary||"#aaa",fontWeight:700}}>
+              {pick.originalTeam}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Type badge */}
+      <div style={{fontSize:8,color:cfg.text,fontWeight:700,letterSpacing:.4,
+        display:"flex",alignItems:"center",gap:4}}>
+        <span style={{fontSize:10}}>{cfg.icon}</span>
+        {cfg.label}
+      </div>
+
+      {/* Modifiers */}
+      {pick.protection && (
+        <div style={{marginTop:5,fontSize:7,color:"#fbbf24",background:"#191000",
+          border:"1px solid #fbbf2430",borderRadius:4,padding:"2px 5px",display:"inline-block"}}>
+          🛡 {pick.protection}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── PICK DETAIL PANEL ─────────────────────────────────────────────────────────
+function PickDetail({pick, teamAbbr, onClose}) {
+  const type = getPickType(pick, teamAbbr);
+  const cfg = TYPE_CFG[type];
+  const origCfg = TEAM_CFG[pick.originalTeam] || {primary:"#888",name:pick.originalTeam};
+  const holderCfg = TEAM_CFG[pick.currentHolder] || {primary:"#888",name:pick.currentHolder};
+
+  return (
+    <div style={{background:"#0c0c1c",border:`2px solid ${cfg.border}44`,borderRadius:12,
+      padding:18,animation:"slideDown 0.2s ease",marginTop:10}}>
+
+      {/* Title bar */}
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:14}}>
+        <div>
+          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4}}>
+            <span style={{fontSize:20,fontWeight:900,color:origCfg.primary}}>
+              {pick.originalTeam}
+            </span>
+            <span style={{fontSize:11,color:"#555"}}>·</span>
+            <span style={{fontSize:14,fontWeight:700,color:"#aaa"}}>{pick.year}</span>
+            <span style={{fontSize:12,fontWeight:800,color:cfg.text,
+              background:`${cfg.border}18`,border:`1px solid ${cfg.border}44`,
+              borderRadius:5,padding:"2px 8px"}}>{pick.round} Round</span>
+          </div>
+          <div style={{fontSize:10,color:cfg.text,fontWeight:700,
+            display:"flex",alignItems:"center",gap:5}}>
+            <span>{cfg.icon}</span> {cfg.desc}
+          </div>
+        </div>
+        <button onClick={onClose} style={{background:"none",border:"1px solid #252535",
+          color:"#555",borderRadius:5,width:26,height:26,cursor:"pointer",
+          display:"flex",alignItems:"center",justifyContent:"center",fontSize:13}}>
+          ✕
+        </button>
+      </div>
+
+      {/* Key fields */}
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:14}}>
+        <div style={{background:"#111122",borderRadius:7,padding:10}}>
+          <div style={{fontSize:8,color:"#555",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
+            Original Team
+          </div>
+          <div style={{fontSize:16,fontWeight:900,color:origCfg.primary}}>
+            {pick.originalTeam}
+          </div>
+          <div style={{fontSize:9,color:"#666",marginTop:1}}>{origCfg.name}</div>
+        </div>
+        <div style={{background:"#111122",borderRadius:7,padding:10}}>
+          <div style={{fontSize:8,color:"#555",marginBottom:4,textTransform:"uppercase",letterSpacing:.5}}>
+            Current Holder
+          </div>
+          <div style={{fontSize:16,fontWeight:900,color:holderCfg.primary}}>
+            {pick.currentHolder}
+          </div>
+          <div style={{fontSize:9,color:"#666",marginTop:1}}>{holderCfg.name}</div>
+        </div>
+      </div>
+
+      {/* Conditional fields */}
+      {pick.protection && (
+        <div style={{background:"#191000",border:"1px solid #fbbf2430",borderRadius:7,
+          padding:"9px 12px",marginBottom:10}}>
+          <div style={{fontSize:8,color:"#fbbf24",fontWeight:700,textTransform:"uppercase",
+            letterSpacing:.5,marginBottom:4}}>⬡ Protection</div>
+          <div style={{fontSize:12,color:"#fbbf24",fontWeight:600}}>{pick.protection}</div>
+        </div>
+      )}
+
+      {pick.swapCondition && (
+        <div style={{background:"#120622",border:"1px solid #c084fc30",borderRadius:7,
+          padding:"9px 12px",marginBottom:10}}>
+          <div style={{fontSize:8,color:"#c084fc",fontWeight:700,textTransform:"uppercase",
+            letterSpacing:.5,marginBottom:4}}>⇄ Swap Condition</div>
+          <div style={{fontSize:11,color:"#d4b8f0",lineHeight:1.5}}>{pick.swapCondition}</div>
+        </div>
+      )}
+
+      {pick.condition && (
+        <div style={{background:"#031614",border:"1px solid #2dd4bf30",borderRadius:7,
+          padding:"9px 12px",marginBottom:10}}>
+          <div style={{fontSize:8,color:"#2dd4bf",fontWeight:700,textTransform:"uppercase",
+            letterSpacing:.5,marginBottom:4}}>⊕ Pool / Condition Key</div>
+          <div style={{fontSize:10,color:"#7ddfd7",fontFamily:"monospace"}}>{pick.condition}</div>
+        </div>
+      )}
+
+      {/* Notes */}
+      {pick.notes && (
+        <div style={{background:"#0a0a16",border:"1px solid #1e1e30",borderRadius:7,padding:"10px 12px"}}>
+          <div style={{fontSize:8,color:"#444",fontWeight:700,textTransform:"uppercase",
+            letterSpacing:.5,marginBottom:6}}>📋 Trade Notes</div>
+          <div style={{fontSize:11,color:"#999",lineHeight:1.6}}>{pick.notes}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── YEAR FILTER ───────────────────────────────────────────────────────────────
+function YearFilter({years, selected, onChange}) {
+  return (
+    <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:16}}>
+      <button className="year-pill" onClick={()=>onChange(null)}
+        style={{padding:"4px 12px",borderRadius:20,fontSize:10,fontWeight:700,
+          background: selected===null ? "#fff" : "transparent",
+          color: selected===null ? "#000" : "#555",
+          border: selected===null ? "1.5px solid #fff" : "1.5px solid #252535",letterSpacing:.3}}>
+        ALL
+      </button>
+      {years.map(y => (
+        <button key={y} className="year-pill" onClick={()=>onChange(y)}
+          style={{padding:"4px 12px",borderRadius:20,fontSize:10,fontWeight:700,
+            background: selected===y ? "#fff" : "transparent",
+            color: selected===y ? "#000" : "#555",
+            border: selected===y ? "1.5px solid #fff" : "1.5px solid #252535",letterSpacing:.3}}>
+          {y}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ── PICKS SECTION ─────────────────────────────────────────────────────────────
+function PicksSection({title, picks, teamAbbr, selectedPick, onPickClick}) {
+  if (picks.length === 0) return null;
+
+  const byYear = {};
+  picks.forEach(p => {
+    if (!byYear[p.year]) byYear[p.year] = {first:[], second:[]};
+    if (p.round === "1st") byYear[p.year].first.push(p);
+    else byYear[p.year].second.push(p);
+  });
+  const years = Object.keys(byYear).sort();
+
+  return (
+    <div style={{marginBottom:24}}>
+      <div style={{fontSize:11,color:"#444",fontWeight:700,textTransform:"uppercase",
+        letterSpacing:1,marginBottom:12,paddingBottom:8,borderBottom:"1px solid #111"}}>
+        {title} <span style={{color:"#2a2a3a",marginLeft:6}}>{picks.length} picks</span>
+      </div>
+
+      {years.map(year => (
+        <div key={year} style={{marginBottom:16}}>
+          <div style={{fontSize:10,color:"#333",fontWeight:700,letterSpacing:1,marginBottom:8}}>
+            {year}
+          </div>
+
+          {byYear[year].first.length > 0 && (
+            <div style={{marginBottom:8}}>
+              <div style={{fontSize:8,color:"#2a2a3a",letterSpacing:.5,marginBottom:5,
+                textTransform:"uppercase",fontWeight:600}}>1st Round</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+                {byYear[year].first.map((pick, idx) => {
+                  const key = `${pick.year}-${pick.round}-${pick.originalTeam}-${idx}`;
+                  const isSel = selectedPick === key;
+                  return (
+                    <div key={key}>
+                      <PickCard pick={pick} teamAbbr={teamAbbr}
+                        isSelected={isSel} onClick={()=>onPickClick(isSel ? null : key, pick)}/>
+                      {isSel && <PickDetail pick={pick} teamAbbr={teamAbbr}
+                        onClose={()=>onPickClick(null, null)}/>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {byYear[year].second.length > 0 && (
+            <div>
+              <div style={{fontSize:8,color:"#2a2a3a",letterSpacing:.5,marginBottom:5,
+                textTransform:"uppercase",fontWeight:600}}>2nd Round</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+                {byYear[year].second.map((pick, idx) => {
+                  const key = `${pick.year}-${pick.round}-${pick.originalTeam}-${idx}`;
+                  const isSel = selectedPick === key;
+                  return (
+                    <div key={key}>
+                      <PickCard pick={pick} teamAbbr={teamAbbr}
+                        isSelected={isSel} onClick={()=>onPickClick(isSel ? null : key, pick)}/>
+                      {isSel && <PickDetail pick={pick} teamAbbr={teamAbbr}
+                        onClose={()=>onPickClick(null, null)}/>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── STATS BAR ─────────────────────────────────────────────────────────────────
+function StatsBar({holdings, obligations, primary}) {
+  const first1 = holdings.filter(p => p.round === "1st").length;
+  const second1 = holdings.filter(p => p.round === "2nd").length;
+  const conditional = holdings.filter(p => ["protected","swap","pool"].includes(
+    getPickType(p, "_"))).length;
+  const owed = obligations.length;
+
+  const items = [
+    {v:first1,  label:"1st Round Held",   color:"#22c55e"},
+    {v:second1, label:"2nd Round Held",   color:"#60a5fa"},
+    {v:conditional, label:"Conditional", color:"#fbbf24"},
+    {v:owed,    label:"Owed to Others",  color:"#f87171"},
+  ];
+
+  return (
+    <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8,marginBottom:20}}>
+      {items.map(it => (
+        <div key={it.label} style={{background:"#0f0f1e",border:`1px solid ${it.color}22`,
+          borderRadius:8,padding:"10px 12px"}}>
+          <div style={{fontSize:26,fontWeight:900,color:it.color,lineHeight:1}}>{it.v}</div>
+          <div style={{fontSize:8,color:"#555",marginTop:3,letterSpacing:.3}}>{it.label}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── TEAM VIEW ─────────────────────────────────────────────────────────────────
+function TeamView({teamAbbr, teamData, onBack}) {
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [activeTab, setActiveTab] = useState("holdings");
+  const [selectedKey, setSelectedKey] = useState(null);
+
+  const cfg = TEAM_CFG[teamAbbr] || {name:teamAbbr, primary:"#888", secondary:"#444"};
+
+  const allPicks = teamData.picks || [];
+
+  const holdings = useMemo(() =>
+    allPicks.filter(p => p.currentHolder === teamAbbr), [allPicks, teamAbbr]);
+
+  const obligations = useMemo(() =>
+    allPicks.filter(p => p.originalTeam === teamAbbr && p.currentHolder !== teamAbbr),
+    [allPicks, teamAbbr]);
+
+  const years = useMemo(() => {
+    const s = new Set(allPicks.map(p => p.year));
+    return [...s].sort();
+  }, [allPicks]);
+
+  const filteredHoldings = useMemo(() =>
+    selectedYear ? holdings.filter(p => p.year === selectedYear) : holdings,
+    [holdings, selectedYear]);
+
+  const filteredObligations = useMemo(() =>
+    selectedYear ? obligations.filter(p => p.year === selectedYear) : obligations,
+    [obligations, selectedYear]);
+
+  const handlePickClick = useCallback((key, pick) => {
+    setSelectedKey(key);
+  }, []);
+
+  const tabs = [
+    {id:"holdings",   label:`Holdings (${holdings.length})`},
+    {id:"obligations",label:`Obligations (${obligations.length})`},
+  ];
+
+  return (
+    <div style={{maxWidth:960,margin:"0 auto",padding:"20px 20px",animation:"fadeUp 0.25s ease"}}>
+
+      {/* Team header */}
+      <div style={{marginBottom:20,padding:"16px 20px",borderRadius:12,
+        background:`linear-gradient(135deg, ${cfg.primary}14 0%, ${cfg.secondary}08 100%)`,
+        border:`1px solid ${cfg.primary}28`}}>
+        <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:2}}>
+          <div style={{fontSize:36,fontWeight:900,color:cfg.primary,letterSpacing:1,lineHeight:1}}>
+            {teamAbbr}
+          </div>
+          <div>
+            <div style={{fontSize:18,fontWeight:700,color:"#ddd"}}>{cfg.name}</div>
+            <div style={{fontSize:10,color:"#444",marginTop:2}}>
+              Draft Capital 2026–2032
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <StatsBar holdings={holdings} obligations={obligations} primary={cfg.primary}/>
+
+      {/* Tabs */}
+      <div style={{display:"flex",gap:8,marginBottom:16,borderBottom:"1px solid #111",paddingBottom:0}}>
+        {tabs.map(tab => (
+          <button key={tab.id} onClick={()=>setActiveTab(tab.id)}
+            style={{background:"none",border:"none",padding:"8px 16px",cursor:"pointer",
+              fontSize:12,fontWeight:700,letterSpacing:.3,
+              color: activeTab===tab.id ? cfg.primary : "#444",
+              borderBottom: activeTab===tab.id ? `2px solid ${cfg.primary}` : "2px solid transparent",
+              transition:"all 0.15s"}}>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Year filter */}
+      <YearFilter years={years} selected={selectedYear} onChange={setSelectedYear}/>
+
+      {/* Content */}
+      {activeTab === "holdings" && (
+        <PicksSection
+          title="Current Holdings"
+          picks={filteredHoldings}
+          teamAbbr={teamAbbr}
+          selectedPick={selectedKey}
+          onPickClick={handlePickClick}
+        />
+      )}
+
+      {activeTab === "obligations" && (
+        <>
+          {filteredObligations.length === 0 ? (
+            <div style={{textAlign:"center",padding:"40px 20px",color:"#2a2a3a",fontSize:12}}>
+              No pick obligations {selectedYear ? `in ${selectedYear}` : "on record"}
+            </div>
+          ) : (
+            <PicksSection
+              title="Picks Owed to Other Teams"
+              picks={filteredObligations}
+              teamAbbr={teamAbbr}
+              selectedPick={selectedKey}
+              onPickClick={handlePickClick}
+            />
+          )}
+        </>
+      )}
+
+      {/* Legend */}
+      <div style={{marginTop:32,padding:"14px 16px",background:"#0a0a16",
+        borderRadius:9,border:"1px solid #111"}}>
+        <div style={{fontSize:9,color:"#333",fontWeight:700,letterSpacing:.8,
+          textTransform:"uppercase",marginBottom:10}}>Pick Type Legend</div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
+          {Object.entries(TYPE_CFG).map(([k,v]) => (
+            <div key={k} style={{display:"flex",alignItems:"center",gap:6}}>
+              <div style={{width:22,height:22,borderRadius:5,background:v.bg,
+                border:`1.5px solid ${v.border}`,display:"flex",alignItems:"center",
+                justifyContent:"center",fontSize:9,color:v.text}}>{v.icon}</div>
+              <div>
+                <div style={{fontSize:9,color:v.text,fontWeight:700}}>{v.label}</div>
+                <div style={{fontSize:7,color:"#444"}}>{v.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── ROOT APP ──────────────────────────────────────────────────────────────────
+function App() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedTeam, setSelectedTeam] = useState(null);
+
+  const loadData = useCallback(() => {
+    setLoading(true);
+    setError(null);
+    fetch('all_teams_draft_picks.json')
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(d => { setData(d); setLoading(false); })
+      .catch(e => { setError(e.message); setLoading(false); });
+  }, []);
+
+  useEffect(() => { loadData(); }, [loadData]);
+
+  if (loading) return <LoadingScreen/>;
+  if (error)   return <ErrorScreen error={error} onRetry={loadData}/>;
+
+  const availableTeams = Object.keys(data.teams);
+  const teamData = selectedTeam ? data.teams[selectedTeam] : null;
+  const teamCfg = selectedTeam ? (TEAM_CFG[selectedTeam] || {}) : {};
+
+  return (
+    <div>
+      <Header
+        meta={data.metadata}
+        onBack={selectedTeam ? () => setSelectedTeam(null) : null}
+        teamName={teamData ? teamCfg.name : null}
+        teamColor={teamCfg.primary}
+      />
+
+      {!selectedTeam && (
+        <TeamSelector availableTeams={availableTeams} onSelect={setSelectedTeam}/>
+      )}
+
+      {selectedTeam && teamData && (
+        <TeamView teamAbbr={selectedTeam} teamData={teamData} onBack={()=>setSelectedTeam(null)}/>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
