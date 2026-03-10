@@ -211,7 +211,7 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       animation:'pulse 1.5s ease-in-out infinite'}}/>}
     {/* ID + round badge */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
-      <span style={{fontSize:9,fontFamily:'monospace',color:'#555',fontWeight:700,letterSpacing:.3}}>{pickId}</span>
+      <span style={{fontSize:11,fontFamily:'monospace',color:'#999',fontWeight:700,letterSpacing:.3}}>{pickId}</span>
       <span style={{fontSize:10,fontWeight:800,color:'#fff',background:cfg.border,
         borderRadius:5,padding:'2px 9px',letterSpacing:.3}}>{pick.round}</span>
     </div>
@@ -222,7 +222,7 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
         <div style={{fontSize:20,fontWeight:900,color:origCfg.primary,letterSpacing:.5,lineHeight:1}}>
           {pick.originalTeam}
         </div>
-        {!isOwnHolder&&<div style={{fontSize:10,color:'#666',marginTop:3}}>
+        {!isOwnHolder&&<div style={{fontSize:10,color:'#aaa',marginTop:3}}>
           → <span style={{color:holderCfg.primary,fontWeight:700}}>{pick.currentHolder}</span>
         </div>}
       </div>
@@ -233,12 +233,12 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       <span style={{fontSize:13}}>{cfg.icon}</span>
       <span>{cfg.label}</span>
     </div>
-    {pick.protection&&<div style={{fontSize:9,color:'#f0a500',fontWeight:600,marginBottom:linkedPickIds?.length?4:0}}>
+    {pick.protection&&<div style={{fontSize:11,color:'#f0a500',fontWeight:600,marginBottom:linkedPickIds?.length?4:0}}>
       {pick.protection}
     </div>}
     {/* Linked picks */}
     {linkedPickIds&&linkedPickIds.length>0&&<div style={{
-      display:'flex',alignItems:'center',gap:4,fontSize:9,color:'#555',marginTop:2}}>
+      display:'flex',alignItems:'center',gap:4,fontSize:11,color:'#999',marginTop:2}}>
       <span>🔗</span><span style={{fontFamily:'monospace'}}>{linkedPickIds.join(', ')}</span>
     </div>}
   </div>;
@@ -249,10 +249,10 @@ function FBox({label,sub,color,bold}){
   return <div style={{background:`${color}18`,border:`${bold?2:1}px solid ${color}${bold?'':'55'}`,
     borderRadius:7,padding:'6px 10px',minWidth:90}}>
     <div style={{fontSize:10,color,fontWeight:bold?800:600}}>{label}</div>
-    {sub&&<div style={{fontSize:8,color:'#aaa',marginTop:2}}>{sub}</div>}
+    {sub&&<div style={{fontSize:10,color:'#aaa',marginTop:2}}>{sub}</div>}
   </div>;
 }
-function Arrow({label,color='#555'}){
+function Arrow({label,color='#999'}){
   return <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:2,padding:'0 3px'}}>
     <div style={{fontSize:16,color}}>→</div>
     {label&&<div style={{fontSize:7,color:'#777',textAlign:'center',maxWidth:50}}>{label}</div>}
@@ -266,7 +266,7 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
 
   if(pick.swapCondition){
     return <div style={{marginTop:12}}>
-      <div style={{fontSize:9,color:'#666',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>SWAP RIGHT</div>
+      <div style={{fontSize:11,color:'#aaa',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>SWAP RIGHT</div>
       <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
         <div style={{display:'flex',flexDirection:'column',gap:5}}>
           <FBox label={`${teamAbbr} own 1st`} color={tc.primary}/>
@@ -281,7 +281,7 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
   if(pick.condition==='pool_okc_lac_hou_2026'||pick.condition==='pool3'){
     const conveys=houFinish?houFinish>4:true;
     return <div style={{marginTop:12}}>
-      <div style={{fontSize:9,color:'#666',marginBottom:6,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>
+      <div style={{fontSize:11,color:'#aaa',marginBottom:6,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>
         OKC / LAC / HOU 2026 POOL
       </div>
       {houFinish&&<div style={{fontSize:10,fontWeight:700,marginBottom:8,
@@ -306,7 +306,7 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
 
   if(pick.condition==='pool_hou_dal_phx_2029'){
     return <div style={{marginTop:12}}>
-      <div style={{fontSize:9,color:'#666',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>2029 HOU / DAL / PHX POOL</div>
+      <div style={{fontSize:11,color:'#aaa',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>2029 HOU / DAL / PHX POOL</div>
       <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
         <div style={{display:'flex',flexDirection:'column',gap:5}}>
           <FBox label="HOU 2029 1st" color="#CE1141"/>
@@ -324,7 +324,7 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
 
   if(pick.condition==='pool_mil_nop_atl'){
     return <div style={{marginTop:12}}>
-      <div style={{fontSize:9,color:'#666',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>MIL / NOP PICK FLOW</div>
+      <div style={{fontSize:11,color:'#aaa',marginBottom:8,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>MIL / NOP PICK FLOW</div>
       <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}>
         <div style={{display:'flex',flexDirection:'column',gap:5}}>
           <FBox label="MIL 2026 1st" color="#00471B"/>
@@ -341,9 +341,9 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
 
   // Generic pool
   return <div style={{marginTop:12}}>
-    <div style={{fontSize:9,color:'#666',marginBottom:6,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>PICK POOL / CONDITION</div>
+    <div style={{fontSize:11,color:'#aaa',marginBottom:6,textTransform:'uppercase',letterSpacing:.8,fontWeight:700}}>PICK POOL / CONDITION</div>
     <div style={{background:'#031614',border:'1px solid #2dd4bf33',borderRadius:7,padding:'8px 12px'}}>
-      <div style={{fontSize:9,color:'#2dd4bf',fontFamily:'monospace'}}>{pick.condition}</div>
+      <div style={{fontSize:11,color:'#2dd4bf',fontFamily:'monospace'}}>{pick.condition}</div>
     </div>
   </div>;
 }
@@ -375,7 +375,7 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
           <div style={{fontSize:18,fontWeight:900,color:'#fff',lineHeight:1}}>
             {pick.originalTeam} {pick.year} {pick.round}
           </div>
-          <div style={{fontSize:10,color:'#555',fontFamily:'monospace',marginTop:2}}>{displayId}</div>
+          <div style={{fontSize:10,color:'#999',fontFamily:'monospace',marginTop:2}}>{displayId}</div>
         </div>
       </div>
       <button onClick={onClose} style={{background:'none',border:'1px solid #2a2a3a',
@@ -385,15 +385,15 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
     {/* Original → Owner */}
     <div style={{display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:8,alignItems:'center',marginBottom:12}}>
       <div style={{background:'#0f0f1e',border:'1px solid #1e1e30',borderRadius:8,padding:'10px 12px'}}>
-        <div style={{fontSize:8,color:'#555',textTransform:'uppercase',letterSpacing:.5,marginBottom:4}}>ORIGINAL</div>
+        <div style={{fontSize:10,color:'#999',textTransform:'uppercase',letterSpacing:.5,marginBottom:4}}>ORIGINAL</div>
         <div style={{fontSize:22,fontWeight:900,color:origCfg.primary,lineHeight:1}}>{pick.originalTeam}</div>
-        <div style={{fontSize:9,color:'#aaa',marginTop:2}}>{origCfg.name}</div>
+        <div style={{fontSize:11,color:'#aaa',marginTop:2}}>{origCfg.name}</div>
       </div>
-      <div style={{fontSize:18,color:'#333'}}>→</div>
+      <div style={{fontSize:18,color:'#777'}}>→</div>
       <div style={{background:'#0f0f1e',border:'1px solid #1e1e30',borderRadius:8,padding:'10px 12px'}}>
-        <div style={{fontSize:8,color:'#555',textTransform:'uppercase',letterSpacing:.5,marginBottom:4}}>OWNER</div>
+        <div style={{fontSize:10,color:'#999',textTransform:'uppercase',letterSpacing:.5,marginBottom:4}}>OWNER</div>
         <div style={{fontSize:22,fontWeight:900,color:holderCfg.primary,lineHeight:1}}>{pick.currentHolder}</div>
-        <div style={{fontSize:9,color:'#aaa',marginTop:2}}>{holderCfg.name}</div>
+        <div style={{fontSize:11,color:'#aaa',marginTop:2}}>{holderCfg.name}</div>
       </div>
     </div>
     {/* Detail / Notes */}
@@ -403,7 +403,7 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
     </div>}
     {/* Linked picks */}
     {linkedPicks.length>0&&<div style={{marginBottom:12}}>
-      <div style={{fontSize:9,color:'#555',fontWeight:700,textTransform:'uppercase',letterSpacing:.8,marginBottom:6}}>
+      <div style={{fontSize:11,color:'#999',fontWeight:700,textTransform:'uppercase',letterSpacing:.8,marginBottom:6}}>
         LINKED PICKS
       </div>
       <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
@@ -413,7 +413,7 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
             style={{background:'#4a9eff11',border:`1px solid #4a9eff44`,
               borderRadius:6,padding:'3px 9px',fontSize:10,color:'#4a9eff',
               fontFamily:'monospace',cursor:'pointer'}}>
-            {pid} <span style={{fontSize:8,opacity:.6,color:'#aaa'}}>({lp.originalTeam}→{lp.currentHolder})</span>
+            {pid} <span style={{fontSize:10,opacity:.6,color:'#aaa'}}>({lp.originalTeam}→{lp.currentHolder})</span>
           </div>;
         })}
       </div>
@@ -425,15 +425,15 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
 // ── DETAIL PLACEHOLDER ────────────────────────────────────────────────────────
 function DetailPlaceholder(){
   return <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',
-    height:'100%',gap:16,color:'#333',textAlign:'center',padding:24}}>
+    height:'100%',gap:16,color:'#777',textAlign:'center',padding:24}}>
     <Ball size={72}/>
     <div>
-      <div style={{fontSize:16,fontWeight:700,color:'#555',marginBottom:6}}>Select a pick to see details</div>
-      <div style={{fontSize:11,color:'#3a3a4a'}}>Click any card · Linked picks are clickable</div>
+      <div style={{fontSize:16,fontWeight:700,color:'#999',marginBottom:6}}>Select a pick to see details</div>
+      <div style={{fontSize:11,color:'#888'}}>Click any card · Linked picks are clickable</div>
     </div>
     <div style={{marginTop:4,display:'flex',gap:16,flexWrap:'wrap',justifyContent:'center'}}>
       {[['🛡','Protected'],['⚖','Conditional'],['🔄','Swap'],['⬇','Incoming'],['🏀','Own']].map(([ic,lb])=>
-        <span key={lb} style={{fontSize:10,color:'#3a3a4a',display:'flex',alignItems:'center',gap:4}}>
+        <span key={lb} style={{fontSize:10,color:'#888',display:'flex',alignItems:'center',gap:4}}>
           <span>{ic}</span><span>{lb}</span>
         </span>
       )}
@@ -476,7 +476,7 @@ function YearPills({years,selected,onChange,holdings,primary}){
           flexShrink:0,userSelect:'none',
         }}>
           <div style={{fontSize:18,fontWeight:900,color:active?'#fff':'#ccc',lineHeight:1}}>{y}</div>
-          <div style={{fontSize:8,color:active?'rgba(255,255,255,.65)':'#555',marginTop:3}}>
+          <div style={{fontSize:10,color:active?'rgba(255,255,255,.65)':'#888',marginTop:3}}>
             {info.total} pick{info.total!==1?'s':''}
           </div>
         </div>;
@@ -504,7 +504,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings}){
 
   const first=picks.filter(p=>p.round==='1st');
   const second=picks.filter(p=>p.round==='2nd');
-  if(picks.length===0) return <div style={{padding:'30px 0',color:'#333',fontSize:12,textAlign:'center'}}>
+  if(picks.length===0) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>
     No picks for this year
   </div>;
 
@@ -554,7 +554,7 @@ function TimelineView({holdings,teamAbbr}){
         {years.map(y=><div key={y} style={{flex:1,textAlign:'center',fontSize:11,fontWeight:800,color:'#ccc',letterSpacing:.5}}>{y}</div>)}
       </div>
       {['1st','2nd'].map(round=><div key={round} style={{display:'flex',alignItems:'flex-start',marginBottom:10}}>
-        <div style={{width:60,flexShrink:0,fontSize:9,color:'#555',fontWeight:700,textTransform:'uppercase',paddingTop:6}}>{round} RD</div>
+        <div style={{width:60,flexShrink:0,fontSize:11,color:'#999',fontWeight:700,textTransform:'uppercase',paddingTop:6}}>{round} RD</div>
         {years.map(y=>{
           const yp=holdings.filter(p=>p.year===y&&p.round===round);
           return <div key={y} style={{flex:1,padding:'0 3px',display:'flex',flexDirection:'column',gap:3}}>
@@ -565,7 +565,7 @@ function TimelineView({holdings,teamAbbr}){
                 const cfg=TYPE_CFG[type]||TYPE_CFG.own;
                 return <div key={i} style={{height:28,borderRadius:5,background:cfg.bg,
                   border:`1.5px solid ${cfg.border}`,display:'flex',alignItems:'center',
-                  justifyContent:'center',gap:3,fontSize:8,color:cfg.text,fontWeight:700}}>
+                  justifyContent:'center',gap:3,fontSize:10,color:cfg.text,fontWeight:700}}>
                   <span>{cfg.icon}</span><span>{pick.originalTeam}</span>
                 </div>;
               })
@@ -591,10 +591,10 @@ function LegendBar(){
     display:'flex',gap:18,flexWrap:'wrap',alignItems:'center',flexShrink:0,background:'#0a0a12'}}>
     {items.map(it=><div key={it.label} style={{display:'flex',alignItems:'center',gap:6}}>
       <div style={{width:11,height:11,borderRadius:2,background:it.color,flexShrink:0}}/>
-      <span style={{fontSize:9,color:'#888'}}>{it.icon}</span>
-      <span style={{fontSize:9,color:'#777',letterSpacing:.3,fontWeight:600}}>{it.label}</span>
+      <span style={{fontSize:11,color:'#ccc'}}>{it.icon}</span>
+      <span style={{fontSize:11,color:'#bbb',letterSpacing:.3,fontWeight:600}}>{it.label}</span>
     </div>)}
-    <div style={{marginLeft:'auto',fontSize:9,color:'#333'}}>
+    <div style={{marginLeft:'auto',fontSize:11,color:'#777'}}>
       Source: RealGM Trade Tracker · Data as of March 2026
     </div>
   </div>;
@@ -609,7 +609,7 @@ function SimSlider({finish,setFinish,color,teamName}){
       <div style={{fontSize:13,fontWeight:800,color}}>{teamName}</div>
       <div style={{display:'flex',alignItems:'baseline',gap:5}}>
         <div style={{fontSize:28,fontWeight:900,color,lineHeight:1}}>#{finish}</div>
-        <div style={{fontSize:9,color:'#555'}}>lottery finish</div>
+        <div style={{fontSize:11,color:'#999'}}>lottery finish</div>
       </div>
     </div>
     <div style={{display:'flex',gap:3,marginBottom:14,justifyContent:'center',flexWrap:'wrap'}}>
@@ -618,18 +618,18 @@ function SimSlider({finish,setFinish,color,teamName}){
         background:i===finish?color:i<finish?`${color}44`:'#1a1a28',
         border:`1.5px solid ${i===finish?'#fff':i<finish?color+'66':'#252535'}`,
         cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',
-        fontSize:8,color:i===finish?'#fff':'#555',fontWeight:700,
+        fontSize:10,color:i===finish?'#fff':'#888',fontWeight:700,
         transform:i===finish?'scale(1.25)':'scale(1)',transition:'all 0.12s',
       }}>{i}</div>)}
     </div>
     <div style={{display:'flex',gap:8}}>
       <div style={{flex:1,background:'#0d0d18',border:`1px solid ${color}33`,borderRadius:8,padding:'10px',textAlign:'center'}}>
         <div style={{fontSize:22,fontWeight:900,color,lineHeight:1}}>{odds.t1}%</div>
-        <div style={{fontSize:8,color:'#555',marginTop:3}}>🎯 #1 Overall</div>
+        <div style={{fontSize:10,color:'#999',marginTop:3}}>🎯 #1 Overall</div>
       </div>
       <div style={{flex:1,background:'#0d0d18',border:`1px solid ${color}33`,borderRadius:8,padding:'10px',textAlign:'center'}}>
         <div style={{fontSize:22,fontWeight:900,color,lineHeight:1}}>{odds.t4}%</div>
-        <div style={{fontSize:8,color:'#555',marginTop:3}}>🏆 Top-4 Pick</div>
+        <div style={{fontSize:10,color:'#999',marginTop:3}}>🏆 Top-4 Pick</div>
       </div>
     </div>
   </div>;
@@ -638,7 +638,7 @@ function SimSlider({finish,setFinish,color,teamName}){
 function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
   const conveys=houFinish>4;
   return <div style={{animation:'fadeUp 0.2s ease',maxWidth:560}}>
-    <div style={{fontSize:10,color:'#555',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:700}}>
+    <div style={{fontSize:10,color:'#999',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:700}}>
       🎰 What-If Lottery Simulator — 2026 Draft
     </div>
     <SimSlider finish={houFinish} setFinish={setHouFinish} color="#CE1141" teamName="Houston Rockets"/>
@@ -646,7 +646,7 @@ function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
     {/* P001 resolution */}
     <div style={{background:'#0f0f1e',border:`2px solid ${conveys?'#f0a500':'#2ecc71'}`,
       borderRadius:10,padding:14,marginBottom:12,transition:'border-color 0.3s'}}>
-      <div style={{fontSize:9,color:'#555',marginBottom:8,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+      <div style={{fontSize:11,color:'#999',marginBottom:8,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
         P001 — HOU 2026 1st · Resolution
       </div>
       {conveys?<>
@@ -662,7 +662,7 @@ function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
             <span style={{fontSize:16}}>{icon}</span>
             <div>
               <div style={{fontSize:11,fontWeight:800,color}}>{label}</div>
-              <div style={{fontSize:9,color:'#555'}}>{sub}</div>
+              <div style={{fontSize:11,color:'#999'}}>{sub}</div>
             </div>
           </div>)}
         </div>
@@ -672,7 +672,7 @@ function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
     </div>
     {/* P021 UTA resolution */}
     <div style={{background:'#0f0f1e',border:'1px solid #252535',borderRadius:10,padding:14,marginBottom:12}}>
-      <div style={{fontSize:9,color:'#555',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
+      <div style={{fontSize:11,color:'#999',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:1}}>
         P021 — UTA 2026 1st (Top-8 Protected) → OKC
       </div>
       <div style={{fontSize:12,fontWeight:800,color:okcFinish<=8?'#f0a500':'#2ecc71'}}>
@@ -680,9 +680,9 @@ function LotterySimulator({houFinish,setHouFinish,okcFinish,setOkcFinish}){
           ?`⚡ OKC proxy #${okcFinish} → UTA likely top-8 → pick may NOT convey (obligation extinguishes)`
           :`✅ If UTA finishes outside top-8 → pick conveys to OKC`}
       </div>
-      <div style={{fontSize:9,color:'#333',marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
+      <div style={{fontSize:11,color:'#777',marginTop:5}}>OKC finish used as proxy — verify UTA's actual standing on RealGM</div>
     </div>
-    <div style={{fontSize:9,color:'#333',fontStyle:'italic',lineHeight:1.6}}>
+    <div style={{fontSize:11,color:'#777',fontStyle:'italic',lineHeight:1.6}}>
       Covers 2026 draft · Positions approximate · Always verify on RealGM for official resolution
     </div>
   </div>;
@@ -708,7 +708,7 @@ function TeamSelector({available,onSelect}){
       <div style={{fontSize:28,fontWeight:900,letterSpacing:2,color:'#fff',lineHeight:1.1}}>
         NBA DRAFT CAPITAL EXPLORER
       </div>
-      <div style={{fontSize:12,color:'#555',marginTop:8,letterSpacing:1}}>
+      <div style={{fontSize:12,color:'#999',marginTop:8,letterSpacing:1}}>
         SELECT A TEAM TO EXPLORE THEIR DRAFT CAPITAL · 2026–2032
       </div>
     </div>
@@ -732,18 +732,18 @@ function TeamSelector({available,onSelect}){
           }}>
           {isAvail&&<div style={{position:'absolute',top:0,left:0,right:0,height:3,
             background:`linear-gradient(90deg,${cfg.primary},${cfg.secondary||cfg.primary})`}}/>}
-          <div style={{fontSize:22,fontWeight:900,color:isAvail?cfg.primary:'#333',
+          <div style={{fontSize:22,fontWeight:900,color:isAvail?cfg.primary:'#777',
             letterSpacing:.5,lineHeight:1,marginTop:isAvail?6:0}}>{abbr}</div>
-          <div style={{fontSize:9,color:isAvail?'#aaa':'#2a2a3a',marginTop:5,
+          <div style={{fontSize:11,color:isAvail?'#aaa':'#2a2a3a',marginTop:5,
             fontWeight:600,letterSpacing:.3,lineHeight:1.3}}>{cfg.short||cfg.name}</div>
-          {isAvail&&<div style={{marginTop:8,fontSize:8,color:cfg.primary,fontWeight:700,
+          {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:700,
             letterSpacing:.5}}>VIEW PICKS →</div>}
         </div>;
       })}
     </div>
 
     {/* Footer note */}
-    <div style={{textAlign:'center',padding:'0 20px 24px',fontSize:9,color:'#2a2a3a',flexShrink:0}}>
+    <div style={{textAlign:'center',padding:'0 20px 24px',fontSize:11,color:'#2a2a3a',flexShrink:0}}>
       Only teams with tracked draft capital are currently available · Data as of March 2026
     </div>
   </div>;
@@ -807,13 +807,13 @@ function App(){
     justifyContent:'center',flex:1,gap:14}}>
     <div style={{width:36,height:36,border:'3px solid #1a1a2e',borderTop:'3px solid #CE1141',
       borderRadius:'50%',animation:'spin 0.8s linear infinite'}}/>
-    <div style={{color:'#555',fontSize:12}}>Loading draft capital data…</div>
+    <div style={{color:'#999',fontSize:12}}>Loading draft capital data…</div>
   </div>;
 
   if(error) return <div style={{display:'flex',flexDirection:'column',alignItems:'center',
     justifyContent:'center',flex:1,gap:10,padding:20,textAlign:'center'}}>
     <div style={{fontSize:14,color:'#f87171',fontWeight:700}}>Failed to load data</div>
-    <div style={{fontSize:11,color:'#555',maxWidth:300}}>{error}</div>
+    <div style={{fontSize:11,color:'#999',maxWidth:300}}>{error}</div>
     <button onClick={load} style={{background:'#1e1e2e',border:'1px solid #333',color:'#ccc',
       borderRadius:6,padding:'7px 16px',cursor:'pointer',fontSize:11,marginTop:4}}>Try Again</button>
   </div>;
@@ -850,7 +850,7 @@ function App(){
           <div key={s.l} style={{background:'#111',border:`1px solid ${s.c}33`,borderRadius:8,
             padding:'8px 14px',textAlign:'center',minWidth:72}}>
             <div style={{fontSize:24,fontWeight:900,color:s.c,lineHeight:1}}>{s.v}</div>
-            <div style={{fontSize:8,color:'#555',marginTop:3,letterSpacing:.3}}>{s.l}</div>
+            <div style={{fontSize:10,color:'#aaa',marginTop:3,letterSpacing:.3}}>{s.l}</div>
           </div>
         )}
       </div>
@@ -859,7 +859,7 @@ function App(){
     {/* ── TEAM ROW ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       alignItems:'center',gap:8,flexWrap:'wrap',background:'#0c0c14',flexShrink:0}}>
-      <span style={{fontSize:10,color:'#555',fontWeight:700,letterSpacing:.5,marginRight:2}}>TEAM:</span>
+      <span style={{fontSize:10,color:'#999',fontWeight:700,letterSpacing:.5,marginRight:2}}>TEAM:</span>
       {available.map(t=>{
         const tcb=TEAM_CFG[t]||{primary:'#888',short:t};
         const isActive=t===activeTeam;
@@ -873,7 +873,7 @@ function App(){
           <span style={{opacity:.7,fontWeight:400,fontSize:10}}>{tcb.short}</span>
         </button>;
       })}
-      <span style={{fontSize:10,color:'#333',marginLeft:4}}>🔗 Shared picks shown across teams</span>
+      <span style={{fontSize:10,color:'#777',marginLeft:4}}>🔗 Shared picks shown across teams</span>
     </div>
 
     {/* ── VIEW TABS ── */}
@@ -886,7 +886,7 @@ function App(){
         return <button key={tab.id} className="view-tab" onClick={()=>setActiveView(tab.id)} style={{
           background:isActive?tc.primary:'transparent',
           border:`1.5px solid ${isActive?tc.primary:'#252535'}`,
-          color:isActive?'#fff':'#666',borderRadius:6,padding:'5px 14px',
+          color:isActive?'#fff':'#aaa',borderRadius:6,padding:'5px 14px',
           fontSize:11,fontWeight:700,letterSpacing:.3,
         }}>{tab.icon} {tab.label}</button>;
       })}
