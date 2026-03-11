@@ -305,7 +305,9 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
     e.stopPropagation();
     if(!stepienOpen&&badgeRef.current){
       const r=badgeRef.current.getBoundingClientRect();
-      setCalloutPos({top:r.bottom+8,left:Math.min(r.left,window.innerWidth-296)});
+      const calloutH=230;
+      const top=r.bottom+calloutH>window.innerHeight?Math.max(8,r.top-calloutH-8):r.bottom+8;
+      setCalloutPos({top,left:Math.min(r.left,window.innerWidth-296)});
     }
     setStepienOpen(function(s){return !s;});
   }
@@ -481,7 +483,7 @@ function FlowDiagram({pick,teamAbbr,houFinish,okcFinish}){
 }
 
 // ── DETAIL PANEL ─────────────────────────────────────────────────────────────
-function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,houFinish,okcFinish}){
+function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,houFinish,okcFinish,isStepienLocked,lockedByYear}){
   const type=getPickType(pick,teamAbbr);
   const cfg=TYPE_CFG[type]||TYPE_CFG.own;
   const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888',name:pick.originalTeam};
@@ -532,6 +534,17 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
     {detail&&<div style={{background:'#0c0c1a',border:'1px solid #2a2a40',borderRadius:8,
       padding:'10px 12px',marginBottom:12}}>
       <div style={{fontSize:12,color:'#e0e0f0',lineHeight:1.7}}>{detail}</div>
+    </div>}
+    {/* Stepien Rule block */}
+    {isStepienLocked&&<div style={{background:'#1c1100',border:'1.5px solid #ffb830',borderRadius:8,
+      padding:'10px 12px',marginBottom:12}}>
+      <div style={{fontSize:11,fontWeight:900,color:'#ffb830',letterSpacing:.5,marginBottom:6}}>⚠ STEPIEN RULE — CANNOT BE TRADED</div>
+      <div style={{fontSize:11,color:'#d0c090',lineHeight:1.6,marginBottom:6}}>
+        Named after Ted Stepien (Cavaliers owner, 1980–83), who traded away so many future 1st-round picks the franchise was crippled for years. The NBA prohibits teams from trading 1st-round picks in <span style={{color:'#ffb830',fontWeight:700}}>consecutive draft years</span>.
+      </div>
+      <div style={{fontSize:11,color:'#a08050',lineHeight:1.5}}>
+        {teamAbbr} has already traded away their {lockedByYear&&lockedByYear.length>0?lockedByYear.join(' and '):[pick.year-1,pick.year+1].join(' or ')} first-round pick, so this {pick.year} pick cannot be traded.
+      </div>
     </div>}
     {/* Linked picks */}
     {linkedPicks.length>0&&<div style={{marginBottom:12}}>
@@ -1311,6 +1324,8 @@ function App(){
         {selectedPick
           ?<DetailPanel pick={selectedPick} teamAbbr={activeTeam} pickId={selectedPickId}
               allTeamPicks={holdings} houFinish={houFinish} okcFinish={okcFinish}
+              isStepienLocked={!!(selectedPick&&stepienStatus.lockedYears.has(selectedPick.year)&&selectedPick.originalTeam===activeTeam&&selectedPick.currentHolder===activeTeam)}
+              lockedByYear={selectedPick&&stepienStatus.lockedYears.has(selectedPick.year)&&selectedPick.originalTeam===activeTeam&&selectedPick.currentHolder===activeTeam?[selectedPick.year-1,selectedPick.year+1].filter(function(y){return stepienStatus.tradedAwayYears.has(y);}):[]}
               onClose={()=>handlePick(null,null,null)}
               onLinkedClick={(lp)=>{
                 const allFirst=holdings.filter(p=>p.round==='1st');
