@@ -53,7 +53,7 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 .year-pill{transition:all 0.12s ease;cursor:pointer}
 .view-tab{transition:all 0.12s ease;cursor:pointer}
 .gradient-bar{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:gradientShift 3s ease infinite}
-@keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #ffb83066}50%{box-shadow:0 0 14px #ffb830aa,0 0 4px #ffb83044}}
+@keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
 </style>
 </head>
@@ -268,23 +268,23 @@ function StepienCallout({pick,teamAbbr,lockedByYear,pos,onClose}){
     :[pick.year-1,pick.year+1].join(' or ');
   return <div onClick={function(e){e.stopPropagation();}} style={{
     position:'fixed',top:pos.top,left:pos.left,zIndex:1000,
-    background:'#1a1200',border:'1.5px solid #ffb830',
+    background:'#001a1f',border:'1.5px solid #00cfff',
     borderRadius:10,padding:'14px 16px',width:282,
-    boxShadow:'0 8px 32px #00000099,0 0 0 1px #ffb83022',
+    boxShadow:'0 8px 32px #00000099,0 0 0 1px #00cfff22',
     animation:'fadeUp 0.15s ease',
   }}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:10}}>
-      <div style={{fontWeight:900,color:'#ffb830',fontSize:12,letterSpacing:.5,lineHeight:1.2}}>⚠ THE STEPIEN RULE</div>
+      <div style={{fontWeight:900,color:'#00cfff',fontSize:12,letterSpacing:.5,lineHeight:1.2}}>🔒 THE STEPIEN RULE</div>
       <button onClick={onClose} style={{background:'none',border:'none',color:'#888',cursor:'pointer',
         fontSize:14,padding:0,marginLeft:8,flexShrink:0,lineHeight:1}}>✕</button>
     </div>
-    <div style={{fontSize:11,color:'#d0c090',lineHeight:1.65,marginBottom:10}}>
+    <div style={{fontSize:11,color:'#a0d8e8',lineHeight:1.65,marginBottom:10}}>
       Named after Ted Stepien (Cleveland Cavaliers owner, 1980–83), who traded away so many future first-round picks the franchise was crippled for years. The NBA enacted this rule to prevent teams from trading 1st-round picks in{' '}
-      <span style={{color:'#ffb830',fontWeight:700}}>consecutive draft years</span> — every team must retain at least one 1st within any two-year window.
+      <span style={{color:'#00cfff',fontWeight:700}}>consecutive draft years</span> — every team must retain at least one 1st within any two-year window.
     </div>
-    <div style={{background:'#100a00',border:'1px solid #ffb83044',borderRadius:7,padding:'8px 10px',fontSize:11,lineHeight:1.5}}>
-      <span style={{color:'#ffb830',fontWeight:800}}>{teamAbbr} {pick.year}:</span>{' '}
-      <span style={{color:'#c0a868'}}>
+    <div style={{background:'#001420',border:'1px solid #00cfff44',borderRadius:7,padding:'8px 10px',fontSize:11,lineHeight:1.5}}>
+      <span style={{color:'#00cfff',fontWeight:800}}>{teamAbbr} {pick.year}:</span>{' '}
+      <span style={{color:'#80b8c8'}}>
         Cannot be traded — {teamAbbr} has already traded away their {causedBy} first-round pick.
       </span>
     </div>
@@ -362,11 +362,11 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       <div ref={badgeRef} className="stepien-badge-pulse"
         onClick={handleBadgeClick}
         style={{display:'inline-flex',alignItems:'center',gap:4,
-          background:'#1c1100',border:'1.5px solid #ffb830',
+          background:'#001a1f',border:'1.5px solid #00cfff',
           borderRadius:5,padding:'3px 8px',cursor:'pointer',
-          fontSize:10,color:'#ffb830',fontWeight:800,letterSpacing:.4,userSelect:'none',
+          fontSize:10,color:'#00cfff',fontWeight:800,letterSpacing:.4,userSelect:'none',
         }}>
-        <span>⚠</span><span>STEPIEN LOCK</span>
+        <span>🔒</span><span>STEPIEN LOCK</span>
       </div>
     </div>}
   </div>
@@ -536,13 +536,13 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
       <div style={{fontSize:12,color:'#e0e0f0',lineHeight:1.7}}>{detail}</div>
     </div>}
     {/* Stepien Rule block */}
-    {isStepienLocked&&<div style={{background:'#1c1100',border:'1.5px solid #ffb830',borderRadius:8,
+    {isStepienLocked&&<div style={{background:'#001a1f',border:'1.5px solid #00cfff',borderRadius:8,
       padding:'10px 12px',marginBottom:12}}>
-      <div style={{fontSize:11,fontWeight:900,color:'#ffb830',letterSpacing:.5,marginBottom:6}}>⚠ STEPIEN RULE — CANNOT BE TRADED</div>
-      <div style={{fontSize:11,color:'#d0c090',lineHeight:1.6,marginBottom:6}}>
-        Named after Ted Stepien (Cavaliers owner, 1980–83), who traded away so many future 1st-round picks the franchise was crippled for years. The NBA prohibits teams from trading 1st-round picks in <span style={{color:'#ffb830',fontWeight:700}}>consecutive draft years</span>.
+      <div style={{fontSize:11,fontWeight:900,color:'#00cfff',letterSpacing:.5,marginBottom:6}}>🔒 STEPIEN RULE — CANNOT BE TRADED</div>
+      <div style={{fontSize:11,color:'#a0d8e8',lineHeight:1.6,marginBottom:6}}>
+        Named after Ted Stepien (Cavaliers owner, 1980–83), who traded away so many future 1st-round picks the franchise was crippled for years. The NBA prohibits teams from trading 1st-round picks in <span style={{color:'#00cfff',fontWeight:700}}>consecutive draft years</span>.
       </div>
-      <div style={{fontSize:11,color:'#a08050',lineHeight:1.5}}>
+      <div style={{fontSize:11,color:'#5090a0',lineHeight:1.5}}>
         {teamAbbr} has already traded away their {lockedByYear&&lockedByYear.length>0?lockedByYear.join(' and '):[pick.year-1,pick.year+1].join(' or ')} first-round pick, so this {pick.year} pick cannot be traded.
       </div>
     </div>}
@@ -672,13 +672,13 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
         <span style={{fontSize:11,fontWeight:800,color:'#e0e0f0',letterSpacing:1.2,textTransform:'uppercase'}}>{title}</span>
       </div>
       {isFirstRound&&stepienCount>0&&<div style={{
-        background:'#1c1100',border:'1.5px solid #ffb83066',borderRadius:8,
+        background:'#001a1f',border:'1.5px solid #00cfff55',borderRadius:8,
         padding:'8px 12px',marginBottom:12,display:'flex',alignItems:'center',gap:8,
       }}>
-        <span style={{fontSize:14,flexShrink:0}}>⚠</span>
+        <span style={{fontSize:14,flexShrink:0}}>🔒</span>
         <div style={{fontSize:11,lineHeight:1.4}}>
-          <span style={{fontWeight:800,color:'#ffb830',letterSpacing:.3}}>STEPIEN RULE APPLIES</span>
-          <span style={{color:'#a08050',marginLeft:6}}>
+          <span style={{fontWeight:800,color:'#00cfff',letterSpacing:.3}}>STEPIEN RULE APPLIES</span>
+          <span style={{color:'#5090a0',marginLeft:6}}>
             — {stepienCount} pick{stepienCount!==1?'s':''} cannot be traded due to consecutive-year restrictions. Click the badge on a card for details.
           </span>
         </div>
