@@ -53,12 +53,14 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 .year-pill{transition:all 0.12s ease;cursor:pointer}
 .view-tab{transition:all 0.12s ease;cursor:pointer}
 .gradient-bar{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:gradientShift 3s ease infinite}
+@keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #ffb83066}50%{box-shadow:0 0 14px #ffb830aa,0 0 4px #ffb83044}}
+.stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const {useState,useEffect,useMemo,useCallback}=React;
+const {useState,useEffect,useMemo,useCallback,useRef}=React;
 
 // ── TEAM CONFIG ───────────────────────────────────────────────────────────────
 const TEAM_CFG={
@@ -118,6 +120,36 @@ function getPickType(pick,teamAbbr){
   }
   if(pick.originalTeam!==teamAbbr) return 'incoming';
   return 'own';
+}
+
+// ── STEPIEN RULE ──────────────────────────────────────────────────────────────
+// Returns { lockedYears, violationYears, tradedAwayYears }
+// lockedYears: team retains own 1st but cannot trade it (adjacent year already traded)
+// violationYears: consecutive traded-away years in data (should not exist; flags data anomaly)
+function getStepienStatus(teamAbbr,allPicks){
+  // Own 1sts traded away (exclude swap-rights — those aren't outright trades)
+  const tradedAway=allPicks.filter(p=>
+    p.round==='1st'&&p.originalTeam===teamAbbr&&p.currentHolder!==teamAbbr&&!p.swapCondition
+  );
+  const tradedAwayYears=new Set(tradedAway.map(p=>p.year));
+  // Own 1sts still retained
+  const ownRetained=allPicks.filter(p=>
+    p.round==='1st'&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr
+  );
+  // Locked: retained pick whose adjacent year has been traded away
+  const lockedYears=new Set();
+  ownRetained.forEach(p=>{
+    if(tradedAwayYears.has(p.year-1)||tradedAwayYears.has(p.year+1)) lockedYears.add(p.year);
+  });
+  // Violations: consecutive years both traded away (data anomaly)
+  const violationYears=new Set();
+  const sortedTraded=Array.from(tradedAwayYears).sort(function(a,b){return a-b;});
+  for(let i=0;i<sortedTraded.length-1;i++){
+    if(sortedTraded[i+1]-sortedTraded[i]===1){
+      violationYears.add(sortedTraded[i]);violationYears.add(sortedTraded[i+1]);
+    }
+  }
+  return {lockedYears,violationYears,tradedAwayYears};
 }
 
 const TYPE_CFG={
@@ -229,14 +261,56 @@ function Ball({size=28}){
   </svg>;
 }
 
+// ── STEPIEN CALLOUT ───────────────────────────────────────────────────────────
+function StepienCallout({pick,teamAbbr,lockedByYear,pos,onClose}){
+  const causedBy=lockedByYear&&lockedByYear.length>0
+    ?lockedByYear.join(' and ')
+    :[pick.year-1,pick.year+1].join(' or ');
+  return <div onClick={function(e){e.stopPropagation();}} style={{
+    position:'fixed',top:pos.top,left:pos.left,zIndex:1000,
+    background:'#1a1200',border:'1.5px solid #ffb830',
+    borderRadius:10,padding:'14px 16px',width:282,
+    boxShadow:'0 8px 32px #00000099,0 0 0 1px #ffb83022',
+    animation:'fadeUp 0.15s ease',
+  }}>
+    <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:10}}>
+      <div style={{fontWeight:900,color:'#ffb830',fontSize:12,letterSpacing:.5,lineHeight:1.2}}>⚠ THE STEPIEN RULE</div>
+      <button onClick={onClose} style={{background:'none',border:'none',color:'#888',cursor:'pointer',
+        fontSize:14,padding:0,marginLeft:8,flexShrink:0,lineHeight:1}}>✕</button>
+    </div>
+    <div style={{fontSize:11,color:'#d0c090',lineHeight:1.65,marginBottom:10}}>
+      Named after Ted Stepien (Cleveland Cavaliers owner, 1980–83), who traded away so many future first-round picks the franchise was crippled for years. The NBA enacted this rule to prevent teams from trading 1st-round picks in{' '}
+      <span style={{color:'#ffb830',fontWeight:700}}>consecutive draft years</span> — every team must retain at least one 1st within any two-year window.
+    </div>
+    <div style={{background:'#100a00',border:'1px solid #ffb83044',borderRadius:7,padding:'8px 10px',fontSize:11,lineHeight:1.5}}>
+      <span style={{color:'#ffb830',fontWeight:800}}>{teamAbbr} {pick.year}:</span>{' '}
+      <span style={{color:'#c0a868'}}>
+        Cannot be traded — {teamAbbr} has already traded away their {causedBy} first-round pick.
+      </span>
+    </div>
+  </div>;
+}
+
 // ── PICK CARD ─────────────────────────────────────────────────────────────────
-function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick}){
+function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick,isStepienLocked,lockedByYear}){
   const type=getPickType(pick,teamAbbr);
   const cfg=TYPE_CFG[type]||TYPE_CFG.own;
   const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
   const holderCfg=TEAM_CFG[pick.currentHolder]||{primary:'#888'};
   const isOwnHolder=pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
-  return <div className="pick-card" onClick={onClick} style={{
+  const [stepienOpen,setStepienOpen]=useState(false);
+  const badgeRef=useRef(null);
+  const [calloutPos,setCalloutPos]=useState({top:0,left:0});
+  function handleBadgeClick(e){
+    e.stopPropagation();
+    if(!stepienOpen&&badgeRef.current){
+      const r=badgeRef.current.getBoundingClientRect();
+      setCalloutPos({top:r.bottom+8,left:Math.min(r.left,window.innerWidth-296)});
+    }
+    setStepienOpen(function(s){return !s;});
+  }
+  return <React.Fragment>
+  <div className="pick-card" onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
     border:`2px solid ${isSelected||isLinked?cfg.border:'#252535'}`,
     borderRadius:14,padding:'12px 14px',width:210,flexShrink:0,
@@ -281,7 +355,25 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       display:'flex',alignItems:'center',gap:4,fontSize:11,color:'#c0c0d0',marginTop:2}}>
       <span>🔗</span><span style={{fontFamily:'monospace'}}>{linkedPickIds.join(', ')}</span>
     </div>}
-  </div>;
+    {/* Stepien Lock Badge */}
+    {isStepienLocked&&<div style={{marginTop:7}}>
+      <div ref={badgeRef} className="stepien-badge-pulse"
+        onClick={handleBadgeClick}
+        style={{display:'inline-flex',alignItems:'center',gap:4,
+          background:'#1c1100',border:'1.5px solid #ffb830',
+          borderRadius:5,padding:'3px 8px',cursor:'pointer',
+          fontSize:10,color:'#ffb830',fontWeight:800,letterSpacing:.4,userSelect:'none',
+        }}>
+        <span>⚠</span><span>STEPIEN LOCK</span>
+      </div>
+    </div>}
+  </div>
+  {isStepienLocked&&stepienOpen&&<React.Fragment>
+    <div onClick={function(){setStepienOpen(false);}} style={{position:'fixed',top:0,left:0,right:0,bottom:0,zIndex:999}}/>
+    <StepienCallout pick={pick} teamAbbr={teamAbbr} lockedByYear={lockedByYear}
+      pos={calloutPos} onClose={function(){setStepienOpen(false);}}/>
+  </React.Fragment>}
+  </React.Fragment>;
 }
 
 // ── FLOW DIAGRAMS ─────────────────────────────────────────────────────────────
@@ -526,7 +618,8 @@ function YearPills({years,selected,onChange,holdings,primary}){
 }
 
 // ── PICKS GRID ────────────────────────────────────────────────────────────────
-function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings}){
+function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienStatus}){
+  const ss=stepienStatus||{lockedYears:new Set(),violationYears:new Set(),tradedAwayYears:new Set()};
   // Global P-IDs: 1st round holdings first, then 2nd, across all years
   const allFirst=allHoldings.filter(p=>p.round==='1st');
   const allSecond=allHoldings.filter(p=>p.round==='2nd');
@@ -556,22 +649,43 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings}){
 
   const Section=({title,sectionPicks,bullet,bulletColor})=>{
     if(!sectionPicks.length) return null;
+    const isFirstRound=title==='1ST ROUND';
+    const stepienCount=isFirstRound
+      ?sectionPicks.filter(p=>ss.lockedYears.has(p.year)&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr).length
+      :0;
     return <div style={{marginBottom:24}}>
       <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:12}}>
         <span style={{color:bulletColor,fontSize:bullet==='◆'?9:12,lineHeight:1}}>{bullet}</span>
         <span style={{fontSize:11,fontWeight:800,color:'#e0e0f0',letterSpacing:1.2,textTransform:'uppercase'}}>{title}</span>
       </div>
+      {isFirstRound&&stepienCount>0&&<div style={{
+        background:'#1c1100',border:'1.5px solid #ffb83066',borderRadius:8,
+        padding:'8px 12px',marginBottom:12,display:'flex',alignItems:'center',gap:8,
+      }}>
+        <span style={{fontSize:14,flexShrink:0}}>⚠</span>
+        <div style={{fontSize:11,lineHeight:1.4}}>
+          <span style={{fontWeight:800,color:'#ffb830',letterSpacing:.3}}>STEPIEN RULE APPLIES</span>
+          <span style={{color:'#a08050',marginLeft:6}}>
+            — {stepienCount} pick{stepienCount!==1?'s':''} cannot be traded due to consecutive-year restrictions. Click the badge on a card for details.
+          </span>
+        </div>
+      </div>}
       <div style={{display:'flex',flexWrap:'wrap',gap:10}}>
         {sectionPicks.map((pick,idx)=>{
           const pickId=pidMap.get(pick)||`P${String(idx+1).padStart(3,'0')}`;
           const key=`${pick.year}-${pick.round}-${pick.originalTeam}-${pick.currentHolder}-${ordered.indexOf(pick)}`;
           const isSel=selectedKey===key;
-          const isLinked=!isSel&&selPick?.condition&&pick.condition===selPick.condition;
+          const isLinked=!isSel&&selPick&&selPick.condition&&pick.condition===selPick.condition;
           const linkedPids=pick.condition
             ?(condPids[pick.condition]||[]).filter(pid=>pid!==pickId)
             :[];
+          const isLocked=ss.lockedYears.has(pick.year)&&pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
+          const lockedByYear=isLocked
+            ?[pick.year-1,pick.year+1].filter(function(y){return ss.tradedAwayYears.has(y);})
+            :[];
           return <PickCard key={key} pick={pick} teamAbbr={teamAbbr} pickId={pickId}
             isSelected={isSel} isLinked={!!isLinked} linkedPickIds={linkedPids}
+            isStepienLocked={isLocked} lockedByYear={lockedByYear}
             onClick={()=>onPickClick(isSel?null:key, isSel?null:pick, isSel?null:pickId)}/>;
         })}
       </div>
@@ -1073,6 +1187,10 @@ function App(){
     cond:holdings.filter(p=>p.protection||p.swapCondition||p.condition).length,
   }),[holdings]);
 
+  const stepienStatus=useMemo(()=>
+    activeTeam?getStepienStatus(activeTeam,enrichedPicks):{lockedYears:new Set(),violationYears:new Set(),tradedAwayYears:new Set()},
+    [activeTeam,enrichedPicks]
+  );
   const available=useMemo(()=>data?Object.keys(data.teams):[],[data]);
   const tc=activeTeam?(TEAM_CFG[activeTeam]||{name:activeTeam,short:activeTeam,primary:'#888',secondary:'#444'}):null;
   const yearRange=years.length?`${years[0]}–${years[years.length-1]}`:'';
@@ -1186,7 +1304,7 @@ function App(){
         <YearPills years={years} selected={activeYear} onChange={setActiveYear}
           holdings={holdings} primary={tc.primary}/>
         <PicksGrid picks={filtered} teamAbbr={activeTeam} selectedKey={selectedKey}
-          onPickClick={handlePick} allHoldings={holdings}/>
+          onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus}/>
       </div>
       {/* Right: detail */}
       <div className="panel-detail" style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
