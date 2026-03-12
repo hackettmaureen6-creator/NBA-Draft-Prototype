@@ -249,16 +249,6 @@
           "condition": null
         },
         {
-          "year": 2027,
-          "round": "2nd",
-          "originalTeam": "DEN",
-          "currentHolder": "BOS",
-          "protection": null,
-          "swapCondition": null,
-          "notes": "BOS receives DEN 2027 2nd via Celtics-Bulls Anfernee Simons trade (Feb 5, 2026).",
-          "condition": null
-        },
-        {
           "year": 2028,
           "round": "1st",
           "originalTeam": "BOS",
@@ -829,6 +819,26 @@
           "swapCondition": null,
           "notes": "CHA receives least favorable of PHX/WAS(1-8)/ORL/MEM 2026 1st pool (via WAS swap for PHX; MEM swap routing).",
           "condition": "pool_phx_was_orl_mem_2026"
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "MIA",
+          "currentHolder": "CHA",
+          "protection": "15-30",
+          "swapCondition": null,
+          "notes": "CHA receives MIA 2027 1st if picks 15-30. MIA keeps picks 1-14.",
+          "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "MIA",
+          "currentHolder": "CHA",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "CHA receives MIA 2028 1st (or DET gets it if DAL conveyed 1st to CHA in 2027).",
+          "condition": null
         }
       ]
     },
@@ -1377,6 +1387,16 @@
           "swapCondition": null,
           "notes": "DAL receives LAL 2029 1st.",
           "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "GSW",
+          "currentHolder": "DAL",
+          "protection": "21-30",
+          "swapCondition": null,
+          "notes": "DAL receives GSW 2030 1st if picks 21-30 (via WAS). GSW keeps picks 1-20.",
+          "condition": null
         }
       ]
     },
@@ -1449,9 +1469,9 @@
           "round": "1st",
           "originalTeam": "DEN",
           "currentHolder": "DEN",
-          "protection": null,
+          "protection": "top-5",
           "swapCondition": null,
-          "notes": "DEN retains own 2028 1st.",
+          "notes": "DEN 2028 1st: picks 1-5 retained. Picks 6-30 go to OKC if not already settled.",
           "condition": null
         },
         {
@@ -1489,9 +1509,9 @@
           "round": "1st",
           "originalTeam": "DEN",
           "currentHolder": "DEN",
-          "protection": null,
+          "protection": "top-5",
           "swapCondition": null,
-          "notes": "DEN retains own 2030 1st.",
+          "notes": "DEN 2030 1st: picks 1-5 retained. Picks 6-30 go to OKC if not settled AND if DEN conveyed a 1st to OKC by 2028.",
           "condition": null
         },
         {
@@ -1791,9 +1811,9 @@
           "round": "1st",
           "originalTeam": "GSW",
           "currentHolder": "GSW",
-          "protection": null,
+          "protection": "1-20",
           "swapCondition": null,
-          "notes": "GSW retains own 2030 1st.",
+          "notes": "GSW 2030 1st: picks 1-20 retained. Picks 21-30 go to DAL (via WAS).",
           "condition": null
         },
         {
@@ -2747,9 +2767,9 @@
           "round": "1st",
           "originalTeam": "MIA",
           "currentHolder": "MIA",
-          "protection": null,
+          "protection": "top-14",
           "swapCondition": null,
-          "notes": "MIA retains own 2027 1st.",
+          "notes": "MIA 2027 1st: picks 1-14 retained. Picks 15-30 go to CHA.",
           "condition": null
         },
         {
@@ -2766,10 +2786,10 @@
           "year": 2028,
           "round": "1st",
           "originalTeam": "MIA",
-          "currentHolder": "MIA",
+          "currentHolder": "CHA",
           "protection": null,
           "swapCondition": null,
-          "notes": "MIA retains own 2028 1st.",
+          "notes": "MIA 2028 1st owed to CHA (or DET if DAL conveyed 1st to CHA in 2027, via SAS to DAL).",
           "condition": null
         },
         {
@@ -3309,6 +3329,16 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2031,
+          "round": "2nd",
+          "originalTeam": "TOR",
+          "currentHolder": "NOP",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "NOP receives TOR 2031 2nd.",
+          "condition": null
         }
       ]
     },
@@ -3454,6 +3484,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "WAS",
+          "currentHolder": "NYK",
+          "protection": "9-30",
+          "swapCondition": null,
+          "notes": "NYK receives WAS 2027 1st if picks 9-30 (via HOU to OKC). WAS keeps picks 1-8.",
           "condition": null
         }
       ]
@@ -3680,6 +3720,26 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "DEN",
+          "currentHolder": "OKC",
+          "protection": "6-30",
+          "swapCondition": null,
+          "notes": "OKC receives DEN 2028 1st if picks 6-30 (if not already settled).",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "DEN",
+          "currentHolder": "OKC",
+          "protection": "6-30",
+          "swapCondition": null,
+          "notes": "OKC receives DEN 2030 1st if picks 6-30 (conditional: only if DEN conveyed a 1st to OKC by 2028).",
           "condition": null
         }
       ]
@@ -4468,8 +4528,8 @@
           "originalTeam": "SAC",
           "currentHolder": "SAC",
           "protection": null,
-          "swapCondition": null,
-          "notes": "SAC retains own 2031 1st.",
+          "swapCondition": "If SAS finished 1-16 in 2027, SAC sends own 2031 1st to OKC. If SAS 17-30 in 2027, CHA receives something from this chain.",
+          "notes": "SAC 2031 1st: retained if SAS was 17-30 in 2027. Goes to OKC if SAS was 1-16 in 2027 (SAC received SAS 2027 pick in that scenario).",
           "condition": null
         },
         {
@@ -4788,10 +4848,10 @@
           "year": 2031,
           "round": "2nd",
           "originalTeam": "TOR",
-          "currentHolder": "TOR",
+          "currentHolder": "NOP",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "TOR 2031 2nd owed to NOP.",
           "condition": null
         },
         {
@@ -4811,7 +4871,7 @@
           "currentHolder": "BKN",
           "protection": null,
           "swapCondition": null,
-          "notes": "TOR 2032 2nd traded to BKN via Raptors-Nets-Clippers Chris Paul three-team trade (Feb 5, 2026).",
+          "notes": "TOR 2032 2nd owed to BKN.",
           "condition": null
         }
       ]
@@ -4969,6 +5029,16 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "2nd",
+          "originalTeam": "DEN",
+          "currentHolder": "UTA",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "UTA receives DEN 2027 2nd (routed via CLE \u2192 CHI \u2192 BOS \u2192 UTA).",
+          "condition": null
         }
       ]
     },
@@ -5011,9 +5081,9 @@
           "round": "1st",
           "originalTeam": "WAS",
           "currentHolder": "WAS",
-          "protection": null,
+          "protection": "top-8",
           "swapCondition": null,
-          "notes": "WAS retains own 2027 1st.",
+          "notes": "WAS 2027 1st: picks 1-8 retained. Picks 9-30 go to NYK (via HOU to OKC).",
           "condition": null
         },
         {
@@ -5124,6 +5194,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "1st",
+          "originalTeam": "WAS",
+          "currentHolder": "WAS",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "WAS retains own 2029 1st.",
           "condition": null
         }
       ]
