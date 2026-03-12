@@ -1051,14 +1051,14 @@ function TeamSelector({available,onSelect}){
       backgroundImage:'radial-gradient(#ffffff06 1px,transparent 1px)',
       backgroundSize:'18px 18px',
     }}>
-      <div style={{maxWidth:960,margin:'0 auto'}}>
+      <div style={{maxWidth:900,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20,paddingTop:8}}>
           <span style={{fontSize:10,color:'#555',fontWeight:800,letterSpacing:3,textTransform:'uppercase',
             borderTop:'1px solid #1e1e2e',borderBottom:'1px solid #1e1e2e',padding:'5px 16px'}}>
             WHAT YOU CAN DO
           </span>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:14}}>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',gap:14}}>
           {blueprints.map(bp=>{
             const isH=hovered===bp.label;
             return <div key={bp.label}
