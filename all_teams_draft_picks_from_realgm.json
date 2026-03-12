@@ -10,33 +10,33 @@
     "poolHolder": "ATL",
     "hasSwapRights": true,
     "notes": "More favorable of (i) less favorable of ATL and SAN and (ii) less favorable of (a) CLE and\n(b) more favorable of UTH 1-8 and MIN [or (ii) CLE if UTH not conveyable] then less favorable of (i)\nand (ii) to CLE;\nmore favorable of ATL and SAN to SAN\n\nMore favorable of (i) ATL and (ii) less favorable of (a) LAC and (b) most favorable of BOS,\nIND and MIA to BRK then less favorable of (i) and (ii) to DEN (via ATL to GOS to BRK; via MIA to IND\nto MIL to MEM; via MEM right to swap IND or MIA for BOS; via MEM right to swap BOS, IND or MIA for LAC; via LAC to\nHOU to BRK; via BRK to DEN);\n\n(via UTH swap for MIN; via UTH swap of UTH or MIN for CLE; via SAN swap for ATL; via ATL swap of ATL or SAN for\nCLE, UTH or MIN);\n\nLess favorable of (i) BOS and (ii) more favorable of IND and MIA (via MIA to IND to MIL; via MEM swap\nof IND or MIA for BOS; via BOS to ATL)\n\nMore favorable of NOP and MIL (via NOP swap for MIL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "ATL",
-    "originalTeam": "ATL",
+    "originalTeam": "BOS",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "ATL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Less favorable of (i) BOS and (ii) more favorable of IND and MIA (via MIA to IND to MIL; via MEM swap of IND or MIA for BOS; via BOS to ATL)",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "ATL",
-    "originalTeam": "ATL",
+    "originalTeam": "NOP",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "ATL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of NOP and MIL (via NOP swap for MIL)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -46,7 +46,7 @@
     "originalTeam": "ATL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "SAN",
     "hasSwapRights": false,
     "notes": "To SAN;\n\nOwn (via BOS to MEM to POR)\n\nLess favorable of MIL and NOP if either or both 5-30 (via NOP)",
     "needsReview": false
@@ -56,12 +56,12 @@
     "round": 2,
     "overall": null,
     "owningTeam": "ATL",
-    "originalTeam": "ATL",
+    "originalTeam": "MIL",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "ATL",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Less favorable of MIL and NOP if either or both 5-30 (via NOP)",
     "needsReview": false
   },
   {
@@ -72,22 +72,22 @@
     "originalTeam": "ATL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "CLE",
     "hasSwapRights": false,
-    "notes": "More favorable of (i) ATL and (ii) less favorable of UTH and CLE then least favorable of all\nto CLE (via UTH swap for CLE; via ATL swap for UTH or CLE)\n\nTo BRK (via GOS)",
-    "needsReview": true
+    "notes": "More favorable of (i) ATL and (ii) less favorable of UTH and CLE then least favorable of all\nto CLE (via UTH swap for CLE; via ATL swap for UTH or CLE)",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "ATL",
+    "owningTeam": "BRK",
     "originalTeam": "ATL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To BRK (via GOS)",
     "needsReview": false
   },
   {
@@ -101,7 +101,7 @@
     "poolHolder": "ATL",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of ATL and MIA to CHA then other to OKC (via OKC);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -126,8 +126,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -140,7 +140,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "NYK (via POR)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -153,7 +153,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "NYK (via POR)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -162,11 +162,11 @@
     "owningTeam": "ATL",
     "originalTeam": "ATL",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "ATL 2031 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -175,11 +175,11 @@
     "owningTeam": "ATL",
     "originalTeam": "ATL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "ATL 2031 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -192,7 +192,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own\n\nOwn or swap for HOU 31-55",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -203,8 +203,8 @@
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
+    "hasSwapRights": true,
+    "notes": "Own or swap for HOU 31-55",
     "needsReview": false
   },
   {
@@ -218,7 +218,7 @@
     "poolHolder": "BOS",
     "hasSwapRights": true,
     "notes": "Own\n\nLess favorable of (i) BOS and (ii) more favorable of IND and MIA to ATL then most\nfavorable of all to MEM or to BRK [MEM can swap this pick for LAC; LAC then conveyed to HOU which then",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -231,33 +231,33 @@
     "poolHolder": "BOS",
     "hasSwapRights": true,
     "notes": "conveyed to BRK which may convey to DEN] (via MIA to IND to MIL; via MEM swap of IND or MIA for BOS; via BOS to\nATL; via LAC to HOU to BRK);\n\nMost favorable of DET, MIL and ORL (via MIL to ORL; via DET to LAC to ORL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 1,
     "overall": null,
-    "owningTeam": "BOS",
+    "owningTeam": "ATL",
     "originalTeam": "BOS",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "BOS 2027 1st traded via BOS to MEM to POR to ATL (per ATL 2027 page)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "BOS",
+    "owningTeam": "HOU",
     "originalTeam": "BOS",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "BOS 2027 2nd \u2014 Traded away (count=0 per RealGM)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -268,9 +268,9 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "Own or swap for SAN 2-30 (via SAN swap for BOS); 31-45 to SAN if BOS 1 in 2028; 46-60 to NYK (via ORL to PHX)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -282,8 +282,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "1 Own; 2-30 Own or SAN (via SAN swap for BOS); 31-45 to SAN if BOS 1 in 2028; 46-60 to NYK (via ORL to PHX)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -296,20 +296,20 @@
     "poolHolder": "BOS",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of BOS and ORL to UTH then other to CHA (via BOS to ORL to BOS; via ORL to CHA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "BOS",
+    "owningTeam": "UTH",
     "originalTeam": "BOS",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of BOS and ORL to UTH then other to CHA (via BOS to ORL to BOS; via ORL to CHA)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -321,8 +321,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo BRK (via HOU);",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -335,7 +335,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA 56-60",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -348,7 +348,7 @@
     "poolHolder": "BOS",
     "hasSwapRights": false,
     "notes": "Own\n\nLess favorable of BOS and CLE then other to UTH (via CLE to ATL to BOS);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -361,7 +361,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU 56-60",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -374,7 +374,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU 56-60",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -385,9 +385,9 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
+    "hasSwapRights": true,
     "notes": "Frozen (through 2027-28)\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -399,7 +399,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -412,8 +412,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own (via HOU)\n\n31-55 Own;\n56-60 to MIA;",
-    "needsReview": true
+    "notes": "Own (via HOU)",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -426,7 +426,7 @@
     "poolHolder": "BRK",
     "hasSwapRights": true,
     "notes": "More favorable of (i) ATL and (ii) less favorable of (a) LAC and (b) most favorable of BOS, IND\nand MIA then less favorable of (i) and (ii) to DEN (via ATL to GOS to BRK; via MIA to IND to MIL to MEM; via\nMEM right to swap IND or MIA for BOS; via MEM right to swap BOS, IND or MIA for LAC; via LAC to HOU to BRK; via\nBRK to DEN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -439,33 +439,33 @@
     "poolHolder": "BRK",
     "hasSwapRights": true,
     "notes": "More favorable of (i) ATL and (ii) less favorable of (a) LAC and (b) most favorable of BOS, IND\nand MIA then less favorable of (i) and (ii) to DEN (via ATL to GOS to BRK; via MIA to IND to MIL to MEM; via\nMEM right to swap IND or MIA for BOS; via MEM right to swap BOS, IND or MIA for LAC; via LAC to HOU to BRK; via\nBRK to DEN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 1,
     "overall": null,
-    "owningTeam": "BRK",
+    "owningTeam": "HOU",
     "originalTeam": "BRK",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "BRK 2027 1st; HOU holds \"Own or swap for BRK\" (via HOU swap for BRK)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "BRK",
+    "owningTeam": "WAS",
     "originalTeam": "BRK",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "WAS",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of DAL and BRK to WAS then other to DET (via DAL to BRK to DET; via DET to WAS)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -478,7 +478,7 @@
     "poolHolder": "BRK",
     "hasSwapRights": true,
     "notes": "Own or HOU (via HOU swap for BRK);\n\nMore favorable of BRK and DAL to WAS then other to DET (via DAL to BRK to DET; via DET to WAS);\n\nNYK\n\nLAL if LAL conveys 1st round pick to UTH in 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -491,7 +491,7 @@
     "poolHolder": "BRK",
     "hasSwapRights": true,
     "notes": "Own or HOU (via HOU swap for BRK);\n\nMore favorable of BRK and DAL to WAS then other to DET (via DAL to BRK to DET; via DET to WAS);\n\nNYK\n\nLAL if LAL conveys 1st round pick to UTH in 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -501,9 +501,9 @@
     "originalTeam": "BRK",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "BRK",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Complex 2028 pool: most/third most favorable of BRK, PHL 9-30, PHX and NYK to BRK in most scenarios; own pick, ATL (via GOS), MEM (via PHX), PHL if PHL 1-8 in 2028 (via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)",
     "needsReview": false
   },
   {
@@ -516,8 +516,8 @@
     "tradedAway": false,
     "poolHolder": "BRK",
     "hasSwapRights": true,
-    "notes": "Own;\n\nOwn;\n\nLeast favorable of DAL, PHX and HOU (via DAL and PHX to BRK; via DAL or PHX to HOU; via HOU swap for\nDAL or PHX);\n\nDAL;\nGOS;\n\nNYK",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -529,8 +529,8 @@
     "tradedAway": false,
     "poolHolder": "BRK",
     "hasSwapRights": true,
-    "notes": "Own;\n\nOwn;\n\nLeast favorable of DAL, PHX and HOU (via DAL and PHX to BRK; via DAL or PHX to HOU; via HOU swap for\nDAL or PHX);\n\nDAL;\nGOS;\n\nNYK",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -542,8 +542,8 @@
     "tradedAway": false,
     "poolHolder": "BRK",
     "hasSwapRights": true,
-    "notes": "Own;\n\nOwn;\n\nLeast favorable of DAL, PHX and HOU (via DAL and PHX to BRK; via DAL or PHX to HOU; via HOU swap for\nDAL or PHX);\n\nDAL;\nGOS;\n\nNYK",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -556,7 +556,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM (via PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -569,7 +569,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM (via PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -582,7 +582,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM (via PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -595,7 +595,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM (via PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -607,8 +607,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -621,7 +621,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS (via HOU);\nDAL (via BOS to MEM);\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -634,7 +634,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS (via HOU);\nDAL (via BOS to MEM);\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -647,7 +647,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS (via HOU);\nDAL (via BOS to MEM);\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -660,20 +660,20 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS (via HOU);\nDAL (via BOS to MEM);\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 1,
     "overall": null,
     "owningTeam": "BRK",
-    "originalTeam": "BRK",
+    "originalTeam": "NYK",
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Incoming from NYK \u2014 NYK 2031 1st traded to BRK (NYK 2031 R1: To BRK)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -682,11 +682,11 @@
     "owningTeam": "BRK",
     "originalTeam": "BRK",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "BRK 2031 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -698,8 +698,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nNYK\n\nLAL",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -711,8 +711,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nNYK\n\nLAL",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -724,21 +724,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
     "owningTeam": "BRK",
-    "originalTeam": "BRK",
+    "originalTeam": "MIA",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Incoming from MIA \u2014 MIA 2032 2nd traded to BRK (MIA 2032 R2: To BRK)",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -748,36 +748,36 @@
     "originalTeam": "CHA",
     "type": "first",
     "tradedAway": false,
+    "poolHolder": "CHA",
+    "hasSwapRights": false,
+    "notes": "Own;",
+    "needsReview": false
+  },
+  {
+    "season": 2026,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "SAC",
+    "originalTeam": "CHA",
+    "type": "second",
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\n31-55 to SAC;\n56-60 to DET\n\nLeast favorable of PHX, WAS 1-8, ORL and MEM (via WAS swap for PHX; via MEM swap of ORL for PHX or\n\n(via NYK to ATL to SAN to SAC)\n\nWAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
-    "needsReview": true
+    "notes": "CHA 2026 2nd: 31-55 to SAC; 56-60 to DET (via NYK to ATL to SAN to SAC)",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "CHA",
-    "originalTeam": "CHA",
+    "originalTeam": "PHX",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2026,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "CHA",
-    "originalTeam": "CHA",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Least favorable of PHX, WAS 1-8, ORL and MEM (via WAS swap for PHX; via MEM swap of ORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -789,8 +789,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Incoming: DAL 3-30 to CHA; MIA 15-30 to CHA",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -799,11 +799,11 @@
     "owningTeam": "CHA",
     "originalTeam": "CHA",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CHA 2027 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -815,8 +815,8 @@
     "tradedAway": false,
     "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo OKC if SAN 1-16 in 2027 or to SAC if SAN 17-30 in 2027 (via NYK to ATL to SAN to SAC);\n\nDAL 3-30;\n\nLess favorable of BOS and ORL (via BOS to ORL);\n\nMIA 15-30\n\nMore favorable of POR and NOP (via POR)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -828,8 +828,8 @@
     "tradedAway": false,
     "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo OKC if SAN 1-16 in 2027 or to SAC if SAN 17-30 in 2027 (via NYK to ATL to SAN to SAC);\n\nDAL 3-30;\n\nLess favorable of BOS and ORL (via BOS to ORL);\n\nMIA 15-30\n\nMore favorable of POR and NOP (via POR)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -841,34 +841,34 @@
     "tradedAway": false,
     "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo OKC if SAN 1-16 in 2027 or to SAC if SAN 17-30 in 2027 (via NYK to ATL to SAN to SAC);\n\nDAL 3-30;\n\nLess favorable of BOS and ORL (via BOS to ORL);\n\nMIA 15-30\n\nMore favorable of POR and NOP (via POR)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
     "owningTeam": "CHA",
-    "originalTeam": "CHA",
+    "originalTeam": "DAL",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DAL 3-30; Less favorable of BOS and ORL (via BOS to ORL) incoming to CHA 2028",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
     "owningTeam": "CHA",
-    "originalTeam": "CHA",
+    "originalTeam": "MIA",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIA 15-30; More favorable of POR and NOP (via POR) incoming to CHA 2028",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -880,8 +880,8 @@
     "tradedAway": false,
     "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nLeast / less favorable of UTH, CLE and MIN 6-30 (via UTH to PHX)\n\nDEN if DEN has conveyed a first potential 1st round pick to OKC by 2029;",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -893,8 +893,8 @@
     "tradedAway": false,
     "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nLeast / less favorable of UTH, CLE and MIN 6-30 (via UTH to PHX)\n\nDEN if DEN has conveyed a first potential 1st round pick to OKC by 2029;",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -907,7 +907,7 @@
     "poolHolder": "CHA",
     "hasSwapRights": false,
     "notes": "More favorable of ATL and MIA (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -920,7 +920,7 @@
     "poolHolder": "CHA",
     "hasSwapRights": false,
     "notes": "More favorable of ATL and MIA (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -933,7 +933,7 @@
     "poolHolder": "CHA",
     "hasSwapRights": false,
     "notes": "More favorable of ATL and MIA (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -945,8 +945,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\n31-55 Own;\n56-60 to BOS;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -959,7 +959,7 @@
     "poolHolder": "CHA",
     "hasSwapRights": false,
     "notes": "More favorable of UTH and LAC (via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -972,7 +972,7 @@
     "poolHolder": "CHA",
     "hasSwapRights": false,
     "notes": "More favorable of UTH and LAC (via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -984,8 +984,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -998,7 +998,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL;\nPHX",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1011,7 +1011,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL;\nPHX",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1024,7 +1024,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL;\nPHX",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1036,21 +1036,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
-  },
-  {
-    "season": 2032,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "CHA",
-    "originalTeam": "MIL",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "MIL",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1063,7 +1050,20 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL",
-    "needsReview": true
+    "needsReview": false
+  },
+  {
+    "season": 2032,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "CHA",
+    "originalTeam": "MIL",
+    "type": "second",
+    "tradedAway": false,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "MIL",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1075,8 +1075,8 @@
     "tradedAway": false,
     "poolHolder": "CHI",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo HOU (via WAS);\n\nPOR 15-30\n\nLess favorable of DEN and GOS (via DEN to PHX to CHA; via GOS to ATL to OKC to NYK to CHA; via CHA to\nPHX to MIN to CHI);",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1088,8 +1088,8 @@
     "tradedAway": false,
     "poolHolder": "CHI",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo HOU (via WAS);\n\nPOR 15-30\n\nLess favorable of DEN and GOS (via DEN to PHX to CHA; via GOS to ATL to OKC to NYK to CHA; via CHA to\nPHX to MIN to CHI);",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1102,7 +1102,7 @@
     "poolHolder": "CHI",
     "hasSwapRights": false,
     "notes": "Most favorable of MIN, NYK, NOP and POR (via MIN to NYK; via NOP to POR to NOP; via POR to DET to\nBOS to CHI)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1115,7 +1115,7 @@
     "poolHolder": "CHI",
     "hasSwapRights": false,
     "notes": "Most favorable of MIN, NYK, NOP and POR (via MIN to NYK; via NOP to POR to NOP; via POR to DET to\nBOS to CHI)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1124,24 +1124,24 @@
     "owningTeam": "CHI",
     "originalTeam": "CHI",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CHI 2027 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
     "owningTeam": "CHI",
-    "originalTeam": "CHI",
+    "originalTeam": "CLE",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Incoming from CLE (via ATL to MIN) \u2014 CLE 2027 2nd traded to CHI",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1150,11 +1150,11 @@
     "owningTeam": "CHI",
     "originalTeam": "CHI",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CHI 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1163,11 +1163,11 @@
     "owningTeam": "CHI",
     "originalTeam": "CHI",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CHI 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1179,8 +1179,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo DAL (via WAS to NOP to WAS);\n\nPOR 15-30 if not already settled\n\nCLE (via ATL to MIN)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1192,20 +1192,20 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo DAL (via WAS to NOP to WAS);\n\nPOR 15-30 if not already settled\n\nCLE (via ATL to MIN)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "CHI",
+    "owningTeam": "DAL",
     "originalTeam": "CHI",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To DAL (via WAS to NOP to WAS)",
     "needsReview": false
   },
   {
@@ -1218,8 +1218,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -1231,8 +1231,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1245,7 +1245,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1257,7 +1257,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -1270,8 +1270,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1284,7 +1284,7 @@
     "poolHolder": "CHI",
     "hasSwapRights": false,
     "notes": "More favorable of PHX and HOU (via PHX to MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1297,7 +1297,7 @@
     "poolHolder": "CHI",
     "hasSwapRights": false,
     "notes": "More favorable of PHX and HOU (via PHX to MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1307,10 +1307,10 @@
     "originalTeam": "CLE",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "ATL",
     "hasSwapRights": false,
-    "notes": "Less favorable of (i) less favorable of (a) CLE and (b) more favorable of UTH 1-8 and MIN\n[or (i) CLE if UTH not conveyable] and (ii) less favorable of ATL and SAN then more favorable of (i)\nand (ii) to ATL;\nmost favorable of CLE, MIN and UTH 1-8 to UTH\n\nTo LAC",
-    "needsReview": true
+    "notes": "Less favorable of (i) less favorable of (a) CLE and (b) more favorable of UTH 1-8 and MIN\n[or (i) CLE if UTH not conveyable] and (ii) less favorable of ATL and SAN then more favorable of (i)\nand (ii) to ATL;\nmost favorable of CLE, MIN and UTH 1-8 to UTH",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1323,7 +1323,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via UTH swap for MIN; via UTH swap of UTH or MIN for CLE; via SAN swap for ATL; via ATL swap of ATL or SAN for\nCLE, UTH or MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1333,23 +1333,23 @@
     "originalTeam": "CLE",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "MEM",
     "hasSwapRights": false,
-    "notes": "Most favorable of CLE, MIN and UTH to MEM; second most favorable to UTH and least\nfavorable to PHX (via UTH)\n\nTo CHI (via ATL to MIN)",
-    "needsReview": true
+    "notes": "Most favorable of CLE, MIN and UTH to MEM; second most favorable to UTH and least\nfavorable to PHX (via UTH)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "CLE",
+    "owningTeam": "CHI",
     "originalTeam": "CLE",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHI (via ATL to MIN)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1359,10 +1359,10 @@
     "originalTeam": "CLE",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "Least favorable of CLE, UTH and ATL;\nmore favorable of CLE and UTH to UTH;\nmore favorable of (i) ATL and (ii) less favorable of CLE and UTH to ATL\n\nTo UTH",
-    "needsReview": true
+    "notes": "Least favorable of CLE, UTH and ATL;\nmore favorable of CLE and UTH to UTH;\nmore favorable of (i) ATL and (ii) less favorable of CLE and UTH to ATL",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1375,7 +1375,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via UTH swap for CLE; via ATL swap for CLE or UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1385,23 +1385,23 @@
     "originalTeam": "CLE",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "Most / two most favorable of CLE, MIN 6-30 and UTH to UTH then other to CHA (via UTH to\n\nTo ATL\n\nPHX)",
-    "needsReview": true
+    "notes": "Most / two most favorable of CLE, MIN 6-30 and UTH to UTH then other to CHA (via UTH to",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "CLE",
+    "owningTeam": "ATL",
     "originalTeam": "CLE",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To ATL",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -1410,11 +1410,11 @@
     "owningTeam": "CLE",
     "originalTeam": "CLE",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CLE 2030 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -1423,11 +1423,11 @@
     "owningTeam": "CLE",
     "originalTeam": "CLE",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CLE 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1439,21 +1439,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "CLE",
+    "owningTeam": "UTH",
     "originalTeam": "CLE",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of CLE and BOS to UTH then other to BOS (via CLE to ATL to BOS)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1465,21 +1465,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo SAN",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "CLE",
+    "owningTeam": "UTH",
     "originalTeam": "CLE",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To UTH",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1492,7 +1492,7 @@
     "poolHolder": "DAL",
     "hasSwapRights": false,
     "notes": "Own;\n\nMost favorable of DAL, OKC and PHL to OKC; second most favorable to PHX and least\nfavorable to WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS);\n\nLeast / less favorable of OKC, HOU 5-30 and LAC (via OKC to PHL to WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1505,7 +1505,7 @@
     "poolHolder": "DAL",
     "hasSwapRights": false,
     "notes": "Own;\n\nMost favorable of DAL, OKC and PHL to OKC; second most favorable to PHX and least\nfavorable to WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS);\n\nLeast / less favorable of OKC, HOU 5-30 and LAC (via OKC to PHL to WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1531,7 +1531,7 @@
     "poolHolder": "DAL",
     "hasSwapRights": false,
     "notes": "1-2 Own;\n3-30 to CHA\n\nMore favorable of DAL and BRK to WAS then other to DET (via DET to WAS; via DAL to BRK to\nDET);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1550,14 +1550,14 @@
     "season": 2028,
     "round": 1,
     "overall": null,
-    "owningTeam": "DAL",
+    "owningTeam": "WAS",
     "originalTeam": "DAL",
     "type": "first",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "WAS",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DAL 2028 1st \u2014 More favorable of DAL and BRK to WAS then other to DET (via DAL to BRK to DET; via DET to WAS)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1566,11 +1566,11 @@
     "owningTeam": "DAL",
     "originalTeam": "DAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DAL 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1582,21 +1582,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or OKC (via OKC swap for DAL)\n\nTo LAC (via SAC to IND)",
-    "needsReview": true
+    "notes": "Own or OKC (via OKC swap for DAL)",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "DAL",
+    "owningTeam": "LAC",
     "originalTeam": "DAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To LAC (via SAC to IND)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -1608,8 +1608,8 @@
     "tradedAway": false,
     "poolHolder": "DAL",
     "hasSwapRights": true,
-    "notes": "Own or SAN (via SAN swap for DAL);\nless favorable of (i) MIN 2-30 and (ii) more favorable of DAL and SAN [or MIN if MIN not\nconveyable] to MIN then most / more favorable of all to SAN\n(via SAN swap for DAL; via SAN swap of SAN or DAL for MIN);\n\nTo BRK (via BOS to MEM);\n\nGOS 21-30 (via WAS)\n\nGOS if GOS does not convey 1st round pick to DAL in 2030 (via WAS);\nPHL",
-    "needsReview": true
+    "notes": "Own or SAN (via SAN swap for DAL);\nless favorable of (i) MIN 2-30 and (ii) more favorable of DAL and SAN [or MIN if MIN not\nconveyable] to MIN then most / more favorable of all to SAN\n(via SAN swap for DAL; via SAN swap of SAN or DAL for MIN);",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -1621,34 +1621,34 @@
     "tradedAway": false,
     "poolHolder": "DAL",
     "hasSwapRights": true,
-    "notes": "Own or SAN (via SAN swap for DAL);\nless favorable of (i) MIN 2-30 and (ii) more favorable of DAL and SAN [or MIN if MIN not\nconveyable] to MIN then most / more favorable of all to SAN\n(via SAN swap for DAL; via SAN swap of SAN or DAL for MIN);\n\nTo BRK (via BOS to MEM);\n\nGOS 21-30 (via WAS)\n\nGOS if GOS does not convey 1st round pick to DAL in 2030 (via WAS);\nPHL",
-    "needsReview": true
+    "notes": "Own or SAN (via SAN swap for DAL);\nless favorable of (i) MIN 2-30 and (ii) more favorable of DAL and SAN [or MIN if MIN not\nconveyable] to MIN then most / more favorable of all to SAN\n(via SAN swap for DAL; via SAN swap of SAN or DAL for MIN);",
+    "needsReview": false
+  },
+  {
+    "season": 2030,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "BRK",
+    "originalTeam": "DAL",
+    "type": "second",
+    "tradedAway": true,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "To BRK (via BOS to MEM) \u2014 DAL 2030 2nd traded to BRK via BOS/MEM",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
     "owningTeam": "DAL",
-    "originalTeam": "DAL",
+    "originalTeam": "GOS",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2030,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "DAL",
-    "originalTeam": "DAL",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 21-30 (via WAS); GOS if GOS does not convey 1st round pick to DAL in 2030 (via WAS); PHL \u2014 incoming to DAL 2030 2nd",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1660,21 +1660,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "DAL",
+    "owningTeam": "DET",
     "originalTeam": "DAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To DET (via PHL)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1686,8 +1686,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo DET (via PHL)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1699,8 +1699,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1713,7 +1713,7 @@
     "poolHolder": "DEN",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of DEN and GOS to MIA then other to CHI (via DEN to PHX to CHA to MIA; via GOS to\nATL to OKC to NYK to CHA to MIA; via CHA to PHX to MIN to CHI);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1726,7 +1726,7 @@
     "poolHolder": "DEN",
     "hasSwapRights": true,
     "notes": "Less favorable of (i) ATL and (ii) less favorable of (a) LAC and (b) most favorable of BOS, IND\nand MIA (via ATL to GOS to BRK; via MIA to IND to MIL to MEM; via MEM right to swap IND or MIA for BOS; via MEM\nright to swap BOS, IND or MIA for LAC; via LAC to HOU to BRK; via BRK to DEN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1736,22 +1736,22 @@
     "originalTeam": "DEN",
     "type": "first",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "DEN",
     "hasSwapRights": false,
-    "notes": "1-5 Own;\ntwo most / more favorable of DEN 6-30, OKC and LAC to OKC then other to LAC (via OKC\nswap of OKC or DEN for LAC)\n\nTo UTH (via CLE to CHI to BOS)",
-    "needsReview": true
+    "notes": "1-5 Own;\ntwo most / more favorable of DEN 6-30, OKC and LAC to OKC then other to LAC (via OKC\nswap of OKC or DEN for LAC)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "DEN",
+    "owningTeam": "UTH",
     "originalTeam": "DEN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To UTH (via CLE to CHI to BOS)",
     "needsReview": false
   },
   {
@@ -1761,11 +1761,11 @@
     "owningTeam": "DEN",
     "originalTeam": "DEN",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DEN 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1774,11 +1774,11 @@
     "owningTeam": "DEN",
     "originalTeam": "DEN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DEN 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1790,8 +1790,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "1-5 Own;\n6-30 to OKC if not already settled\n\n31-33 Own;\n34-60 to WAS (via SAN to SAC)",
-    "needsReview": true
+    "notes": "1-5 Own;\n6-30 to OKC if not already settled",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -1803,7 +1803,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "31-33 Own; 34-60 to WAS (via SAN to SAC)",
     "needsReview": false
   },
   {
@@ -1816,20 +1816,20 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "1-5 Own;\n6-30 to OKC if not already settled and if DEN has conveyed a first potential 1st round pick to OKC by 2028\n\nTo OKC (direct or via CHA)",
-    "needsReview": true
+    "notes": "1-5 Own;\n6-30 to OKC if not already settled and if DEN has conveyed a first potential 1st round pick to OKC by 2028",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "DEN",
+    "owningTeam": "OKC",
     "originalTeam": "DEN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To OKC (direct or via CHA)",
     "needsReview": false
   },
   {
@@ -1839,11 +1839,11 @@
     "owningTeam": "DEN",
     "originalTeam": "DEN",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DEN 2031 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -1852,11 +1852,11 @@
     "owningTeam": "DEN",
     "originalTeam": "DEN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "DEN 2031 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -1868,21 +1868,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo CHI (via PHX to CHA)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "DEN",
+    "owningTeam": "CHI",
     "originalTeam": "DEN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHI (via PHX to CHA)",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1895,7 +1895,7 @@
     "poolHolder": "DET",
     "hasSwapRights": true,
     "notes": "Own or swap for MIN 20-30\n\nMost favorable of DET, ORL and MIL to BOS; second most favorable to ORL and least\nfavorable to NOP (via MIL to ORL; via DET to LAC to ORL; via ORL to PHX to BRK to NYK to NOP);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -1908,7 +1908,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA 56-60 (via NYK to ATL to SAN to SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1920,8 +1920,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1934,7 +1934,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "Less favorable of BRK and DAL (via DAL to BRK to DET);\nMIL (via PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1947,7 +1947,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "Less favorable of BRK and DAL (via DAL to BRK to DET);\nMIL (via PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -1960,7 +1960,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "Less favorable of BRK and DAL (via DAL to BRK to DET);\nMIL (via PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1986,7 +1986,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "31-55 Own*;\n56-60 to PHL;\nLess favorable of CHA and LAC* (via CHA to DAL);\nMIA* if DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL);\nNYK*\n*Least favorable of these to UTH",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -1999,7 +1999,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "31-55 Own*;\n56-60 to PHL;\nLess favorable of CHA and LAC* (via CHA to DAL);\nMIA* if DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL);\nNYK*\n*Least favorable of these to UTH",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2012,7 +2012,7 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "31-55 Own*;\n56-60 to PHL;\nLess favorable of CHA and LAC* (via CHA to DAL);\nMIA* if DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL);\nNYK*\n*Least favorable of these to UTH",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2025,33 +2025,33 @@
     "poolHolder": "DET",
     "hasSwapRights": false,
     "notes": "Own\n\nTwo most favorable of DET, MIL and NYK then other to CHI (via MIL to BRK to DET; via NYK to DET;\nvia SAC to CHI)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
     "owningTeam": "DET",
-    "originalTeam": "DET",
+    "originalTeam": "MIL",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "DET",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Two most favorable of DET, MIL and NYK to DET then other to CHI (via MIL to BRK to DET; via NYK to DET; via SAC to CHI) \u2014 incoming to DET from pool",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
     "owningTeam": "DET",
-    "originalTeam": "DET",
+    "originalTeam": "NYK",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "DET",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Two most favorable of DET, MIL and NYK to DET (second pool pick) \u2014 incoming to DET 2029 2nd round",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2063,8 +2063,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2077,7 +2077,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2090,7 +2090,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2102,8 +2102,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2116,7 +2116,7 @@
     "poolHolder": "DET",
     "hasSwapRights": true,
     "notes": "DAL (via PHL);\nLess favorable of GOS and MIN (via MIN swap for GOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2129,7 +2129,7 @@
     "poolHolder": "DET",
     "hasSwapRights": true,
     "notes": "DAL (via PHL);\nLess favorable of GOS and MIN (via MIN swap for GOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2142,7 +2142,7 @@
     "poolHolder": "DET",
     "hasSwapRights": true,
     "notes": "DAL (via PHL);\nLess favorable of GOS and MIN (via MIN swap for GOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2155,7 +2155,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2167,7 +2167,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -2181,7 +2181,7 @@
     "poolHolder": "GOS",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of GOS and DEN to MIA then other to CHI (via GOS to ATL to OKC to NYK to CHA to\nMIA; via DEN to PHX to CHA to MIA; via CHA to PHX to MIN to CHI);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2203,11 +2203,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2027 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2216,11 +2216,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2027 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2229,11 +2229,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2242,11 +2242,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2255,11 +2255,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2029 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2268,11 +2268,11 @@
     "owningTeam": "GOS",
     "originalTeam": "GOS",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "GOS 2029 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2285,20 +2285,20 @@
     "poolHolder": "GOS",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of GOS and PHX to PHL then other to WAS (via WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "GOS",
+    "owningTeam": "PHL",
     "originalTeam": "GOS",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "PHL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of GOS and PHX to PHL then other to WAS (via WAS)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2311,20 +2311,20 @@
     "poolHolder": "GOS",
     "hasSwapRights": true,
     "notes": "Own\n\nMore favorable of GOS and MIN to CHI then other to DET (via MIN swap for GOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "GOS",
+    "owningTeam": "CHI",
     "originalTeam": "GOS",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "CHI",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of GOS and MIN to CHI then other to DET (via MIN swap for GOS)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2336,7 +2336,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -2349,7 +2349,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "31-50 Own; 51-60 to MEM",
     "needsReview": false
   },
   {
@@ -2362,8 +2362,8 @@
     "tradedAway": false,
     "poolHolder": "HOU",
     "hasSwapRights": false,
-    "notes": "1-4 Own;\nmost favorable of HOU 5-30, LAC and OKC to OKC [or none if HOU not conveyable]; second most /\nmore favorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to\n\nTo OKC if HOU 1-4 in 2026;\nCHI (via WAS)\n\nPHL)",
-    "needsReview": true
+    "notes": "1-4 Own;\nmost favorable of HOU 5-30, LAC and OKC to OKC [or none if HOU not conveyable]; second most /\nmore favorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2375,20 +2375,20 @@
     "tradedAway": false,
     "poolHolder": "HOU",
     "hasSwapRights": false,
-    "notes": "1-4 Own;\nmost favorable of HOU 5-30, LAC and OKC to OKC [or none if HOU not conveyable]; second most /\nmore favorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to\n\nTo OKC if HOU 1-4 in 2026;\nCHI (via WAS)\n\nPHL)",
-    "needsReview": true
+    "notes": "1-4 Own;\nmost favorable of HOU 5-30, LAC and OKC to OKC [or none if HOU not conveyable]; second most /\nmore favorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "HOU",
-    "originalTeam": "HOU",
+    "originalTeam": "CHI",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "CHI (via WAS) \u2014 incoming from CHI 2026 2nd via WAS",
     "needsReview": false
   },
   {
@@ -2402,7 +2402,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own or swap for BRK;\nPHX (via BRK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2415,7 +2415,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own or swap for BRK;\nPHX (via BRK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2428,7 +2428,7 @@
     "poolHolder": "HOU",
     "hasSwapRights": false,
     "notes": "Most favorable of HOU, OKC, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of HOU, OKC, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\nMEM (via LAC);\nLess favorable of POR and NOP if 56-60 (via POR to BOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2441,7 +2441,7 @@
     "poolHolder": "HOU",
     "hasSwapRights": false,
     "notes": "Most favorable of HOU, OKC, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of HOU, OKC, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\nMEM (via LAC);\nLess favorable of POR and NOP if 56-60 (via POR to BOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2452,9 +2452,9 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "HOU 2028 1st; HOU has swap rights vs BRK (via HOU swap for BRK); source blank for full detail",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2463,11 +2463,11 @@
     "owningTeam": "HOU",
     "originalTeam": "HOU",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "HOU 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2480,7 +2480,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn (via ATL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2492,7 +2492,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own (via ATL)",
     "needsReview": false
   },
   {
@@ -2502,11 +2502,11 @@
     "owningTeam": "HOU",
     "originalTeam": "HOU",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "HOU 2030 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2515,11 +2515,11 @@
     "owningTeam": "HOU",
     "originalTeam": "HOU",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "HOU 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2531,21 +2531,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo OKC",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "HOU",
+    "owningTeam": "OKC",
     "originalTeam": "HOU",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To OKC",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2558,20 +2558,20 @@
     "poolHolder": "HOU",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of HOU and PHX to CHI then other to PHX (via PHX to MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "HOU",
+    "owningTeam": "CHI",
     "originalTeam": "HOU",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "CHI",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of HOU and PHX to CHI then other to PHX (via PHX to MIN)",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2584,7 +2584,7 @@
     "poolHolder": "IND",
     "hasSwapRights": true,
     "notes": "1-4 and 10-30 Own;\n5-9 to LAC\n\nMore favorable of (i) SAN and (ii) less favorable of IND and MIA to SAN then least\nfavorable of all to MIN;\nless favorable of (i) BOS and (ii) more favorable of IND and MIA to ATL then most favorable\nof all to MEM or to BRK [MEM can swap this pick for LAC; LAC then conveyed to HOU which then conveyed to",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2597,7 +2597,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "BRK which may convey to DEN]\n(via MIA to IND; via SAN swap for IND or MIA; via MIL to MEM; via MEM swap of IND or MIA for BOS; via BOS to ATL);\n\nTOR 56-60",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2610,7 +2610,7 @@
     "poolHolder": "IND",
     "hasSwapRights": false,
     "notes": "Own\n\nMost favorable of IND, OKC, HOU and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of IND, OKC, HOU and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2632,11 +2632,11 @@
     "owningTeam": "IND",
     "originalTeam": "IND",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -2645,11 +2645,11 @@
     "owningTeam": "IND",
     "originalTeam": "IND",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2658,11 +2658,11 @@
     "owningTeam": "IND",
     "originalTeam": "IND",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2029 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2671,24 +2671,24 @@
     "owningTeam": "IND",
     "originalTeam": "IND",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2029 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 1,
     "overall": null,
-    "owningTeam": "IND",
+    "owningTeam": "LAC",
     "originalTeam": "IND",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2030 1st \u2014 To LAC if IND does not convey 1st round pick to LAC in 2026",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2697,11 +2697,11 @@
     "owningTeam": "IND",
     "originalTeam": "IND",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "IND 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2714,7 +2714,7 @@
     "poolHolder": "IND",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of IND and PHX then other to NYK (via IND)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2724,9 +2724,9 @@
     "originalTeam": "IND",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "IND",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "More favorable of IND and PHX then other to NYK (via IND) \u2014 IND retains more favorable of IND/PHX; other goes to NYK",
     "needsReview": false
   },
   {
@@ -2740,7 +2740,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2752,7 +2752,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -2766,7 +2766,7 @@
     "poolHolder": "LAC",
     "hasSwapRights": true,
     "notes": "Most favorable of LAC, HOU 5-30 and OKC to OKC [or none if HOU not conveyable]; second most /\nmore favorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to\nPHL);\n\nLess favorable of (i) LAC and (ii) most favorable of BOS, IND and MIA to BRK then most\nfavorable of all to MEM [BRK may convey to DEN] (via MIA to IND to MIL; via MEM swap of IND or MIA for BOS;\nvia MEM swap of BOS, IND or MIA for LAC; via LAC to HOU to BRK);\n\nIND 5-9\n\nCLE;",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2779,7 +2779,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM 31-42 (via UTH to ATL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -2792,7 +2792,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM 31-42 (via UTH to ATL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -2802,22 +2802,22 @@
     "originalTeam": "LAC",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "OKC",
     "hasSwapRights": false,
-    "notes": "Least / less favorable of LAC, DEN 6-30 and OKC then other(s) to OKC (via OKC swap of OKC or\n\nTo UTH (via ATL to LAC)\n\nDEN for LAC)",
-    "needsReview": true
+    "notes": "Least / less favorable of LAC, DEN 6-30 and OKC then other(s) to OKC (via OKC swap of OKC or",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAC",
+    "owningTeam": "UTH",
     "originalTeam": "LAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To UTH (via ATL to LAC)",
     "needsReview": false
   },
   {
@@ -2844,7 +2844,7 @@
     "poolHolder": "LAC",
     "hasSwapRights": false,
     "notes": "More favorable of LAC and CHA to CHA then other to DET [DET may convey to UTH] (via CHA to\nDAL);\nDAL (via SAC to IND)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2856,8 +2856,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "1-3 Own;\n4-30 Own or PHL (via PHL swap for LAC);\n\nTo SAN (via PHL)",
-    "needsReview": true
+    "notes": "1-3 Own;\n4-30 Own or PHL (via PHL swap for LAC);",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2870,7 +2870,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "IND",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -2883,7 +2883,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "IND",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -2896,20 +2896,20 @@
     "poolHolder": "LAC",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of LAC and UTH to CHA then other to LAC (via LAC to UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAC",
+    "owningTeam": "CHA",
     "originalTeam": "LAC",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of LAC and UTH to CHA then other to LAC (via LAC to UTH) \u2014 pick goes to CHA if more favorable",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2922,7 +2922,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own;\n\nOwn\n\nIND if IND does not convey 1st round pick to LAC in 2026",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2934,8 +2934,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -2944,11 +2944,11 @@
     "owningTeam": "LAC",
     "originalTeam": "LAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Duplicate parser entry \u2014 LAC 2031 R2 COUNT=1 in source; real pick is index 225 (Own)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2961,7 +2961,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -2973,7 +2973,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -2986,47 +2986,47 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo GOS (via CLE to MIA to TOR)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "GOS",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To GOS (via CLE to MIA to TOR); 1-4 Own; 5-30 to MEM (via UTH); To BRK if LAL conveys 1st to MEM in 2027 or to MEM if not",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 1,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "MEM",
     "originalTeam": "LAL",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To MEM (or BRK if not conveyed) \u2014 LAL 2027 1st expected conveyed to MEM; conditional on LAL conveyance",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "BRK",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2027 2nd \u2014 To BRK if LAL conveys 1st round pick to MEM in 2027; to MEM if LAL does not convey 1st round pick to MEM in 2027",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3038,47 +3038,47 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2028 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "ORL",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2028 2nd \u2014 More favorable of LAL and WAS to ORL then other to WAS (via WAS to LAL to ORL; via LAL to WAS)",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 1,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "DAL",
     "originalTeam": "LAL",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2029 1st \u2014 To DAL",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "WAS",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2029 2nd \u2014 To WAS",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3090,21 +3090,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2030 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "BRK",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2030 2nd \u2014 To BRK",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3116,21 +3116,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2031 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "LAL",
+    "owningTeam": "BRK",
     "originalTeam": "LAL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 2031 2nd \u2014 To BRK",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3143,7 +3143,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "2027 (via UTH to MEM)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3156,7 +3156,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "2027 (via UTH to MEM)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3168,8 +3168,8 @@
     "tradedAway": false,
     "poolHolder": "MEM",
     "hasSwapRights": true,
-    "notes": "Two most favorable of (i) MEM, (ii) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not\nconveyable] and (iii) ORL then least favorable of all to CHA (via WAS swap for PHX; via MEM swap of\n\n31-42 to LAC (via UTH to ATL);\n43-60 to POR (via UTH to GOS);\n\nORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
-    "needsReview": true
+    "notes": "Two most favorable of (i) MEM, (ii) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not\nconveyable] and (iii) ORL then least favorable of all to CHA (via WAS swap for PHX; via MEM swap of",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3181,8 +3181,8 @@
     "tradedAway": false,
     "poolHolder": "MEM",
     "hasSwapRights": true,
-    "notes": "Two most favorable of (i) MEM, (ii) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not\nconveyable] and (iii) ORL then least favorable of all to CHA (via WAS swap for PHX; via MEM swap of\n\n31-42 to LAC (via UTH to ATL);\n43-60 to POR (via UTH to GOS);\n\nORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
-    "needsReview": true
+    "notes": "Two most favorable of (i) MEM, (ii) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not\nconveyable] and (iii) ORL then least favorable of all to CHA (via WAS swap for PHX; via MEM swap of",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3195,7 +3195,7 @@
     "poolHolder": "MEM",
     "hasSwapRights": true,
     "notes": "Most favorable LAC, BOS, IND and MIA (via MIA to IND; via MIL to MEM; via MEM swap of IND or MIA for\nBOS; via MEM swap of BOS, IND or MIA for LAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -3207,47 +3207,47 @@
     "tradedAway": false,
     "poolHolder": "MEM",
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo HOU (via LAC);\n\nLAL 5-30;\n\nLAL if LAL does not convey 1st round pick to MEM in 2027 (via UTH)\n\nMost favorable of UTH, CLE and MIN (via UTH)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
+  },
+  {
+    "season": 2027,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "HOU",
+    "originalTeam": "MEM",
+    "type": "second",
+    "tradedAway": true,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "To HOU (via LAC) \u2014 MEM 2027 2nd traded to HOU via LAC",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
     "owningTeam": "MEM",
-    "originalTeam": "MEM",
+    "originalTeam": "LAL",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "LAL 5-30; LAL if LAL does not convey 1st round pick to MEM in 2027 (via UTH)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
     "owningTeam": "MEM",
-    "originalTeam": "MEM",
+    "originalTeam": "UTH",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "MEM",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2027,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "MEM",
-    "originalTeam": "MEM",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Most favorable of UTH, CLE and MIN (via UTH) \u2014 incoming to MEM",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3259,21 +3259,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo BRK (via PHX)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "MEM",
+    "owningTeam": "BRK",
     "originalTeam": "MEM",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To BRK (via PHX) \u2014 MEM 2028 2nd traded to BRK via PHX",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3285,8 +3285,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or swap for ORL 3-30\n\nTo BRK (via PHX);",
-    "needsReview": true
+    "notes": "Own or swap for ORL 3-30",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3299,7 +3299,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "ORL if ORL 1-2 in 2029;\nPOR (via PHL to IND)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3312,7 +3312,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "ORL if ORL 1-2 in 2029;\nPOR (via PHL to IND)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3324,8 +3324,8 @@
     "tradedAway": false,
     "poolHolder": "MEM",
     "hasSwapRights": true,
-    "notes": "More favorable of (i) MEM and (ii) less favorable of PHX and WAS then least favorable of\nall to PHX (via WAS swap for PHX; via MEM swap for PHX or WAS);\n\n31-50 Own;\n51-60 to MIN\n\nORL",
-    "needsReview": true
+    "notes": "More favorable of (i) MEM and (ii) less favorable of PHX and WAS then least favorable of\nall to PHX (via WAS swap for PHX; via MEM swap for PHX or WAS);",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3337,21 +3337,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "31-50 Own; 51-60 to MIN \u2014 MEM retains 2030 2nd if picks 31-50; sends to MIN if 51-60",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
     "owningTeam": "MEM",
-    "originalTeam": "MEM",
+    "originalTeam": "ORL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "ORL 2030 2nd \u2014 To MEM",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3364,7 +3364,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own;\nPHX (via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3377,7 +3377,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own;\nPHX (via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3390,7 +3390,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "(could not parse second round from source)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3403,7 +3403,7 @@
     "poolHolder": "MEM",
     "hasSwapRights": true,
     "notes": "More favorable of (i) MEM and (ii) less favorable of IND and MIA then least favorable of all\nto IND (via MIA swap for IND; via MEM swap for IND or MIA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3416,7 +3416,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own\n\nOwn or swap for PHL;",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3429,7 +3429,7 @@
     "poolHolder": "MIA",
     "hasSwapRights": true,
     "notes": "Own\n\nMore favorable of (i) SAN and (ii) less favorable of MIA and IND to SAN then least\nfavorable of all to MIN;\nless favorable of (i) BOS and (ii) more favorable of MIA and IND to ATL then most favorable\nof all to MEM or to BRK [MEM can swap this pick for LAC; LAC then conveyed to HOU which then conveyed to",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3442,7 +3442,7 @@
     "poolHolder": "MIA",
     "hasSwapRights": true,
     "notes": "BRK which may convey to DEN]\n(via MIA to IND; via SAN swap for IND or MIA; via MIL to MEM; via MEM swap of IND or MIA for BOS; via BOS to ATL);\n\nBRK 56-60;\nMore favorable of DEN and GOS (via DEN to PHX to CHA; via GOS to ATL to OKC to NYK to CHA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3455,7 +3455,7 @@
     "poolHolder": "MIA",
     "hasSwapRights": true,
     "notes": "BRK which may convey to DEN]\n(via MIA to IND; via SAN swap for IND or MIA; via MIL to MEM; via MEM swap of IND or MIA for BOS; via BOS to ATL);\n\nBRK 56-60;\nMore favorable of DEN and GOS (via DEN to PHX to CHA; via GOS to ATL to OKC to NYK to CHA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -3468,7 +3468,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "1-14 Own;\n15-30 to CHA",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -3481,7 +3481,7 @@
     "poolHolder": "MIA",
     "hasSwapRights": false,
     "notes": "Least favorable of MIA, OKC, HOU, IND and SAN;\nmost favorable of MIA, OKC, HOU and IND to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of MIA, OKC, HOU and IND to SAN\n(via MIA to OKC to UTH to SAN to MIA; via HOU to DET to OKC to NYK to NOP; via OKC to PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3493,21 +3493,21 @@
     "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "To CHA if not already settled\n\nTo DET if DAL conveys 1st round pick to CHA in 2027 or to CHA if DAL does not convey 1st round pick to CHA in\n2027 [DET may convey to UTH] (via SAN to DAL)",
+    "notes": "To CHA if not already settled",
     "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIA",
+    "owningTeam": "DET",
     "originalTeam": "MIA",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To DET if DAL conveys 1st to CHA in 2027 or to CHA if DAL does not convey (via SAN to DAL) [DET may convey to UTH]",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3516,11 +3516,11 @@
     "owningTeam": "MIA",
     "originalTeam": "MIA",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIA 2029 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3529,11 +3529,11 @@
     "owningTeam": "MIA",
     "originalTeam": "MIA",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIA 2029 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3542,11 +3542,11 @@
     "owningTeam": "MIA",
     "originalTeam": "MIA",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIA 2030 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3555,11 +3555,11 @@
     "owningTeam": "MIA",
     "originalTeam": "MIA",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIA 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3572,20 +3572,20 @@
     "poolHolder": "MIA",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of MIA and ATL to CHA then other to OKC (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIA",
+    "owningTeam": "CHA",
     "originalTeam": "MIA",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "CHA",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of MIA and ATL to CHA then other to OKC (via OKC)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3597,21 +3597,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo BRK",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIA",
+    "owningTeam": "BRK",
     "originalTeam": "MIA",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To BRK",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3624,7 +3624,7 @@
     "poolHolder": "MIL",
     "hasSwapRights": true,
     "notes": "Less favorable of MIL and NOP then other to ATL (via NOP swap for MIL)\n\nMost favorable of MIL, ORL and DET to BOS; second most favorable to ORL and least\nfavorable to NOP (via MIL to ORL; via DET to LAC to ORL; via ORL to PHX to BRK to NYK to NOP);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3637,7 +3637,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "UTH 56-60 (via MIN to SAN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -3647,23 +3647,23 @@
     "originalTeam": "MIL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "NOP",
     "hasSwapRights": false,
-    "notes": "More favorable of MIL and NOP to NOP then other to ATL if 5-30 or MIL and NOP to NOP if\nboth 1-4 (via NOP)\n\nTo DET (via PHL)",
-    "needsReview": true
+    "notes": "More favorable of MIL and NOP to NOP then other to ATL if 5-30 or MIL and NOP to NOP if\nboth 1-4 (via NOP)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "DET",
     "originalTeam": "MIL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To DET (via PHL) \u2014 MIL 2027 2nd traded to DET via PHL",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3673,10 +3673,10 @@
     "originalTeam": "MIL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "CHI",
     "hasSwapRights": false,
-    "notes": "Less favorable of (i) less favorable of MIL and POR 1-14 if POR has not conveyed 1st round pick to\nCHI by 2027 [or (i) MIL if POR not conveyable], and (ii) more favorable of (a) WAS and (b) least / less\nfavorable of BRK, PHL 9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX then more\nfavorable of (i) and (ii) to WAS;\nor Less favorable of (i) less favorable of MIL and POR if POR has conveyed 1st round pick to CHI by\n2027, and (ii) more favorable of (a) WAS and (b) least / less favorable of BRK, PHL 9-30 if PHL\nconveys 1st round pick to OKC in 2026, and PHX then more favorable of (i) and (ii) to WAS\n\nTo PHL (via BRK to HOU to OKC)",
-    "needsReview": true
+    "notes": "Less favorable of (i) less favorable of MIL and POR 1-14 if POR has not conveyed 1st round pick to\nCHI by 2027 [or (i) MIL if POR not conveyable], and (ii) more favorable of (a) WAS and (b) least / less\nfavorable of BRK, PHL 9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX then more\nfavorable of (i) and (ii) to WAS;\nor Less favorable of (i) less favorable of MIL and POR if POR has conveyed 1st round pick to CHI by\n2027, and (ii) more favorable of (a) WAS and (b) least / less favorable of BRK, PHL 9-30 if PHL\nconveys 1st round pick to OKC in 2026, and PHX then more favorable of (i) and (ii) to WAS",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3689,33 +3689,33 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via POR swap for MIL; via BRK swap of BRK or PHL for PHX; via WAS swap for PHX, BRK or PHL; via WAS swap of\nWAS, BRK, PHL or PHX for MIL or POR)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 1,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "POR",
     "originalTeam": "MIL",
     "type": "first",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "POR",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIL 2029 1st \u2014 Most and least favorable of MIL, BOS and POR to POR; second most favorable to WAS (via BOS to POR; via MIL to POR; via POR to WAS)",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "DET",
     "originalTeam": "MIL",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "DET",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "MIL 2029 2nd \u2014 Two most favorable of MIL, DET and NYK to DET then other to CHI (via MIL to BRK to DET; via NYK to DET; via SAC to CHI)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -3726,22 +3726,22 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "Own or POR (via POR swap for MIL)",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "ORL",
     "originalTeam": "MIL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To ORL",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3753,21 +3753,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "CHA",
     "originalTeam": "MIL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHA",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3777,23 +3777,23 @@
     "originalTeam": "MIL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "POR",
     "hasSwapRights": false,
     "notes": "Most and least favorable of MIL, BOS and POR to POR; second most favorable to WAS (via\n\nTwo most favorable of MIL, DET and NYK to DET then other to CHI (via MIL to BRK to DET; via\n\nBOS to POR; via MIL to POR; via POR to WAS)\n\nNYK to DET; via SAC to CHI)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIL",
+    "owningTeam": "CHA",
     "originalTeam": "MIL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHA",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3806,7 +3806,7 @@
     "poolHolder": "MIN",
     "hasSwapRights": true,
     "notes": "Less favorable of MIN 1-19 and UTH 1-8;\nless favorable of MIN 20-30 and DET then other [or DET if MIN not conveyable] to DET;\nless favorable of (i) CLE and (ii) more favorable of MIN and UTH 1-8 [or CLE if UTH not\nconveyable] to CLE then most favorable of all to UTH [or none to UTH if UTH not conveyable]\n[CLE may convey to ATL] (via UTH swap for MIN; via UTH swap of UTH or MIN for CLE; via DET swap for MIN)\n\nLess favorable of MIN and NYK to NYK;\nmost favorable of MIN, NYK, NOP and POR to CHI;\nless favorable of (i) more favorable of MIN and NYK and (ii) more favorable of NOP and\nPOR to WAS\n(via MIN to NYK; via NOP to POR to NOP; via POR to DET to BOS to CHI; via DET to WAS);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -3819,7 +3819,7 @@
     "poolHolder": "MIN",
     "hasSwapRights": true,
     "notes": "Least favorable of IND, MIA and SAN (via MIA to IND; via SAN swap for IND or MIA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -3829,23 +3829,23 @@
     "originalTeam": "MIN",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "MEM",
     "hasSwapRights": false,
-    "notes": "Most favorable of MIN, CLE and UTH to MEM; second most favorable to UTH and least\nfavorable to PHX (via UTH)\n\nTo POR (via HOU to OKC to NYK)",
-    "needsReview": true
+    "notes": "Most favorable of MIN, CLE and UTH to MEM; second most favorable to UTH and least\nfavorable to PHX (via UTH)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIN",
+    "owningTeam": "POR",
     "originalTeam": "MIN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To POR (via HOU to OKC to NYK) \u2014 MIN 2027 2nd traded to POR via HOU/OKC/NYK chain",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -3857,21 +3857,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo SAN",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIN",
+    "owningTeam": "SAN",
     "originalTeam": "MIN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To SAN \u2014 MIN 2028 2nd traded to SAN",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3884,7 +3884,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -3896,7 +3896,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To UTH if MIN does not convey 1st round pick to UTH in 2029",
     "needsReview": false
   },
   {
@@ -3907,23 +3907,23 @@
     "originalTeam": "MIN",
     "type": "first",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "MIN",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "1 Own; less favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL then most / more favorable of all to SAN (via SAN swap for DAL; via SAN swap of SAN or DAL for MIN)",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "MIN",
+    "owningTeam": "DET",
     "originalTeam": "MIN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To DET",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3934,9 +3934,9 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "Frozen (through 2027-28) \u2014 MIN retains 2031 1st round",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -3948,8 +3948,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -3961,20 +3961,20 @@
     "tradedAway": false,
     "poolHolder": "MIN",
     "hasSwapRights": true,
-    "notes": "1 Own;\nless favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL then most / more\nfavorable of all to SAN (via SAN swap for DAL; via SAN swap of SAN or DAL for MIN)\n\nTo DET;",
-    "needsReview": true
+    "notes": "1 Own;\nless favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL then most / more\nfavorable of all to SAN (via SAN swap for DAL; via SAN swap of SAN or DAL for MIN)",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
     "owningTeam": "MIN",
-    "originalTeam": "MIN",
+    "originalTeam": "MEM",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "MEM 51-60 \u2014 incoming to MIN: MEM sends 2032 2nd round picks 51-60 to MIN",
     "needsReview": false
   },
   {
@@ -3985,10 +3985,10 @@
     "originalTeam": "NOP",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "ATL",
     "hasSwapRights": false,
     "notes": "More favorable of NOP and MIL to ATL then other to MIL (via NOP swap for MIL)\n\nMost favorable of NOP, POR, MIN and NYK to CHI;\nless favorable of NOP and POR to SAN;\nless favorable of (i) more favorable of NOP and POR and (ii) more favorable of MIN and\nNYK to WAS\n(via NOP to POR to NOP; via POR to DET to BOS to CHI; via MIN to NYK; via NOP to SAN; via DET to WAS);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4001,7 +4001,7 @@
     "poolHolder": "NOP",
     "hasSwapRights": false,
     "notes": "Least favorable of ORL, DET and MIL (via DET to LAC to ORL; via ORL to PHX to BRK to NYK to NOP)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4014,7 +4014,7 @@
     "poolHolder": "NOP",
     "hasSwapRights": false,
     "notes": "More favorable of NOP and MIL then other to ATL if 5-30 or NOP and MIL if both 1-4 (via NOP)\n\nMore favorable of NOP and POR to CHA then other to POR [POR may convey to HOU] (via NOP);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4027,7 +4027,7 @@
     "poolHolder": "NOP",
     "hasSwapRights": false,
     "notes": "More favorable of NOP and MIL then other to ATL if 5-30 or NOP and MIL if both 1-4 (via NOP)\n\nMore favorable of NOP and POR to CHA then other to POR [POR may convey to HOU] (via NOP);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4040,7 +4040,7 @@
     "poolHolder": "NOP",
     "hasSwapRights": false,
     "notes": "Second most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC to NYK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4049,11 +4049,11 @@
     "owningTeam": "NOP",
     "originalTeam": "NOP",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "NOP 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4062,11 +4062,11 @@
     "owningTeam": "NOP",
     "originalTeam": "NOP",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "NOP 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4075,11 +4075,11 @@
     "owningTeam": "NOP",
     "originalTeam": "NOP",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "NOP 2029 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4088,11 +4088,11 @@
     "owningTeam": "NOP",
     "originalTeam": "NOP",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "NOP 2029 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4104,21 +4104,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "NOP",
+    "owningTeam": "SAN",
     "originalTeam": "NOP",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To SAN",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4130,8 +4130,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo SAN",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4142,9 +4142,9 @@
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "Own or ORL (via ORL swap for NOP) \u2014 NOP retains or swaps with ORL 2031 2nd",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4157,19 +4157,19 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "NOP",
+    "owningTeam": "ORL",
     "originalTeam": "NOP",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "ORL",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "More favorable of NOP and ORL to ORL then other to OKC (via ORL swap for NOP)",
     "needsReview": false
   },
   {
@@ -4183,7 +4183,7 @@
     "poolHolder": "NYK",
     "hasSwapRights": false,
     "notes": "Own;\n\nLess favorable of NYK and MIN;\nmost favorable of NYK, MIN, NOP and POR to CHI;\nless favorable of (i) more favorable of NYK and MIN and (ii) more favorable of NOP and\nPOR to WAS\n(via MIN to NYK; via NOP to POR to NOP; via POR to DET to BOS to CHI; via DET to WAS);\n\nWAS 9-30 (via HOU to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4196,7 +4196,7 @@
     "poolHolder": "NYK",
     "hasSwapRights": false,
     "notes": "Own;\n\nLess favorable of NYK and MIN;\nmost favorable of NYK, MIN, NOP and POR to CHI;\nless favorable of (i) more favorable of NYK and MIN and (ii) more favorable of NOP and\nPOR to WAS\n(via MIN to NYK; via NOP to POR to NOP; via POR to DET to BOS to CHI; via DET to WAS);\n\nWAS 9-30 (via HOU to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4209,7 +4209,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "WAS if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4222,7 +4222,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "WAS if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4234,7 +4234,7 @@
     "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "To BRK\n\nOwn;",
+    "notes": "To BRK",
     "needsReview": false
   },
   {
@@ -4248,7 +4248,7 @@
     "poolHolder": "NYK",
     "hasSwapRights": false,
     "notes": "WAS if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC);\nThird most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4261,7 +4261,7 @@
     "poolHolder": "NYK",
     "hasSwapRights": false,
     "notes": "WAS if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC);\nThird most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4274,7 +4274,7 @@
     "poolHolder": "NYK",
     "hasSwapRights": false,
     "notes": "WAS if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC);\nThird most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4286,8 +4286,8 @@
     "tradedAway": false,
     "poolHolder": "NYK",
     "hasSwapRights": true,
-    "notes": "Least favorable of NYK, BRK and PHX if NYK and / or if PHL 9-30, if PHL conveys 1st round pick to\nOKC in 2026, is less favorable than BRK and PHX; or second most favorable of NYK, BRK and\nPHX in all other scenarios;\nif (i) PHL 9-30, if conveyable, is third most favorable and (ii) NYK is most or second most\nfavorable of NYK, BRK, PHL 9-30 if conveyable, and PHX, then most and third most favorable\nto BRK; or most / two most favorable to BRK in all other scenarios\n(via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)\n\nTo DET [DET may convey to UTH];\nBOS 46-60 (via ORL to PHX);\nLess favorable of IND and PHX (via IND)",
-    "needsReview": true
+    "notes": "Least favorable of NYK, BRK and PHX if NYK and / or if PHL 9-30, if PHL conveys 1st round pick to\nOKC in 2026, is less favorable than BRK and PHX; or second most favorable of NYK, BRK and\nPHX in all other scenarios;\nif (i) PHL 9-30, if conveyable, is third most favorable and (ii) NYK is most or second most\nfavorable of NYK, BRK, PHL 9-30 if conveyable, and PHX, then most and third most favorable\nto BRK; or most / two most favorable to BRK in all other scenarios\n(via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4299,8 +4299,8 @@
     "tradedAway": false,
     "poolHolder": "NYK",
     "hasSwapRights": true,
-    "notes": "Least favorable of NYK, BRK and PHX if NYK and / or if PHL 9-30, if PHL conveys 1st round pick to\nOKC in 2026, is less favorable than BRK and PHX; or second most favorable of NYK, BRK and\nPHX in all other scenarios;\nif (i) PHL 9-30, if conveyable, is third most favorable and (ii) NYK is most or second most\nfavorable of NYK, BRK, PHL 9-30 if conveyable, and PHX, then most and third most favorable\nto BRK; or most / two most favorable to BRK in all other scenarios\n(via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)\n\nTo DET [DET may convey to UTH];\nBOS 46-60 (via ORL to PHX);\nLess favorable of IND and PHX (via IND)",
-    "needsReview": true
+    "notes": "Least favorable of NYK, BRK and PHX if NYK and / or if PHL 9-30, if PHL conveys 1st round pick to\nOKC in 2026, is less favorable than BRK and PHX; or second most favorable of NYK, BRK and\nPHX in all other scenarios;\nif (i) PHL 9-30, if conveyable, is third most favorable and (ii) NYK is most or second most\nfavorable of NYK, BRK, PHL 9-30 if conveyable, and PHX, then most and third most favorable\nto BRK; or most / two most favorable to BRK in all other scenarios\n(via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4310,9 +4310,9 @@
     "originalTeam": "NYK",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "NYK",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To DET [DET may convey to UTH]; BOS 46-60 (via ORL to PHX) incoming; Less favorable of IND and PHX (via IND)",
     "needsReview": false
   },
   {
@@ -4323,7 +4323,7 @@
     "originalTeam": "NYK",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "BRK",
     "hasSwapRights": false,
     "notes": "To BRK\n\nTwo most favorable of NYK, DET and MIL to DET then other to CHI (via NYK to DET; via MIL to\nBRK to DET; via SAC to CHI)",
     "needsReview": false
@@ -4332,14 +4332,14 @@
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "NYK",
+    "owningTeam": "DET",
     "originalTeam": "NYK",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "DET",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Two most favorable of NYK, DET and MIL to DET then other to CHI (via NYK to DET; via MIL to BRK to DET; via SAC to CHI)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4351,47 +4351,47 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "NYK",
+    "owningTeam": "ATL",
     "originalTeam": "NYK",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To ATL (via POR)",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 1,
     "overall": null,
-    "owningTeam": "NYK",
+    "owningTeam": "BRK",
     "originalTeam": "NYK",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To BRK",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "NYK",
+    "owningTeam": "CHI",
     "originalTeam": "NYK",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHI (via CHA)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4403,8 +4403,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo ATL (via POR)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4416,8 +4416,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4430,7 +4430,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Most favorable of OKC, HOU 5-30 and LAC [or none if HOU not conveyable]; second most / more\nfavorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to PHL);\n\nMost favorable of OKC, DAL and PHL; second most favorable to PHX and least favorable\nto WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS);\n\nPHL 5-30;\n\nHOU if HOU 1-4 in 2026\n\nUTH 9-30",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4443,46 +4443,46 @@
     "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Most favorable of OKC, HOU 5-30 and LAC [or none if HOU not conveyable]; second most / more\nfavorable to PHL and least / less favorable to DAL (via OKC to PHL to WAS to DAL; via OKC to PHL);\n\nMost favorable of OKC, DAL and PHL; second most favorable to PHX and least favorable\nto WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS);\n\nPHL 5-30;\n\nHOU if HOU 1-4 in 2026\n\nUTH 9-30",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "OKC",
-    "originalTeam": "OKC",
+    "originalTeam": "PHL",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "PHL 5-30 incoming to OKC (2026 2nd round)",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "OKC",
-    "originalTeam": "OKC",
+    "originalTeam": "HOU",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "HOU if HOU 1-4 in 2026 \u2014 incoming to OKC",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "OKC",
-    "originalTeam": "OKC",
+    "originalTeam": "UTH",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "UTH 9-30 incoming to OKC (2026 2nd round)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4495,7 +4495,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Two most / more favorable of OKC, DEN 6-30 and LAC then other to LAC (via OKC swap of OKC\nor DEN for LAC);\n\nMost favorable of OKC, HOU, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\n\nPHL 5-30 if not already settled;\nSAN 17-30 (via SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4508,7 +4508,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Two most / more favorable of OKC, DEN 6-30 and LAC then other to LAC (via OKC swap of OKC\nor DEN for LAC);\n\nMost favorable of OKC, HOU, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\n\nPHL 5-30 if not already settled;\nSAN 17-30 (via SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4521,7 +4521,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Two most / more favorable of OKC, DEN 6-30 and LAC then other to LAC (via OKC swap of OKC\nor DEN for LAC);\n\nMost favorable of OKC, HOU, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\n\nPHL 5-30 if not already settled;\nSAN 17-30 (via SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4534,7 +4534,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Two most / more favorable of OKC, DEN 6-30 and LAC then other to LAC (via OKC swap of OKC\nor DEN for LAC);\n\nMost favorable of OKC, HOU, IND and MIA to PHL; second most favorable to NOP and\nthird most favorable to NYK;\nmore favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA to SAN then\nleast favorable of all to MIA\n(via HOU to DET to OKC to NYK to NOP; via MIA to OKC to UTH to SAN to MIA; via OKC to PHL);\n\nPHL 5-30 if not already settled;\nSAN 17-30 (via SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4547,7 +4547,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA if SAN 1-16 in 2027 (via SAC);\nSAC if SAN 1-16 in 2027;\nPHL if PHL has not conveyed 1st round pick to OKC by 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4560,7 +4560,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA if SAN 1-16 in 2027 (via SAC);\nSAC if SAN 1-16 in 2027;\nPHL if PHL has not conveyed 1st round pick to OKC by 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4573,7 +4573,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA if SAN 1-16 in 2027 (via SAC);\nSAC if SAN 1-16 in 2027;\nPHL if PHL has not conveyed 1st round pick to OKC by 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4582,11 +4582,11 @@
     "owningTeam": "OKC",
     "originalTeam": "OKC",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "OKC 2028 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4595,11 +4595,11 @@
     "owningTeam": "OKC",
     "originalTeam": "OKC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "OKC 2028 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4611,8 +4611,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or swap for DAL;\n\nTo PHL;\n\nDEN 6-30 if not already settled\n\nUTH",
-    "needsReview": true
+    "notes": "Own or swap for DAL;",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4624,20 +4624,20 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or swap for DAL;\n\nTo PHL;\n\nDEN 6-30 if not already settled\n\nUTH",
-    "needsReview": true
+    "notes": "Own or swap for DAL;",
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
     "owningTeam": "OKC",
-    "originalTeam": "OKC",
+    "originalTeam": "DEN",
     "type": "second",
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "DEN 6-30 if not already settled \u2014 incoming to OKC 2029 2nd; To PHL (OKC outgoing 2029 2nd)",
     "needsReview": false
   },
   {
@@ -4650,8 +4650,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nDEN 6-30 if not already settled and if DEN has conveyed a first potential 1st round pick to OKC by 2028\n\nDEN (direct or via CHA);",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4663,8 +4663,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nOwn;\n\nDEN 6-30 if not already settled and if DEN has conveyed a first potential 1st round pick to OKC by 2028\n\nDEN (direct or via CHA);",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4677,7 +4677,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU;\nMIA",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4690,7 +4690,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU;\nMIA",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4703,7 +4703,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU;\nMIA",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4716,7 +4716,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "HOU;\nMIA",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4728,8 +4728,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4742,7 +4742,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Less favorable of NOP and ORL (via ORL swap for NOP)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4755,7 +4755,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": true,
     "notes": "Less favorable of NOP and ORL (via ORL swap for NOP)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4768,7 +4768,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4780,7 +4780,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -4794,7 +4794,7 @@
     "poolHolder": "ORL",
     "hasSwapRights": true,
     "notes": "Two most favorable of (i) ORL, (ii) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not\nconveyable] and (iii) MEM to MEM then least favorable of all to CHA (via WAS swap for PHX; via\n\nSecond most favorable of ORL, DET and MIL; most favorable to BOS and least favorable\nto NOP (via MIL to ORL; via DET to LAC to ORL; via ORL to PHX to BRK to NYK to NOP)\n\nMEM swap of ORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -4804,10 +4804,10 @@
     "originalTeam": "ORL",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "ORL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Second most favorable of ORL, DET and MIL; most favorable to BOS and least favorable to NOP (via MIL to ORL; via DET to LAC to ORL; via ORL to PHX to BRK to NYK to NOP) \u2014 ORL retains second most favorable",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4816,11 +4816,11 @@
     "owningTeam": "ORL",
     "originalTeam": "ORL",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "ORL 2027 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -4829,11 +4829,11 @@
     "owningTeam": "ORL",
     "originalTeam": "ORL",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "ORL 2027 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -4846,20 +4846,20 @@
     "poolHolder": "ORL",
     "hasSwapRights": false,
     "notes": "Own\n\nMore favorable of ORL and BOS to UTH then other to CHA (via BOS to ORL to BOS; via ORL to CHA)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "ORL",
+    "owningTeam": "UTH",
     "originalTeam": "ORL",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of ORL and BOS to UTH then other to CHA (via BOS to ORL to BOS; via ORL to CHA) \u2014 ORL 2028 2nd goes to UTH (if more favorable) or CHA (if less favorable)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4871,8 +4871,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "1-2 Own;\n3-30 Own or MEM (via MEM swap for ORL)\n\nTo MEM if ORL 1-2 in 2029",
-    "needsReview": true
+    "notes": "1-2 Own;\n3-30 Own or MEM (via MEM swap for ORL)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -4884,7 +4884,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To MEM if ORL 1-2 in 2029; otherwise ORL retains",
     "needsReview": false
   },
   {
@@ -4896,7 +4896,7 @@
     "type": "first",
     "tradedAway": true,
     "poolHolder": null,
-    "hasSwapRights": false,
+    "hasSwapRights": true,
     "notes": "To MEM\n\nOwn or swap for NOP;",
     "needsReview": false
   },
@@ -4911,7 +4911,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -4924,7 +4924,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4936,8 +4936,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -4947,10 +4947,10 @@
     "originalTeam": "ORL",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "poolHolder": "ORL",
+    "hasSwapRights": true,
+    "notes": "More favorable of ORL and NOP then other to OKC (via ORL swap for NOP) \u2014 ORL retains more favorable of ORL/NOP",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4963,7 +4963,7 @@
     "poolHolder": "ORL",
     "hasSwapRights": true,
     "notes": "Own\n\nMore favorable of ORL and NOP then other to OKC (via ORL swap for NOP)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -4975,7 +4975,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -4988,21 +4988,21 @@
     "tradedAway": false,
     "poolHolder": "PHX",
     "hasSwapRights": true,
-    "notes": "More favorable of PHX and WAS 1-8 to WAS [or neither to WAS if WAS not conveyable];\ntwo most favorable of (i) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not conveyable], (ii)\nMEM and (iii) ORL to MEM then least favorable of all to CHA\n\nTo DAL (via WAS);\nSecond most favorable of OKC, DAL and PHL (via OKC to HOU)\n\n(via WAS swap for PHX; via MEM swap of ORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to CHA)",
-    "needsReview": true
+    "notes": "More favorable of PHX and WAS 1-8 to WAS [or neither to WAS if WAS not conveyable];\ntwo most favorable of (i) less favorable of PHX and WAS 1-8 [or (ii) PHX if WAS not conveyable], (ii)\nMEM and (iii) ORL to MEM then least favorable of all to CHA",
+    "needsReview": false
   },
   {
     "season": 2026,
     "round": 2,
     "overall": null,
-    "owningTeam": "PHX",
+    "owningTeam": "DAL",
     "originalTeam": "PHX",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "DAL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To DAL (via WAS); second most favorable of OKC, DAL and PHL (via OKC to HOU) goes to PHX separately",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5012,7 +5012,7 @@
     "originalTeam": "PHX",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "HOU",
     "hasSwapRights": false,
     "notes": "To HOU (via BRK);\n\nMore favorable of PHX and GOS to PHL then other to WAS (via WAS)\n\nLeast favorable of UTH, CLE and MIN (via UTH)",
     "needsReview": false
@@ -5022,12 +5022,12 @@
     "round": 2,
     "overall": null,
     "owningTeam": "PHX",
-    "originalTeam": "PHX",
+    "originalTeam": "UTH",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "PHX",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Least favorable of UTH, CLE and MIN (via UTH) \u2014 incoming to PHX; PHX 2027 2nd goes to PHL (more favorable of PHX and GOS) or WAS (other)",
     "needsReview": false
   },
   {
@@ -5038,10 +5038,10 @@
     "originalTeam": "PHX",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Least favorable of PHX, PHL 9-30 if PHL conveys 1st round pick to OKC in 2026, WAS and BRK;\nmore favorable of (i) WAS and (ii) least / less favorable of PHX, PHL 9-30 if conveyable, and\nBRK to WAS;\nif (i) PHL 9-30, if conveyable, is third most favorable and (ii) NYK is most or second most\nfavorable of PHX, BRK and PHL 9-30 if conveyable, and NYK, then most and third most\nfavorable to BRK; or most / two most favorable to BRK in all other scenarios;\nleast favorable of PHX, BRK and NYK to NYK if NYK and / or if PHL 9-30, if conveyable, is less\nfavorable than PHX and BRK; or second most favorable of PHX, BRK and NYK to NYK in all\n\nMore favorable of PHX and IND to IND then other to NYK (via IND)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5054,7 +5054,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "other scenarios\n[WAS can then swap with MIL]\n(via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5067,20 +5067,20 @@
     "poolHolder": "PHX",
     "hasSwapRights": true,
     "notes": "Two most favorable of PHX, DAL and HOU to HOU then other to BRK (via DAL and PHX to BRK;\n\nOwn (via OKC to CHA)\n\nvia DAL or PHX to HOU; via HOU swap for DAL or PHX)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
     "round": 2,
     "overall": null,
-    "owningTeam": "PHX",
+    "owningTeam": "CHA",
     "originalTeam": "PHX",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own (via OKC to CHA) \u2014 PHX 2029 2nd traded to CHA via OKC",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5090,10 +5090,10 @@
     "originalTeam": "PHX",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "Least favorable of PHX, WAS and MEM;\nmore favorable of PHX and WAS to WAS;\nmore favorable of (i) MEM and (ii) less favorable of PHX and WAS to MEM\n\nMore favorable of PHX and POR to PHL then other to WAS (via WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5106,33 +5106,33 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via WAS swap for PHX; via MEM swap for PHX or WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 1,
     "overall": null,
-    "owningTeam": "PHX",
+    "owningTeam": "MEM",
     "originalTeam": "PHX",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To MEM (via UTH)",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "PHX",
+    "owningTeam": "CHA",
     "originalTeam": "PHX",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To CHA",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5144,7 +5144,7 @@
     "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "To MEM (via UTH)\n\nTo CHA",
+    "notes": "To MEM (via UTH)",
     "needsReview": false
   },
   {
@@ -5155,10 +5155,10 @@
     "originalTeam": "PHX",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "PHX",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Less favorable of PHX and HOU then other to CHI (via PHX to MIN) \u2014 PHX retains more favorable; less favorable goes to CHI",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5171,7 +5171,7 @@
     "poolHolder": "POR",
     "hasSwapRights": false,
     "notes": "1-14 Own;\n15-30 to CHI\n\nMost favorable of POR, NOP, MIN and NYK to CHI;\nless favorable of POR and NOP to SAN;\nless favorable of (i) more favorable of POR and NOP and (ii) more favorable of MIN and\nNYK to WAS\n(via NOP to POR to NOP; via POR to DET to BOS to CHI; via MIN to NYK; via NOP to SAN; via DET to WAS);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5184,7 +5184,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MEM 43-60 (via UTH to GOS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5197,7 +5197,7 @@
     "poolHolder": "POR",
     "hasSwapRights": false,
     "notes": "1-14 Own;\n15-30 to CHI if not already settled\n\nLess favorable of POR and NOP then other to CHA [POR may convey to HOU; see following]; then\nless favorable of POR and NOP to HOU if 56-60 (via POR to NOP to CHA; via POR to BOS to HOU);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5210,7 +5210,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN (via HOU to OKC to NYK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5223,7 +5223,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN (via HOU to OKC to NYK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5235,8 +5235,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "1-14 Own or swap for MIL;\n15-30 to CHI if not already settled;\nor Own or swap for MIL if POR has conveyed 1st round pick to CHI by 2027\n[WAS can then swap with MIL];\n\nTo CHI if POR has not conveyed 1st round pick to CHI by 2028;\nSAC (via CHI to SAC to MEM)",
-    "needsReview": true
+    "notes": "1-14 Own or swap for MIL;\n15-30 to CHI if not already settled;\nor Own or swap for MIL if POR has conveyed 1st round pick to CHI by 2027\n[WAS can then swap with MIL];",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5248,8 +5248,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "1-14 Own or swap for MIL;\n15-30 to CHI if not already settled;\nor Own or swap for MIL if POR has conveyed 1st round pick to CHI by 2027\n[WAS can then swap with MIL];\n\nTo CHI if POR has not conveyed 1st round pick to CHI by 2028;\nSAC (via CHI to SAC to MEM)",
-    "needsReview": true
+    "notes": "1-14 Own or swap for MIL;\n15-30 to CHI if not already settled;\nor Own or swap for MIL if POR has conveyed 1st round pick to CHI by 2027\n[WAS can then swap with MIL];",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5262,7 +5262,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "ORL (via MEM)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5275,7 +5275,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "ORL (via MEM)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5287,8 +5287,8 @@
     "tradedAway": false,
     "poolHolder": "POR",
     "hasSwapRights": false,
-    "notes": "Most and least favorable of POR, BOS and MIL; second most favorable to WAS (via BOS to\n\nTo MEM (via PHL to IND);\n\nPOR; via MIL to POR; via POR to WAS)",
-    "needsReview": true
+    "notes": "Most and least favorable of POR, BOS and MIL; second most favorable to WAS (via BOS to",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5300,8 +5300,8 @@
     "tradedAway": false,
     "poolHolder": "POR",
     "hasSwapRights": false,
-    "notes": "Most and least favorable of POR, BOS and MIL; second most favorable to WAS (via BOS to\n\nTo MEM (via PHL to IND);\n\nPOR; via MIL to POR; via POR to WAS)",
-    "needsReview": true
+    "notes": "Most and least favorable of POR, BOS and MIL; second most favorable to WAS (via BOS to",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5314,7 +5314,7 @@
     "poolHolder": "POR",
     "hasSwapRights": false,
     "notes": "Less favorable of IND and WAS (via IND to NYK)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5325,22 +5325,22 @@
     "type": "first",
     "tradedAway": false,
     "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "hasSwapRights": true,
+    "notes": "Own or swap for MIL",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "POR",
+    "owningTeam": "PHL",
     "originalTeam": "POR",
     "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
+    "tradedAway": true,
+    "poolHolder": "PHL",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of POR and PHX to PHL then other to WAS (via WAS)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5352,8 +5352,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5365,8 +5365,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5379,7 +5379,7 @@
     "poolHolder": "POR",
     "hasSwapRights": true,
     "notes": "Own or swap for MIL\n\nMore favorable of POR and PHX to PHL then other to WAS (via WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5391,8 +5391,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5404,21 +5404,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
-  },
-  {
-    "season": 2026,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "SAC",
-    "originalTeam": "SAC",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "CHA 31-55 (via NYK to ATL to SAN)",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5431,23 +5418,10 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "CHA 31-55 (via NYK to ATL to SAN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
-    "season": 2027,
-    "round": 1,
-    "overall": null,
-    "owningTeam": "SAC",
-    "originalTeam": "SAC",
-    "type": "first",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2027,
+    "season": 2026,
     "round": 2,
     "overall": null,
     "owningTeam": "SAC",
@@ -5456,8 +5430,34 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "CHA 31-55 (via NYK to ATL to SAN)",
+    "needsReview": false
+  },
+  {
+    "season": 2027,
+    "round": 1,
+    "overall": null,
+    "owningTeam": "SAC",
+    "originalTeam": "SAN",
+    "type": "first",
+    "tradedAway": false,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "SAN 1-16 to SAC; 17-30 to OKC (via SAC) \u2014 SAC holds SAN 2027 1st if SAN picks 1-16",
+    "needsReview": false
+  },
+  {
+    "season": 2027,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "SAN",
+    "originalTeam": "ATL",
+    "type": "second",
+    "tradedAway": true,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "ATL 2027 2nd \u2014 To SAN (via ATL/SAN swap arrangement)",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5469,21 +5469,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "SAC 2028 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2028,
     "round": 2,
     "overall": null,
-    "owningTeam": "SAC",
+    "owningTeam": "POR",
     "originalTeam": "SAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "SAC 2028 2nd \u2014 To POR (via CHI to SAC to MEM)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5495,8 +5495,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5508,8 +5508,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To OKC if SAN 1-16 in 2027; or CHA if SAN 17-30 in 2027 (via NYK to ATL to SAN) \u2014 complex conditional routing",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5521,21 +5521,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
-    "owningTeam": "SAC",
+    "owningTeam": "POR",
     "originalTeam": "SAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To POR (via CHI to SAC to MEM)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5547,8 +5547,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo OKC if SAN 1-16 in 2027;\n\nSAN 1-16\n\nCHA if SAN 17-30 in 2027 (via NYK to ATL to SAN)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5560,34 +5560,34 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own;\n\nTo OKC if SAN 1-16 in 2027;\n\nSAN 1-16\n\nCHA if SAN 17-30 in 2027 (via NYK to ATL to SAN)",
-    "needsReview": true
+    "notes": "Own;",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "SAC",
+    "owningTeam": "HOU",
     "originalTeam": "SAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "To HOU (via WAS)",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "SAC",
+    "owningTeam": "HOU",
     "originalTeam": "SAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Duplicate parser entry \u2014 SAC 2031 R2 COUNT=0 in source; only outgoing To HOU (index 428)",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5600,19 +5600,19 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "SAC",
+    "owningTeam": "SAN",
     "originalTeam": "SAC",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "To SAN; MIN (via SAN) \u2014 SAC 2032 2nd goes to SAN then MIN via SAN",
     "needsReview": false
   },
   {
@@ -5626,7 +5626,7 @@
     "poolHolder": "SAN",
     "hasSwapRights": true,
     "notes": "Own or swap for ATL [ATL may convey to CLE]\n\nMore favorable of (i) SAN and (ii) less favorable of IND and MIA then least favorable of all\nto MIN (via MIA to IND; via SAN swap for IND or MIA);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5639,7 +5639,7 @@
     "poolHolder": "SAN",
     "hasSwapRights": false,
     "notes": "Less favorable of NOP and POR (via NOP to POR to NOP to SAN);\nUTH 31-55 (via MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5652,7 +5652,7 @@
     "poolHolder": "SAN",
     "hasSwapRights": false,
     "notes": "Less favorable of NOP and POR (via NOP to POR to NOP to SAN);\nUTH 31-55 (via MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5665,7 +5665,7 @@
     "poolHolder": "SAN",
     "hasSwapRights": false,
     "notes": "Less favorable of NOP and POR (via NOP to POR to NOP to SAN);\nUTH 31-55 (via MIN)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5678,7 +5678,7 @@
     "poolHolder": "SAN",
     "hasSwapRights": false,
     "notes": "1-16 to SAC;\n17-30 to OKC (via SAC);\n\nMore favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA then least\nfavorable of all to MIA (via HOU to DET to OKC; via MIA to OKC to UTH to SAN to MIA)\n\nATL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5688,9 +5688,9 @@
     "originalTeam": "SAN",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "SAN",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "More favorable of (i) SAN and (ii) least favorable of OKC, HOU, IND and MIA to SAN then least favorable of all to MIA (via HOU to DET to OKC; via MIA to OKC to UTH to SAN to MIA); ATL",
     "needsReview": false
   },
   {
@@ -5703,8 +5703,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or swap for BOS 2-30\n\nOwn;",
-    "needsReview": true
+    "notes": "Own or swap for BOS 2-30",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5717,7 +5717,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS 31-45 if BOS 1 in 2028;\nMIN;\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5730,7 +5730,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS 31-45 if BOS 1 in 2028;\nMIN;\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5743,7 +5743,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS 31-45 if BOS 1 in 2028;\nMIN;\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5756,7 +5756,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "BOS 31-45 if BOS 1 in 2028;\nMIN;\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5768,8 +5768,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5782,7 +5782,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "LAC (via PHL);\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5795,7 +5795,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "LAC (via PHL);\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -5808,7 +5808,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "LAC (via PHL);\nNOP",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5817,11 +5817,11 @@
     "owningTeam": "SAN",
     "originalTeam": "SAN",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "SAN 2030 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -5830,11 +5830,11 @@
     "owningTeam": "SAN",
     "originalTeam": "SAN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "SAN 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5846,8 +5846,8 @@
     "tradedAway": false,
     "poolHolder": "SAN",
     "hasSwapRights": true,
-    "notes": "Most / more favorable of SAN, DAL and MIN 2-30;\nless favorable of SAN and DAL to DAL;\nless favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL [or MIN if MIN not\nconveyable] to MIN\n\nOwn;\n\n(via SAN swap for DAL; via SAN swap of SAN or DAL for MIN)\n\nSAC (via IND)",
-    "needsReview": true
+    "notes": "Most / more favorable of SAN, DAL and MIN 2-30;\nless favorable of SAN and DAL to DAL;\nless favorable of (i) MIN 2-30 and (ii) more favorable of SAN and DAL [or MIN if MIN not\nconveyable] to MIN",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5859,8 +5859,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own (via SAN swap for DAL; via SAN swap of SAN or DAL for MIN) \u2014 SAN retains 2031 2nd own pick",
+    "needsReview": false
+  },
+  {
+    "season": 2031,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "SAN",
+    "originalTeam": "SAC",
+    "type": "second",
+    "tradedAway": false,
+    "poolHolder": null,
+    "hasSwapRights": false,
+    "notes": "SAC (via IND) \u2014 incoming to SAN from SAC via IND",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -5869,24 +5882,11 @@
     "owningTeam": "SAN",
     "originalTeam": "SAN",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2031,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "SAN",
-    "originalTeam": "SAN",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Duplicate parser entry \u2014 SAN 2031 R2 COUNT=2 already covered by own pick [450] and SAC (via IND) [451]",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5899,7 +5899,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -5911,7 +5911,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -5924,8 +5924,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\n31-55 Own;\n56-60 to IND",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -5937,7 +5937,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "31-55 Own; 56-60 to IND",
     "needsReview": false
   },
   {
@@ -5951,7 +5951,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -5963,7 +5963,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -5977,7 +5977,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "Own\n\nOwn",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -5989,7 +5989,7 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Own",
     "needsReview": false
   },
   {
@@ -6002,8 +6002,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2029 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6015,8 +6015,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2029 2nd \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6028,8 +6028,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2030 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6041,8 +6041,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2030 2nd \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6054,21 +6054,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2031 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2031,
     "round": 2,
     "overall": null,
-    "owningTeam": "TOR",
+    "owningTeam": "NOP",
     "originalTeam": "TOR",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2031 2nd \u2014 To NOP",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -6080,21 +6080,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2032 1st \u2014 Own",
+    "needsReview": false
   },
   {
     "season": 2032,
     "round": 2,
     "overall": null,
-    "owningTeam": "TOR",
+    "owningTeam": "BRK",
     "originalTeam": "TOR",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "TOR 2032 2nd \u2014 To BRK",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6104,10 +6104,10 @@
     "originalTeam": "UTH",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "MIN",
     "hasSwapRights": false,
-    "notes": "Most favorable of UTH 1-8, MIN and CLE;\nless favorable of UTH 1-8 and MIN [or MIN if UTH not conveyable] to MIN [MIN may convey to DET];\nless favorable of (i) CLE and (ii) more favorable of UTH 1-8 and MIN [or CLE if UTH not\nconveyable] to CLE [CLE may convey to ATL];\nUTH 9-30 to OKC\n\n31-55 to SAN;\n56-60 to MIL (via MIN to SAN)",
-    "needsReview": true
+    "notes": "Most favorable of UTH 1-8, MIN and CLE;\nless favorable of UTH 1-8 and MIN [or MIN if UTH not conveyable] to MIN [MIN may convey to DET];\nless favorable of (i) CLE and (ii) more favorable of UTH 1-8 and MIN [or CLE if UTH not\nconveyable] to CLE [CLE may convey to ATL];\nUTH 9-30 to OKC",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6120,7 +6120,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via UTH swap for MIN; via UTH swap of UTH or MIN for CLE)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6132,8 +6132,8 @@
     "tradedAway": false,
     "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "Second most favorable of UTH, CLE and MIN; most favorable to MEM and least favorable\nto PHX (via UTH)\n\nTo IND (via CLE);\nMore favorable of BOS and ORL (via BOS to ORL to BOS);",
-    "needsReview": true
+    "notes": "Second most favorable of UTH, CLE and MIN; most favorable to MEM and least favorable\nto PHX (via UTH)",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6146,7 +6146,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "DEN (via CLE to CHI to BOS);\nLAC (via ATL to LAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6159,7 +6159,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "DEN (via CLE to CHI to BOS);\nLAC (via ATL to LAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6172,7 +6172,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "DEN (via CLE to CHI to BOS);\nLAC (via ATL to LAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6184,8 +6184,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": true,
-    "notes": "Own or swap for CLE [CLE may convey UTH to ATL]\n\nTo OKC;",
-    "needsReview": true
+    "notes": "Own or swap for CLE [CLE may convey UTH to ATL]",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6198,7 +6198,7 @@
     "poolHolder": "UTH",
     "hasSwapRights": false,
     "notes": "CLE;\nLeast favorable of (i) DET 31-55, (ii) less favorable of CHA and LAC (via CHA to DAL to DET), (iii) MIA\nif DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL to DET) and (iv) NYK (via DET)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6211,7 +6211,7 @@
     "poolHolder": "UTH",
     "hasSwapRights": false,
     "notes": "CLE;\nLeast favorable of (i) DET 31-55, (ii) less favorable of CHA and LAC (via CHA to DAL to DET), (iii) MIA\nif DAL conveys 1st round pick to CHA in 2027 (via SAN to DAL to DET) and (iv) NYK (via DET)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6223,8 +6223,8 @@
     "tradedAway": false,
     "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "Most / two most favorable of UTH, CLE and MIN 6-30 then other to CHA (via UTH to PHX)\n\nOwn;",
-    "needsReview": true
+    "notes": "Most / two most favorable of UTH, CLE and MIN 6-30 then other to CHA (via UTH to PHX)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6236,8 +6236,8 @@
     "tradedAway": false,
     "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "Most / two most favorable of UTH, CLE and MIN 6-30 then other to CHA (via UTH to PHX)\n\nOwn;",
-    "needsReview": true
+    "notes": "Most / two most favorable of UTH, CLE and MIN 6-30 then other to CHA (via UTH to PHX)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6250,7 +6250,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN if MIN does not convey 1st round pick to UTH in 2029",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6263,7 +6263,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "MIN if MIN does not convey 1st round pick to UTH in 2029",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6272,11 +6272,11 @@
     "owningTeam": "UTH",
     "originalTeam": "UTH",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "UTH 2030 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6285,11 +6285,11 @@
     "owningTeam": "UTH",
     "originalTeam": "UTH",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "UTH 2030 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6302,7 +6302,7 @@
     "poolHolder": "UTH",
     "hasSwapRights": false,
     "notes": "Own\n\nLess favorable of UTH and LAC then other to CHA (via LAC to UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6312,9 +6312,9 @@
     "originalTeam": "UTH",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "UTH",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Less favorable of UTH and LAC then other to CHA (via LAC to UTH) \u2014 UTH retains more favorable of UTH/LAC 2031 2nd; less favorable goes to CHA",
     "needsReview": false
   },
   {
@@ -6327,8 +6327,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nTo WAS;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -6351,10 +6351,10 @@
     "originalTeam": "WAS",
     "type": "first",
     "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "1-8 Own or swap for PHX;\ntwo most favorable of (i) less favorable of WAS 1-8 and PHX [or (ii) PHX if WAS not conveyable], (ii)\nMEM and (iii) ORL to MEM then least favorable of all to CHA\n\nTo NYK if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC);\n\n(via WAS swap for PHX; via MEM swap of ORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to\n\nLess favorable of (i) more favorable of MIN and NYK and (ii) more favorable of NOP and POR (via\nMIN to NYK; via NOP to POR to NOP; via POR to DET to WAS);\n\nCHA);",
-    "needsReview": true
+    "poolHolder": "WAS",
+    "hasSwapRights": true,
+    "notes": "1-8 Own or swap for PHX;\ntwo most favorable of (i) less favorable of WAS 1-8 and PHX [or (ii) PHX if WAS not conveyable], (ii)\nMEM and (iii) ORL to MEM then least favorable of all to CHA",
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6364,10 +6364,10 @@
     "originalTeam": "WAS",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
+    "poolHolder": "WAS",
+    "hasSwapRights": true,
     "notes": "1-8 Own or swap for PHX;\ntwo most favorable of (i) less favorable of WAS 1-8 and PHX [or (ii) PHX if WAS not conveyable], (ii)\nMEM and (iii) ORL to MEM then least favorable of all to CHA\n\nTo NYK if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC);\n\n(via WAS swap for PHX; via MEM swap of ORL for PHX or WAS; via MEM swap for PHX, WAS or ORL; via PHX to\n\nLess favorable of (i) more favorable of MIN and NYK and (ii) more favorable of NOP and POR (via\nMIN to NYK; via NOP to POR to NOP; via POR to DET to WAS);\n\nCHA);",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6380,7 +6380,20 @@
     "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "WAS 9-30 to NYK (via HOU to OKC)\n\nLeast favorable of OKC, DAL and PHL (via OKC to MIA to SAN)",
-    "needsReview": true
+    "needsReview": false
+  },
+  {
+    "season": 2027,
+    "round": 2,
+    "overall": null,
+    "owningTeam": "WAS",
+    "originalTeam": "OKC",
+    "type": "second",
+    "tradedAway": false,
+    "poolHolder": "WAS",
+    "hasSwapRights": false,
+    "notes": "Least favorable of OKC, DAL and PHL (via OKC to MIA to SAN) \u2014 incoming to WAS",
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6392,34 +6405,21 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "Own; To NYK if WAS does not convey 1st round pick to NYK in 2026 (via HOU to OKC)",
+    "needsReview": false
   },
   {
     "season": 2027,
     "round": 2,
     "overall": null,
     "owningTeam": "WAS",
-    "originalTeam": "WAS",
+    "originalTeam": "BRK",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "WAS",
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
-  },
-  {
-    "season": 2027,
-    "round": 2,
-    "overall": null,
-    "owningTeam": "WAS",
-    "originalTeam": "WAS",
-    "type": "second",
-    "tradedAway": false,
-    "poolHolder": null,
-    "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "More favorable of BRK and DAL (via DAL to BRK to DET; via DET to WAS); Less favorable of GOS and PHX \u2014 incoming to WAS",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6432,7 +6432,7 @@
     "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "More favorable of (i) more favorable of (a) WAS and (b) least / less favorable of BRK, PHL\n9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX and (ii) less favorable of MIL and POR 114 if POR has not conveyed 1st round pick to CHI by 2027 [or (ii) MIL if POR not conveyable] then less favorable\nof (i) and (ii) to MIL;\nor More favorable of (i) more favorable of (a) WAS and (b) least / less favorable of BRK,\nPHL 9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX and (ii) less favorable of MIL and\nPOR if POR has conveyed 1st round pick to CHI by 2027, then less favorable of (i) and (ii) to MIL;\nleast favorable of WAS, PHL 9-30 if PHL does not convey 1st round pick to BRK in 2027 and if PHL has\nconveyed 1st round pick to OKC by 2026, BRK and PHX to PHX\n\nLess favorable of WAS and LAL then other to ORL (via WAS to LAL to ORL; via LAL to WAS);\nDEN 34-60 (via SAN to SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6445,7 +6445,7 @@
     "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "More favorable of (i) more favorable of (a) WAS and (b) least / less favorable of BRK, PHL\n9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX and (ii) less favorable of MIL and POR 114 if POR has not conveyed 1st round pick to CHI by 2027 [or (ii) MIL if POR not conveyable] then less favorable\nof (i) and (ii) to MIL;\nor More favorable of (i) more favorable of (a) WAS and (b) least / less favorable of BRK,\nPHL 9-30 if PHL conveys 1st round pick to OKC in 2026, and PHX and (ii) less favorable of MIL and\nPOR if POR has conveyed 1st round pick to CHI by 2027, then less favorable of (i) and (ii) to MIL;\nleast favorable of WAS, PHL 9-30 if PHL does not convey 1st round pick to BRK in 2027 and if PHL has\nconveyed 1st round pick to OKC by 2026, BRK and PHX to PHX\n\nLess favorable of WAS and LAL then other to ORL (via WAS to LAL to ORL; via LAL to WAS);\nDEN 34-60 (via SAN to SAC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6458,7 +6458,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "(via POR swap for MIL; via BRK swap of BRK or PHL for PHX; via WAS swap for PHX, BRK or PHL; via WAS swap of\nWAS, BRK, PHL or PHX for MIL or POR)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6467,11 +6467,11 @@
     "owningTeam": "WAS",
     "originalTeam": "WAS",
     "type": "first",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "WAS 2029 1st \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6480,11 +6480,11 @@
     "owningTeam": "WAS",
     "originalTeam": "WAS",
     "type": "second",
-    "tradedAway": false,
+    "tradedAway": true,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "",
-    "needsReview": true
+    "notes": "WAS 2029 2nd \u2014 Traded away per RealGM (count=0; receiving team unconfirmed)",
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6497,7 +6497,7 @@
     "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "Own;\n\nMore favorable of WAS and IND to IND then other to POR (via IND to NYK);\n\nSecond most favorable of POR, BOS and MIL (via BOS to POR; via MIL to POR; via POR to WAS)\n\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6510,19 +6510,19 @@
     "poolHolder": "WAS",
     "hasSwapRights": false,
     "notes": "Own;\n\nMore favorable of WAS and IND to IND then other to POR (via IND to NYK);\n\nSecond most favorable of POR, BOS and MIL (via BOS to POR; via MIL to POR; via POR to WAS)\n\nLAL",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
     "round": 2,
     "overall": null,
     "owningTeam": "WAS",
-    "originalTeam": "WAS",
+    "originalTeam": "POR",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "WAS",
     "hasSwapRights": false,
-    "notes": "",
+    "notes": "Second most favorable of POR, BOS and MIL (via BOS to POR; via MIL to POR; via POR to WAS) \u2014 incoming to WAS 2030 2nd; WAS own goes to IND or POR",
     "needsReview": false
   },
   {
@@ -6535,8 +6535,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6549,7 +6549,7 @@
     "poolHolder": "WAS",
     "hasSwapRights": true,
     "notes": "More favorable of MIA and IND (via MIA swap for IND; via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6562,7 +6562,7 @@
     "poolHolder": "WAS",
     "hasSwapRights": true,
     "notes": "More favorable of MIA and IND (via MIA swap for IND; via UTH)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -6574,8 +6574,8 @@
     "tradedAway": false,
     "poolHolder": null,
     "hasSwapRights": false,
-    "notes": "Own\n\nOwn;",
-    "needsReview": true
+    "notes": "Own",
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -6588,7 +6588,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "UTH",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2032,
@@ -6601,7 +6601,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "UTH",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6614,7 +6614,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "1-4 Own; 5-30 to OKC",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6627,7 +6627,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Most favorable of PHL, OKC and DAL to OKC; second most favorable to PHX and least favorable to WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS)\n\nSecond most / more favorable of OKC, HOU 5-30 and LAC (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2026,
@@ -6640,7 +6640,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Most favorable of PHL, OKC and DAL to OKC; second most favorable to PHX and least favorable to WAS (via OKC to HOU to PHX; via OKC to MIA to SAN to WAS)\n\nSecond most / more favorable of OKC, HOU 5-30 and LAC (via OKC)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6653,7 +6653,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "1-4 Own; 5-30 to OKC if not already settled",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6666,7 +6666,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "To OKC if PHL has not conveyed 1st round pick to OKC by 2027",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6676,10 +6676,10 @@
     "originalTeam": "GOS",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "PHL",
     "hasSwapRights": false,
     "notes": "More favorable of GOS and PHX (via WAS)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2027,
@@ -6692,7 +6692,7 @@
     "poolHolder": "OKC",
     "hasSwapRights": false,
     "notes": "Most favorable of OKC, HOU, IND and MIA (via HOU to DET to OKC; via MIA to OKC; via OKC to PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6702,10 +6702,10 @@
     "originalTeam": "PHL",
     "type": "first",
     "tradedAway": true,
-    "poolHolder": null,
+    "poolHolder": "BRK",
     "hasSwapRights": false,
-    "notes": "1-8 Own; if (i) PHL 9-30, if PHL conveys 1st round pick to OKC in 2026, is third most favorable and (ii) NYK is most or second most favorable of PHL 9-30 if conveyable, PHX, BRK and NYK, then most and third most favorable to BRK; or most / two most favorable to BRK in all other scenarios; least favorable of PHX, BRK and NYK to NYK; more favorable of WAS and least/less favorable of PHL 9-30 if conveyable, PHX and BRK to WAS then least favorable of all to PHX\n\nTo BRK if PHL 1-8 in 2028; [WAS can then swap with MIL]",
-    "needsReview": true
+    "notes": "1-8 Own; if (i) PHL 9-30, if PHL conveys 1st round pick to OKC in 2026, is third most favorable and (ii) NYK is most or second most favorable of PHL 9-30 if conveyable, PHX, BRK and NYK, then most and third most favorable to BRK; or most / two most favorable to BRK in all other scenarios; least favorable of PHX, BRK and NYK to NYK; more favorable of WAS and least/less favorable of PHL 9-30 if conveyable, PHX and BRK to WAS then least favorable of all to PHX",
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6718,7 +6718,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "DET 56-60; GOS (via POR to WAS); MIL (via BRK to HOU to OKC); OKC (via BRK swap of BRK or PHL for PHX; via BRK swap of BRK or PHX for NYK; via WAS swap for PHX, BRK or PHL)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2028,
@@ -6744,7 +6744,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "(could not parse from source \u2014 blank in RealGM text)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2029,
@@ -6757,7 +6757,7 @@
     "poolHolder": null,
     "hasSwapRights": false,
     "notes": "(could not parse from source \u2014 blank in RealGM text)",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6770,7 +6770,7 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own or swap for LAC 4-30",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6780,10 +6780,10 @@
     "originalTeam": "PHX",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "PHL",
     "hasSwapRights": false,
     "notes": "Own traded to DAL; incoming: more favorable of PHX and POR (via WAS); WAS",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2030,
@@ -6793,10 +6793,10 @@
     "originalTeam": "WAS",
     "type": "second",
     "tradedAway": false,
-    "poolHolder": null,
+    "poolHolder": "PHL",
     "hasSwapRights": false,
     "notes": "Own traded to DAL; incoming: more favorable of PHX and POR (via WAS); WAS",
-    "needsReview": true
+    "needsReview": false
   },
   {
     "season": 2031,
@@ -6848,6 +6848,6 @@
     "poolHolder": null,
     "hasSwapRights": true,
     "notes": "Own or MEM (via MEM swap for PHL)",
-    "needsReview": true
+    "needsReview": false
   }
 ]
