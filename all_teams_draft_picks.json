@@ -191,6 +191,16 @@
           "swapCondition": null,
           "notes": "ATL receives LAL 2032 2nd via Lakers-Hawks trade (Feb 5, 2026 Luke Kennard deal).",
           "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "MIL",
+          "currentHolder": "ATL",
+          "protection": null,
+          "swapCondition": "Less favorable of MIL and NOP if 5-30",
+          "notes": "ATL receives less favorable of MIL/NOP 2027 1sts if pick is 5-30 (via NOP swap).",
+          "condition": "swap_nop_mil_2027"
         }
       ]
     },
@@ -623,6 +633,36 @@
           "swapCondition": null,
           "notes": "BKN receives NYK 2031 1st (NYK owed to BKN).",
           "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "BKN",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "BKN receives LAL 2027 2nd if LAL conveys 2027 1st to MEM; otherwise MEM receives it.",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "BKN",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "BKN receives LAL 2030 2nd.",
+          "condition": null
+        },
+        {
+          "year": 2031,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "BKN",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "BKN receives LAL 2031 2nd.",
+          "condition": null
         }
       ]
     },
@@ -839,6 +879,26 @@
           "swapCondition": null,
           "notes": "CHA receives MIA 2028 1st (or DET gets it if DAL conveyed 1st to CHA in 2027).",
           "condition": null
+        },
+        {
+          "year": 2032,
+          "round": "2nd",
+          "originalTeam": "MIL",
+          "currentHolder": "CHA",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "CHA receives MIL 2032 2nd.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "2nd",
+          "originalTeam": "NOP",
+          "currentHolder": "CHA",
+          "protection": null,
+          "swapCondition": "More favorable of NOP/POR 2027 2nds",
+          "notes": "CHA receives more favorable of NOP and POR 2027 2nds.",
+          "condition": "pool_nop_por_2027_2nd"
         }
       ]
     },
@@ -1086,11 +1146,11 @@
           "year": 2026,
           "round": "1st",
           "originalTeam": "CLE",
-          "currentHolder": "CLE",
+          "currentHolder": "UTA",
           "protection": null,
-          "swapCondition": "Part of SAS/ATL/CLE/MIN/UTA swap scenario. CLE pick involved in determining ATL's 2026 pick.",
-          "notes": "CLE retains own 2026 1st. Less favorable of CLE and more favorable of UTA(top-8)/MIN goes to ATL pool.",
-          "condition": "pool_spurs_hawks_jazz_min_cle"
+          "swapCondition": "Less favorable of CLE and (more favorable of UTH 1-8 and MIN) vs (less favorable of ATL and SAN): more favorable\u2192ATL; most favorable of CLE/MIN/UTH 1-8\u2192UTH",
+          "notes": "CLE 2026 1st in pool with MIN/UTH/ATL/SAN. Most favorable of CLE/MIN/UTH goes to UTH; less favorable routing to ATL. Count=0 for CLE.",
+          "condition": "pool_cle_min_uta_atl_san_2026"
         },
         {
           "year": 2026,
@@ -1126,11 +1186,11 @@
           "year": 2028,
           "round": "1st",
           "originalTeam": "CLE",
-          "currentHolder": "CLE",
+          "currentHolder": "UTA",
           "protection": null,
           "swapCondition": "ATL gets more favorable of ATL vs (less favorable of CLE/UTA) for 2028 swap.",
-          "notes": "CLE 2028 1st in swap pool with ATL and UTA.",
-          "condition": "pool_atl_cle_uta_2028"
+          "notes": "CLE 2028 1st in pool with UTH and ATL: least favorable\u2192CLE, more favorable of CLE/UTH\u2192UTH, more favorable of ATL and less favorable of CLE/UTH\u2192ATL. Count=0 for CLE.",
+          "condition": "pool_cle_uta_atl_2028"
         },
         {
           "year": 2028,
@@ -1719,6 +1779,16 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "2nd",
+          "originalTeam": "MIL",
+          "currentHolder": "DET",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "DET receives MIL 2027 2nd (via PHL).",
+          "condition": null
         }
       ]
     },
@@ -1864,6 +1934,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "GSW",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "GSW receives LAL 2026 2nd (via CLE to MIA to TOR).",
           "condition": null
         }
       ]
@@ -2404,10 +2484,10 @@
           "year": 2026,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "GSW",
           "protection": null,
           "swapCondition": null,
-          "notes": "LAL retains own 2026 2nd.",
+          "notes": "LAL 2026 2nd traded to GSW (via CLE to MIA to TOR).",
           "condition": null
         },
         {
@@ -2424,10 +2504,10 @@
           "year": 2027,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "BKN",
           "protection": null,
           "swapCondition": null,
-          "notes": "LAL retains own 2027 2nd.",
+          "notes": "LAL 2027 2nd to BKN if LAL conveys 2027 1st to MEM (5-30); to MEM if LAL does not convey 1st to MEM in 2027 (i.e., if pick is top-4).",
           "condition": null
         },
         {
@@ -2444,11 +2524,11 @@
           "year": 2028,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "ORL",
           "protection": null,
-          "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
-          "condition": null
+          "swapCondition": "More favorable of LAL and WAS to ORL; less favorable to WAS (via WAS to LAL to ORL; via LAL to WAS)",
+          "notes": "LAL 2028 2nd in LAL/WAS pool: more favorable to ORL, less favorable to WAS.",
+          "condition": "pool_lal_was_2028_2nd"
         },
         {
           "year": 2029,
@@ -2464,10 +2544,10 @@
           "year": 2029,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "WAS",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "LAL 2029 2nd traded to WAS.",
           "condition": null
         },
         {
@@ -2484,10 +2564,10 @@
           "year": 2030,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "BKN",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "LAL 2030 2nd traded to BKN.",
           "condition": null
         },
         {
@@ -2504,10 +2584,10 @@
           "year": 2031,
           "round": "2nd",
           "originalTeam": "LAL",
-          "currentHolder": "LAL",
+          "currentHolder": "BKN",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "LAL 2031 2nd traded to BKN.",
           "condition": null
         },
         {
@@ -2912,31 +2992,31 @@
           "year": 2027,
           "round": "1st",
           "originalTeam": "MIL",
-          "currentHolder": "MIL",
+          "currentHolder": "NOP",
           "protection": null,
-          "swapCondition": null,
-          "notes": "MIL retains own 2027 1st.",
-          "condition": null
+          "swapCondition": "More favorable of MIL and NOP to NOP then other to ATL if 5-30; or both to NOP if both 1-4 (via NOP)",
+          "notes": "MIL 2027 1st in NOP/MIL swap: more favorable to NOP, less favorable to ATL (if 5-30).",
+          "condition": "swap_nop_mil_2027"
         },
         {
           "year": 2027,
           "round": "2nd",
           "originalTeam": "MIL",
-          "currentHolder": "MIL",
+          "currentHolder": "DET",
           "protection": null,
           "swapCondition": null,
-          "notes": "MIL retains own 2027 2nd.",
+          "notes": "MIL 2027 2nd traded to DET (via PHL).",
           "condition": null
         },
         {
           "year": 2028,
           "round": "1st",
           "originalTeam": "MIL",
-          "currentHolder": "MIL",
+          "currentHolder": "WAS",
           "protection": null,
-          "swapCondition": null,
-          "notes": "MIL retains own 2028 1st.",
-          "condition": null
+          "swapCondition": "Complex pool: less favorable of MIL and POR vs (WAS/BRK/PHL/PHX) best goes to WAS",
+          "notes": "MIL 2028 1st in large pool (MIL/POR/WAS/BRK/PHL/PHX). Less favorable outcomes route to WAS. Count=0 for MIL.",
+          "condition": "pool_mil_por_was_brk_phl_phx_2028"
         },
         {
           "year": 2028,
@@ -3002,10 +3082,10 @@
           "year": 2031,
           "round": "2nd",
           "originalTeam": "MIL",
-          "currentHolder": "MIL",
+          "currentHolder": "ORL",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "MIL 2031 2nd traded to ORL.",
           "condition": null
         },
         {
@@ -3022,10 +3102,10 @@
           "year": 2032,
           "round": "2nd",
           "originalTeam": "MIL",
-          "currentHolder": "MIL",
+          "currentHolder": "CHA",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "MIL 2032 2nd traded to CHA.",
           "condition": null
         }
       ]
@@ -3224,11 +3304,11 @@
           "year": 2027,
           "round": "2nd",
           "originalTeam": "NOP",
-          "currentHolder": "NOP",
+          "currentHolder": "CHA",
           "protection": null,
-          "swapCondition": null,
-          "notes": "NOP retains own 2027 2nd.",
-          "condition": null
+          "swapCondition": "More favorable of NOP and POR to CHA then other to POR [POR may convey to HOU] (via NOP)",
+          "notes": "NOP 2027 2nd: more favorable of NOP/POR goes to CHA; less favorable to POR (POR may then convey to HOU).",
+          "condition": "pool_nop_por_2027_2nd"
         },
         {
           "year": 2028,
@@ -3244,10 +3324,10 @@
           "year": 2028,
           "round": "2nd",
           "originalTeam": "NOP",
-          "currentHolder": "NOP",
+          "currentHolder": "SAS",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "NOP 2028 2nd traded to SAS.",
           "condition": null
         },
         {
@@ -3264,10 +3344,10 @@
           "year": 2029,
           "round": "2nd",
           "originalTeam": "NOP",
-          "currentHolder": "NOP",
+          "currentHolder": "SAS",
           "protection": null,
           "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "notes": "NOP 2029 2nd traded to SAS.",
           "condition": null
         },
         {
@@ -3304,11 +3384,11 @@
           "year": 2031,
           "round": "2nd",
           "originalTeam": "NOP",
-          "currentHolder": "NOP",
+          "currentHolder": "ORL",
           "protection": null,
-          "swapCondition": null,
-          "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
-          "condition": null
+          "swapCondition": "More favorable of NOP and ORL to ORL then other to OKC (via ORL swap for NOP)",
+          "notes": "NOP 2031 2nd: more favorable of NOP/ORL to ORL, less favorable to OKC (via ORL swap for NOP).",
+          "condition": "pool_nop_orl_2031_2nd"
         },
         {
           "year": 2032,
@@ -3887,6 +3967,36 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "ORL",
+          "protection": null,
+          "swapCondition": "More favorable of LAL and WAS to ORL",
+          "notes": "ORL receives more favorable of LAL and WAS 2028 2nds.",
+          "condition": "pool_lal_was_2028_2nd"
+        },
+        {
+          "year": 2031,
+          "round": "2nd",
+          "originalTeam": "MIL",
+          "currentHolder": "ORL",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "ORL receives MIL 2031 2nd.",
+          "condition": null
+        },
+        {
+          "year": 2031,
+          "round": "2nd",
+          "originalTeam": "NOP",
+          "currentHolder": "ORL",
+          "protection": null,
+          "swapCondition": "More favorable of NOP/ORL 2031 2nds",
+          "notes": "ORL receives more favorable of NOP and ORL 2031 2nds (via ORL swap for NOP).",
+          "condition": "pool_nop_orl_2031_2nd"
         }
       ]
     },
@@ -4144,11 +4254,11 @@
           "year": 2030,
           "round": "1st",
           "originalTeam": "PHX",
-          "currentHolder": "PHX",
+          "currentHolder": "MEM",
           "protection": null,
-          "swapCondition": null,
-          "notes": "PHX retains own 2030 1st.",
-          "condition": null
+          "swapCondition": "Least favorable of PHX, WAS and MEM; more favorable of PHX and WAS to WAS; more favorable of MEM and less favorable of PHX/WAS to MEM (via WAS swap for PHX; via MEM swap for WAS or PHX)",
+          "notes": "PHX 2030 1st in WAS/PHX/MEM pool: most favorable\u2192WAS, middle\u2192MEM, least favorable\u2192PHX (count=0 for PHX).",
+          "condition": "pool_was_phx_mem_2030"
         },
         {
           "year": 2030,
@@ -4727,6 +4837,26 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "2nd",
+          "originalTeam": "NOP",
+          "currentHolder": "SAS",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "SAS receives NOP 2028 2nd.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "2nd",
+          "originalTeam": "NOP",
+          "currentHolder": "SAS",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "SAS receives NOP 2029 2nd.",
+          "condition": null
         }
       ]
     },
@@ -5204,6 +5334,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "WAS retains own 2029 1st.",
+          "condition": null
+        },
+        {
+          "year": 2029,
+          "round": "2nd",
+          "originalTeam": "LAL",
+          "currentHolder": "WAS",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "WAS receives LAL 2029 2nd.",
           "condition": null
         }
       ]
