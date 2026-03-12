@@ -27,9 +27,19 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
   .two-panel{flex-direction:column!important;overflow:visible!important;height:auto!important}
   .panel-picks{flex:none!important;width:100%!important;border-right:none!important;border-bottom:1px solid #0d0d1a!important;max-height:none!important}
   .panel-detail{flex:none!important;width:100%!important;min-height:320px}
-  .pick-card{width:160px!important}
+  .pick-card{width:155px!important}
   .team-row-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .header-stats{display:none!important}
+  .header-app-title{display:none!important}
+  .team-btn{min-height:36px!important;padding:6px 10px!important}
+  .view-tab{min-height:36px!important;padding:6px 12px!important}
+  .legend-bar{gap:10px!important;padding:8px 16px!important}
+  .detail-close{width:40px!important;height:40px!important;min-width:40px!important}
+}
+@media(max-width:480px){
+  .pick-card{width:145px!important}
+  .panel-picks{padding:12px 12px!important}
+  .panel-detail{padding:12px 12px!important}
 }
 @keyframes cardGlow{
   0%,100%{box-shadow:0 0 10px var(--glow-a),0 4px 28px var(--glow-b),inset 0 0 0px transparent}
@@ -513,9 +523,9 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
           <div style={{fontSize:10,color:'#999',fontFamily:'monospace',marginTop:2}}>{displayId}</div>
         </div>
       </div>
-      <button onClick={onClose} style={{background:'none',border:'1px solid #2a2a3a',
+      <button onClick={onClose} className="detail-close" style={{background:'none',border:'1px solid #2a2a3a',
         color:'#777',borderRadius:5,width:26,height:26,cursor:'pointer',fontSize:13,
-        display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
+        display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>✕</button>
     </div>
     {/* Original → Owner */}
     <div style={{display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:8,alignItems:'center',marginBottom:12}}>
@@ -715,8 +725,8 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
 // ── TIMELINE VIEW ─────────────────────────────────────────────────────────────
 function TimelineView({holdings,teamAbbr}){
   const years=[...new Set(holdings.map(p=>p.year))].sort();
-  return <div style={{overflowX:'auto',paddingBottom:8}}>
-    <div style={{minWidth:Math.max(600,years.length*120)}}>
+  return <div style={{overflowX:'auto',paddingBottom:8,WebkitOverflowScrolling:'touch'}}>
+    <div style={{minWidth:Math.max(480,years.length*110)}}>
       <div style={{display:'flex',marginBottom:8}}>
         <div style={{width:60,flexShrink:0}}/>
         {years.map(y=><div key={y} style={{flex:1,textAlign:'center',fontSize:11,fontWeight:800,color:'#e8e8f8',letterSpacing:.5}}>{y}</div>)}
@@ -755,7 +765,7 @@ function LegendBar(){
     {color:'#ffa060',icon:'⚖',label:'LESS FAVORABLE'},
     {color:'#cc66ff',icon:'🔄',label:'SWAP'},
   ];
-  return <div style={{borderTop:'1px solid #14142a',padding:'9px 20px',
+  return <div className="legend-bar" style={{borderTop:'1px solid #14142a',padding:'9px 20px',
     display:'flex',gap:18,flexWrap:'wrap',alignItems:'center',flexShrink:0,background:'#07070f'}}>
     {items.map(it=><div key={it.label} style={{display:'flex',alignItems:'center',gap:6}}>
       <div style={{width:11,height:11,borderRadius:2,background:it.color,flexShrink:0}}/>
@@ -1048,7 +1058,7 @@ function TeamSelector({available,onSelect}){
             WHAT YOU CAN DO
           </span>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(210px,1fr))',gap:14}}>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:14}}>
           {blueprints.map(bp=>{
             const isH=hovered===bp.label;
             return <div key={bp.label}
@@ -1256,7 +1266,7 @@ function App(){
           ← ALL TEAMS
         </button>
         <div>
-          <div style={{fontSize:20,fontWeight:900,letterSpacing:1,color:'#fff',lineHeight:1}}>
+          <div className="header-app-title" style={{fontSize:20,fontWeight:900,letterSpacing:1,color:'#fff',lineHeight:1}}>
             NBA DRAFT CAPITAL EXPLORER
           </div>
           <div style={{fontSize:11,fontWeight:700,letterSpacing:1.5,marginTop:4,color:tc.primary}}>
