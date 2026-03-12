@@ -5,7 +5,7 @@
       "RealGM Future Draft Picks",
       "Hoops Rumors"
     ],
-    "notes": "Batch 1 corrections applied 2026-03-12: fixed ATL/SAS 2027 1st direction, LAL 2027/2029 1st, NYK 2029/2031 1st (\u2192BKN), MIN 2031 1st (\u2192SAC), CLE 2029 1st (\u2192ATL). Added incoming picks for BKN, DAL, SAC, OKC."
+    "notes": "Batch 1+2 corrections applied 2026-03-12. See git history for details."
   },
   "teams": {
     "ATL": {
@@ -809,6 +809,26 @@
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
           "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "DAL",
+          "currentHolder": "CHA",
+          "protection": "3-30",
+          "swapCondition": null,
+          "notes": "CHA receives DAL 2027 1st if picks 3-30. DAL keeps picks 1-2.",
+          "condition": null
+        },
+        {
+          "year": 2026,
+          "round": "1st",
+          "originalTeam": "MEM",
+          "currentHolder": "CHA",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "CHA receives least favorable of PHX/WAS(1-8)/ORL/MEM 2026 1st pool (via WAS swap for PHX; MEM swap routing).",
+          "condition": "pool_phx_was_orl_mem_2026"
         }
       ]
     },
@@ -1078,9 +1098,9 @@
           "originalTeam": "CLE",
           "currentHolder": "CLE",
           "protection": null,
-          "swapCondition": null,
-          "notes": "CLE retains own 2027 1st.",
-          "condition": null
+          "swapCondition": "Pool with MIN and UTA: most favorable \u2192 MEM; 2nd most \u2192 UTA; least \u2192 PHX (via UTA).",
+          "notes": "CLE 2027 1st in pool with MIN and UTA. Most favorable goes to MEM, 2nd stays with UTA, least to PHX.",
+          "condition": "pool_cle_min_uta_2027"
         },
         {
           "year": 2027,
@@ -1223,9 +1243,9 @@
           "round": "1st",
           "originalTeam": "DAL",
           "currentHolder": "DAL",
-          "protection": null,
+          "protection": "top-2",
           "swapCondition": null,
-          "notes": "DAL retains own 2027 1st.",
+          "notes": "DAL 2027 1st: picks 1-2 retained. Picks 3-30 go to CHA.",
           "condition": null
         },
         {
@@ -2053,9 +2073,9 @@
           "round": "1st",
           "originalTeam": "IND",
           "currentHolder": "IND",
-          "protection": null,
+          "protection": "1-4 and 10-30",
           "swapCondition": null,
-          "notes": "IND retains own 2026 1st.",
+          "notes": "IND 2026 1st: picks 1-4 and 10-30 retained. Picks 5-9 go to LAC.",
           "condition": null
         },
         {
@@ -2132,10 +2152,10 @@
           "year": 2030,
           "round": "1st",
           "originalTeam": "IND",
-          "currentHolder": "IND",
+          "currentHolder": "LAC",
           "protection": null,
           "swapCondition": null,
-          "notes": "IND retains own 2030 1st.",
+          "notes": "IND 2030 1st owed to LAC.",
           "condition": null
         },
         {
@@ -2238,10 +2258,10 @@
           "year": 2028,
           "round": "1st",
           "originalTeam": "LAC",
-          "currentHolder": "LAC",
+          "currentHolder": "PHI",
           "protection": null,
           "swapCondition": null,
-          "notes": "LAC retains own 2028 1st.",
+          "notes": "LAC 2028 1st owed to PHI (76ers).",
           "condition": null
         },
         {
@@ -2332,6 +2352,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "IND",
+          "currentHolder": "LAC",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "LAC receives IND 2030 1st.",
           "condition": null
         }
       ]
@@ -2634,6 +2664,46 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "LAL",
+          "currentHolder": "MEM",
+          "protection": "5-30",
+          "swapCondition": null,
+          "notes": "MEM receives LAL 2027 1st if LAL picks 5-30 (via UTA). LAL keeps pick if top-4.",
+          "condition": null
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "CLE",
+          "currentHolder": "MEM",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "MEM receives most favorable of CLE/MIN/UTA 2027 1st pool (via UTA). Pool: most favorable \u2192 MEM, 2nd \u2192 UTA, least \u2192 PHX.",
+          "condition": "pool_cle_min_uta_2027"
+        },
+        {
+          "year": 2031,
+          "round": "1st",
+          "originalTeam": "PHX",
+          "currentHolder": "MEM",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "MEM receives PHX 2031 1st (via UTA).",
+          "condition": null
+        },
+        {
+          "year": 2030,
+          "round": "1st",
+          "originalTeam": "ORL",
+          "currentHolder": "MEM",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "MEM receives ORL 2030 1st.",
           "condition": null
         }
       ]
@@ -2970,9 +3040,9 @@
           "originalTeam": "MIN",
           "currentHolder": "MIN",
           "protection": null,
-          "swapCondition": null,
-          "notes": "MIN retains own 2027 1st.",
-          "condition": null
+          "swapCondition": "Pool with CLE and UTA: most favorable \u2192 MEM; 2nd most \u2192 UTA; least \u2192 PHX (via UTA).",
+          "notes": "MIN 2027 1st in pool with CLE and UTA. Most favorable goes to MEM, 2nd stays with UTA, least to PHX.",
+          "condition": "pool_cle_min_uta_2027"
         },
         {
           "year": 2027,
@@ -3662,10 +3732,10 @@
           "year": 2028,
           "round": "1st",
           "originalTeam": "ORL",
-          "currentHolder": "ORL",
+          "currentHolder": "POR",
           "protection": null,
           "swapCondition": null,
-          "notes": "ORL retains own 2028 1st.",
+          "notes": "ORL 2028 1st owed to POR (via MEM).",
           "condition": null
         },
         {
@@ -3702,10 +3772,10 @@
           "year": 2030,
           "round": "1st",
           "originalTeam": "ORL",
-          "currentHolder": "ORL",
+          "currentHolder": "MEM",
           "protection": null,
           "swapCondition": null,
-          "notes": "ORL retains own 2030 1st.",
+          "notes": "ORL 2030 1st owed to MEM.",
           "condition": null
         },
         {
@@ -3799,9 +3869,9 @@
           "round": "1st",
           "originalTeam": "PHI",
           "currentHolder": "PHI",
-          "protection": null,
+          "protection": "top-4",
           "swapCondition": null,
-          "notes": "PHI retains own 2027 1st.",
+          "notes": "PHI 2027 1st: picks 1-4 retained. Picks 5-30 go to OKC if not already settled.",
           "condition": null
         },
         {
@@ -3912,6 +3982,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "LAC",
+          "currentHolder": "PHI",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "PHI receives LAC 2028 1st.",
           "condition": null
         }
       ]
@@ -4024,10 +4104,10 @@
           "year": 2031,
           "round": "1st",
           "originalTeam": "PHX",
-          "currentHolder": "PHX",
+          "currentHolder": "MEM",
           "protection": null,
           "swapCondition": null,
-          "notes": "PHX retains own 2031 1st.",
+          "notes": "PHX 2031 1st owed to MEM (via UTA).",
           "condition": null
         },
         {
@@ -4059,6 +4139,16 @@
           "swapCondition": null,
           "notes": "PHX 2032 2nd in pool with HOU: CHI gets most favorable via Bulls-Timberwolves Dosunmu trade (Feb 5, 2026).",
           "condition": "pool_phx_hou_2032_2nd"
+        },
+        {
+          "year": 2027,
+          "round": "1st",
+          "originalTeam": "MIN",
+          "currentHolder": "PHX",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "PHX receives least favorable of CLE/MIN/UTA 2027 1st pool (via UTA).",
+          "condition": "pool_cle_min_uta_2027"
         }
       ]
     },
@@ -4121,9 +4211,9 @@
           "round": "1st",
           "originalTeam": "POR",
           "currentHolder": "POR",
-          "protection": null,
+          "protection": "top-14",
           "swapCondition": null,
-          "notes": "POR retains own 2028 1st.",
+          "notes": "POR 2028 1st: picks 1-14 retained (or swap for MIL). Picks 15-30 go to CHI if not already settled.",
           "condition": null
         },
         {
@@ -4234,6 +4324,16 @@
           "protection": null,
           "swapCondition": null,
           "notes": "Placeholder \u2014 to be verified. Assumed retained unless RealGM shows otherwise.",
+          "condition": null
+        },
+        {
+          "year": 2028,
+          "round": "1st",
+          "originalTeam": "ORL",
+          "currentHolder": "POR",
+          "protection": null,
+          "swapCondition": null,
+          "notes": "POR receives ORL 2028 1st (via MEM).",
           "condition": null
         }
       ]
@@ -4746,9 +4846,9 @@
           "originalTeam": "UTA",
           "currentHolder": "UTA",
           "protection": null,
-          "swapCondition": null,
-          "notes": "UTA retains own 2027 1st.",
-          "condition": null
+          "swapCondition": "Pool with CLE and MIN: most favorable \u2192 MEM; UTA keeps 2nd most favorable; least \u2192 PHX.",
+          "notes": "UTA 2027 1st in pool with CLE and MIN. UTA retains 2nd most favorable. Most favorable to MEM, least to PHX.",
+          "condition": "pool_cle_min_uta_2027"
         },
         {
           "year": 2027,
