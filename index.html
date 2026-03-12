@@ -46,8 +46,8 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 }
 .team-card-sel{transition:transform 0.14s ease;cursor:pointer}
 .team-card-sel:hover{transform:translateY(-4px) scale(1.04)}
-.team-card-live{animation:cardGlow 2.8s ease-in-out infinite}
-.pick-card{transition:transform 0.13s ease,border-color 0.13s ease;cursor:pointer;animation:pickGlow 3s ease-in-out infinite}
+.team-card-live{animation:cardGlow 5s ease-in-out infinite}
+.pick-card{transition:transform 0.13s ease,border-color 0.13s ease;cursor:pointer;animation:pickGlow 5s ease-in-out infinite}
 .pick-card:hover{transform:translateY(-3px) scale(1.02)}
 .team-btn{transition:all 0.12s ease;cursor:pointer}
 .year-pill{transition:all 0.12s ease;cursor:pointer}
@@ -315,7 +315,8 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
   <div className="pick-card" onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
     border:`2px solid ${isSelected||isLinked?cfg.border:'#252535'}`,
-    borderRadius:14,padding:'12px 14px',width:210,flexShrink:0,
+    borderLeft:`3px solid ${cfg.border}`,
+    borderRadius:12,padding:'12px 14px',width:210,flexShrink:0,
     position:'relative',overflow:'hidden',
     '--pick-glow': isSelected?`${cfg.border}88`:isLinked?`${cfg.border}44`:`${cfg.border}22`,
     '--pick-glow-b': isSelected?`${cfg.border}44`:isLinked?`${cfg.border}22`:'transparent',
@@ -1057,7 +1058,7 @@ function TeamSelector({available,onSelect}){
               style={{
                 background:isH?`${bp.color}14`:`${bp.color}07`,
                 border:`1.5px solid ${isH?bp.color:bp.color+'33'}`,
-                borderRadius:14,overflow:'hidden',cursor:'pointer',
+                borderRadius:12,overflow:'hidden',cursor:'pointer',
                 transform:isH?'translateY(-4px)':'none',
                 transition:'all 0.18s ease',
                 boxShadow:isH?`0 8px 32px ${bp.color}30,0 0 0 1px ${bp.color}22`:'none',
