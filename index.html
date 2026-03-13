@@ -69,6 +69,9 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 @keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
 .pick-card-linked{box-shadow:0 0 20px rgba(0,255,204,0.4)!important}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
+.team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
 </style>
 </head>
 <body>
@@ -1027,6 +1030,27 @@ function TeamSelector({available,onSelect}){
   ];
 
   return <div style={{flex:1,display:'flex',flexDirection:'column',overflowY:'auto',background:'#07070f'}}>
+
+    {/* ── TEAM MARQUEE TICKER ── */}
+    <div className="team-marquee-wrap">
+      <div className="team-marquee-track">
+        {[...ALL_TEAMS,...ALL_TEAMS].map((abbr,i)=>{
+          const cfg=TEAM_CFG[abbr]||{primary:'#888'};
+          const isAvail=availSet.has(abbr);
+          return <div key={i}
+            onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
+            style={{display:'flex',alignItems:'center',gap:6,padding:'0 18px',
+              cursor:isAvail?'pointer':'default',opacity:isAvail?1:0.3,
+              borderRight:'1px solid #1a1a2e'}}>
+            <img src={logoUrl(abbr)} alt={abbr} width={24} height={24}
+              style={{objectFit:'contain',filter:isAvail?`drop-shadow(0 0 4px ${cfg.primary}88)`:'grayscale(1)'}}
+              onError={e=>{e.currentTarget.style.display='none';}}/>
+            <span style={{fontSize:11,fontWeight:700,color:isAvail?'#e0e0f0':'#333',
+              letterSpacing:.8,whiteSpace:'nowrap'}}>{abbr}</span>
+          </div>;
+        })}
+      </div>
+    </div>
 
     {/* ── HERO ── */}
     <div style={{
