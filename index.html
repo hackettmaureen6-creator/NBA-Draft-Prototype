@@ -755,6 +755,11 @@ function LegendBar(){
 function SimSlider({finish,setFinish,color,teamName}){
   const dots=Array.from({length:14},(_,i)=>i+1);
   const odds=LOTTERY_ODDS[finish]||{t1:0,t4:0};
+  // Use dark text on light team colors so selected dot number stays readable
+  const hex=(color||'#888').replace('#','');
+  const r=parseInt(hex.substring(0,2),16)||0,g=parseInt(hex.substring(2,4),16)||0,b=parseInt(hex.substring(4,6),16)||0;
+  const luminance=(0.299*r+0.587*g+0.114*b)/255;
+  const dotTextColor=luminance>0.6?'#111':'#fff';
   return <div style={{background:'#141420',border:`2px solid ${color}33`,borderRadius:12,padding:16,marginBottom:12}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
       <div style={{fontSize:13,fontWeight:800,color}}>{teamName}</div>
@@ -767,9 +772,9 @@ function SimSlider({finish,setFinish,color,teamName}){
       {dots.map(i=><div key={i} onClick={()=>setFinish(i)} style={{
         width:22,height:22,borderRadius:'50%',
         background:i===finish?color:i<finish?`${color}44`:'#1a1a28',
-        border:`1.5px solid ${i===finish?'#fff':i<finish?color+'66':'#252535'}`,
+        border:`1.5px solid ${i===finish?dotTextColor==='#111'?'#555':'#fff':i<finish?color+'66':'#252535'}`,
         cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',
-        fontSize:10,color:i===finish?'#fff':'#888',fontWeight:700,
+        fontSize:10,color:i===finish?dotTextColor:'#888',fontWeight:700,
         transform:i===finish?'scale(1.25)':'scale(1)',transition:'all 0.12s',
       }}>{i}</div>)}
     </div>
