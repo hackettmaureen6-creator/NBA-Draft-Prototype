@@ -196,6 +196,24 @@ const LOTTERY_ODDS={
   13:{t1:1.0,t4:3.7},14:{t1:0.5,t4:1.8},
 };
 
+// ── 2025-26 PROJECTED LOTTERY FIELD (as of Mar 13, 2026) ─────────────────────
+const LOTTERY_TEAMS=[
+  {rank:1, name:"Indiana Pacers",         abbr:"IND",wins:15,losses:51,combinations:140},
+  {rank:2, name:"Sacramento Kings",       abbr:"SAC",wins:16,losses:51,combinations:140},
+  {rank:3, name:"Washington Wizards",     abbr:"WAS",wins:16,losses:49,combinations:140},
+  {rank:4, name:"Brooklyn Nets",          abbr:"BKN",wins:17,losses:49,combinations:125},
+  {rank:5, name:"Utah Jazz",              abbr:"UTA",wins:20,losses:46,combinations:105},
+  {rank:6, name:"Memphis Grizzlies",      abbr:"MEM",wins:23,losses:42,combinations: 90},
+  {rank:7, name:"Dallas Mavericks",       abbr:"DAL",wins:22,losses:44,combinations: 75},
+  {rank:8, name:"New Orleans Pelicans",   abbr:"NOP",wins:22,losses:45,combinations: 60},
+  {rank:9, name:"Milwaukee Bucks",        abbr:"MIL",wins:27,losses:38,combinations: 45},
+  {rank:10,name:"Chicago Bulls",          abbr:"CHI",wins:27,losses:39,combinations: 30},
+  {rank:11,name:"Portland Trail Blazers", abbr:"POR",wins:31,losses:35,combinations: 20},
+  {rank:12,name:"Golden State Warriors",  abbr:"GSW",wins:32,losses:33,combinations: 15},
+  {rank:13,name:"Charlotte Hornets",      abbr:"CHA",wins:34,losses:33,combinations: 10},
+  {rank:14,name:"LA Clippers",            abbr:"LAC",wins:33,losses:32,combinations:  5},
+];
+
 // ── RICH PICK DATA (HOU & OKC) — for detail text, explicit linked IDs ─────────
 const ALL_PICKS=[
   {id:"P001",year:2026,round:"1st",origAbbr:"HOU",tag:"HOU",linked:["P018","P019"],condition:"pool3",
@@ -799,20 +817,43 @@ function LotterySimulator({activeTeam,tc,holdings,houFinish,setHouFinish,okcFini
   const finish=isHOU?houFinish:isOKC?okcFinish:teamFinish;
   const setFinish=isHOU?setHouFinish:isOKC?setOkcFinish:setTeamFinish;
   const conveys=houFinish>4;
+  const lotteryEntry=LOTTERY_TEAMS.find(t=>t.abbr===activeTeam);
+  const isLotteryTeam=!!lotteryEntry;
 
   // Find any protected picks this team holds (incoming or own)
   const protectedPicks=holdings.filter(p=>p.protection);
 
   return <div style={{animation:'fadeUp 0.2s ease',maxWidth:600}}>
-    <div style={{fontSize:12,color:'#cc66ff',marginBottom:14,textTransform:'uppercase',letterSpacing:1,fontWeight:800}}>
+    <div style={{fontSize:12,color:'#cc66ff',marginBottom:4,textTransform:'uppercase',letterSpacing:1,fontWeight:800}}>
       🎰 Lottery Simulator — 2026 Draft
     </div>
+    <div style={{fontSize:11,color:'#666',marginBottom:14,fontStyle:'italic'}}>
+      Projected field as of March 13, 2026 — subject to change after play-in tournament.
+    </div>
 
-    {/* Active team slider — always shown */}
-    <SimSlider finish={finish} setFinish={setFinish} color={tc.primary} teamName={tc.name}/>
+    {/* Non-lottery team notice */}
+    {!isLotteryTeam&&<div style={{background:'#0f0f1e',border:'1px solid #252535',borderRadius:10,
+      padding:'18px 16px',marginBottom:16,color:'#888'}}>
+      <div style={{fontSize:14,marginBottom:10}}>🏆</div>
+      <div style={{fontSize:12,fontWeight:700,color:'#aaa',marginBottom:8}}>
+        This team is not in the 2026 draft lottery.
+      </div>
+      <div style={{fontSize:11,lineHeight:1.7,marginBottom:10}}>
+        Only the 14 teams that miss the playoffs are eligible for the NBA Draft Lottery. The remaining 11 picks (picks 4–14) are assigned in reverse order of regular season record.
+      </div>
+      <div style={{fontSize:11,lineHeight:1.7,marginBottom:10}}>
+        This team is projected to make the playoffs or play-in tournament, meaning their earliest possible 2026 draft pick would come via trade.
+      </div>
+      <div style={{fontSize:11,color:'#555'}}>
+        Check the <span style={{color:'#cc66ff',fontWeight:700}}>Cards</span> or <span style={{color:'#cc66ff',fontWeight:700}}>Timeline</span> tab to explore their current draft capital.
+      </div>
+    </div>}
 
-    {/* Protected picks resolution for this team */}
-    {protectedPicks.length>0&&<div style={{marginBottom:12}}>
+    {/* Active team slider — only for lottery teams */}
+    {isLotteryTeam&&<SimSlider finish={finish} setFinish={setFinish} color={tc.primary} teamName={tc.name}/>}
+
+    {/* Protected picks resolution for this team — only meaningful with lottery slider */}
+    {isLotteryTeam&&protectedPicks.length>0&&<div style={{marginBottom:12}}>
       <div style={{fontSize:11,color:'#999',fontWeight:700,textTransform:'uppercase',letterSpacing:1,marginBottom:8}}>
         PROTECTED PICK RESOLUTIONS
       </div>
