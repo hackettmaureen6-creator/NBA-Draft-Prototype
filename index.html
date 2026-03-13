@@ -68,11 +68,7 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 .gradient-bar{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:gradientShift 3s ease infinite}
 @keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
-@keyframes linkedPulse{
-  0%,100%{box-shadow:0 0 8px #00ffff4d,0 0 20px #00ffff26}
-  50%{box-shadow:0 0 26px #00ffff80,0 0 50px #00ffff40}
-}
-.pick-card-linked{animation:linkedPulse 1.8s ease-in-out infinite!important}
+.pick-card-linked{box-shadow:0 0 20px rgba(0,255,204,0.4)!important}
 </style>
 </head>
 <body>
@@ -332,7 +328,7 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
   return <React.Fragment>
   <div className={['pick-card',isLinked?'pick-card-linked':''].join(' ')} onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
-    border:isLinked?'3px solid #00ffff88':isSelected?'2px solid '+cfg.border:'2px solid #252535',
+    border:isLinked?'5px solid #00ffcc':isSelected?'2px solid '+cfg.border:'2px solid #252535',
     borderLeft:`3px solid ${cfg.border}`,
     borderRadius:12,padding:'12px 14px',width:210,flexShrink:0,
     position:'relative',overflow:'hidden',
@@ -1167,10 +1163,11 @@ function TeamSelector({available,onSelect}){
               onError={e=>{e.currentTarget.style.display='none';}}
             />
           </div>
-          <div style={{fontSize:22,fontWeight:700,color:isAvail?'#fff':'#2a2a3a',
-            letterSpacing:.5,lineHeight:1,textShadow:isAvail?'0 0 14px rgba(255,255,255,0.45)':'none'}}>{abbr}</div>
-          <div style={{fontSize:12,color:isAvail?'#d0d0f0':'#1e1e2e',marginTop:4,
-            fontWeight:600,letterSpacing:.3,lineHeight:1.3}}>{cfg.short||cfg.name}</div>
+          <div style={{fontSize:22,fontWeight:700,color:'#fff',
+            letterSpacing:.5,lineHeight:1,textShadow:'0 0 4px rgba(255,255,255,0.3)'}}>{abbr}</div>
+          <div style={{fontSize:12,color:isAvail?'#e8e8ff':'#1e1e2e',marginTop:4,
+            fontWeight:600,letterSpacing:.3,lineHeight:1.3,
+            textShadow:isAvail?'0 0 4px rgba(255,255,255,0.3)':'none'}}>{cfg.short||cfg.name}</div>
           {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:800,
             letterSpacing:.8}}>VIEW PICKS →</div>}
         </div>;
