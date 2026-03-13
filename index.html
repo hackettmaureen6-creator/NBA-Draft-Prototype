@@ -76,6 +76,7 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 .year-pill[style*="background"],button[style*="background"]{background:rgba(0,0,0,0.5)!important;}
 .team-card-inner .view-picks-label{color:var(--tc-primary)!important;text-shadow:none!important;filter:brightness(1.3);}
 .view-tab{color:#ffffff!important;font-weight:700!important;font-size:1.05em;text-shadow:0 0 6px rgba(147,0,217,0.6),1px 1px 2px #000!important;}
+.view-tab-active{box-shadow:0 0 10px var(--tab-glow,rgba(255,255,255,0.5)),0 0 20px var(--tab-glow,rgba(255,255,255,0.25))!important;text-shadow:0 0 8px rgba(255,255,255,0.9),1px 1px 2px #000!important;}
 .view-tab:hover{background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7))!important;}
 .linked-note{color:#ffffff!important;font-weight:700!important;font-size:1.1em;text-shadow:0 0 6px rgba(147,0,217,0.6),1px 1px 2px #000!important;background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7));padding:4px 8px;border-radius:4px;}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -160,7 +161,7 @@ function getStepienStatus(teamAbbr,allPicks){
   const tradedAwayYears=new Set(tradedAway.map(p=>p.year));
   // Own 1sts still retained
   const ownRetained=allPicks.filter(p=>
-    p.round==='1st'&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr
+    p.round==='1st'&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr&&!p.swapCondition
   );
   // Locked: retained pick whose adjacent year has been traded away
   const lockedYears=new Set();
@@ -1320,11 +1321,12 @@ function App(){
       {['cards','timeline','simulator','linked'].map(id=>{
         const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'},linked:{icon:'🔗',label:'Linked'}}[id];
         const isActive=activeView===id;
-        return <button key={id} className="view-tab" onClick={()=>setActiveView(id)} style={{
+        return <button key={id} className={['view-tab',isActive?'view-tab-active':''].join(' ')} onClick={()=>setActiveView(id)} style={{
           background:isActive?tc.primary:'transparent',
           border:`1.5px solid ${isActive?tc.primary:'#252535'}`,
           color:isActive?'#fff':'#d0d0e8',borderRadius:6,padding:'5px 14px',
           fontSize:11,fontWeight:700,letterSpacing:.3,
+          '--tab-glow':isActive?tc.primary+'99':'transparent',
         }}>{cfg.icon} {cfg.label}</button>;
       })}
     </div>
