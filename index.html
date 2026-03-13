@@ -267,11 +267,11 @@ function enrichPick(jsonPick){
 // ── BASKETBALL SVG ────────────────────────────────────────────────────────────
 function Ball({size=28}){
   return <svg width={size} height={size} viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="46" fill="#E8621A" stroke="#b84a00" strokeWidth="3"/>
-    <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
+    <circle cx="50" cy="50" r="46" fill="#ffffff" stroke="#cccccc" strokeWidth="3"/>
+    <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#aaaaaa66" strokeWidth="3.5"/>
+    <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#aaaaaa66" strokeWidth="3.5"/>
+    <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#aaaaaa66" strokeWidth="3.5"/>
+    <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#aaaaaa66" strokeWidth="3.5"/>
   </svg>;
 }
 
@@ -1045,7 +1045,7 @@ function TeamSelector({available,onSelect}){
         NBA DRAFT CAPITAL EXPLORER
       </h1>
       <p style={{fontSize:15,color:'#c8c8e0',marginBottom:0,letterSpacing:2,fontWeight:600}}>
-        ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · POOLS
+        ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · TRADES
       </p>
     </div>
 
@@ -1058,7 +1058,8 @@ function TeamSelector({available,onSelect}){
     }}>
       <div style={{maxWidth:900,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20,paddingTop:8}}>
-          <span style={{fontSize:10,color:'#555',fontWeight:800,letterSpacing:3,textTransform:'uppercase',
+          <span style={{fontSize:16,color:'#ffffff',fontWeight:600,letterSpacing:3,textTransform:'uppercase',
+            textShadow:'0 0 4px rgba(255,255,255,0.6)',
             borderTop:'1px solid #1e1e2e',borderBottom:'1px solid #1e1e2e',padding:'5px 16px'}}>
             WHAT YOU CAN DO
           </span>
