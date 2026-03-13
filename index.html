@@ -373,6 +373,12 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       display:'flex',alignItems:'center',gap:4,fontSize:11,color:'#c0c0d0',marginTop:2}}>
       <span>🔗</span><span style={{fontFamily:'monospace'}}>{linkedPickIds.join(', ')}</span>
     </div>}
+    {/* Stepien lock badge */}
+    {isStepienLocked&&<div style={{
+      display:'flex',alignItems:'center',gap:4,fontSize:10,color:'#00cfff',
+      fontWeight:800,letterSpacing:.3,marginTop:6,
+      background:'#001a1f',border:'1px solid #00cfff44',borderRadius:4,padding:'3px 7px',
+    }}>🔒 STEPIEN LOCKED</div>}
   </div>
   </React.Fragment>;
 }
@@ -551,6 +557,25 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
         })}
       </div>
     </div>}
+    {/* Stepien Rule notice */}
+    {isStepienLocked&&<div style={{
+      background:'#001a1f',border:'1.5px solid #00cfff55',borderRadius:8,
+      padding:'10px 12px',marginBottom:12,
+    }}>
+      <div style={{fontWeight:900,color:'#00cfff',fontSize:11,letterSpacing:.5,marginBottom:6}}>🔒 THE STEPIEN RULE</div>
+      <div style={{fontSize:11,color:'#a0d8e8',lineHeight:1.6,marginBottom:8}}>
+        Named after Ted Stepien (Cavaliers owner, 1980–83), who traded away so many future 1st-round picks the franchise was crippled for years. The NBA prohibits trading 1st-round picks in{' '}
+        <span style={{color:'#00cfff',fontWeight:700}}>consecutive draft years</span>.
+      </div>
+      <div style={{background:'#001420',border:'1px solid #00cfff33',borderRadius:6,padding:'7px 10px',fontSize:11,lineHeight:1.5}}>
+        <span style={{color:'#00cfff',fontWeight:800}}>{teamAbbr} {pick.year}:</span>{' '}
+        <span style={{color:'#80b8c8'}}>
+          {'Cannot be traded — '}
+          {teamAbbr}{' has already traded away their '}
+          {lockedByYear&&lockedByYear.length>0?lockedByYear.join(' and '):[(pick.year-1),(pick.year+1)].join(' or ')}{' first-round pick.'}
+        </span>
+      </div>
+    </div>}
     <FlowDiagram pick={pick} teamAbbr={teamAbbr} houFinish={houFinish} okcFinish={okcFinish}/>
   </div>;
 }
@@ -652,7 +677,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
     if(!sectionPicks.length) return null;
     const isFirstRound=title==='1ST ROUND';
     const stepienCount=isFirstRound
-      ?sectionPicks.filter(p=>ss.lockedYears.has(p.year)&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr).length
+      ?sectionPicks.filter(p=>ss.lockedYears.has(p.year)&&p.originalTeam===teamAbbr&&p.currentHolder===teamAbbr&&!p.swapCondition).length
       :0;
     return <div style={{marginBottom:24}}>
       <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:12}}>
@@ -680,7 +705,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
           const linkedPids=pick.condition
             ?(condPids[pick.condition]||[]).filter(pid=>pid!==pickId)
             :[];
-          const isLocked=ss.lockedYears.has(pick.year)&&pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
+          const isLocked=ss.lockedYears.has(pick.year)&&pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr&&!pick.swapCondition;
           const lockedByYear=isLocked
             ?[pick.year-1,pick.year+1].filter(function(y){return ss.tradedAwayYears.has(y);})
             :[];
