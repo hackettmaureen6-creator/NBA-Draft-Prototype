@@ -1064,35 +1064,38 @@ function TeamSelector({available,onSelect}){
               onMouseEnter={()=>setHovered(bp.label)}
               onMouseLeave={()=>setHovered(null)}
               style={{
-                background:isH?`${bp.color}14`:`${bp.color}07`,
-                border:`1.5px solid ${isH?bp.color:bp.color+'33'}`,
-                borderRadius:12,overflow:'hidden',cursor:'pointer',
-                transform:isH?'translateY(-4px)':'none',
+                background:`radial-gradient(ellipse at 50% 25%,${bp.color}44 0%,#09091a 65%,#07070f 100%)`,
+                border:`1.5px solid ${bp.color}66`,
+                borderRadius:18,overflow:'hidden',cursor:'pointer',
+                transform:isH?'translateY(-4px) scale(1.04)':'scale(1)',
                 transition:'all 0.18s ease',
-                boxShadow:isH?`0 8px 32px ${bp.color}30,0 0 0 1px ${bp.color}22`:'none',
+                boxShadow:isH
+                  ?`0 0 20px ${bp.color}55,0 0 40px ${bp.color}22,0 8px 32px rgba(0,0,0,0.6)`
+                  :`0 0 12px ${bp.color}4d,0 0 4px ${bp.color}33`,
                 position:'relative',
+                filter:'saturate(1.15) brightness(1.05)',
               }}>
               {/* Animated top bar */}
               <div className="gradient-bar" style={{
-                position:'absolute',top:0,left:0,right:0,height:3,
-                '--g1':bp.color+'55','--g2':bp.color,opacity:isH?1:0.4,
+                position:'absolute',top:0,left:0,right:0,height:4,borderRadius:'18px 18px 0 0',
+                '--g1':bp.color,'--g2':bp.color+'88',opacity:isH?1:0.65,
               }}/>
               {/* Header */}
               <div style={{padding:'14px 16px 0',display:'flex',alignItems:'center',gap:8}}>
                 <span style={{fontSize:18}}>{bp.icon}</span>
-                <span style={{fontSize:12,fontWeight:900,color:bp.color,letterSpacing:1.2}}>{bp.label}</span>
-                {/* Corner bracket decoration */}
-                <div style={{marginLeft:'auto',fontSize:10,color:bp.color+'55',fontFamily:'monospace'}}>[ ]</div>
+                <span style={{fontSize:12,fontWeight:900,color:'#ffffff',letterSpacing:1.2,
+                  textTransform:'uppercase',textShadow:'0 0 6px '+bp.color+',1px 1px 2px #000'}}>{bp.label}</span>
+                <div style={{marginLeft:'auto',fontSize:10,color:bp.color+'88',fontFamily:'monospace'}}>[ ]</div>
               </div>
               {/* Mini visual preview */}
               <div style={{padding:'0 12px',minHeight:88}}>
                 <bp.Preview/>
               </div>
               {/* Description + CTA */}
-              <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}18`,marginTop:4,paddingTop:10}}>
-                <div style={{fontSize:11,color:'#b0b0c8',lineHeight:1.6,marginBottom:8}}>{bp.desc}</div>
-                <div style={{fontSize:10,fontWeight:800,color:bp.color,letterSpacing:.8,
-                  opacity:isH?1:0.55,transition:'opacity 0.18s'}}>
+              <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}28`,marginTop:4,paddingTop:10}}>
+                <div style={{fontSize:11,color:'#d0d0e8',lineHeight:1.6,marginBottom:8,fontWeight:500}}>{bp.desc}</div>
+                <div style={{fontSize:10,fontWeight:800,color:'#ffffff',letterSpacing:.8,
+                  textShadow:'0 0 6px '+bp.color,opacity:isH?1:0.7,transition:'opacity 0.18s'}}>
                   SELECT A TEAM →
                 </div>
               </div>
