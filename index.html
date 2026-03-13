@@ -83,7 +83,7 @@ const TEAM_CFG={
   BKN:{name:"Brooklyn Nets",        short:"Nets",        primary:"#AAAAAA",secondary:"#444444"},
   CHA:{name:"Charlotte Hornets",    short:"Hornets",     primary:"#00788C",secondary:"#1D1160"},
   CHI:{name:"Chicago Bulls",        short:"Bulls",       primary:"#CE1141",secondary:"#000000"},
-  CLE:{name:"Cleveland Cavaliers",  short:"Cavaliers",   primary:"#860038",secondary:"#FDBB30"},
+  CLE:{name:"Cleveland Cavaliers",  short:"Cavaliers",   primary:"#b30000",secondary:"#FDBB30"},
   DAL:{name:"Dallas Mavericks",     short:"Mavericks",   primary:"#00538C",secondary:"#002B5E"},
   DEN:{name:"Denver Nuggets",       short:"Nuggets",     primary:"#FEC524",secondary:"#0E2240"},
   DET:{name:"Detroit Pistons",      short:"Pistons",     primary:"#C8102E",secondary:"#1D42BA"},
@@ -106,7 +106,7 @@ const TEAM_CFG={
   SAC:{name:"Sacramento Kings",     short:"Kings",       primary:"#5A2D81",secondary:"#63727A"},
   SAS:{name:"San Antonio Spurs",    short:"Spurs",       primary:"#C4CED4",secondary:"#000000"},
   TOR:{name:"Toronto Raptors",      short:"Raptors",     primary:"#CE1141",secondary:"#000000"},
-  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#002B5C",secondary:"#00471B"},
+  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#00ffcc",secondary:"#00471B"},
   WAS:{name:"Washington Wizards",   short:"Wizards",     primary:"#E31837",secondary:"#002B5C"},
 };
 
@@ -1164,10 +1164,10 @@ function TeamSelector({available,onSelect}){
             />
           </div>
           <div style={{fontSize:22,fontWeight:700,color:'#fff',
-            letterSpacing:.5,lineHeight:1,textShadow:'0 0 4px rgba(255,255,255,0.3)'}}>{abbr}</div>
+            letterSpacing:.5,lineHeight:1,textShadow:(['UTA','CLE'].includes(abbr)?'0 0 6px rgba(255,255,255,0.5)':'0 0 4px rgba(255,255,255,0.3)')}}>{abbr}</div>
           <div style={{fontSize:12,color:isAvail?'#e8e8ff':'#1e1e2e',marginTop:4,
             fontWeight:600,letterSpacing:.3,lineHeight:1.3,
-            textShadow:isAvail?'0 0 4px rgba(255,255,255,0.3)':'none'}}>{cfg.short||cfg.name}</div>
+            textShadow:isAvail?(['UTA','CLE'].includes(abbr)?'0 0 6px rgba(255,255,255,0.5)':'0 0 4px rgba(255,255,255,0.3)'):'none'}}>{cfg.short||cfg.name}</div>
           {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:800,
             letterSpacing:.8}}>VIEW PICKS →</div>}
         </div>;
