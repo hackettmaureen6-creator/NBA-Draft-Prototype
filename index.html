@@ -82,6 +82,22 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
+@keyframes heroGradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes heroReveal{from{opacity:0;transform:translateY(28px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes heroPulse{0%,100%{box-shadow:0 0 20px rgba(255,45,94,0.4),0 0 60px rgba(255,45,94,0.15)}50%{box-shadow:0 0 30px rgba(255,45,94,0.6),0 0 80px rgba(255,45,94,0.25)}}
+@keyframes heroCountUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes courtLineFade{from{stroke-dashoffset:1200}to{stroke-dashoffset:0}}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1);opacity:0.08}25%{transform:translate(30px,-20px) scale(1.1);opacity:0.12}50%{transform:translate(-10px,-40px) scale(0.95);opacity:0.06}75%{transform:translate(-30px,-10px) scale(1.05);opacity:0.1}100%{transform:translate(0,0) scale(1);opacity:0.08}}
+@keyframes glowLine{0%{opacity:0;transform:scaleX(0)}50%{opacity:1;transform:scaleX(1)}100%{opacity:0;transform:scaleX(0)}}
+.hero-stat-item{animation:heroCountUp 0.7s ease-out both}
+.hero-stat-item:nth-child(1){animation-delay:0.8s}
+.hero-stat-item:nth-child(2){animation-delay:1.0s}
+.hero-stat-item:nth-child(3){animation-delay:1.2s}
+.hero-stat-item:nth-child(4){animation-delay:1.4s}
+.hero-cta-btn{animation:heroPulse 3s ease-in-out infinite;transition:all 0.2s ease}
+.hero-cta-btn:hover{transform:scale(1.06);filter:brightness(1.2)}
 </style>
 </head>
 <body>
@@ -1068,25 +1084,144 @@ function TeamSelector({available,onSelect}){
       </div>
     </div>
 
-    {/* ── HERO ── */}
+    {/* ── CINEMATIC HERO ── */}
     <div style={{
-      padding:'52px 24px 48px',textAlign:'center',flexShrink:0,position:'relative',
-      background:'radial-gradient(ellipse 80% 50% at 50% 0%,#1a0a2e 0%,#07070f 70%)',
+      position:'relative',overflow:'hidden',flexShrink:0,
+      padding:'clamp(60px,10vw,100px) 24px clamp(48px,8vw,80px)',
+      textAlign:'center',
+      background:'linear-gradient(135deg,#07070f 0%,#0d0a1a 25%,#1a0a2e 50%,#140820 75%,#07070f 100%)',
+      backgroundSize:'300% 300%',
+      animation:'heroGradientShift 12s ease infinite',
     }}>
-      <div style={{display:'flex',justifyContent:'center',marginBottom:20}}>
-        <Ball size={64}/>
+      {/* ── Layered background effects ── */}
+      {/* Court lines SVG background */}
+      <svg style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',opacity:0.04,pointerEvents:'none'}} viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+        <circle cx="600" cy="300" r="120" fill="none" stroke="#fff" strokeWidth="2" style={{strokeDasharray:800,animation:'courtLineFade 3s ease-out forwards'}}/>
+        <circle cx="600" cy="300" r="6" fill="#fff" opacity="0.4"/>
+        <line x1="600" y1="0" x2="600" y2="600" stroke="#fff" strokeWidth="2" style={{strokeDasharray:600,animation:'courtLineFade 2.5s ease-out 0.3s forwards',strokeDashoffset:600}}/>
+        <rect x="200" y="50" width="800" height="500" rx="0" fill="none" stroke="#fff" strokeWidth="2.5" style={{strokeDasharray:2600,animation:'courtLineFade 3.5s ease-out 0.5s forwards',strokeDashoffset:2600}}/>
+        <path d="M200 300 Q400 300 400 300 L200 300" fill="none" stroke="#fff" strokeWidth="2"/>
+        <path d="M1000 300 Q800 300 800 300 L1000 300" fill="none" stroke="#fff" strokeWidth="2"/>
+        <circle cx="200" cy="300" r="90" fill="none" stroke="#fff" strokeWidth="1.5" style={{strokeDasharray:600,animation:'courtLineFade 2s ease-out 0.8s forwards',strokeDashoffset:600}}/>
+        <circle cx="1000" cy="300" r="90" fill="none" stroke="#fff" strokeWidth="1.5" style={{strokeDasharray:600,animation:'courtLineFade 2s ease-out 0.8s forwards',strokeDashoffset:600}}/>
+      </svg>
+      {/* Radial glow spots */}
+      <div style={{position:'absolute',top:'-20%',left:'-10%',width:'50%',height:'70%',
+        background:'radial-gradient(ellipse,rgba(255,45,94,0.08) 0%,transparent 70%)',pointerEvents:'none'}}/>
+      <div style={{position:'absolute',top:'-10%',right:'-10%',width:'50%',height:'60%',
+        background:'radial-gradient(ellipse,rgba(0,114,206,0.06) 0%,transparent 70%)',pointerEvents:'none'}}/>
+      <div style={{position:'absolute',bottom:'-15%',left:'30%',width:'40%',height:'50%',
+        background:'radial-gradient(ellipse,rgba(204,102,255,0.05) 0%,transparent 70%)',pointerEvents:'none'}}/>
+      {/* Floating orbs */}
+      {[
+        {top:'15%',left:'8%',size:120,delay:'0s',dur:'18s',color:'rgba(255,45,94,0.08)'},
+        {top:'60%',right:'6%',size:90,delay:'3s',dur:'22s',color:'rgba(0,255,136,0.06)'},
+        {top:'25%',right:'15%',size:70,delay:'6s',dur:'16s',color:'rgba(96,176,255,0.07)'},
+        {top:'70%',left:'12%',size:100,delay:'9s',dur:'20s',color:'rgba(255,184,48,0.06)'},
+        {top:'40%',left:'45%',size:160,delay:'2s',dur:'25s',color:'rgba(204,102,255,0.04)'},
+      ].map((orb,i)=><div key={i} style={{
+        position:'absolute',top:orb.top,left:orb.left,right:orb.right,
+        width:orb.size,height:orb.size,borderRadius:'50%',
+        background:`radial-gradient(circle,${orb.color},transparent 70%)`,
+        animation:`orbFloat ${orb.dur} ease-in-out ${orb.delay} infinite`,
+        pointerEvents:'none',
+      }}/>)}
+
+      {/* ── Main content ── */}
+      <div style={{position:'relative',zIndex:2,maxWidth:800,margin:'0 auto'}}>
+        {/* Top accent line */}
+        <div style={{display:'flex',justifyContent:'center',marginBottom:28,animation:'heroReveal 0.8s ease-out both'}}>
+          <div style={{display:'flex',alignItems:'center',gap:12}}>
+            <div style={{width:40,height:1,background:'linear-gradient(90deg,transparent,#ff2d5e)',animation:'glowLine 3s ease-in-out infinite'}}/>
+            <Ball size={48}/>
+            <div style={{width:40,height:1,background:'linear-gradient(90deg,#ff2d5e,transparent)',animation:'glowLine 3s ease-in-out 1.5s infinite'}}/>
+          </div>
+        </div>
+
+        {/* Headline */}
+        <h1 style={{
+          fontSize:'clamp(32px,7vw,72px)',fontWeight:900,
+          letterSpacing:'0.04em',lineHeight:1.0,margin:'0 0 6px',
+          animation:'heroReveal 0.9s ease-out 0.15s both',
+          background:'linear-gradient(135deg,#ffffff 0%,#f0f0ff 30%,#ff8da6 60%,#ff2d5e 100%)',
+          backgroundSize:'200% 200%',
+          WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
+        }}>
+          NBA DRAFT
+        </h1>
+        <h1 style={{
+          fontSize:'clamp(22px,4.5vw,46px)',fontWeight:800,
+          letterSpacing:'0.15em',lineHeight:1.1,margin:'0 0 20px',
+          animation:'heroReveal 0.9s ease-out 0.3s both',
+          background:'linear-gradient(135deg,#c8c8e0 0%,#9090b0 50%,#e0e0ff 100%)',
+          WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
+        }}>
+          CAPITAL EXPLORER
+        </h1>
+
+        {/* Tagline */}
+        <p style={{
+          fontSize:'clamp(13px,1.8vw,17px)',color:'#a0a0c0',letterSpacing:3,fontWeight:600,
+          marginBottom:32,animation:'heroReveal 0.8s ease-out 0.45s both',
+          textTransform:'uppercase',
+        }}>
+          Every pick. Every swap. Every team. 2026–2032.
+        </p>
+
+        {/* ── Animated stat counters ── */}
+        <div style={{
+          display:'flex',justifyContent:'center',gap:'clamp(16px,4vw,40px)',
+          marginBottom:36,flexWrap:'wrap',
+        }}>
+          {[
+            {value:'30',label:'TEAMS',color:'#ff2d5e'},
+            {value:'7',label:'SEASONS',color:'#00ff88'},
+            {value:'200+',label:'PICKS TRACKED',color:'#60b0ff'},
+            {value:'LIVE',label:'LOTTERY SIM',color:'#cc66ff'},
+          ].map((stat,i)=><div key={i} className="hero-stat-item" style={{
+            textAlign:'center',padding:'12px 16px',borderRadius:12,
+            background:`linear-gradient(135deg,${stat.color}08,${stat.color}04)`,
+            border:`1px solid ${stat.color}22`,
+            minWidth:80,
+          }}>
+            <div style={{
+              fontSize:'clamp(22px,3vw,36px)',fontWeight:900,color:stat.color,
+              lineHeight:1,textShadow:`0 0 20px ${stat.color}44`,
+              fontFamily:'Helvetica Neue,Helvetica,Arial,sans-serif',
+            }}>{stat.value}</div>
+            <div style={{
+              fontSize:9,color:'#888',letterSpacing:1.5,fontWeight:700,marginTop:6,
+            }}>{stat.label}</div>
+          </div>)}
+        </div>
+
+        {/* ── CTA Button ── */}
+        <div style={{animation:'heroReveal 0.8s ease-out 1.6s both'}}>
+          <button className="hero-cta-btn" onClick={()=>{
+            if(gridRef.current) gridRef.current.scrollIntoView({behavior:'smooth',block:'start'});
+          }} style={{
+            background:'linear-gradient(135deg,#ff2d5e,#cc1844)',
+            border:'none',borderRadius:50,
+            padding:'14px 36px',cursor:'pointer',
+            fontSize:13,fontWeight:800,color:'#fff',
+            letterSpacing:2,textTransform:'uppercase',
+          }}>
+            EXPLORE ALL TEAMS
+          </button>
+        </div>
+
+        {/* ── Scroll indicator ── */}
+        <div style={{marginTop:32,animation:'heroReveal 1s ease-out 2s both'}}>
+          <div style={{animation:'scrollBounce 2s ease-in-out infinite',display:'inline-block'}}>
+            <svg width="20" height="28" viewBox="0 0 20 28" fill="none" style={{opacity:0.3}}>
+              <rect x="1" y="1" width="18" height="26" rx="9" stroke="#fff" strokeWidth="1.5"/>
+              <circle cx="10" cy="8" r="2" fill="#fff">
+                <animate attributeName="cy" values="8;18;8" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+        </div>
       </div>
-      <h1 style={{
-        fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
-        letterSpacing:'0.06em',lineHeight:1.05,margin:'0 0 14px',
-        background:'linear-gradient(135deg,#ffffff 0%,#e0e0ff 35%,#ff8da6 100%)',
-        WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
-      }}>
-        NBA DRAFT CAPITAL EXPLORER
-      </h1>
-      <p style={{fontSize:15,color:'#c8c8e0',marginBottom:0,letterSpacing:2,fontWeight:600}}>
-        ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · POOLS
-      </p>
     </div>
 
     {/* ── BLUEPRINT SECTION ── */}
