@@ -1258,7 +1258,7 @@ function App(){
 
   const switchTeam=useCallback((t,view='cards')=>{
     setActiveTeam(t);setActiveYear(null);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);
-    setActiveView(view==='linked'?'cards':view);
+    setActiveView(view||'cards');
     window.scrollTo(0,0);
   },[]);
 
@@ -1342,8 +1342,8 @@ function App(){
     {/* ── VIEW TABS ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       gap:6,background:'#0a0a12',flexShrink:0}}>
-      {['cards','timeline','simulator'].map(id=>{
-        const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'}}[id];
+      {['cards','timeline','simulator','linked'].map(id=>{
+        const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'},linked:{icon:'🔗',label:'Linked'}}[id];
         const isActive=activeView===id;
         return <button key={id} className="view-tab" onClick={()=>setActiveView(id)} style={{
           background:isActive?tc.primary:'transparent',
@@ -1392,6 +1392,42 @@ function App(){
       <LotterySimulator activeTeam={activeTeam} tc={tc} holdings={holdings}
         houFinish={houFinish} setHouFinish={setHouFinish}
         okcFinish={okcFinish} setOkcFinish={setOkcFinish}/>
+    </div>}
+
+    {activeView==='linked'&&<div className="two-panel" style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
+      <div className="panel-picks" style={{flex:'0 0 58%',padding:'16px 20px',overflowY:'auto',borderRight:'1px solid #0d0d1a'}}>
+        <div style={{marginBottom:12,padding:'8px 12px',background:'#0d0d1c',borderRadius:8,
+          border:'1px solid #00ffcc33',display:'flex',alignItems:'center',gap:8}}>
+          <span style={{fontSize:16}}>🔗</span>
+          <span style={{fontSize:12,color:'#00ffcc',fontWeight:600,letterSpacing:.5}}>
+            LINKED PICKS — click any pick to highlight its pool or swap partner(s) in cyan</span>
+        </div>
+        <YearPills years={years} selected={activeYear} onChange={setActiveYear}
+          holdings={holdings} primary={tc.primary}/>
+        <PicksGrid picks={filtered.filter(p=>p.condition)} teamAbbr={activeTeam} selectedKey={selectedKey}
+          onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus}/>
+        {filtered.filter(p=>p.condition).length===0&&<div style={{color:'#555',fontSize:13,marginTop:24,textAlign:'center'}}>
+          No pool or swap picks held by {activeTeam} {activeYear?'in '+activeYear:'across any year'}.
+        </div>}
+      </div>
+      <div className="panel-detail" style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
+        {selectedPick
+          ?<DetailPanel pick={selectedPick} teamAbbr={activeTeam} pickId={selectedPickId}
+              allTeamPicks={holdings} houFinish={houFinish} okcFinish={okcFinish}
+              isStepienLocked={!!(selectedPick&&stepienStatus.lockedYears.has(selectedPick.year)&&selectedPick.originalTeam===activeTeam&&selectedPick.currentHolder===activeTeam)}
+              lockedByYear={selectedPick&&stepienStatus.lockedYears.has(selectedPick.year)&&selectedPick.originalTeam===activeTeam&&selectedPick.currentHolder===activeTeam?[selectedPick.year-1,selectedPick.year+1].filter(function(y){return stepienStatus.tradedAwayYears.has(y);}):[]}
+              onClose={()=>handlePick(null,null,null)}
+              onLinkedClick={(lp)=>{
+                const allFirst=holdings.filter(p=>p.round==='1st');
+                const allSecond=holdings.filter(p=>p.round==='2nd');
+                const ordered=[...allFirst,...allSecond];
+                const idx=ordered.indexOf(lp);
+                const pid=lp._id||'P'+String(idx+1).padStart(3,'0');
+                const key=lp.year+'-'+lp.round+'-'+lp.originalTeam+'-'+lp.currentHolder+'-'+idx;
+                handlePick(key,lp,pid);
+              }}/>
+          :<DetailPlaceholder/>}
+      </div>
     </div>}
 
     <LegendBar/>
