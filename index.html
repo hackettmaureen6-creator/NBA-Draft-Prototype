@@ -1141,7 +1141,8 @@ function TeamSelector({available,onSelect}){
           onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
           style={{
             background:isAvail?`${cfg.primary}1a`:'#0b0b15',
-            border:`2px solid ${isAvail?(pendingView?cfg.primary+'dd':cfg.primary+'99'):'#181828'}`,
+            border:abbr==='UTA'&&isAvail?'4px solid #ffffff':`2px solid ${isAvail?(pendingView?cfg.primary+'dd':cfg.primary+'99'):'#181828'}`,
+            boxShadow:abbr==='UTA'&&isAvail?'0 0 25px rgba(255,255,255,0.8)':undefined,
             borderRadius:18,padding:'20px 12px 16px',textAlign:'center',
             opacity:isAvail?1:.16,
             cursor:isAvail?'pointer':'default',
@@ -1159,7 +1160,7 @@ function TeamSelector({available,onSelect}){
           <div style={{display:'flex',justifyContent:'center',marginBottom:8,marginTop:isAvail?4:0}}>
             <img src={logoUrl(abbr)} alt={abbr} width={52} height={52} className="team-logo-img"
               style={{objectFit:'contain',
-                filter:isAvail?`drop-shadow(0 0 8px ${cfg.primary}88)`:'grayscale(1) opacity(0.15)',
+                filter:abbr==='UTA'&&isAvail?'none':isAvail?`drop-shadow(0 0 8px ${cfg.primary}88)`:'grayscale(1) opacity(0.15)',
                 transition:'filter 0.2s'}}
               onError={e=>{e.currentTarget.style.display='none';}}
             />
