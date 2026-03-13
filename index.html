@@ -636,10 +636,10 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
     }
   });
 
-  const first=picks.filter(p=>p.round==='1st');
-  const second=picks.filter(p=>p.round==='2nd');
-  if(picks.length===0) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>
-    No picks for this year
+  const first=picks.filter(p=>p.round==='1st'&&(!autoLinked||!!p.condition));
+  const second=picks.filter(p=>p.round==='2nd'&&(!autoLinked||!!p.condition));
+  if(picks.length===0||( autoLinked&&first.length===0&&second.length===0)) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>
+    No linked picks for this year
   </div>;
 
   // Find currently selected pick object for linked highlight
@@ -676,7 +676,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
           const pickId=pidMap.get(pick)||`P${String(idx+1).padStart(3,'0')}`;
           const key=`${pick.year}-${pick.round}-${pick.originalTeam}-${pick.currentHolder}-${ordered.indexOf(pick)}`;
           const isSel=selectedKey===key;
-          const isLinked=autoLinked?!!pick.condition:(!isSel&&selPick&&selPick.condition&&pick.condition===selPick.condition);
+          const isLinked=autoLinked?false:(!isSel&&selPick&&selPick.condition&&pick.condition===selPick.condition);
           const linkedPids=pick.condition
             ?(condPids[pick.condition]||[]).filter(pid=>pid!==pickId)
             :[];
