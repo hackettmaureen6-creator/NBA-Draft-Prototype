@@ -70,7 +70,7 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 @keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
 .pick-card-linked{box-shadow:0 0 20px rgba(0,255,204,0.4)!important}
-.team-card-grad{background-image:linear-gradient(var(--card-bg),var(--card-bg)),linear-gradient(135deg,var(--tc-primary),rgba(255,255,255,0.45));background-origin:padding-box,border-box;background-clip:padding-box,border-box;-webkit-background-clip:padding-box,border-box;border:3px solid transparent!important;}
+.team-card-grad{background-image:linear-gradient(to bottom,var(--card-bg) 0%,rgba(7,7,15,0.82) 100%),linear-gradient(135deg,var(--tc-primary),var(--tc-secondary,rgba(255,255,255,0.3)));background-origin:padding-box,border-box;background-clip:padding-box,border-box;-webkit-background-clip:padding-box,border-box;border:3px solid transparent!important;}
 .team-card-inner *{color:#ffffff!important;text-shadow:0 0 4px rgba(255,255,255,0.4),1px 1px 2px #000!important;font-weight:600!important;}
 button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;text-shadow:0 0 6px rgba(255,255,255,0.6),1px 1px #000!important;}
 .year-pill[style*="background"],button[style*="background"]{background:rgba(0,0,0,0.5)!important;}
@@ -1115,8 +1115,9 @@ function TeamSelector({available,onSelect}){
               background:'none',border:'1px solid #333',color:'#666',borderRadius:5,
               padding:'2px 8px',fontSize:10,cursor:'pointer'}}>✕ clear</button>
           </div>
-        :<div style={{fontSize:10,color:'#888',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
-            textAlign:'center',marginTop:16,marginBottom:4}}>SELECT A TEAM</div>
+        :<div style={{fontSize:11,color:'#ffffff',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
+            textAlign:'center',marginTop:16,marginBottom:4,
+            textShadow:'0 0 8px rgba(255,255,255,0.5),1px 1px 2px #000'}}>SELECT A TEAM</div>
       }
     </div>
 
@@ -1138,8 +1139,9 @@ function TeamSelector({available,onSelect}){
             opacity:isAvail?1:.16,
             cursor:isAvail?'pointer':'default',
             position:'relative',overflow:'hidden',
-            '--card-bg':isAvail?(cfg.bg||cfg.primary+'33'):'#0b0b15',
+            '--card-bg':isAvail?(cfg.bg||cfg.primary+'55'):'#0b0b15',
             '--tc-primary':cfg.primary,
+            '--tc-secondary':sec,
             '--glow-a':`${cfg.primary}88`,
             '--glow-b':`${cfg.primary}44`,
             '--glow-c':`${cfg.primary}22`,
