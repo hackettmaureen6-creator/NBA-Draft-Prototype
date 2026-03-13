@@ -814,26 +814,31 @@ function LotterySimulator({activeTeam,tc,holdings,houFinish,setHouFinish,okcFini
       {protectedPicks.map((pick,i)=>{
         const pid=pick._id||`P${String(i+1).padStart(3,'0')}`;
         const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
-        // Parse protection threshold from text like "Top-4 protected" or "Top-8 Protected"
-        const match=(pick.protection||'').match(/top-?(\d+)/i);
-        const threshold=match?parseInt(match[1]):null;
+        // Parse protection: "top-N" = lottery finish threshold; "X-Y" = pick slot range
+        const topMatch=(pick.protection||'').match(/top-?(\d+)/i);
+        const slotMatch=!topMatch&&(pick.protection||'').match(/^(\d+)-(\d+)/);
+        const threshold=topMatch?parseInt(topMatch[1]):null;
         const withinProt=threshold?finish<=threshold:null;
         return <div key={pid} style={{background:'#0f0f1e',
-          border:`2px solid ${withinProt===null?'#252535':withinProt?'#2ecc71':'#f0a500'}`,
+          border:`2px solid ${slotMatch?'#cc66ff55':withinProt===null?'#252535':withinProt?'#2ecc71':'#f0a500'}`,
           borderRadius:10,padding:14,marginBottom:8,transition:'border-color 0.3s'}}>
           <div style={{fontSize:11,color:'#aaa',fontWeight:700,marginBottom:6}}>
             {pid} — <span style={{color:origCfg.primary}}>{pick.originalTeam}</span> {pick.year} {pick.round}
             <span style={{fontSize:10,color:'#f0a500',marginLeft:8}}>{pick.protection}</span>
           </div>
-          {withinProt===null
-            ?<div style={{fontSize:11,color:'#888'}}>Adjust finish to see resolution</div>
-            :withinProt
-              ?<div style={{fontSize:12,fontWeight:800,color:'#2ecc71'}}>
-                  ✅ Finish #{finish} — within protection. Pick stays / does not convey.
-                </div>
-              :<div style={{fontSize:12,fontWeight:800,color:'#f0a500'}}>
-                  ⚡ Finish #{finish} — outside protection threshold. Pick likely conveys.
-                </div>
+          {slotMatch
+            ?<div style={{fontSize:11,color:'#cc66ff',lineHeight:1.5}}>
+                📋 Pick slot protection — conveys only if the pick falls <strong>outside slots {slotMatch[1]}–{slotMatch[2]}</strong>. Not resolvable by lottery finish position.
+              </div>
+            :withinProt===null
+              ?<div style={{fontSize:11,color:'#888'}}>Adjust finish to see resolution</div>
+              :withinProt
+                ?<div style={{fontSize:12,fontWeight:800,color:'#2ecc71'}}>
+                    ✅ Finish #{finish} — within protection. Pick stays / does not convey.
+                  </div>
+                :<div style={{fontSize:12,fontWeight:800,color:'#f0a500'}}>
+                    ⚡ Finish #{finish} — outside protection threshold. Pick likely conveys.
+                  </div>
           }
         </div>;
       })}
