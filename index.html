@@ -289,35 +289,6 @@ function Ball({size=28}){
 }
 
 // ── STEPIEN CALLOUT ───────────────────────────────────────────────────────────
-function StepienCallout({pick,teamAbbr,lockedByYear,pos,onClose}){
-  const causedBy=lockedByYear&&lockedByYear.length>0
-    ?lockedByYear.join(' and ')
-    :[pick.year-1,pick.year+1].join(' or ');
-  return <div onClick={function(e){e.stopPropagation();}} style={{
-    position:'fixed',top:pos.top,left:pos.left,zIndex:1000,
-    background:'#001a1f',border:'1.5px solid #00cfff',
-    borderRadius:10,padding:'14px 16px',width:282,
-    boxShadow:'0 8px 32px #00000099,0 0 0 1px #00cfff22',
-    animation:'fadeUp 0.15s ease',
-  }}>
-    <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:10}}>
-      <div style={{fontWeight:900,color:'#00cfff',fontSize:12,letterSpacing:.5,lineHeight:1.2}}>🔒 THE STEPIEN RULE</div>
-      <button onClick={onClose} style={{background:'none',border:'none',color:'#888',cursor:'pointer',
-        fontSize:14,padding:0,marginLeft:8,flexShrink:0,lineHeight:1}}>✕</button>
-    </div>
-    <div style={{fontSize:11,color:'#a0d8e8',lineHeight:1.65,marginBottom:10}}>
-      Named after Ted Stepien (Cleveland Cavaliers owner, 1980–83), who traded away so many future first-round picks the franchise was crippled for years. The NBA enacted this rule to prevent teams from trading 1st-round picks in{' '}
-      <span style={{color:'#00cfff',fontWeight:700}}>consecutive draft years</span> — every team must retain at least one 1st within any two-year window.
-    </div>
-    <div style={{background:'#001420',border:'1px solid #00cfff44',borderRadius:7,padding:'8px 10px',fontSize:11,lineHeight:1.5}}>
-      <span style={{color:'#00cfff',fontWeight:800}}>{teamAbbr} {pick.year}:</span>{' '}
-      <span style={{color:'#80b8c8'}}>
-        Cannot be traded — {teamAbbr} has already traded away their {causedBy} first-round pick.
-      </span>
-    </div>
-  </div>;
-}
-
 // ── PICK CARD ─────────────────────────────────────────────────────────────────
 function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick,isStepienLocked}){
   const type=getPickType(pick,teamAbbr);
@@ -663,9 +634,8 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
 
   const first=picks.filter(p=>p.round==='1st'&&(!autoLinked||!!p.condition));
   const second=picks.filter(p=>p.round==='2nd'&&(!autoLinked||!!p.condition));
-  if(picks.length===0||( autoLinked&&first.length===0&&second.length===0)) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>
-    No linked picks for this year
-  </div>;
+  if(picks.length===0) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>No picks for this year</div>;
+  if(autoLinked&&first.length===0&&second.length===0) return <div style={{padding:'30px 0',color:'#777',fontSize:12,textAlign:'center'}}>No linked picks for this year</div>;
 
   // Find currently selected pick object for linked highlight
   const selPick=allHoldings.find((p,i)=>{
@@ -766,6 +736,7 @@ function LegendBar(){
     {color:'#60b0ff',icon:'⚖',label:'MORE FAVORABLE'},
     {color:'#ffa060',icon:'⚖',label:'LESS FAVORABLE'},
     {color:'#cc66ff',icon:'🔄',label:'SWAP'},
+    {color:'#ff5555',icon:'↑',label:'OWED OUT'},
   ];
   return <div className="legend-bar" style={{borderTop:'1px solid #14142a',padding:'9px 20px',
     display:'flex',gap:18,flexWrap:'wrap',alignItems:'center',flexShrink:0,background:'#07070f'}}>
@@ -1251,10 +1222,14 @@ function App(){
   const available=useMemo(()=>data?Object.keys(data.teams):[],[data]);
   const tc=activeTeam?(TEAM_CFG[activeTeam]||{name:activeTeam,short:activeTeam,primary:'#888',secondary:'#444'}):null;
   const yearRange=years.length?`${years[0]}–${years[years.length-1]}`:'';
-  const hasSimulator=activeTeam==='HOU'||activeTeam==='OKC';
+  const hasSimulator=activeTeam==='HOU'||activeTeam==='OKC'||holdings.some(p=>p.protection);
 
   const handlePick=useCallback((key,pick,pid)=>{
     setSelectedKey(key);setSelectedPick(pick||null);setSelectedPickId(pid||null);
+  },[]);
+
+  const handleYearChange=useCallback((y)=>{
+    setActiveYear(y);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);
   },[]);
 
   const switchTeam=useCallback((t,view='cards')=>{
@@ -1343,10 +1318,10 @@ function App(){
     {/* ── VIEW TABS ── */}
     <div style={{padding:'8px 20px',borderBottom:'1px solid #0d0d1a',display:'flex',
       gap:6,background:'#0a0a12',flexShrink:0}}>
-      {['cards','timeline','simulator','linked'].map(id=>{
+      {['cards','timeline','simulator','linked'].filter(id=>id!=='simulator'||hasSimulator).map(id=>{
         const cfg={cards:{icon:'📋',label:'Cards'},timeline:{icon:'📅',label:'Timeline'},simulator:{icon:'🎰',label:'Simulator'},linked:{icon:'🔗',label:'Linked'}}[id];
         const isActive=activeView===id;
-        return <button key={id} className={['view-tab',isActive?'view-tab-active':''].join(' ')} onClick={()=>setActiveView(id)} style={{
+        return <button key={id} className={['view-tab',isActive?'view-tab-active':''].join(' ')} onClick={()=>{setActiveView(id);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);}} style={{
           background:isActive?tc.primary:'transparent',
           border:`1.5px solid ${isActive?tc.primary:'#252535'}`,
           color:isActive?'#fff':'#d0d0e8',borderRadius:6,padding:'5px 14px',
@@ -1360,7 +1335,7 @@ function App(){
     {activeView==='cards'&&<div className="two-panel" style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
       {/* Left: picks */}
       <div className="panel-picks" style={{flex:'0 0 58%',padding:'16px 20px',overflowY:'auto',borderRight:'1px solid #0d0d1a'}}>
-        <YearPills years={years} selected={activeYear} onChange={setActiveYear}
+        <YearPills years={years} selected={activeYear} onChange={handleYearChange}
           holdings={holdings} primary={tc.primary}/>
         <PicksGrid picks={filtered} teamAbbr={activeTeam} selectedKey={selectedKey}
           onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus}/>
@@ -1390,7 +1365,7 @@ function App(){
       <TimelineView holdings={holdings} teamAbbr={activeTeam}/>
     </div>}
 
-    {activeView==='simulator'&&<div style={{flex:1,padding:'20px',overflowY:'auto'}}>
+    {activeView==='simulator'&&hasSimulator&&<div style={{flex:1,padding:'20px',overflowY:'auto'}}>
       <LotterySimulator activeTeam={activeTeam} tc={tc} holdings={holdings}
         houFinish={houFinish} setHouFinish={setHouFinish}
         okcFinish={okcFinish} setOkcFinish={setOkcFinish}/>
@@ -1402,13 +1377,10 @@ function App(){
           <span style={{fontSize:11}}>🔗</span>
           <span className="linked-note" style={{fontSize:11,letterSpacing:.4,color:'#00ffcc',textShadow:'0 0 8px rgba(0,255,204,0.7)',background:'none',fontWeight:700}}>🔒 LINKED CARDS</span>
         </div>
-        <YearPills years={years} selected={activeYear} onChange={setActiveYear}
+        <YearPills years={years} selected={activeYear} onChange={handleYearChange}
           holdings={holdings} primary={tc.primary}/>
         <PicksGrid picks={filtered.filter(p=>p.condition)} teamAbbr={activeTeam} selectedKey={selectedKey}
           onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus} autoLinked={true}/>
-        {filtered.filter(p=>p.condition).length===0&&<div style={{color:'#555',fontSize:13,marginTop:24,textAlign:'center'}}>
-          No pool or swap picks held by {activeTeam} {activeYear?'in '+activeYear:'across any year'}.
-        </div>}
       </div>
       <div className="panel-detail" style={{flex:'0 0 42%',padding:'16px 20px',overflowY:'auto',background:'#0c0c14'}}>
         {selectedPick
