@@ -309,25 +309,12 @@ function StepienCallout({pick,teamAbbr,lockedByYear,pos,onClose}){
 }
 
 // ── PICK CARD ─────────────────────────────────────────────────────────────────
-function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick,isStepienLocked,lockedByYear}){
+function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClick,isStepienLocked}){
   const type=getPickType(pick,teamAbbr);
   const cfg=TYPE_CFG[type]||TYPE_CFG.own;
   const origCfg=TEAM_CFG[pick.originalTeam]||{primary:'#888'};
   const holderCfg=TEAM_CFG[pick.currentHolder]||{primary:'#888'};
   const isOwnHolder=pick.originalTeam===teamAbbr&&pick.currentHolder===teamAbbr;
-  const [stepienOpen,setStepienOpen]=useState(false);
-  const badgeRef=useRef(null);
-  const [calloutPos,setCalloutPos]=useState({top:0,left:0});
-  function handleBadgeClick(e){
-    e.stopPropagation();
-    if(!stepienOpen&&badgeRef.current){
-      const r=badgeRef.current.getBoundingClientRect();
-      const calloutH=230;
-      const top=r.bottom+calloutH>window.innerHeight?Math.max(8,r.top-calloutH-8):r.bottom+8;
-      setCalloutPos({top,left:Math.min(r.left,window.innerWidth-296)});
-    }
-    setStepienOpen(function(s){return !s;});
-  }
   return <React.Fragment>
   <div className={['pick-card',isLinked?'pick-card-linked':''].join(' ')} onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
@@ -376,24 +363,7 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
       display:'flex',alignItems:'center',gap:4,fontSize:11,color:'#c0c0d0',marginTop:2}}>
       <span>🔗</span><span style={{fontFamily:'monospace'}}>{linkedPickIds.join(', ')}</span>
     </div>}
-    {/* Stepien Lock Badge */}
-    {isStepienLocked&&<div style={{marginTop:7}}>
-      <div ref={badgeRef} className="stepien-badge-pulse"
-        onClick={handleBadgeClick}
-        style={{display:'inline-flex',alignItems:'center',gap:4,
-          background:'#001a1f',border:'1.5px solid #00cfff',
-          borderRadius:5,padding:'3px 8px',cursor:'pointer',
-          fontSize:10,color:'#00cfff',fontWeight:800,letterSpacing:.4,userSelect:'none',
-        }}>
-        <span>🔒</span><span>STEPIEN LOCK</span>
-      </div>
-    </div>}
   </div>
-  {isStepienLocked&&stepienOpen&&<React.Fragment>
-    <div onClick={function(){setStepienOpen(false);}} style={{position:'fixed',top:0,left:0,right:0,bottom:0,zIndex:999}}/>
-    <StepienCallout pick={pick} teamAbbr={teamAbbr} lockedByYear={lockedByYear}
-      pos={calloutPos} onClose={function(){setStepienOpen(false);}}/>
-  </React.Fragment>}
   </React.Fragment>;
 }
 
@@ -554,17 +524,6 @@ function DetailPanel({pick,teamAbbr,pickId,allTeamPicks,onClose,onLinkedClick,ho
       padding:'10px 12px',marginBottom:12}}>
       <div style={{fontSize:12,color:'#e0e0f0',lineHeight:1.7}}>{detail}</div>
     </div>}
-    {/* Stepien Rule block */}
-    {isStepienLocked&&<div style={{background:'#001a1f',border:'1.5px solid #00cfff',borderRadius:8,
-      padding:'10px 12px',marginBottom:12}}>
-      <div style={{fontSize:11,fontWeight:900,color:'#00cfff',letterSpacing:.5,marginBottom:6}}>🔒 STEPIEN RULE — CANNOT BE TRADED</div>
-      <div style={{fontSize:11,color:'#a0d8e8',lineHeight:1.6,marginBottom:6}}>
-        Named after Ted Stepien (Cavaliers owner, 1980–83), who traded away so many future 1st-round picks the franchise was crippled for years. The NBA prohibits teams from trading 1st-round picks in <span style={{color:'#00cfff',fontWeight:700}}>consecutive draft years</span>.
-      </div>
-      <div style={{fontSize:11,color:'#5090a0',lineHeight:1.5}}>
-        {teamAbbr} has already traded away their {lockedByYear&&lockedByYear.length>0?lockedByYear.join(' and '):[pick.year-1,pick.year+1].join(' or ')} first-round pick, so this {pick.year} pick cannot be traded.
-      </div>
-    </div>}
     {/* Linked picks */}
     {linkedPicks.length>0&&<div style={{marginBottom:12}}>
       <div style={{fontSize:11,color:'#c0c0d8',fontWeight:700,textTransform:'uppercase',letterSpacing:.8,marginBottom:6}}>
@@ -650,7 +609,7 @@ function YearPills({years,selected,onChange,holdings,primary}){
 }
 
 // ── PICKS GRID ────────────────────────────────────────────────────────────────
-function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienStatus}){
+function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienStatus,autoLinked}){
   const ss=stepienStatus||{lockedYears:new Set(),violationYears:new Set(),tradedAwayYears:new Set()};
   // Global P-IDs: 1st round holdings first, then 2nd, across all years
   const allFirst=allHoldings.filter(p=>p.round==='1st');
@@ -698,7 +657,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
         <div style={{fontSize:11,lineHeight:1.4}}>
           <span style={{fontWeight:800,color:'#00cfff',letterSpacing:.3}}>STEPIEN RULE APPLIES</span>
           <span style={{color:'#5090a0',marginLeft:6}}>
-            — {stepienCount} pick{stepienCount!==1?'s':''} cannot be traded due to consecutive-year restrictions. Click the badge on a card for details.
+            — {stepienCount} pick{stepienCount!==1?'s':''} cannot be traded due to consecutive-year restrictions.
           </span>
         </div>
       </div>}
@@ -707,7 +666,7 @@ function PicksGrid({picks,teamAbbr,selectedKey,onPickClick,allHoldings,stepienSt
           const pickId=pidMap.get(pick)||`P${String(idx+1).padStart(3,'0')}`;
           const key=`${pick.year}-${pick.round}-${pick.originalTeam}-${pick.currentHolder}-${ordered.indexOf(pick)}`;
           const isSel=selectedKey===key;
-          const isLinked=!isSel&&selPick&&selPick.condition&&pick.condition===selPick.condition;
+          const isLinked=autoLinked?!!pick.condition:(!isSel&&selPick&&selPick.condition&&pick.condition===selPick.condition);
           const linkedPids=pick.condition
             ?(condPids[pick.condition]||[]).filter(pid=>pid!==pickId)
             :[];
@@ -1165,7 +1124,7 @@ function TeamSelector({available,onSelect}){
           onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
           style={{
             background:isAvail?`${cfg.primary}1a`:'#0b0b15',
-            border:abbr==='UTA'&&isAvail?'4px solid #ffffff':`2px solid ${isAvail?(pendingView?cfg.primary+'dd':cfg.primary+'99'):'#181828'}`,
+            border:abbr==='UTA'&&isAvail?'4px solid #ffffff':`2px solid ${isAvail?cfg.primary+'99':'#181828'}`,
             boxShadow:abbr==='UTA'&&isAvail?'0 0 25px rgba(255,255,255,0.8)':undefined,
             borderRadius:18,padding:'20px 12px 16px',textAlign:'center',
             opacity:isAvail?1:.16,
@@ -1396,16 +1355,14 @@ function App(){
 
     {activeView==='linked'&&<div className="two-panel" style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
       <div className="panel-picks" style={{flex:'0 0 58%',padding:'16px 20px',overflowY:'auto',borderRight:'1px solid #0d0d1a'}}>
-        <div style={{marginBottom:12,padding:'8px 12px',background:'#0d0d1c',borderRadius:8,
-          border:'1px solid #00ffcc33',display:'flex',alignItems:'center',gap:8}}>
-          <span style={{fontSize:16}}>🔗</span>
-          <span style={{fontSize:12,color:'#00ffcc',fontWeight:600,letterSpacing:.5}}>
-            LINKED PICKS — click any pick to highlight its pool or swap partner(s) in cyan</span>
+        <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:12,opacity:.7}}>
+          <span style={{fontSize:11}}>🔗</span>
+          <span style={{fontSize:11,color:'#00ffcc',letterSpacing:.4}}>Cyan cards = shared pool/swap partner</span>
         </div>
         <YearPills years={years} selected={activeYear} onChange={setActiveYear}
           holdings={holdings} primary={tc.primary}/>
         <PicksGrid picks={filtered.filter(p=>p.condition)} teamAbbr={activeTeam} selectedKey={selectedKey}
-          onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus}/>
+          onPickClick={handlePick} allHoldings={holdings} stepienStatus={stepienStatus} autoLinked={true}/>
         {filtered.filter(p=>p.condition).length===0&&<div style={{color:'#555',fontSize:13,marginTop:24,textAlign:'center'}}>
           No pool or swap picks held by {activeTeam} {activeYear?'in '+activeYear:'across any year'}.
         </div>}
