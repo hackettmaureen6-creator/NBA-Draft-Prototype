@@ -28,6 +28,9 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
   .panel-picks{flex:none!important;width:100%!important;border-right:none!important;border-bottom:1px solid #0d0d1a!important;max-height:none!important}
   .panel-detail{flex:none!important;width:100%!important;min-height:320px}
   .pick-card{width:155px!important}
+  .team-logo-img{width:30px!important;height:30px!important}
+  .team-card-inner{padding:12px 8px 10px!important}
+  .team-grid{padding:0 12px 24px!important;gap:8px!important;grid-template-columns:repeat(auto-fill,minmax(110px,1fr))!important}
   .team-row-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .header-stats{display:none!important}
   .header-app-title{display:none!important}
@@ -65,6 +68,11 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 .gradient-bar{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:gradientShift 3s ease infinite}
 @keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
+@keyframes linkedPulse{
+  0%,100%{box-shadow:0 0 8px #00ffff4d,0 0 20px #00ffff26}
+  50%{box-shadow:0 0 26px #00ffff80,0 0 50px #00ffff40}
+}
+.pick-card-linked{animation:linkedPulse 1.8s ease-in-out infinite!important}
 </style>
 </head>
 <body>
@@ -322,19 +330,20 @@ function PickCard({pick,teamAbbr,pickId,isSelected,isLinked,linkedPickIds,onClic
     setStepienOpen(function(s){return !s;});
   }
   return <React.Fragment>
-  <div className="pick-card" onClick={onClick} style={{
+  <div className={['pick-card',isLinked?'pick-card-linked':''].join(' ')} onClick={onClick} style={{
     background:isSelected?cfg.bg:'#141420',
-    border:`2px solid ${isSelected||isLinked?cfg.border:'#252535'}`,
+    border:isLinked?'3px solid #00ffff88':isSelected?'2px solid '+cfg.border:'2px solid #252535',
     borderLeft:`3px solid ${cfg.border}`,
     borderRadius:12,padding:'12px 14px',width:210,flexShrink:0,
     position:'relative',overflow:'hidden',
-    '--pick-glow': isSelected?`${cfg.border}88`:isLinked?`${cfg.border}44`:`${cfg.border}22`,
-    '--pick-glow-b': isSelected?`${cfg.border}44`:isLinked?`${cfg.border}22`:'transparent',
+    '--pick-glow': isSelected?cfg.border+'88':isLinked?'#00ffff66':cfg.border+'22',
+    '--pick-glow-b': isSelected?cfg.border+'44':isLinked?'#00ffff33':'transparent',
     transform:isSelected?'scale(1.03)':'scale(1)',
   }}>
     <div className="gradient-bar" style={{position:'absolute',top:0,left:0,right:0,height:isSelected?3:2,
-      '--g1':isSelected?cfg.border+'cc':cfg.border+'44',
-      '--g2':cfg.border,opacity:isSelected?1:isLinked?0.9:0.4}}/>
+      '--g1':isLinked?'#00ffff66':isSelected?cfg.border+'cc':cfg.border+'44',
+      '--g2':isLinked?'#00ffff':cfg.border,
+      opacity:isSelected?1:isLinked?1:0.4}}/>
 
     {/* ID + round badge */}
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:10}}>
@@ -1034,12 +1043,12 @@ function TeamSelector({available,onSelect}){
       <h1 style={{
         fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
         letterSpacing:'0.06em',lineHeight:1.05,margin:'0 0 14px',
-        background:'linear-gradient(135deg,#ffffff 0%,#c8c8ff 35%,#ff6b8a 100%)',
+        background:'linear-gradient(135deg,#ffffff 0%,#e0e0ff 35%,#ff8da6 100%)',
         WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
       }}>
         NBA DRAFT CAPITAL EXPLORER
       </h1>
-      <p style={{fontSize:13,color:'#b0b0cc',marginBottom:0,letterSpacing:2,fontWeight:600}}>
+      <p style={{fontSize:15,color:'#c8c8e0',marginBottom:0,letterSpacing:2,fontWeight:600}}>
         ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · POOLS
       </p>
     </div>
@@ -1123,7 +1132,7 @@ function TeamSelector({available,onSelect}){
     </div>
 
     {/* Team grid */}
-    <div style={{padding:'0 24px 40px',display:'grid',
+    <div className="team-grid" style={{padding:'0 24px 40px',display:'grid',
       gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:12,maxWidth:900,
       margin:'0 auto',width:'100%'}}>
       {ALL_TEAMS.map(abbr=>{
@@ -1131,7 +1140,7 @@ function TeamSelector({available,onSelect}){
         const isAvail=availSet.has(abbr);
         const sec=cfg.secondary||cfg.primary;
         return <div key={abbr}
-          className={isAvail?'team-card-sel team-card-live':''}
+          className={['team-card-inner',isAvail?'team-card-sel':'',isAvail?'team-card-live':''].join(' ')}
           onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
           style={{
             background:isAvail?`${cfg.primary}1a`:'#0b0b15',
@@ -1151,16 +1160,16 @@ function TeamSelector({available,onSelect}){
           }}/>}
           {/* Team logo */}
           <div style={{display:'flex',justifyContent:'center',marginBottom:8,marginTop:isAvail?4:0}}>
-            <img src={logoUrl(abbr)} alt={abbr} width={52} height={52}
+            <img src={logoUrl(abbr)} alt={abbr} width={52} height={52} className="team-logo-img"
               style={{objectFit:'contain',
                 filter:isAvail?`drop-shadow(0 0 8px ${cfg.primary}88)`:'grayscale(1) opacity(0.15)',
                 transition:'filter 0.2s'}}
               onError={e=>{e.currentTarget.style.display='none';}}
             />
           </div>
-          <div style={{fontSize:16,fontWeight:900,color:isAvail?'#fff':'#2a2a3a',
-            letterSpacing:.5,lineHeight:1}}>{abbr}</div>
-          <div style={{fontSize:10,color:isAvail?'#c8c8e0':'#1e1e2e',marginTop:4,
+          <div style={{fontSize:22,fontWeight:700,color:isAvail?'#fff':'#2a2a3a',
+            letterSpacing:.5,lineHeight:1,textShadow:isAvail?'0 0 14px rgba(255,255,255,0.45)':'none'}}>{abbr}</div>
+          <div style={{fontSize:12,color:isAvail?'#d0d0f0':'#1e1e2e',marginTop:4,
             fontWeight:600,letterSpacing:.3,lineHeight:1.3}}>{cfg.short||cfg.name}</div>
           {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:800,
             letterSpacing:.8}}>VIEW PICKS →</div>}
