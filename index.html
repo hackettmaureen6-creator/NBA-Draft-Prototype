@@ -69,6 +69,7 @@ body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,
 @keyframes stepienPulse{0%,100%{box-shadow:0 0 4px #00cfff66}50%{box-shadow:0 0 14px #00cfff99,0 0 4px #00cfff44}}
 .stepien-badge-pulse{animation:stepienPulse 2.5s ease-in-out infinite}
 .pick-card-linked{box-shadow:0 0 20px rgba(0,255,204,0.4)!important}
+.team-card-grad{background-image:linear-gradient(var(--card-bg),var(--card-bg)),linear-gradient(135deg,var(--tc-primary),rgba(255,255,255,0.45));background-origin:padding-box,border-box;background-clip:padding-box,border-box;-webkit-background-clip:padding-box,border-box;border:3px solid transparent!important;}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
@@ -81,36 +82,36 @@ const {useState,useEffect,useMemo,useCallback,useRef}=React;
 
 // ── TEAM CONFIG ───────────────────────────────────────────────────────────────
 const TEAM_CFG={
-  ATL:{name:"Atlanta Hawks",        short:"Hawks",       primary:"#E03A3E",secondary:"#C1D32F"},
-  BOS:{name:"Boston Celtics",       short:"Celtics",     primary:"#007A33",secondary:"#BA9653"},
-  BKN:{name:"Brooklyn Nets",        short:"Nets",        primary:"#FFFFFF",secondary:"#AAAAAA"},
-  CHA:{name:"Charlotte Hornets",    short:"Hornets",     primary:"#00788C",secondary:"#1D1160"},
-  CHI:{name:"Chicago Bulls",        short:"Bulls",       primary:"#CE1141",secondary:"#000000"},
-  CLE:{name:"Cleveland Cavaliers",  short:"Cavaliers",   primary:"#860038",secondary:"#FDBB30"},
-  DAL:{name:"Dallas Mavericks",     short:"Mavericks",   primary:"#00538C",secondary:"#B8C4CA"},
-  DEN:{name:"Denver Nuggets",       short:"Nuggets",     primary:"#FEC524",secondary:"#0E2240"},
-  DET:{name:"Detroit Pistons",      short:"Pistons",     primary:"#C8102E",secondary:"#1D42BA"},
-  GSW:{name:"Golden State Warriors",short:"Warriors",    primary:"#FFC72C",secondary:"#1D428A"},
-  HOU:{name:"Houston Rockets",      short:"Rockets",     primary:"#CE1141",secondary:"#C4CED4"},
-  IND:{name:"Indiana Pacers",       short:"Pacers",      primary:"#FDBB30",secondary:"#002D62"},
-  LAC:{name:"LA Clippers",          short:"Clippers",    primary:"#C8102E",secondary:"#1D428A"},
-  LAL:{name:"Los Angeles Lakers",   short:"Lakers",      primary:"#FDB927",secondary:"#552583"},
-  MEM:{name:"Memphis Grizzlies",    short:"Grizzlies",   primary:"#5D76A9",secondary:"#12173F"},
-  MIA:{name:"Miami Heat",           short:"Heat",        primary:"#98002E",secondary:"#F9A01B"},
-  MIL:{name:"Milwaukee Bucks",      short:"Bucks",       primary:"#00B04F",secondary:"#EEE1C6"},
-  MIN:{name:"Minnesota Timberwolves",short:"Timberwolves",primary:"#236192",secondary:"#78BE20"},
+  ATL:{name:"Atlanta Hawks",        short:"Hawks",       primary:"#C8102E",secondary:"#FFC72C"},
+  BOS:{name:"Boston Celtics",       short:"Celtics",     primary:"#007A33",secondary:"#010101"},
+  BKN:{name:"Brooklyn Nets",        short:"Nets",        primary:"#FFFFFF",secondary:"#707372"},
+  CHA:{name:"Charlotte Hornets",    short:"Hornets",     primary:"#00778B",secondary:"#211747"},
+  CHI:{name:"Chicago Bulls",        short:"Bulls",       primary:"#BA0C2F",secondary:"#010101"},
+  CLE:{name:"Cleveland Cavaliers",  short:"Cavaliers",   primary:"#6F263D",secondary:"#B9975B"},
+  DAL:{name:"Dallas Mavericks",     short:"Mavericks",   primary:"#0050B5",secondary:"#9EA2A2"},
+  DEN:{name:"Denver Nuggets",       short:"Nuggets",     primary:"#FFC72C",secondary:"#0C2340"},
+  DET:{name:"Detroit Pistons",      short:"Pistons",     primary:"#C8102E",secondary:"#1D4289"},
+  GSW:{name:"Golden State Warriors",short:"Warriors",    primary:"#FFC72C",secondary:"#1D4289"},
+  HOU:{name:"Houston Rockets",      short:"Rockets",     primary:"#BA0C2F",secondary:"#9EA2A2"},
+  IND:{name:"Indiana Pacers",       short:"Pacers",      primary:"#FFCD00",secondary:"#0C2340"},
+  LAC:{name:"LA Clippers",          short:"Clippers",    primary:"#C8102E",secondary:"#0C2340"},
+  LAL:{name:"Los Angeles Lakers",   short:"Lakers",      primary:"#FFC72C",secondary:"#330072"},
+  MEM:{name:"Memphis Grizzlies",    short:"Grizzlies",   primary:"#7D9CC0",secondary:"#0C2340"},
+  MIA:{name:"Miami Heat",           short:"Heat",        primary:"#862633",secondary:"#FFA400"},
+  MIL:{name:"Milwaukee Bucks",      short:"Bucks",       primary:"#2C5234",secondary:"#DDCBA4"},
+  MIN:{name:"Minnesota Timberwolves",short:"Timberwolves",primary:"#236192",secondary:"#78BE21"},
   NOP:{name:"New Orleans Pelicans", short:"Pelicans",    primary:"#C8102E",secondary:"#0C2340"},
-  NYK:{name:"New York Knicks",      short:"Knicks",      primary:"#F58426",secondary:"#006BB6"},
-  OKC:{name:"OKC Thunder",          short:"Thunder",     primary:"#007AC1",secondary:"#EF3B24"},
-  ORL:{name:"Orlando Magic",        short:"Magic",       primary:"#0077C0",secondary:"#C4CED4"},
-  PHI:{name:"Philadelphia 76ers",   short:"76ers",       primary:"#006BB6",secondary:"#ED174C"},
-  PHX:{name:"Phoenix Suns",         short:"Suns",        primary:"#E56020",secondary:"#1D1160"},
-  POR:{name:"Portland Trail Blazers",short:"Trail Blazers",primary:"#E03A3E",secondary:"#000000"},
-  SAC:{name:"Sacramento Kings",     short:"Kings",       primary:"#5A2D81",secondary:"#63727A"},
-  SAS:{name:"San Antonio Spurs",    short:"Spurs",       primary:"#C4CED4",secondary:"#000000"},
-  TOR:{name:"Toronto Raptors",      short:"Raptors",     primary:"#CE1141",secondary:"#000000"},
-  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#F9A900",secondary:"#002B5C"},
-  WAS:{name:"Washington Wizards",   short:"Wizards",     primary:"#E31837",secondary:"#002B5C"},
+  NYK:{name:"New York Knicks",      short:"Knicks",      primary:"#FF8200",secondary:"#1D4289"},
+  OKC:{name:"OKC Thunder",          short:"Thunder",     primary:"#0072CE",secondary:"#F9423A"},
+  ORL:{name:"Orlando Magic",        short:"Magic",       primary:"#0050B5",secondary:"#9EA2A2"},
+  PHI:{name:"Philadelphia 76ers",   short:"76ers",       primary:"#1D4289",secondary:"#C8102E"},
+  PHX:{name:"Phoenix Suns",         short:"Suns",        primary:"#CB6015",secondary:"#211747"},
+  POR:{name:"Portland Trail Blazers",short:"Trail Blazers",primary:"#C8102E",secondary:"#010101"},
+  SAC:{name:"Sacramento Kings",     short:"Kings",       primary:"#582C83",secondary:"#707372"},
+  SAS:{name:"San Antonio Spurs",    short:"Spurs",       primary:"#9EA2A2",secondary:"#010101"},
+  TOR:{name:"Toronto Raptors",      short:"Raptors",     primary:"#BA0C2F",secondary:"#010101"},
+  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#7BA4DB",secondary:"#330072"},
+  WAS:{name:"Washington Wizards",   short:"Wizards",     primary:"#C8102E",secondary:"#0C2340"},
 };
 
 // ── TEAM LOGO URLS (ESPN CDN) ─────────────────────────────────────────────────
@@ -1120,18 +1121,20 @@ function TeamSelector({available,onSelect}){
         const isAvail=availSet.has(abbr);
         const sec=cfg.secondary||cfg.primary;
         return <div key={abbr}
-          className={['team-card-inner',isAvail?'team-card-sel':'',isAvail?'team-card-live':''].join(' ')}
+          className={['team-card-inner',isAvail?'team-card-sel':'',isAvail?'team-card-live':'',isAvail?'team-card-grad':''].join(' ')}
           onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
           style={{
-            background:isAvail?`${cfg.primary}1a`:'#0b0b15',
-            border:`2px solid ${isAvail?cfg.primary+'99':'#181828'}`,
+            background:isAvail?undefined:'#0b0b15',
+            border:isAvail?undefined:'2px solid #181828',
             borderRadius:18,padding:'20px 12px 16px',textAlign:'center',
             opacity:isAvail?1:.16,
             cursor:isAvail?'pointer':'default',
             position:'relative',overflow:'hidden',
-            '--glow-a':`${cfg.primary}66`,
-            '--glow-b':`${cfg.primary}33`,
-            '--glow-c':`${cfg.primary}18`,
+            '--card-bg':isAvail?cfg.primary+'33':'#0b0b15',
+            '--tc-primary':cfg.primary,
+            '--glow-a':`${cfg.primary}88`,
+            '--glow-b':`${cfg.primary}44`,
+            '--glow-c':`${cfg.primary}22`,
           }}>
           {/* Animated gradient top bar */}
           {isAvail&&<div className="gradient-bar" style={{
@@ -1148,10 +1151,10 @@ function TeamSelector({available,onSelect}){
             />
           </div>
           <div style={{fontSize:22,fontWeight:700,color:'#fff',
-            letterSpacing:.5,lineHeight:1,textShadow:(['UTA','CLE'].includes(abbr)?'0 0 6px rgba(255,255,255,0.5)':'0 0 4px rgba(255,255,255,0.3)')}}>{abbr}</div>
+            letterSpacing:.5,lineHeight:1,textShadow:'0 0 4px rgba(255,255,255,0.3)'}}>{abbr}</div>
           <div style={{fontSize:12,color:isAvail?'#e8e8ff':'#1e1e2e',marginTop:4,
             fontWeight:600,letterSpacing:.3,lineHeight:1.3,
-            textShadow:isAvail?(['UTA','CLE'].includes(abbr)?'0 0 6px rgba(255,255,255,0.5)':'0 0 4px rgba(255,255,255,0.3)'):'none'}}>{cfg.short||cfg.name}</div>
+            textShadow:isAvail?'0 0 4px rgba(255,255,255,0.3)':'none'}}>{cfg.short||cfg.name}</div>
           {isAvail&&<div style={{marginTop:8,fontSize:10,color:cfg.primary,fontWeight:800,
             letterSpacing:.8}}>VIEW PICKS →</div>}
         </div>;
