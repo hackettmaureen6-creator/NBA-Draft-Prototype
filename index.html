@@ -1235,6 +1235,7 @@ function App(){
   const switchTeam=useCallback((t,view='cards')=>{
     setActiveTeam(t);setActiveYear(null);setSelectedKey(null);setSelectedPick(null);setSelectedPickId(null);
     setActiveView(view==='linked'?'cards':view);
+    window.scrollTo(0,0);
   },[]);
 
   const goHome=useCallback(()=>{
