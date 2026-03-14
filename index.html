@@ -84,14 +84,15 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
 
 /* ── HERO LOGO ── */
-.hero-logo{display:flex;justify-content:center;margin-bottom:18px}
-.hero-logo img{height:88px;width:auto;object-fit:contain;border-radius:12px;box-shadow:0 0 10px rgba(255,255,255,0.25)}
-@media(max-width:768px){.hero-logo img{height:72px}}
-@media(max-width:480px){.hero-logo img{height:60px}}
+.hero-logo{display:flex;justify-content:center}
+.hero-logo-img{width:88px;height:88px;object-fit:contain;display:block;margin:0 auto 20px;background:none;filter:drop-shadow(0 0 14px rgba(255,255,255,0.55))}
+@media(max-width:768px){.hero-logo-img{width:72px;height:72px}}
+@media(max-width:480px){.hero-logo-img{width:60px;height:60px}}
 
 /* ── COURT LAYOUT BACKGROUND ── */
 #court-layout{position:relative;background-image:url("court-hero.jpeg");background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
-#court-layout::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,7,15,0.75) 0%,rgba(7,7,15,0.85) 40%,rgba(7,7,15,0.95) 100%);pointer-events:none;z-index:0}
+#court-layout::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,7,15,0.25) 0%,rgba(7,7,15,0.45) 40%,rgba(7,7,15,0.65) 100%);pointer-events:none;z-index:0}
+.court-content-section{position:relative;z-index:1;background:rgba(7,7,15,0.80);border-radius:12px}
 </style>
 </head>
 <body>
@@ -1085,7 +1086,7 @@ function TeamSelector({available,onSelect}){
       background:'radial-gradient(ellipse 80% 50% at 50% 0%,#1a0a2e 0%,#07070f 70%)',
     }}>
       <div className="hero-logo">
-        <img src="court-ball.jpeg" alt="Basketball neon logo"/>
+        <img src="assets/court-ball-logo.png" alt="Neon basketball logo" className="hero-logo-img"/>
       </div>
       <h1 style={{
         fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
@@ -1108,7 +1109,7 @@ function TeamSelector({available,onSelect}){
       padding:'0 24px 32px',flexShrink:0,
       position:'relative',zIndex:1,
     }}>
-      <div style={{maxWidth:900,margin:'0 auto'}}>
+      <div className="court-content-section" style={{maxWidth:900,margin:'0 auto',padding:'16px 16px 24px'}}>
         <div style={{textAlign:'center',marginBottom:20,paddingTop:8}}>
           <span style={{fontSize:16,color:'#ffffff',fontWeight:600,letterSpacing:3,textTransform:'uppercase',
             textShadow:'0 0 4px rgba(255,255,255,0.6)',
@@ -1166,8 +1167,8 @@ function TeamSelector({available,onSelect}){
       </div>
     </div>
 
-    {/* Divider + pending view banner */}
-    <div ref={gridRef} style={{maxWidth:900,margin:'0 auto',width:'100%',padding:'0 24px 16px',flexShrink:0,position:'relative',zIndex:1}}>
+    {/* Divider + pending view banner + team grid */}
+    <div ref={gridRef} className="court-content-section" style={{maxWidth:900,margin:'12px auto 0',width:'100%',padding:'16px 24px 16px',flexShrink:0,position:'relative',zIndex:1}}>
       <div style={{height:1,background:'linear-gradient(90deg,transparent,#2a2a40,transparent)'}}/>
       {pendingView
         ?<div style={{marginTop:14,marginBottom:4,display:'flex',alignItems:'center',justifyContent:'center',gap:10,flexWrap:'wrap'}}>
@@ -1183,12 +1184,12 @@ function TeamSelector({available,onSelect}){
             textAlign:'center',marginTop:16,marginBottom:4,
             textShadow:'0 0 8px rgba(255,255,255,0.5),1px 1px 2px #000'}}>SELECT A TEAM</div>
       }
-    </div>
+
 
     {/* Team grid */}
-    <div className="team-grid" style={{padding:'0 24px 40px',display:'grid',
-      gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:12,maxWidth:900,
-      margin:'0 auto',width:'100%',position:'relative',zIndex:1}}>
+    <div className="team-grid" style={{padding:'12px 0 24px',display:'grid',
+      gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:12,
+      width:'100%'}}>
       {ALL_TEAMS.map(abbr=>{
         const cfg=TEAM_CFG[abbr]||{primary:'#888',secondary:'#444',name:abbr,short:abbr};
         const isAvail=availSet.has(abbr);
@@ -1235,6 +1236,7 @@ function TeamSelector({available,onSelect}){
         </div>;
       })}
     </div>
+    </div>{/* end court-content-section wrapper */}
 
     </main>{/* end #court-layout */}
 
