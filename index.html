@@ -1170,7 +1170,7 @@ function TeamSelector({available,onSelect}){
 
     {/* Divider + pending view banner + team grid */}
     <div ref={gridRef} className="court-content-section" style={{maxWidth:900,margin:'12px auto 0',width:'100%',padding:'16px 24px 16px',flexShrink:0,position:'relative',zIndex:1}}>
-      <div style={{height:1,background:'linear-gradient(90deg,transparent,#2a2a40,transparent)'}}/>
+      <div style={{height:1,background:'linear-gradient(90deg,transparent,#00d4ff55,#ff9a3e55,transparent)'}}/>
       {pendingView
         ?<div style={{marginTop:14,marginBottom:4,display:'flex',alignItems:'center',justifyContent:'center',gap:10,flexWrap:'wrap'}}>
             <div style={{fontSize:11,color:'#c0c0d8',fontWeight:700,letterSpacing:.8}}>
@@ -1181,9 +1181,11 @@ function TeamSelector({available,onSelect}){
               background:'none',border:'1px solid #333',color:'#666',borderRadius:5,
               padding:'2px 8px',fontSize:10,cursor:'pointer'}}>✕ clear</button>
           </div>
-        :<div style={{fontSize:11,color:'#ffffff',fontWeight:800,letterSpacing:2,textTransform:'uppercase',
+        :<div style={{fontSize:13,fontWeight:800,letterSpacing:3,textTransform:'uppercase',
             textAlign:'center',marginTop:16,marginBottom:4,
-            textShadow:'0 0 8px rgba(255,255,255,0.5),1px 1px 2px #000'}}>SELECT A TEAM</div>
+            background:'linear-gradient(135deg,#00d4ff,#ffffff,#ff9a3e)',
+            WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
+            filter:'drop-shadow(0 0 8px rgba(0,212,255,0.4))'}}>SELECT A TEAM</div>
       }
 
 
