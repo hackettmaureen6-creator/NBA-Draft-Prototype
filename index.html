@@ -80,7 +80,7 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 .view-tab:hover{background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7))!important;}
 .linked-note{color:#ffffff!important;font-weight:700!important;font-size:1.1em;text-shadow:0 0 6px rgba(147,0,217,0.6),1px 1px 2px #000!important;background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7));padding:4px 8px;border-radius:4px;}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
+.team-marquee-wrap{overflow:hidden;background:linear-gradient(180deg,#0d0d2b 0%,#0a0a1e 100%);border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 0;flex-shrink:0}
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
 @keyframes heroGradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -312,13 +312,26 @@ function enrichPick(jsonPick){
 }
 
 // ── BASKETBALL SVG ────────────────────────────────────────────────────────────
-function Ball({size=28}){
-  return <svg width={size} height={size} viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="46" fill="#E8621A" stroke="#b84a00" strokeWidth="3"/>
-    <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
+function Ball({size=28,glow=false}){
+  return <svg width={size} height={size} viewBox="0 0 100 100" style={glow?{filter:'drop-shadow(0 0 18px rgba(255,100,50,0.5)) drop-shadow(0 0 40px rgba(255,45,94,0.25))'}:{}}>
+    <defs>
+      <radialGradient id="ballGrad" cx="38%" cy="35%" r="55%">
+        <stop offset="0%" stopColor="#ff8a42"/>
+        <stop offset="50%" stopColor="#E8621A"/>
+        <stop offset="100%" stopColor="#a53d08"/>
+      </radialGradient>
+      {glow && <radialGradient id="ballGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="70%" stopColor="transparent"/>
+        <stop offset="100%" stopColor="rgba(255,100,50,0.15)"/>
+      </radialGradient>}
+    </defs>
+    {glow && <circle cx="50" cy="50" r="49" fill="url(#ballGlow)"/>}
+    <circle cx="50" cy="50" r="46" fill="url(#ballGrad)" stroke="#c45010" strokeWidth="2.5"/>
+    <ellipse cx="38" cy="35" rx="14" ry="10" fill="rgba(255,255,255,0.12)"/>
+    <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#00000055" strokeWidth="3"/>
+    <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#00000055" strokeWidth="3"/>
+    <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#00000055" strokeWidth="3"/>
+    <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#00000055" strokeWidth="3"/>
   </svg>;
 }
 
@@ -1133,7 +1146,7 @@ function TeamSelector({available,onSelect}){
         <div style={{display:'flex',justifyContent:'center',marginBottom:28,animation:'heroReveal 0.8s ease-out both'}}>
           <div style={{display:'flex',alignItems:'center',gap:12}}>
             <div style={{width:40,height:1,background:'linear-gradient(90deg,transparent,#ff2d5e)',animation:'glowLine 3s ease-in-out infinite'}}/>
-            <Ball size={48}/>
+            <Ball size={64} glow={true}/>
             <div style={{width:40,height:1,background:'linear-gradient(90deg,#ff2d5e,transparent)',animation:'glowLine 3s ease-in-out 1.5s infinite'}}/>
           </div>
         </div>
