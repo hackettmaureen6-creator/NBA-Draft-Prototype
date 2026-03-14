@@ -1142,12 +1142,77 @@ function TeamSelector({available,onSelect}){
 
       {/* ── Main content ── */}
       <div style={{position:'relative',zIndex:2,maxWidth:800,margin:'0 auto'}}>
-        {/* Top accent line */}
-        <div style={{display:'flex',justifyContent:'center',marginBottom:28,animation:'heroReveal 0.8s ease-out both'}}>
-          <div style={{display:'flex',alignItems:'center',gap:12}}>
-            <div style={{width:40,height:1,background:'linear-gradient(90deg,transparent,#ff2d5e)',animation:'glowLine 3s ease-in-out infinite'}}/>
-            <Ball size={64} glow={true}/>
-            <div style={{width:40,height:1,background:'linear-gradient(90deg,#ff2d5e,transparent)',animation:'glowLine 3s ease-in-out 1.5s infinite'}}/>
+        {/* Hero emblem — large, sharp, cinematic */}
+        <div style={{display:'flex',justifyContent:'center',marginBottom:40,animation:'heroReveal 0.8s ease-out both'}}>
+          <div style={{position:'relative',display:'inline-flex',alignItems:'center',justifyContent:'center',width:'clamp(160px,22vw,220px)',height:'clamp(160px,22vw,220px)'}}>
+            {/* Pulsing outer ring */}
+            <div style={{
+              position:'absolute',inset:-20,borderRadius:'50%',
+              background:'radial-gradient(circle,rgba(255,45,94,0.12) 0%,transparent 65%)',
+              animation:'heroPulse 4s ease-in-out infinite',
+            }}/>
+            {/* Rotating accent ring */}
+            <svg style={{position:'absolute',inset:-8,width:'calc(100% + 16px)',height:'calc(100% + 16px)',animation:'spin 30s linear infinite',opacity:0.2}} viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="95" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="8 12"/>
+              <defs><linearGradient id="ringGrad"><stop offset="0%" stopColor="#ff2d5e"/><stop offset="50%" stopColor="#cc66ff"/><stop offset="100%" stopColor="#60b0ff"/></linearGradient></defs>
+            </svg>
+            {/* Main shield */}
+            <svg width="100%" height="100%" viewBox="0 0 200 200" style={{
+              filter:'drop-shadow(0 0 30px rgba(255,45,94,0.5)) drop-shadow(0 0 60px rgba(255,45,94,0.2)) drop-shadow(0 4px 8px rgba(0,0,0,0.6))',
+              position:'relative',zIndex:1,
+            }}>
+              <defs>
+                <linearGradient id="heroShieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ff6b8a"/>
+                  <stop offset="40%" stopColor="#ff2d5e"/>
+                  <stop offset="100%" stopColor="#99102e"/>
+                </linearGradient>
+                <linearGradient id="heroShieldFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#140820"/>
+                  <stop offset="50%" stopColor="#0d0518"/>
+                  <stop offset="100%" stopColor="#08020e"/>
+                </linearGradient>
+                <radialGradient id="heroShieldShine" cx="35%" cy="25%" r="60%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.06)"/>
+                  <stop offset="100%" stopColor="transparent"/>
+                </radialGradient>
+                <linearGradient id="heroBallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ff6b8a"/>
+                  <stop offset="50%" stopColor="#ff2d5e"/>
+                  <stop offset="100%" stopColor="#cc1844"/>
+                </linearGradient>
+              </defs>
+              {/* Shield body */}
+              <path d="M100 12 L176 38 L176 100 Q176 156 100 190 Q24 156 24 100 L24 38 Z"
+                fill="url(#heroShieldFill)" stroke="url(#heroShieldStroke)" strokeWidth="3"/>
+              <path d="M100 12 L176 38 L176 100 Q176 156 100 190 Q24 156 24 100 L24 38 Z"
+                fill="url(#heroShieldShine)"/>
+              {/* Inner border */}
+              <path d="M100 24 L166 46 L166 100 Q166 148 100 178 Q34 148 34 100 L34 46 Z"
+                fill="none" stroke="#ff2d5e" strokeWidth="0.8" opacity="0.25"/>
+              {/* Basketball — crisp, geometric */}
+              <circle cx="100" cy="92" r="42" fill="none" stroke="url(#heroBallGrad)" strokeWidth="2.8"/>
+              {/* Vertical seams */}
+              <path d="M100 50 Q120 70 120 92 Q120 114 100 134" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
+              <path d="M100 50 Q80 70 80 92 Q80 114 100 134" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
+              {/* Horizontal seams */}
+              <path d="M58 92 Q80 72 100 72 Q120 72 142 92" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
+              <path d="M58 92 Q80 112 100 112 Q120 112 142 92" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
+              {/* Center dot */}
+              <circle cx="100" cy="92" r="3" fill="#ff2d5e" opacity="0.6"/>
+              {/* Stars across top */}
+              <polygon points="80,28 81.5,32 86,32 82.5,34.5 83.5,38.5 80,36 76.5,38.5 77.5,34.5 74,32 78.5,32" fill="#ff2d5e" opacity="0.8"/>
+              <polygon points="100,22 102,27 107,27 103,30 104.5,35 100,32 95.5,35 97,30 93,27 98,27" fill="#ff2d5e"/>
+              <polygon points="120,28 121.5,32 126,32 122.5,34.5 123.5,38.5 120,36 116.5,38.5 117.5,34.5 114,32 118.5,32" fill="#ff2d5e" opacity="0.8"/>
+              {/* DRAFT text at bottom */}
+              <text x="100" y="162" textAnchor="middle" fill="#ff2d5e" fontSize="16"
+                fontWeight="900" letterSpacing="6" fontFamily="Helvetica Neue,Arial,sans-serif">
+                DRAFT
+              </text>
+              {/* Decorative lines flanking text */}
+              <line x1="48" y1="158" x2="72" y2="158" stroke="#ff2d5e" strokeWidth="1" opacity="0.4"/>
+              <line x1="128" y1="158" x2="152" y2="158" stroke="#ff2d5e" strokeWidth="1" opacity="0.4"/>
+            </svg>
           </div>
         </div>
 
