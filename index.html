@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NBA Draft Capital Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js" crossorigin></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:#07070f;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;min-height:100%;overflow:auto}
+body{background:#07070f;color:#fff;font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;min-height:100%;overflow:auto}
 #root{min-height:100vh;display:flex;flex-direction:column}
 .team-screen{height:100vh;overflow:hidden;display:flex;flex-direction:column}
 .team-card-sel{transition:all 0.14s ease;cursor:pointer}
@@ -1087,7 +1088,7 @@ function TeamSelector({available,onSelect}){
       <h1 style={{
         fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
         letterSpacing:'0.06em',lineHeight:1.05,margin:'0 0 14px',
-        background:'linear-gradient(135deg,#ffffff 0%,#e0e0ff 35%,#ff8da6 100%)',
+        background:'linear-gradient(135deg,#00d4ff 0%,#ffffff 40%,#ff9a3e 100%)',
         WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',
       }}>
         NBA DRAFT CAPITAL EXPLORER
@@ -1152,8 +1153,12 @@ function TeamSelector({available,onSelect}){
               {/* Description + CTA */}
               <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}28`,marginTop:4,paddingTop:10}}>
                 <div style={{fontSize:11,color:'#a0a0b8',lineHeight:1.6,marginBottom:8,fontWeight:500}}>{bp.desc}</div>
-                <div style={{fontSize:10,fontWeight:800,color:'#c8c8e0',letterSpacing:.8,
-                  textShadow:'0 0 4px rgba(255,255,255,0.3)',opacity:isH?1:0.6,transition:'opacity 0.18s'}}>
+                <div style={{fontSize:10,fontWeight:800,color:'#ffffff',letterSpacing:.8,
+                  background:'linear-gradient(135deg,#c85a20,#e8943a,#c85a20)',
+                  padding:'4px 12px',borderRadius:20,display:'inline-block',
+                  boxShadow:isH?'0 0 12px rgba(255,255,255,0.5),0 0 4px rgba(0,212,255,0.4)':'0 0 6px rgba(255,255,255,0.25)',
+                  textShadow:'0 0 6px rgba(255,255,255,0.6)',
+                  opacity:isH?1:0.75,transition:'all 0.18s'}}>
                   SELECT A TEAM →
                 </div>
               </div>
