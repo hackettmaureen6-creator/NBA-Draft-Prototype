@@ -1168,6 +1168,7 @@ function TeamSelector({available,onSelect}){
         {blueprints.map(function(bp){
           return <button key={bp.label}
             className="bball-btn"
+            data-target={bp.view}
             tabIndex={0}
             onClick={function(e){
               var btn=e.currentTarget;
@@ -1176,10 +1177,14 @@ function TeamSelector({available,onSelect}){
                 btn.classList.remove('shooting');
                 btn.removeEventListener('animationend',handler);
               });
-              setPendingView(bp.view);
-              setTimeout(function(){
-                gridRef.current&&gridRef.current.scrollIntoView({behavior:'smooth',block:'start'});
-              },450);
+              var targetEl=document.querySelector('[data-panel="'+bp.view+'"]');
+              if(targetEl){targetEl.click();}
+              else{
+                setPendingView(bp.view);
+                setTimeout(function(){
+                  gridRef.current&&gridRef.current.scrollIntoView({behavior:'smooth',block:'start'});
+                },450);
+              }
             }}>
             <span className="bball-btn-label">{bp.label}</span>
           </button>;
@@ -1206,6 +1211,8 @@ function TeamSelector({available,onSelect}){
           {blueprints.map(bp=>{
             const isH=hovered===bp.label;
             return <div key={bp.label}
+              id={'panel-'+bp.view}
+              data-panel={bp.view}
               onClick={()=>{setPendingView(bp.view);gridRef.current?.scrollIntoView({behavior:'smooth',block:'start'});}}
               onMouseEnter={()=>setHovered(bp.label)}
               onMouseLeave={()=>setHovered(null)}
