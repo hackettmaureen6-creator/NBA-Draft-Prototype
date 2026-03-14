@@ -1142,76 +1142,82 @@ function TeamSelector({available,onSelect}){
 
       {/* ── Main content ── */}
       <div style={{position:'relative',zIndex:2,maxWidth:800,margin:'0 auto'}}>
-        {/* Hero emblem — large, sharp, cinematic */}
-        <div style={{display:'flex',justifyContent:'center',marginBottom:40,animation:'heroReveal 0.8s ease-out both'}}>
-          <div style={{position:'relative',display:'inline-flex',alignItems:'center',justifyContent:'center',width:'clamp(160px,22vw,220px)',height:'clamp(160px,22vw,220px)'}}>
-            {/* Pulsing outer ring */}
+        {/* Hero basketball — premium 3D-lit, modern */}
+        <div style={{display:'flex',justifyContent:'center',marginBottom:36,animation:'heroReveal 0.8s ease-out both'}}>
+          <div style={{position:'relative',display:'inline-flex',alignItems:'center',justifyContent:'center'}}>
+            {/* Ambient glow behind ball */}
             <div style={{
-              position:'absolute',inset:-20,borderRadius:'50%',
-              background:'radial-gradient(circle,rgba(255,45,94,0.12) 0%,transparent 65%)',
-              animation:'heroPulse 4s ease-in-out infinite',
+              position:'absolute',width:140,height:140,borderRadius:'50%',
+              background:'radial-gradient(circle,rgba(232,98,26,0.2) 0%,rgba(255,45,94,0.08) 40%,transparent 70%)',
+              animation:'heroPulse 4s ease-in-out infinite',filter:'blur(8px)',
             }}/>
-            {/* Rotating accent ring */}
-            <svg style={{position:'absolute',inset:-8,width:'calc(100% + 16px)',height:'calc(100% + 16px)',animation:'spin 30s linear infinite',opacity:0.2}} viewBox="0 0 200 200">
-              <circle cx="100" cy="100" r="95" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="8 12"/>
-              <defs><linearGradient id="ringGrad"><stop offset="0%" stopColor="#ff2d5e"/><stop offset="50%" stopColor="#cc66ff"/><stop offset="100%" stopColor="#60b0ff"/></linearGradient></defs>
-            </svg>
-            {/* Main shield */}
-            <svg width="100%" height="100%" viewBox="0 0 200 200" style={{
-              filter:'drop-shadow(0 0 30px rgba(255,45,94,0.5)) drop-shadow(0 0 60px rgba(255,45,94,0.2)) drop-shadow(0 4px 8px rgba(0,0,0,0.6))',
+            {/* The basketball */}
+            <svg width="110" height="110" viewBox="0 0 200 200" style={{
               position:'relative',zIndex:1,
+              filter:'drop-shadow(0 4px 12px rgba(0,0,0,0.5)) drop-shadow(0 0 30px rgba(232,98,26,0.35)) drop-shadow(0 0 60px rgba(255,45,94,0.12))',
             }}>
               <defs>
-                <linearGradient id="heroShieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff6b8a"/>
-                  <stop offset="40%" stopColor="#ff2d5e"/>
-                  <stop offset="100%" stopColor="#99102e"/>
-                </linearGradient>
-                <linearGradient id="heroShieldFill" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#140820"/>
-                  <stop offset="50%" stopColor="#0d0518"/>
-                  <stop offset="100%" stopColor="#08020e"/>
-                </linearGradient>
-                <radialGradient id="heroShieldShine" cx="35%" cy="25%" r="60%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.06)"/>
+                {/* 3D sphere gradient — top-left light source */}
+                <radialGradient id="heroSphere" cx="38%" cy="32%" r="65%" fx="35%" fy="30%">
+                  <stop offset="0%" stopColor="#ff9a4a"/>
+                  <stop offset="20%" stopColor="#f07818"/>
+                  <stop offset="50%" stopColor="#E8621A"/>
+                  <stop offset="75%" stopColor="#c04a0e"/>
+                  <stop offset="100%" stopColor="#7a2d05"/>
+                </radialGradient>
+                {/* Specular highlight */}
+                <radialGradient id="heroSpec" cx="34%" cy="28%" r="30%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.35)"/>
+                  <stop offset="60%" stopColor="rgba(255,255,255,0.08)"/>
                   <stop offset="100%" stopColor="transparent"/>
                 </radialGradient>
-                <linearGradient id="heroBallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff6b8a"/>
-                  <stop offset="50%" stopColor="#ff2d5e"/>
-                  <stop offset="100%" stopColor="#cc1844"/>
+                {/* Rim light — edge glow from behind */}
+                <radialGradient id="heroRim" cx="65%" cy="70%" r="50%">
+                  <stop offset="60%" stopColor="transparent"/>
+                  <stop offset="90%" stopColor="rgba(255,140,60,0.15)"/>
+                  <stop offset="100%" stopColor="rgba(255,180,100,0.08)"/>
+                </radialGradient>
+                {/* Seam gradient */}
+                <linearGradient id="heroSeam" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#1a0800"/>
+                  <stop offset="50%" stopColor="#2a1005"/>
+                  <stop offset="100%" stopColor="#1a0800"/>
                 </linearGradient>
+                {/* Texture noise (subtle) */}
+                <filter id="heroTex">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/>
+                  <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+                  <feBlend in="SourceGraphic" in2="mono" mode="multiply" result="textured"/>
+                  <feComponentTransfer in="textured">
+                    <feFuncA type="linear" slope="0.06"/>
+                  </feComponentTransfer>
+                  <feComposite in2="SourceGraphic" operator="in"/>
+                </filter>
               </defs>
-              {/* Shield body */}
-              <path d="M100 12 L176 38 L176 100 Q176 156 100 190 Q24 156 24 100 L24 38 Z"
-                fill="url(#heroShieldFill)" stroke="url(#heroShieldStroke)" strokeWidth="3"/>
-              <path d="M100 12 L176 38 L176 100 Q176 156 100 190 Q24 156 24 100 L24 38 Z"
-                fill="url(#heroShieldShine)"/>
-              {/* Inner border */}
-              <path d="M100 24 L166 46 L166 100 Q166 148 100 178 Q34 148 34 100 L34 46 Z"
-                fill="none" stroke="#ff2d5e" strokeWidth="0.8" opacity="0.25"/>
-              {/* Basketball — crisp, geometric */}
-              <circle cx="100" cy="92" r="42" fill="none" stroke="url(#heroBallGrad)" strokeWidth="2.8"/>
-              {/* Vertical seams */}
-              <path d="M100 50 Q120 70 120 92 Q120 114 100 134" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
-              <path d="M100 50 Q80 70 80 92 Q80 114 100 134" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
-              {/* Horizontal seams */}
-              <path d="M58 92 Q80 72 100 72 Q120 72 142 92" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
-              <path d="M58 92 Q80 112 100 112 Q120 112 142 92" fill="none" stroke="#ff2d5e" strokeWidth="2" opacity="0.7"/>
-              {/* Center dot */}
-              <circle cx="100" cy="92" r="3" fill="#ff2d5e" opacity="0.6"/>
-              {/* Stars across top */}
-              <polygon points="80,28 81.5,32 86,32 82.5,34.5 83.5,38.5 80,36 76.5,38.5 77.5,34.5 74,32 78.5,32" fill="#ff2d5e" opacity="0.8"/>
-              <polygon points="100,22 102,27 107,27 103,30 104.5,35 100,32 95.5,35 97,30 93,27 98,27" fill="#ff2d5e"/>
-              <polygon points="120,28 121.5,32 126,32 122.5,34.5 123.5,38.5 120,36 116.5,38.5 117.5,34.5 114,32 118.5,32" fill="#ff2d5e" opacity="0.8"/>
-              {/* DRAFT text at bottom */}
-              <text x="100" y="162" textAnchor="middle" fill="#ff2d5e" fontSize="16"
-                fontWeight="900" letterSpacing="6" fontFamily="Helvetica Neue,Arial,sans-serif">
-                DRAFT
-              </text>
-              {/* Decorative lines flanking text */}
-              <line x1="48" y1="158" x2="72" y2="158" stroke="#ff2d5e" strokeWidth="1" opacity="0.4"/>
-              <line x1="128" y1="158" x2="152" y2="158" stroke="#ff2d5e" strokeWidth="1" opacity="0.4"/>
+              {/* Base sphere */}
+              <circle cx="100" cy="100" r="88" fill="url(#heroSphere)"/>
+              {/* Leather texture overlay */}
+              <circle cx="100" cy="100" r="88" fill="url(#heroSphere)" filter="url(#heroTex)" opacity="0.5"/>
+              {/* Seams — thicker, with shadow for depth */}
+              {/* Vertical right seam */}
+              <path d="M100 12 Q132 40 132 100 Q132 160 100 188" fill="none" stroke="#1a0800" strokeWidth="4" opacity="0.6"/>
+              <path d="M100 12 Q132 40 132 100 Q132 160 100 188" fill="none" stroke="#3d1a06" strokeWidth="2" opacity="0.4"/>
+              {/* Vertical left seam */}
+              <path d="M100 12 Q68 40 68 100 Q68 160 100 188" fill="none" stroke="#1a0800" strokeWidth="4" opacity="0.6"/>
+              <path d="M100 12 Q68 40 68 100 Q68 160 100 188" fill="none" stroke="#3d1a06" strokeWidth="2" opacity="0.4"/>
+              {/* Horizontal top seam */}
+              <path d="M12 100 Q40 68 100 68 Q160 68 188 100" fill="none" stroke="#1a0800" strokeWidth="4" opacity="0.6"/>
+              <path d="M12 100 Q40 68 100 68 Q160 68 188 100" fill="none" stroke="#3d1a06" strokeWidth="2" opacity="0.4"/>
+              {/* Horizontal bottom seam */}
+              <path d="M12 100 Q40 132 100 132 Q160 132 188 100" fill="none" stroke="#1a0800" strokeWidth="4" opacity="0.6"/>
+              <path d="M12 100 Q40 132 100 132 Q160 132 188 100" fill="none" stroke="#3d1a06" strokeWidth="2" opacity="0.4"/>
+              {/* Specular highlight */}
+              <circle cx="100" cy="100" r="88" fill="url(#heroSpec)"/>
+              {/* Rim light */}
+              <circle cx="100" cy="100" r="88" fill="url(#heroRim)"/>
+              {/* Subtle edge definition */}
+              <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(0,0,0,0.3)" strokeWidth="1.5"/>
+              <circle cx="100" cy="100" r="87" fill="none" stroke="rgba(255,160,80,0.08)" strokeWidth="0.5"/>
             </svg>
           </div>
         </div>
