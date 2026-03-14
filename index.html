@@ -80,81 +80,18 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 .view-tab:hover{background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7))!important;}
 .linked-note{color:#ffffff!important;font-weight:700!important;font-size:1.1em;text-shadow:0 0 6px rgba(147,0,217,0.6),1px 1px 2px #000!important;background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(20,0,40,0.7));padding:4px 8px;border-radius:4px;}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
+.team-marquee-wrap{overflow:hidden;background:linear-gradient(to right,#050509,#101020);border-bottom:1px solid #1a1a2e;padding:8px 0;flex-shrink:0;height:44px;display:flex;align-items:center}
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
 
-/* ── HERO COURT ── */
-#hero-court{
-  position:relative;width:100%;
-  height:520px;
-  background-image:url("court-hero.jpeg");
-  background-size:cover;background-position:center 30%;background-repeat:no-repeat;
-  display:flex;align-items:flex-end;justify-content:center;
-  overflow:hidden;flex-shrink:0;
-}
-#hero-court::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(7,7,15,0.35) 0%,rgba(7,7,15,0.55) 50%,rgba(7,7,15,0.92) 100%);
-  pointer-events:none;z-index:1;
-}
-.hero-actions{
-  position:relative;z-index:2;
-  display:flex;gap:28px;justify-content:center;align-items:center;
-  padding-bottom:48px;flex-wrap:wrap;
-}
-.bball-btn{
-  width:96px;height:96px;border-radius:50%;
-  background:radial-gradient(ellipse at 35% 30%,#f59542 0%,#e87a1e 40%,#c45e10 80%,#8b3a00 100%);
-  border:2.5px solid #7a3500;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;position:relative;
-  box-shadow:0 0 16px rgba(245,149,66,0.35),0 4px 20px rgba(0,0,0,0.5),inset 0 -4px 12px rgba(0,0,0,0.3);
-  transition:transform 0.18s ease,box-shadow 0.18s ease;
-  outline:none;
-}
-.bball-btn::before{
-  content:'';position:absolute;inset:4px;border-radius:50%;
-  border:1.5px solid rgba(139,58,0,0.5);
-  pointer-events:none;
-}
-.bball-btn::after{
-  content:'';position:absolute;
-  width:1.5px;height:calc(100% - 8px);top:4px;left:50%;
-  transform:translateX(-50%);
-  background:rgba(139,58,0,0.45);
-  pointer-events:none;
-}
-.bball-btn:hover,.bball-btn:focus-visible{
-  transform:scale(1.1);
-  box-shadow:0 0 24px rgba(245,149,66,0.55),0 0 40px rgba(255,255,255,0.15),0 6px 28px rgba(0,0,0,0.5),inset 0 -4px 12px rgba(0,0,0,0.3);
-}
-.bball-btn-label{
-  position:relative;z-index:1;
-  font-size:10px;font-weight:800;color:#fff;
-  letter-spacing:0.8px;text-align:center;line-height:1.25;
-  text-shadow:0 0 8px rgba(255,255,255,0.7),0 1px 3px rgba(0,0,0,0.9);
-  pointer-events:none;padding:0 6px;
-}
-@keyframes shootIntoRim{
-  0%{transform:translateY(0) scale(1);opacity:1}
-  50%{transform:translateY(-80px) scale(1.15);opacity:0.8}
-  100%{transform:translateY(-120px) scale(0.6);opacity:0}
-}
-.bball-btn.shooting{
-  animation:shootIntoRim 500ms ease-in forwards;
-  pointer-events:none;
-}
-@media(max-width:768px){
-  #hero-court{height:380px;background-position:center 25%}
-  .hero-actions{gap:16px;padding-bottom:32px}
-  .bball-btn{width:76px;height:76px}
-  .bball-btn-label{font-size:8.5px}
-}
-@media(max-width:480px){
-  #hero-court{height:340px}
-  .hero-actions{gap:12px;padding:0 16px 28px}
-  .bball-btn{width:68px;height:68px}
-}
+/* ── HERO LOGO ── */
+.hero-logo{display:flex;justify-content:center;margin-bottom:18px}
+.hero-logo img{height:88px;width:auto;object-fit:contain;border-radius:12px;box-shadow:0 0 10px rgba(255,255,255,0.25)}
+@media(max-width:768px){.hero-logo img{height:72px}}
+@media(max-width:480px){.hero-logo img{height:60px}}
+
+/* ── COURT LAYOUT BACKGROUND ── */
+#court-layout{position:relative;background-image:url("court-hero.jpeg");background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
+#court-layout::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,7,15,0.75) 0%,rgba(7,7,15,0.85) 40%,rgba(7,7,15,0.95) 100%);pointer-events:none;z-index:0}
 </style>
 </head>
 <body>
@@ -1128,14 +1065,15 @@ function TeamSelector({available,onSelect}){
           const isAvail=availSet.has(abbr);
           return <div key={i}
             onClick={isAvail?()=>onSelect(abbr,pendingView||'cards'):undefined}
-            style={{display:'flex',alignItems:'center',gap:6,padding:'0 18px',
+            style={{display:'flex',alignItems:'center',gap:10,padding:'0 22px',
               cursor:isAvail?'pointer':'default',opacity:isAvail?1:0.3,
               borderRight:'1px solid #1a1a2e'}}>
-            <img src={logoUrl(abbr)} alt={abbr} width={24} height={24}
+            <img src={logoUrl(abbr)} alt={abbr} width={28} height={28}
               style={{objectFit:'contain',filter:isAvail?`drop-shadow(0 0 4px ${cfg.primary}88)`:'grayscale(1)'}}
               onError={e=>{e.currentTarget.style.display='none';}}/>
-            <span style={{fontSize:11,fontWeight:700,color:isAvail?'#e0e0f0':'#333',
-              letterSpacing:.8,whiteSpace:'nowrap'}}>{abbr}</span>
+            <span style={{fontSize:14,fontWeight:600,color:isAvail?'#ffffff':'#444',
+              letterSpacing:1,whiteSpace:'nowrap',
+              textShadow:'0 0 4px rgba(0,0,0,0.7)'}}>{abbr}</span>
           </div>;
         })}
       </div>
@@ -1146,8 +1084,8 @@ function TeamSelector({available,onSelect}){
       padding:'52px 24px 24px',textAlign:'center',flexShrink:0,position:'relative',
       background:'radial-gradient(ellipse 80% 50% at 50% 0%,#1a0a2e 0%,#07070f 70%)',
     }}>
-      <div style={{display:'flex',justifyContent:'center',marginBottom:20}}>
-        <Ball size={64}/>
+      <div className="hero-logo">
+        <img src="court-ball.jpeg" alt="Basketball neon logo"/>
       </div>
       <h1 style={{
         fontSize:'clamp(26px,5.5vw,58px)',fontWeight:900,
@@ -1162,42 +1100,13 @@ function TeamSelector({available,onSelect}){
       </p>
     </div>
 
-    {/* ── HERO COURT IMAGE ── */}
-    <section id="hero-court">
-      <div className="hero-actions">
-        {blueprints.map(function(bp){
-          return <button key={bp.label}
-            className="bball-btn"
-            data-target={bp.view}
-            tabIndex={0}
-            onClick={function(e){
-              var btn=e.currentTarget;
-              btn.classList.add('shooting');
-              btn.addEventListener('animationend',function handler(){
-                btn.classList.remove('shooting');
-                btn.removeEventListener('animationend',handler);
-              });
-              var targetEl=document.querySelector('[data-panel="'+bp.view+'"]');
-              if(targetEl){targetEl.click();}
-              else{
-                setPendingView(bp.view);
-                setTimeout(function(){
-                  gridRef.current&&gridRef.current.scrollIntoView({behavior:'smooth',block:'start'});
-                },450);
-              }
-            }}>
-            <span className="bball-btn-label">{bp.label}</span>
-          </button>;
-        })}
-      </div>
-    </section>
+    {/* ── COURT LAYOUT: tools + team grid on arena floor ── */}
+    <main id="court-layout">
 
     {/* ── BLUEPRINT SECTION ── */}
     <div style={{
       padding:'0 24px 32px',flexShrink:0,
-      background:'radial-gradient(ellipse 100% 100% at 50% 0%,#080816 0%,#07070f 100%)',
-      backgroundImage:'radial-gradient(#ffffff06 1px,transparent 1px)',
-      backgroundSize:'18px 18px',
+      position:'relative',zIndex:1,
     }}>
       <div style={{maxWidth:900,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20,paddingTop:8}}>
@@ -1258,7 +1167,7 @@ function TeamSelector({available,onSelect}){
     </div>
 
     {/* Divider + pending view banner */}
-    <div ref={gridRef} style={{maxWidth:900,margin:'0 auto',width:'100%',padding:'0 24px 16px',flexShrink:0}}>
+    <div ref={gridRef} style={{maxWidth:900,margin:'0 auto',width:'100%',padding:'0 24px 16px',flexShrink:0,position:'relative',zIndex:1}}>
       <div style={{height:1,background:'linear-gradient(90deg,transparent,#2a2a40,transparent)'}}/>
       {pendingView
         ?<div style={{marginTop:14,marginBottom:4,display:'flex',alignItems:'center',justifyContent:'center',gap:10,flexWrap:'wrap'}}>
@@ -1279,7 +1188,7 @@ function TeamSelector({available,onSelect}){
     {/* Team grid */}
     <div className="team-grid" style={{padding:'0 24px 40px',display:'grid',
       gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:12,maxWidth:900,
-      margin:'0 auto',width:'100%'}}>
+      margin:'0 auto',width:'100%',position:'relative',zIndex:1}}>
       {ALL_TEAMS.map(abbr=>{
         const cfg=TEAM_CFG[abbr]||{primary:'#888',secondary:'#444',name:abbr,short:abbr};
         const isAvail=availSet.has(abbr);
@@ -1326,6 +1235,8 @@ function TeamSelector({available,onSelect}){
         </div>;
       })}
     </div>
+
+    </main>{/* end #court-layout */}
 
     {/* Footer note */}
     <div style={{textAlign:'center',padding:'0 20px 28px',fontSize:11,color:'#555',flexShrink:0}}>
