@@ -119,7 +119,7 @@ const TEAM_CFG={
   SAC:{name:"Sacramento Kings",     short:"Kings",       primary:"#582C83",secondary:"#707372"},
   SAS:{name:"San Antonio Spurs",    short:"Spurs",       primary:"#9EA2A2",secondary:"#010101"},
   TOR:{name:"Toronto Raptors",      short:"Raptors",     primary:"#BA0C2F",secondary:"#010101",bg:"#CE1141"},
-  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#7BA4DB",secondary:"#330072"},
+  UTA:{name:"Utah Jazz",            short:"Jazz",        primary:"#7BA4DB",secondary:"#330072",bg:"#0d1e35"},
   WAS:{name:"Washington Wizards",   short:"Wizards",     primary:"#C8102E",secondary:"#0C2340",bg:"#002B5C"},
 };
 
@@ -1207,7 +1207,7 @@ function TeamSelector({available,onSelect}){
             <img src={logoUrl(abbr)} alt={abbr} width={52} height={52} className="team-logo-img"
               style={{objectFit:'contain',
                 transform:'scale(1.2)',
-                filter:isAvail?(abbr==='TOR'?'brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.8))':'drop-shadow(0 0 10px '+cfg.primary+'aa)'):'grayscale(1) opacity(0.15)',
+                filter:isAvail?(abbr==='TOR'?'brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.8))':abbr==='UTA'?'brightness(1.5) contrast(1.1) drop-shadow(0 0 12px '+cfg.primary+'cc)':'drop-shadow(0 0 10px '+cfg.primary+'aa)'):'grayscale(1) opacity(0.15)',
                 transition:'filter 0.2s,transform 0.2s'}}
               onError={e=>{e.currentTarget.style.display='none';}}
             />
