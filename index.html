@@ -1133,6 +1133,7 @@ function TeamSelector({available,onSelect}){
                   ?'0 0 12px rgba(255,255,255,0.35),0 0 22px rgba(255,255,255,0.18)'
                   :'0 0 10px rgba(255,255,255,0.25),0 0 18px rgba(255,255,255,0.10)',
                 position:'relative',
+                display:'flex',flexDirection:'column',
               }}>
               {/* Animated top bar */}
               <div className="gradient-bar" style={{
@@ -1151,7 +1152,7 @@ function TeamSelector({available,onSelect}){
                 <bp.Preview/>
               </div>
               {/* Description + CTA */}
-              <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}28`,marginTop:4,paddingTop:10}}>
+              <div style={{padding:'0 16px 14px',borderTop:`1px solid ${bp.color}28`,marginTop:'auto',paddingTop:10}}>
                 <div style={{fontSize:11,color:'#a0a0b8',lineHeight:1.6,marginBottom:8,fontWeight:500}}>{bp.desc}</div>
                 <div style={{fontSize:10,fontWeight:800,color:'#ffffff',letterSpacing:.8,
                   background:'linear-gradient(135deg,#c85a20,#e8943a,#c85a20)',
