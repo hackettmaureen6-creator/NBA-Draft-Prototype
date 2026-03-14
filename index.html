@@ -309,13 +309,8 @@ function enrichPick(jsonPick){
 
 // ── BASKETBALL SVG ────────────────────────────────────────────────────────────
 function Ball({size=28}){
-  return <svg width={size} height={size} viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="46" fill="#E8621A" stroke="#b84a00" strokeWidth="3"/>
-    <path d="M50 4 Q72 28 72 50 Q72 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M50 4 Q28 28 28 50 Q28 72 50 96" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 28 50 28 Q72 28 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-    <path d="M4 50 Q28 72 50 72 Q72 72 96 50" fill="none" stroke="#00000066" strokeWidth="3.5"/>
-  </svg>;
+  return <img src="assets/court-ball-logo.png?v=2" alt="" width={size} height={size}
+    style={{objectFit:'contain',mixBlendMode:'lighten',display:'block'}}/>;
 }
 
 // ── STEPIEN CALLOUT ───────────────────────────────────────────────────────────
