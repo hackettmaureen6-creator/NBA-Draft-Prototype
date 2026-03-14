@@ -82,6 +82,79 @@ button,.team-btn,.year-pill{color:#ffffff!important;font-weight:700!important;te
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .team-marquee-wrap{overflow:hidden;background:#08081a;border-bottom:1px solid #151528;padding:10px 0;flex-shrink:0}
 .team-marquee-track{display:flex;animation:marquee 50s linear infinite;width:max-content}
+
+/* ── HERO COURT ── */
+#hero-court{
+  position:relative;width:100%;
+  height:520px;
+  background-image:url("court-hero.jpeg");
+  background-size:cover;background-position:center 30%;background-repeat:no-repeat;
+  display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+}
+#hero-court::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(7,7,15,0.35) 0%,rgba(7,7,15,0.55) 50%,rgba(7,7,15,0.92) 100%);
+  pointer-events:none;z-index:1;
+}
+.hero-actions{
+  position:relative;z-index:2;
+  display:flex;gap:28px;justify-content:center;align-items:center;
+  padding-bottom:48px;flex-wrap:wrap;
+}
+.bball-btn{
+  width:96px;height:96px;border-radius:50%;
+  background:radial-gradient(ellipse at 35% 30%,#f59542 0%,#e87a1e 40%,#c45e10 80%,#8b3a00 100%);
+  border:2.5px solid #7a3500;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;
+  box-shadow:0 0 16px rgba(245,149,66,0.35),0 4px 20px rgba(0,0,0,0.5),inset 0 -4px 12px rgba(0,0,0,0.3);
+  transition:transform 0.18s ease,box-shadow 0.18s ease;
+  outline:none;
+}
+.bball-btn::before{
+  content:'';position:absolute;inset:4px;border-radius:50%;
+  border:1.5px solid rgba(139,58,0,0.5);
+  pointer-events:none;
+}
+.bball-btn::after{
+  content:'';position:absolute;
+  width:1.5px;height:calc(100% - 8px);top:4px;left:50%;
+  transform:translateX(-50%);
+  background:rgba(139,58,0,0.45);
+  pointer-events:none;
+}
+.bball-btn:hover,.bball-btn:focus-visible{
+  transform:scale(1.1);
+  box-shadow:0 0 24px rgba(245,149,66,0.55),0 0 40px rgba(255,255,255,0.15),0 6px 28px rgba(0,0,0,0.5),inset 0 -4px 12px rgba(0,0,0,0.3);
+}
+.bball-btn-label{
+  position:relative;z-index:1;
+  font-size:10px;font-weight:800;color:#fff;
+  letter-spacing:0.8px;text-align:center;line-height:1.25;
+  text-shadow:0 0 8px rgba(255,255,255,0.7),0 1px 3px rgba(0,0,0,0.9);
+  pointer-events:none;padding:0 6px;
+}
+@keyframes shootIntoRim{
+  0%{transform:translateY(0) scale(1);opacity:1}
+  50%{transform:translateY(-80px) scale(1.15);opacity:0.8}
+  100%{transform:translateY(-120px) scale(0.6);opacity:0}
+}
+.bball-btn.shooting{
+  animation:shootIntoRim 500ms ease-in forwards;
+  pointer-events:none;
+}
+@media(max-width:768px){
+  #hero-court{height:380px;background-position:center 25%}
+  .hero-actions{gap:16px;padding-bottom:32px}
+  .bball-btn{width:76px;height:76px}
+  .bball-btn-label{font-size:8.5px}
+}
+@media(max-width:480px){
+  #hero-court{height:340px}
+  .hero-actions{gap:12px;padding:0 16px 28px}
+  .bball-btn{width:68px;height:68px}
+}
 </style>
 </head>
 <body>
@@ -1068,9 +1141,9 @@ function TeamSelector({available,onSelect}){
       </div>
     </div>
 
-    {/* ── HERO ── */}
+    {/* ── TITLE HEADER ── */}
     <div style={{
-      padding:'52px 24px 48px',textAlign:'center',flexShrink:0,position:'relative',
+      padding:'52px 24px 24px',textAlign:'center',flexShrink:0,position:'relative',
       background:'radial-gradient(ellipse 80% 50% at 50% 0%,#1a0a2e 0%,#07070f 70%)',
     }}>
       <div style={{display:'flex',justifyContent:'center',marginBottom:20}}>
@@ -1088,6 +1161,31 @@ function TeamSelector({available,onSelect}){
         ALL 30 TEAMS · 2026–2032 · PICKS · SWAPS · POOLS
       </p>
     </div>
+
+    {/* ── HERO COURT IMAGE ── */}
+    <section id="hero-court">
+      <div className="hero-actions">
+        {blueprints.map(function(bp){
+          return <button key={bp.label}
+            className="bball-btn"
+            tabIndex={0}
+            onClick={function(e){
+              var btn=e.currentTarget;
+              btn.classList.add('shooting');
+              btn.addEventListener('animationend',function handler(){
+                btn.classList.remove('shooting');
+                btn.removeEventListener('animationend',handler);
+              });
+              setPendingView(bp.view);
+              setTimeout(function(){
+                gridRef.current&&gridRef.current.scrollIntoView({behavior:'smooth',block:'start'});
+              },450);
+            }}>
+            <span className="bball-btn-label">{bp.label}</span>
+          </button>;
+        })}
+      </div>
+    </section>
 
     {/* ── BLUEPRINT SECTION ── */}
     <div style={{
